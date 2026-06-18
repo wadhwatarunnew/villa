@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { GalleryPageComponent } from './gallery-page/gallery-page.component';\nexport { GalleryPageComponent };","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

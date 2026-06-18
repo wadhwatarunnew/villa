@@ -1,0 +1,6 @@
+@use './styles/variables' as *;
+@use './styles/common' as *;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

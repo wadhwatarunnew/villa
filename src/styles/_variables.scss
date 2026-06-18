@@ -1,0 +1,40 @@
+// Global SCSS variables
+$font-family-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+$font-family-body: 'Inter', system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+$font-family-sans: $font-family-body;
+$color-primary: #007735; // villa green
+$color-primary-dark: #005b28;
+$color-secondary: #63380e; // villa brown
+$color-surface: #ffffff;
+$color-surface-muted: #f2e6c9; // sand
+$color-surface-soft: #f8faf8;
+$color-text: #1f2937;
+$color-text-muted: #6b7280;
+$color-border: #e5e7eb;
+$color-accent: #d9a441; // warm hospitality accent
+$container-max-width: 1200px;
+
+// Font size scale (rem)
+$font-size-xs: 0.75rem;   // 12px
+$font-size-sm: 0.875rem;  // 14px
+$font-size-base: 1rem;    // 16px
+$font-size-lg: 1.125rem;  // 18px
+$font-size-xl: 1.25rem;   // 20px
+$font-size-2xl: 1.5rem;   // 24px
+$font-size-3xl: 1.875rem; // 30px
+$font-size-4xl: 2.25rem;  // 36px
+
+// Heading sizes map
+$heading-sizes: (
+	h1: $font-size-4xl,
+	h2: $font-size-3xl,
+	h3: $font-size-2xl,
+	h4: $font-size-xl,
+	h5: $font-size-lg,
+	h6: $font-size-base
+);
+
+// Line heights
+$line-height-tight: 1.1;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.75;

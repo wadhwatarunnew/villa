@@ -3,6 +3,7 @@
 ## Goal
 Each feature should own its own local structure so the app stays scalable and easy to maintain.
 
+
 ## Recommended structure
 src/villa/features/<feature-name>/
   - components/

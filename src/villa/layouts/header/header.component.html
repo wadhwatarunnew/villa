@@ -1,11 +1,90 @@
-<header class="villa-header bg-white shadow-sm">
-  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-    <a class="logo text-xl font-semibold" routerLink="/">Villa</a>
-    <nav class="space-x-4">
-      <a routerLink="/" class="text-sm">Home</a>
-      <a routerLink="/about" class="text-sm">About</a>
-      <a routerLink="/projects" class="text-sm">Projects</a>
-      <a routerLink="/contact" class="text-sm">Contact</a>
-    </nav>
+<header class="villa-header bg-white shadow-md sticky top-0 z-50">
+  <div class="container mx-auto px-6 py-4">
+    <!-- Main Header Content -->
+    <div class="flex items-center justify-between">
+      <!-- Logo and Brand -->
+      <a routerLink="/" class="flex items-center gap-2 flex-shrink-0">
+        <div class="w-12 h-12 rounded-full border-2 border-amber-900 bg-gradient-to-b from-amber-100 to-white flex items-center justify-center shadow-sm">
+          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12h18M3 12l9-9 9 9M3 12l9 9 9-9"></path>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-bold text-amber-900 leading-none">THE VILLA TENT</span>
+          <span class="text-xs text-amber-700 leading-none">LUXURY GLAMPING</span>
+        </div>
+      </a>
+
+      <!-- Navigation Menu - Center -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a routerLink="/" routerLinkActive="active" 
+           [routerLinkActiveOptions]="{exact: true}"
+           class="text-sm font-semibold text-gray-800 hover:text-amber-700 transition-colors duration-200">
+          HOME
+        </a>
+        <a routerLink="/about"
+           class="text-sm font-semibold text-gray-800 hover:text-amber-700 transition-colors duration-200">
+          ABOUT US
+        </a>
+        <div class="relative group">
+          <button class="text-sm font-semibold text-gray-800 hover:text-amber-700 transition-colors duration-200 flex items-center gap-1">
+            TENT COLLECTIONS
+            <svg class="w-4 h-4 group-hover:text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="relative group">
+          <button class="text-sm font-semibold text-gray-800 hover:text-amber-700 transition-colors duration-200 flex items-center gap-1">
+            PROJECTS
+            <svg class="w-4 h-4 group-hover:text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </button>
+        </div>
+        <a routerLink="/gallery"
+           class="text-sm font-semibold text-gray-800 hover:text-amber-700 transition-colors duration-200">
+          GALLERY
+        </a>
+        <a routerLink="/contact"
+           class="text-sm font-semibold text-gray-800 hover:text-amber-700 transition-colors duration-200">
+          VIDEOS
+        </a>
+        <a routerLink="/blogs"
+           class="text-sm font-semibold text-gray-800 hover:text-amber-700 transition-colors duration-200">
+          BLOGS
+        </a>
+        <a routerLink="/contact"
+           class="text-sm font-semibold text-gray-800 hover:text-amber-700 transition-colors duration-200">
+          CONTACT US
+        </a>
+      </nav>
+
+      <!-- Action Buttons - Right -->
+      <div class="flex items-center gap-4">
+        <!-- Download Brochure Button -->
+        <button class="hidden md:flex items-center gap-2 px-4 py-2 text-sm font-semibold text-gray-800 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+          </svg>
+          DOWNLOAD BROCHURE
+        </button>
+
+        <!-- Get a Quote Button -->
+        <button class="px-6 py-2 text-sm font-bold text-white bg-gradient-to-r from-amber-600 to-amber-700 rounded-lg hover:from-amber-700 hover:to-amber-800 transition-all duration-200 shadow-lg hover:shadow-xl flex items-center gap-2">
+          GET A QUOTE
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button class="lg:hidden p-2 text-gray-800 hover:bg-gray-100 rounded-lg">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
   </div>
 </header>

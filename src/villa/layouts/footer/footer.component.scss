@@ -1,2 +1,11 @@
-:host{display:block}
-.villa-footer{font-size:0.875rem}
+:host {
+  display: block;
+}
+
+.villa-footer {
+  font-size: 0.875rem;
+
+  a {
+    transition: color 0.2s ease;
+  }
+}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIcon } from '@ng-icons/core';
 import { heroArrowDownTray, heroArrowRight, heroBars3, heroChevronDown } from '@ng-icons/heroicons/outline';
@@ -11,13 +11,16 @@ import { heroEnvelopeSolid, heroGlobeAltSolid, heroPencilSquareSolid, heroPhoneS
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   readonly heroPhoneIcon = heroPhoneSolid;
   readonly heroEnvelopeIcon = heroEnvelopeSolid;
   readonly heroChevronDownIcon = heroChevronDown;
   readonly heroArrowRightIcon = heroArrowRight;
   readonly heroArrowDownTrayIcon = heroArrowDownTray;
   readonly heroBars3Icon = heroBars3;
+
+  isScrolled = false;
+  isMobileMenuOpen = false;
 
   readonly topBarHighlights = [
     { icon: heroTruckSolid, label: 'Worldwide Delivery' },
@@ -34,4 +37,21 @@ export class HeaderComponent {
     { label: 'Blogs', link: '/blogs' },
     { label: 'Contact', link: '/contact' }
   ];
+
+  ngOnInit(): void {
+    this.updateScrollState();
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    this.updateScrollState();
+  }
+
+  private updateScrollState(): void {
+    this.isScrolled = window.scrollY > 10;
+  }
+
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
 }

@@ -8,4 +8,13 @@ import { RouterModule } from '@angular/router';
   imports: [CommonModule, RouterModule],
   templateUrl: './home-page.component.html'
 })
-export class HomePageComponent {}
+export class HomePageComponent {
+  scrollSlider(container: HTMLElement, direction: 'left' | 'right') {
+    const scrollAmount = 300;
+    if (direction === 'left') {
+      container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else {
+      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<section class="mx-auto px-6 lg:px-10 py-12">
+  <div class="bg-white rounded-lg shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)] border border-gray-100 flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-gray-100 p-8">
+    <div *ngFor="let feature of features" class="flex-1 flex items-center gap-5 py-4 md:py-0 px-2 md:px-6">
+      <div class="w-12 h-12 rounded border border-gray-100 flex items-center justify-center text-[#b48a45] shrink-0">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" [attr.d]="feature.iconPath"></path>
+        </svg>
+      </div>
+      <div>
+        <h4 class="font-bold text-[#0e2614] text-[11px] mb-1 leading-tight" [innerHTML]="feature.title"></h4>
+        <p class="text-[10px] text-gray-500 leading-snug">{{ feature.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,11 +1,30 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { HomeHighlightComponent } from '../../components/home-highlight/home-highlight.component';
+import { HomeTentCollectionComponent } from '../../components/home-tent-collection/home-tent-collection.component';
+import { HomeServicesComponent } from '../../components/home-services/home-services.component';
+import { HomeFeaturesBannerComponent } from '../../components/home-features/home-features.component';
+import { HomeFeaturedProjectsComponent } from '../../components/home-featured-projects/home-featured-projects.component';
+import { HomeBlogsComponent } from '../../components/home-blogs/home-blogs.component';
+import { HomeTestimonialsComponent } from '../../components/home-testimonials/home-testimonials.component';
+import { HomeContactComponent } from '../../components/home-contact/home-contact.component';
 
 @Component({
   selector: 'villa-home-page',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    HomeHighlightComponent,
+    HomeTentCollectionComponent,
+    HomeServicesComponent,
+    HomeFeaturesBannerComponent,
+    HomeFeaturedProjectsComponent,
+    HomeBlogsComponent,
+    HomeTestimonialsComponent,
+    HomeContactComponent,
+  ],
   templateUrl: './home-page.component.html'
 })
 export class HomePageComponent {

@@ -5,6 +5,7 @@ import { HomeHighlightComponent } from '../../components/home-highlight/home-hig
 import { HomeAboutComponent } from '../../components/home-about/home-about.component';
 import { HomeTentCollectionComponent } from '../../components/home-tent-collection/home-tent-collection.component';
 import { HomeServicesComponent } from '../../components/home-services/home-services.component';
+import { HomeStatsStripComponent } from '../../components/home-stats-strip/home-stats-strip.component';
 import { HomeFeaturedProjectsComponent } from '../../components/home-featured-projects/home-featured-projects.component';
 import { HomeBlogsComponent } from '../../components/home-blogs/home-blogs.component';
 import { HomeTestimonialsComponent } from '../../components/home-testimonials/home-testimonials.component';
@@ -20,6 +21,7 @@ import { HomeContactComponent } from '../../components/home-contact/home-contact
     HomeAboutComponent,
     HomeTentCollectionComponent,
     HomeServicesComponent,
+    HomeStatsStripComponent,
     HomeFeaturedProjectsComponent,
     HomeBlogsComponent,
     HomeTestimonialsComponent,

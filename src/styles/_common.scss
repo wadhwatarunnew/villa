@@ -2,12 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
-body {
-  margin: 0;
-  background: $color-surface-soft;
-  font-family: $font-family-body;
-  color: $color-text;
-}
 
 h1,
 h2,
@@ -20,4 +14,8 @@ h6 {
 
 villa-root {
   display: block;
+}
+
+.heading{
+	font-family: $font-family-heading;
 }

@@ -1,0 +1,83 @@
+<!-- Contact Form Section -->
+<section class="bg-[#faf9f6] py-16">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+
+      <!-- Left: Image -->
+      <div class="rounded-sm overflow-hidden min-h-[420px]">
+        <img
+          src="https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?auto=format&fit=crop&w=900&q=80"
+          alt="Villa Tent Contact"
+          class="w-full h-full object-cover" />
+      </div>
+
+      <!-- Right: Form -->
+      <div class="bg-white border border-gray-200 rounded-sm p-8 lg:p-10">
+        <h2 class="text-2xl font-serif text-gray-900 mb-6">Send Us a Message</h2>
+
+        <form class="space-y-4">
+          <!-- Row 1: Full Name + Email -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <input type="text" placeholder="Full Name *"
+                class="w-full border border-gray-200 rounded-sm px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#b48a45] transition" />
+            </div>
+            <div>
+              <input type="email" placeholder="Email Address *"
+                class="w-full border border-gray-200 rounded-sm px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#b48a45] transition" />
+            </div>
+          </div>
+
+          <!-- Row 2: Phone + Project Location -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <input type="tel" placeholder="Phone Number *"
+                class="w-full border border-gray-200 rounded-sm px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#b48a45] transition" />
+            </div>
+            <div>
+              <input type="text" placeholder="Project Location"
+                class="w-full border border-gray-200 rounded-sm px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#b48a45] transition" />
+            </div>
+          </div>
+
+          <!-- Row 3: How did you hear -->
+          <div>
+            <select
+              class="w-full border border-gray-200 rounded-sm px-4 py-3 text-sm text-gray-400 focus:outline-none focus:border-[#b48a45] transition appearance-none bg-white">
+              <option value="" disabled selected>How did you hear about us?</option>
+              <option value="google">Google Search</option>
+              <option value="social">Social Media</option>
+              <option value="referral">Referral</option>
+              <option value="exhibition">Exhibition / Trade Show</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <!-- Row 4: Message -->
+          <div>
+            <textarea rows="4" placeholder="Your Message / Requirements *"
+              class="w-full border border-gray-200 rounded-sm px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#b48a45] transition resize-none"></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit"
+            class="w-full bg-[#0e2614] hover:bg-[#1a3d22] text-white py-4 text-[11px] font-bold tracking-widest uppercase transition flex items-center justify-center gap-3 rounded-sm">
+            SEND MESSAGE
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </button>
+
+          <!-- Privacy note -->
+          <p class="text-[11px] text-gray-400 flex items-center gap-2 mt-2">
+            <svg class="w-3.5 h-3.5 text-[#b48a45] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 1l2.39 4.845 5.345.777-3.867 3.77.913 5.318L10 13.347l-4.781 2.363.913-5.318L2.265 6.622l5.345-.777L10 1z" clip-rule="evenodd"></path>
+            </svg>
+            We respect your privacy. Your information is safe with us.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>

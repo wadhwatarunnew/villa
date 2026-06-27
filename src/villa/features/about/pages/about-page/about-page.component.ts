@@ -1,11 +1,28 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AboutHighlightComponent } from '../../components/about-highlight/about-highlight.component';
+import {
+  AboutHeroComponent,
+  AboutIntroComponent,
+  AboutStatsBannerComponent,
+  AboutValuesComponent,
+  AboutMissionVisionComponent,
+  AboutContactComponent,
+  AboutCtaBannerComponent,
+} from '../../components';
 
 @Component({
   selector: 'villa-about-page',
   standalone: true,
-  imports: [CommonModule, AboutHighlightComponent],
+  imports: [
+    CommonModule,
+    AboutHeroComponent,
+    AboutIntroComponent,
+    AboutStatsBannerComponent,
+    AboutValuesComponent,
+    AboutMissionVisionComponent,
+    AboutContactComponent,
+    AboutCtaBannerComponent,
+  ],
   templateUrl: './about-page.component.html',
   styleUrls: ['./about-page.component.scss']
 })

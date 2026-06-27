@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {
   AboutHeroComponent,
   AboutIntroComponent,
-  AboutStatsBannerComponent,
+  AboutStatsBannerComponent,    
   AboutValuesComponent,
   AboutMissionVisionComponent,
   AboutContactComponent,

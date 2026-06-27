@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HomeHighlightComponent } from '../../components/home-highlight/home-highlight.component';
+import { HomeAboutComponent } from '../../components/home-about/home-about.component';
 import { HomeTentCollectionComponent } from '../../components/home-tent-collection/home-tent-collection.component';
 import { HomeServicesComponent } from '../../components/home-services/home-services.component';
 import { HomeFeaturesBannerComponent } from '../../components/home-features/home-features.component';
@@ -17,6 +18,7 @@ import { HomeContactComponent } from '../../components/home-contact/home-contact
     CommonModule,
     RouterModule,
     HomeHighlightComponent,
+    HomeAboutComponent,
     HomeTentCollectionComponent,
     HomeServicesComponent,
     HomeFeaturesBannerComponent,

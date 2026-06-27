@@ -12,7 +12,7 @@ export class HomeTentCollectionComponent {
     {
       index: '01',
       title: 'Safari Tents',
-      image: 'https://images.unsplash.com/photo-1534889552123-289b4f910fc6?q=80&w=600&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=600&auto=format&fit=crop',
       description: 'Timeless designs with<br />ultimate comfort',
     },
     {

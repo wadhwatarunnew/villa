@@ -46,15 +46,5 @@ export class HomeServicesComponent {
       description: 'Durable and weather-resistant tent structures engineered for adventure tourism and outdoor experiences.',
       iconPath: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6',
     },
-    {
-      title: 'Government Projects',
-      description: 'Reliable large-scale tent infrastructure solutions for tourism boards, eco parks, and institutional projects.',
-      iconPath: 'M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z',
-    },
-    {
-      title: 'Let\'s Build Something Extraordinary Together',
-      description: 'From concept to completion, we create experiences that leave a lasting impression.',
-      iconPath: 'M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm14 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z',
-    },
   ];
 }

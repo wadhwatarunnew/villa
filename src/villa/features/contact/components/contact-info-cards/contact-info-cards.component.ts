@@ -12,7 +12,12 @@ export class ContactInfoCardsComponent {
   readonly contactInfoCards = [
     {
       label: 'CALL US',
-      value: '+91 99100 08190',
+      value: '+91 9813627021',
+      href: 'tel:+919813627021',
+      links: [
+        { label: '+91 9813627021', href: 'tel:+919813627021' },
+        { label: '+91 9817707021', href: 'tel:+919817707021' }
+      ],
       details: ['Mon - Sat: 9:30 AM - 6:30 PM'],
       fill: 'none',
       paths: [
@@ -22,6 +27,7 @@ export class ContactInfoCardsComponent {
     {
       label: 'EMAIL US',
       value: 'info@thevillatent.com',
+      href: 'mailto:info@thevillatent.com',
       details: ['We reply within 24 hours'],
       fill: 'none',
       paths: [
@@ -30,7 +36,8 @@ export class ContactInfoCardsComponent {
     },
     {
       label: 'WHATSAPP™',
-      value: '+91 99200 08190',
+      value: '+91 9813627021',
+      href: 'https://wa.me/9813627021',
       details: ['Chat with us on WhatsApp'],
       fill: 'currentColor',
       paths: [
@@ -40,7 +47,8 @@ export class ContactInfoCardsComponent {
     {
       label: 'OUR OFFICE',
       value: 'The Villa Tent',
-      details: ['House No. 168/7, Village - Kanaypur', 'Dehradun, Uttarakhand - 248001, India'],
+      href: 'https://maps.google.com/?q=The+Vedanta+International+Dhulkot+Behind+Kingfisher+Vedanta+Street+Ambala+City+134003+Haryana+India',
+      details: ['The Vedanta International Dhulkot,Behind Kingfisher,Vedanta Street, Ambala City -134003. Haryana, India.'],
       fill: 'none',
       paths: [
         'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z',

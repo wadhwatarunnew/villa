@@ -4,14 +4,17 @@
       <div class="login-logo">THE VILLA TENT</div>
       <div class="login-logo-subtitle">Curated Luxury</div>
     </div>
-    <h2>Welcome Back</h2>
+    <div class="login-header-top">
+      <span class="material-icons login-icon">lock</span>
+      <h2>Welcome Back</h2>
+    </div>
     <p>Sign in to access The Villa Tent Admin Dashboard</p>
 
     <form class="login-form" (submit)="onLoginClick($event)">
       <div class="field-group">
         <label for="email">Email Address</label>
         <div class="field-input">
-          <span class="field-icon">✉</span>
+          <span class="material-icons field-icon">mail</span>
           <input id="email" type="email" placeholder="Enter your email address" />
         </div>
       </div>
@@ -19,7 +22,7 @@
       <div class="field-group">
         <label for="password">Password</label>
         <div class="field-input">
-          <span class="field-icon">🔒</span>
+          <span class="material-icons field-icon">lock</span>
           <input id="password" type="password" placeholder="Enter your password" />
         </div>
       </div>

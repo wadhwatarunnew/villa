@@ -19,6 +19,18 @@
   margin-bottom: 32px;
 }
 
+.login-header-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.login-icon {
+  width: 32px;
+  height: 32px;
+  color: #122211;
+}
+
 .login-logo {
   font-size: 20px;
   font-weight: 700;

@@ -9,6 +9,7 @@ import { RouterModule, Router } from '@angular/router';
   styleUrls: ['./login-right.component.scss']
 })
 export class LoginRightComponent {
+
   constructor(private router: Router) {}
 
   onLoginClick(event: Event): void {

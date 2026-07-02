@@ -9,7 +9,7 @@ import { HomeStatsStripComponent } from '../../components/home-stats-strip/home-
 import { HomeFeaturedProjectsComponent } from '../../components/home-featured-projects/home-featured-projects.component';
 import { HomeTestimonialsComponent } from '../../components/home-testimonials/home-testimonials.component';
 import { HomeContactComponent } from '../../components/home-contact/home-contact.component';
-import { CommonCtaComponent } from '../../../../shared/components';
+import { CommonCtaComponent } from '../../../../shared/components/common-cta/common-cta.component';
 
 
 @Component({

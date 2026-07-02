@@ -8,7 +8,7 @@ import {
   AboutMissionVisionComponent,
   AboutContactComponent,
 } from '../../components';
-import { CommonCtaComponent } from '../../../../shared/components';
+import { CommonCtaComponent } from '../../../../shared/components/common-cta/common-cta.component';
 
 @Component({
   selector: 'villa-about-page',

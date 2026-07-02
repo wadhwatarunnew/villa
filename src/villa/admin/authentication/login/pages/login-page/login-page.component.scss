@@ -1,0 +1,48 @@
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  background-color: #f6f5f1;
+}
+
+.login-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  border-radius: 0;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+villa-login-left {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+villa-login-right {
+  flex: 0 0 460px;
+  max-width: 460px;
+}
+
+@media (max-width: 960px) {
+  .login-container {
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  villa-login-right {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}

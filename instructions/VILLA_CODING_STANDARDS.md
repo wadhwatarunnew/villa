@@ -39,6 +39,9 @@ standalone: true
 
 Avoid NgModules unless absolutely required.
 
+- For page-level and admin auth pages, prefer standalone components with a local folder structure and an `index.ts` barrel export.
+- Example: `src/villa/admin/authentication/login/login-page.component.ts` and `src/villa/admin/authentication/login/index.ts`.
+
 ---
 
 ## Folder Structure

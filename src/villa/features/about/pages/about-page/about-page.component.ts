@@ -7,8 +7,8 @@ import {
   AboutValuesComponent,
   AboutMissionVisionComponent,
   AboutContactComponent,
-  AboutCtaBannerComponent,
 } from '../../components';
+import { CommonCtaComponent } from '../../../../shared/components';
 
 @Component({
   selector: 'villa-about-page',
@@ -21,7 +21,7 @@ import {
     AboutValuesComponent,
     AboutMissionVisionComponent,
     AboutContactComponent,
-    AboutCtaBannerComponent,
+    CommonCtaComponent,
   ],
   templateUrl: './about-page.component.html',
   styleUrls: ['./about-page.component.scss']

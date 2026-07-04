@@ -13,7 +13,21 @@
           </svg>
         </div>
         <p class="mb-1 text-sm font-bold uppercase tracking-wide text-[#005b28]">{{ card.label }}</p>
-        <p class="mb-1 text-sm font-semibold text-gray-950">{{ card.value }}</p>
+        <div *ngIf="card.links; else singleValue" class="mb-1 flex flex-col gap-0.5">
+          <a *ngFor="let link of card.links" [href]="link.href"
+            class="text-sm font-semibold text-gray-950 transition hover:text-[#005b28]">
+            {{ link.label }}
+          </a>
+        </div>
+        <ng-template #singleValue>
+          <a *ngIf="card.href; else plainValue" [href]="card.href" [attr.target]="card.target"
+            class="mb-1 text-sm font-semibold text-gray-950 transition hover:text-[#005b28]">
+            {{ card.value }}
+          </a>
+        </ng-template>
+        <ng-template #plainValue>
+          <p class="mb-1 text-sm font-semibold text-gray-950">{{ card.value }}</p>
+        </ng-template>
         <p class="text-[13px] leading-snug text-gray-600">
           <ng-container *ngFor="let detail of card.details; let last = last">
             {{ detail }}<br *ngIf="!last" />

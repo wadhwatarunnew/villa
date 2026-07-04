@@ -1,12 +1,13 @@
 <main class="quote-page bg-[#f7f8f5] text-[#153221]">
   <section class="quote-hero relative flex h-[600px] pt-50 items-center overflow-hidden bg-cover bg-center"
     style="background-image: url('assets/images/villatent.webp');">
-    <div class="absolute inset-0 bg-black/20"></div>
+    <div class="absolute inset-0 bg-black/45"></div>
 
     <div class="relative z-10 w-full px-10">
       <div class="max-w-6xl">
+        <p class="text-white font-semibold tracking-[0.2em] text-sm uppercase mb-5">— GET A QUOTE</p>
         <h1 class="heading mb-3 text-4xl font-bold uppercase tracking-wide text-white md:text-5xl">Get A Quote</h1>
-        <p class="max-w-md text-sm leading-relaxed text-white/90">
+        <p class="max-w-md text-white md:text-lg leading-relaxed">
           Tell us about your project and our team will get back to you within 24 hours.
         </p>
       </div>
@@ -27,13 +28,13 @@
         </h2>
         <div class="mx-auto my-5 h-0.5 w-12 bg-[#006b33]"></div>
         <p class="mb-7 text-center text-sm leading-relaxed text-[#33483b]">
-          We deliver premium quality tents and hospitality solutions with unmatched craftsmanship and personalized service.
+          We deliver premium quality tents and hospitality solutions with unmatched craftsmanship and personalized
+          service.
         </p>
 
         <div class="space-y-5">
           <article *ngFor="let item of whyChooseItems; let last = last"
-            class="flex gap-4 border-[#dfe8df] pb-5 last:pb-0"
-            [class.border-b]="!last">
+            class="flex gap-4 border-[#dfe8df] pb-5 last:pb-0" [class.border-b]="!last">
             <div class="flex size-11 shrink-0 items-center justify-center rounded-full bg-[#00743a] text-white">
               <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" [attr.d]="item.iconPath"></path>
@@ -41,7 +42,12 @@
             </div>
             <div>
               <h3 class="mb-1 text-sm font-bold text-[#1d4a30]">{{ item.title }}</h3>
-              <p class="text-xs leading-relaxed text-[#4b5f52]">{{ item.text }}</p>
+              <a *ngIf="item.link" [href]="item.link" [target]="item.link.startsWith('http') ? '_blank' : '_self'"
+                rel="noopener noreferrer"
+                class="text-xs leading-relaxed text-[#4b5f52] hover:text-[#006b33] hover:underline transition-colors">
+                {{ item.text }}
+              </a>
+              <p *ngIf="!item.link" class="text-xs leading-relaxed text-[#4b5f52]">{{ item.text }}</p>
             </div>
           </article>
         </div>
@@ -54,11 +60,13 @@
         <form class="space-y-6">
           <div class="grid gap-x-8 gap-y-5 md:grid-cols-2">
             <label *ngFor="let field of projectFields" class="block">
-              <span class="mb-2 block text-xs font-bold text-[#2f4136]">{{ field.label }} <span class="text-red-600">*</span></span>
+              <span class="mb-2 block text-xs font-bold text-[#2f4136]">{{ field.label }} <span
+                  class="text-red-600">*</span></span>
               <span class="relative block">
                 <svg class="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-[#6b9880]"
                   fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" [attr.d]="field.iconPath"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" [attr.d]="field.iconPath">
+                  </path>
                 </svg>
 
                 <input *ngIf="field.type !== 'select'" [type]="field.type" [placeholder]="field.placeholder"
@@ -84,10 +92,11 @@
               Project Details / Message <span class="text-red-600">*</span>
             </span>
             <span class="relative block">
-              <svg class="pointer-events-none absolute left-4 top-4 size-4 text-[#6b9880]"
-                fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg class="pointer-events-none absolute left-4 top-4 size-4 text-[#6b9880]" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"
-                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L8.5 18.152 4 19l.848-4.5L16.862 4.487z"></path>
+                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L8.5 18.152 4 19l.848-4.5L16.862 4.487z">
+                </path>
               </svg>
               <textarea rows="5" placeholder="Tell us about your project requirements, specifications, ideas..."
                 class="w-full resize-none rounded border border-[#d9e1dc] bg-white px-4 py-3 pl-11 text-sm text-[#1f3327] outline-none transition placeholder:text-[#8f9b94] focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10"></textarea>
@@ -103,8 +112,7 @@
           <button type="button"
             class="flex h-13 w-full items-center justify-center gap-3 rounded bg-[#00743a] text-xs font-bold uppercase tracking-wide text-white shadow-sm transition hover:bg-[#005b28]">
             <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M3 10l18-7-7 18-3-8-8-3z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10l18-7-7 18-3-8-8-3z"></path>
             </svg>
             Submit Quote Request
           </button>

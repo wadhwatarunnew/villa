@@ -2,13 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'villa-home-stats-strip',
+  selector: 'villa-rewards-stats',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './home-stats-strip.component.html',
-  styleUrls: ['./home-stats-strip.component.scss']
+  templateUrl: './rewards-stats.component.html',
+  styleUrls: ['./rewards-stats.component.scss']
 })
-export class HomeStatsStripComponent {
+export class RewardsStatsComponent {
   readonly stats = [
     {
       value: '10+',

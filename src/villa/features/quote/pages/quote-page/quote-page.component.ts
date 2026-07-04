@@ -13,8 +13,8 @@ export class QuotePageComponent {
   readonly whyChooseItems = [
     {
       title: 'Need Help?',
-      text: '+91 98113627021',
-      link: 'tel:+919811362702',
+      text: '+91 98136 27021',
+      link: 'tel:+9198136 27021',
       iconPath: 'M5 15a7 7 0 0114 0v2a2 2 0 01-2 2h-2v-6h4M5 15v2a2 2 0 002 2h2v-6H5'
     },
     {

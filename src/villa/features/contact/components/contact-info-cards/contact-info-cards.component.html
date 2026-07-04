@@ -20,7 +20,7 @@
           </a>
         </div>
         <ng-template #singleValue>
-          <a *ngIf="card.href; else plainValue" [href]="card.href"
+          <a *ngIf="card.href; else plainValue" [href]="card.href" [attr.target]="card.target"
             class="mb-1 text-sm font-semibold text-gray-950 transition hover:text-[#005b28]">
             {{ card.value }}
           </a>

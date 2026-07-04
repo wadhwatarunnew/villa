@@ -42,7 +42,12 @@
             </div>
             <div>
               <h3 class="mb-1 text-sm font-bold text-[#1d4a30]">{{ item.title }}</h3>
-              <p class="text-xs leading-relaxed text-[#4b5f52]">{{ item.text }}</p>
+              <a *ngIf="item.link" [href]="item.link" [target]="item.link.startsWith('http') ? '_blank' : '_self'"
+                rel="noopener noreferrer"
+                class="text-xs leading-relaxed text-[#4b5f52] hover:text-[#006b33] hover:underline transition-colors">
+                {{ item.text }}
+              </a>
+              <p *ngIf="!item.link" class="text-xs leading-relaxed text-[#4b5f52]">{{ item.text }}</p>
             </div>
           </article>
         </div>

@@ -47,7 +47,8 @@ export class ContactInfoCardsComponent {
     {
       label: 'OUR OFFICE',
       value: 'The Villa Tent',
-      href: 'https://maps.google.com/?q=The+Vedanta+International+Dhulkot+Behind+Kingfisher+Vedanta+Street+Ambala+City+134003+Haryana+India',
+      href: 'https://maps.app.goo.gl/dezHUeS5BxspzXge8',
+      target: '_blank',
       details: ['The Vedanta International Dhulkot,Behind Kingfisher,Vedanta Street, Ambala City -134003. Haryana, India.'],
       fill: 'none',
       paths: [

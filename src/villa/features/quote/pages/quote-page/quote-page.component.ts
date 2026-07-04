@@ -13,22 +13,26 @@ export class QuotePageComponent {
   readonly whyChooseItems = [
     {
       title: 'Need Help?',
-      text: '+91 98765 43210',
+      text: '+91 98113627021',
+      link: 'tel:+919811362702',
       iconPath: 'M5 15a7 7 0 0114 0v2a2 2 0 01-2 2h-2v-6h4M5 15v2a2 2 0 002 2h2v-6H5'
     },
     {
       title: 'Email Us',
       text: 'info@thevillatent.com',
+      link: 'mailto:info@thevillatent.com',
       iconPath: 'M4 6h16v12H4V6zm0 2l8 5 8-5'
     },
     {
       title: 'Working Hours',
       text: 'Mon - Sat: 10 AM - 7 PM',
+      link: null,
       iconPath: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
     },
     {
       title: 'Our Location',
-      text: 'Noida, Uttar Pradesh, India',
+      text: 'The Vedanta International Dhulkot,Behind Kingfisher,Vedanta Street, Ambala City -134003. Haryana, India.',
+      link: 'https://maps.app.goo.gl/Xgxp1b7sZWSW3TGN8',
       iconPath: 'M12 21s6-5.3 6-11a6 6 0 10-12 0c0 5.7 6 11 6 11zm0-8a3 3 0 100-6 3 3 0 000 6z'
     }
   ];
@@ -45,9 +49,9 @@ export class QuotePageComponent {
   ];
 
   readonly contactStrip = [
-    { title: 'Need Help?', text: '+91 98765 43210', iconPath: 'M5 15a7 7 0 0114 0v2a2 2 0 01-2 2h-2v-6h4M5 15v2a2 2 0 002 2h2v-6H5' },
-    { title: 'Email Us', text: 'info@thevillatent.com', iconPath: 'M4 6h16v12H4V6zm0 2l8 5 8-5' },
-    { title: 'Working Hours', text: 'Mon - Sat: 10 AM - 7 PM', iconPath: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' },
-    { title: 'Our Location', text: 'Noida, Uttar Pradesh, India', iconPath: 'M12 21s6-5.3 6-11a6 6 0 10-12 0c0 5.7 6 11 6 11zm0-8a3 3 0 100-6 3 3 0 000 6z' }
+    { title: 'Need Help?', text: '+91 98765 43210', link: 'tel:+919876543210', iconPath: 'M5 15a7 7 0 0114 0v2a2 2 0 01-2 2h-2v-6h4M5 15v2a2 2 0 002 2h2v-6H5' },
+    { title: 'Email Us', text: 'info@thevillatent.com', link: 'mailto:info@thevillatent.com', iconPath: 'M4 6h16v12H4V6zm0 2l8 5 8-5' },
+    { title: 'Working Hours', text: 'Mon - Sat: 10 AM - 7 PM', link: null, iconPath: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' },
+    { title: 'Our Location', text: 'Noida, Uttar Pradesh, India', link: 'https://maps.google.com/?q=Noida+Uttar+Pradesh+India', iconPath: 'M12 21s6-5.3 6-11a6 6 0 10-12 0c0 5.7 6 11 6 11zm0-8a3 3 0 100-6 3 3 0 000 6z' }
   ];
 }

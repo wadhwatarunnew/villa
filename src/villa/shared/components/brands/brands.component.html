@@ -1,0 +1,15 @@
+<div class="text-center px-8 py-16">
+  <p class="text-[#005b28] font-bold tracking-[0.2em] text-sm uppercase mb-8">Trusted By Global Brands</p>
+  <div class="flex items-center justify-center space-x-12 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] px-4 opacity-80 snap-x">
+    <ng-container *ngFor="let brand of brands">
+      <div class="flex items-center justify-center">
+        <ng-container *ngIf="brand.logo; else textBrand">
+          <img [src]="brand.logo" [alt]="brand.name" [title]="brand.name" class="h-12 object-contain" />
+        </ng-container>
+        <ng-template #textBrand>
+          <span class="font-serif text-xl tracking-wider text-[#005b28]">{{ brand.name }}</span>
+        </ng-template>
+      </div>
+    </ng-container>
+  </div>
+</div>

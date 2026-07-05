@@ -8,6 +8,7 @@ import { HomeServicesComponent } from '../../components/home-services/home-servi
 import { RewardsStatsComponent } from '../../../../shared/components/rewards-stats/rewards-stats.component';
 import { HomeFeaturedProjectsComponent } from '../../components/home-featured-projects/home-featured-projects.component';
 import { HomeTestimonialsComponent } from '../../components/home-testimonials/home-testimonials.component';
+import { BrandsComponent } from '../../../../shared/components/brands/brands.component';
 import { HomeContactComponent } from '../../components/home-contact/home-contact.component';
 import { CommonCtaComponent } from '../../../../shared/components/common-cta/common-cta.component';
 
@@ -25,6 +26,7 @@ import { CommonCtaComponent } from '../../../../shared/components/common-cta/com
     RewardsStatsComponent,
     HomeFeaturedProjectsComponent,
     HomeTestimonialsComponent,
+    BrandsComponent,
     HomeContactComponent,
     CommonCtaComponent,
   ],

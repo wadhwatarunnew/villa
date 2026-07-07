@@ -1,5 +1,8 @@
-@use './styles/variables' as *;
-@use './styles/common' as *;
+@use "./styles/variables" as *;
+@use "./styles/common" as *;
 
 @import "tailwindcss";
 
+.material-icons {
+  font-size: 22px;
+}

@@ -1,15 +1,27 @@
 <div class="text-center px-8 py-16">
   <p class="text-[#005b28] font-bold tracking-[0.2em] text-sm uppercase mb-8">Trusted By Global Brands</p>
-  <div class="flex items-center justify-center space-x-12 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] px-4 opacity-80 snap-x">
-    <ng-container *ngFor="let brand of brands">
-      <div class="flex items-center justify-center">
-        <ng-container *ngIf="brand.logo; else textBrand">
-          <img [src]="brand.logo" [alt]="brand.name" [title]="brand.name" class="h-12 object-contain" />
-        </ng-container>
-        <ng-template #textBrand>
-          <span class="font-serif text-xl tracking-wider text-[#005b28]">{{ brand.name }}</span>
-        </ng-template>
-      </div>
-    </ng-container>
+  <div class="relative">
+    <button (click)="scrollSlider('left')"
+      class="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white text-[#005b28] shadow-sm flex items-center justify-center hover:bg-gray-50 transition hidden md:flex">
+      <span class="material-icons text-[22px]">keyboard_arrow_left</span>
+    </button>
+    <div #brandCarousel
+      class="flex items-center justify-start gap-6 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] px-6 py-4 whitespace-nowrap"
+      (mouseenter)="pauseAutoScroll(true)" (mouseleave)="pauseAutoScroll(false)">
+      <ng-container *ngFor="let brand of brandsExtended">
+        <div class="inline-flex items-center justify-center bg-[#faf9f6] border border-gray-200 rounded-xl px-6 py-5 min-w-[200px]">
+          <ng-container *ngIf="brand.logo; else textBrand">
+            <img [src]="brand.logo" [alt]="brand.name" [title]="brand.name" class="h-14 object-contain" />
+          </ng-container>
+          <ng-template #textBrand>
+            <span class="font-serif text-xl tracking-wider text-[#005b28]">{{ brand.name }}</span>
+          </ng-template>
+        </div>
+      </ng-container>
+    </div>
+    <button (click)="scrollSlider('right')"
+      class="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white text-[#005b28] shadow-sm flex items-center justify-center hover:bg-gray-50 transition hidden md:flex">
+      <span class="material-icons text-[22px]">keyboard_arrow_right</span>
+    </button>
   </div>
 </div>

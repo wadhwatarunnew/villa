@@ -18,8 +18,8 @@
     <div class="grid gap-7 lg:grid-cols-[360px_minmax(0,1fr)]">
       <aside class="rounded bg-white p-8 shadow-[0_6px_24px_rgba(0,0,0,0.05)]">
         <div class="mb-7 flex justify-center">
-          <div class="flex size-18 items-center justify-center rounded-full bg-[#eff7f1] text-[#006b33] shadow-inner">
-            <img src="assets/images/villatentlogo.webp" alt="The Vila Tent" class="size-12 rounded-full object-cover" />
+            <div class="flex size-18 items-center justify-center rounded-full bg-[#eff7f1] text-[#006b33] shadow-inner">
+            <img src="assets/images/villa-tent.webp" alt="The Villa Tent" class="size-15 rounded-full object-cover" />
           </div>
         </div>
 
@@ -35,10 +35,8 @@
         <div class="space-y-5">
           <article *ngFor="let item of whyChooseItems; let last = last"
             class="flex gap-4 border-[#dfe8df] pb-5 last:pb-0" [class.border-b]="!last">
-            <div class="flex size-11 shrink-0 items-center justify-center rounded-full bg-[#00743a] text-white">
-              <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" [attr.d]="item.iconPath"></path>
-              </svg>
+            <div class="flex shrink-0 size-12 p-3 items-center justify-center rounded-full bg-[#00743a] text-white">
+              <span class="material-icons flex-shrink-0" aria-hidden="true">{{ item.iconName }}</span>
             </div>
             <div>
               <h3 class="mb-1 text-sm font-bold text-[#1d4a30]">{{ item.title }}</h3>
@@ -63,11 +61,7 @@
               <span class="mb-2 block text-xs font-bold text-[#2f4136]">{{ field.label }} <span
                   class="text-red-600">*</span></span>
               <span class="relative block">
-                <svg class="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-[#6b9880]"
-                  fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" [attr.d]="field.iconPath">
-                  </path>
-                </svg>
+                <span class="material-icons pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[#6b9880] flex-shrink-0" aria-hidden="true">{{ field.iconName }}</span>
 
                 <input *ngIf="field.type !== 'select'" [type]="field.type" [placeholder]="field.placeholder"
                   class="h-12 w-full rounded border border-[#d9e1dc] bg-white pl-11 pr-4 text-sm text-[#1f3327] outline-none transition placeholder:text-[#8f9b94] focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10" />
@@ -78,11 +72,7 @@
                   <option>{{ field.label }}</option>
                 </select>
 
-                <svg *ngIf="field.type === 'select'"
-                  class="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-[#3d5546]"
-                  fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
+                <span *ngIf="field.type === 'select'" class="material-icons pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#3d5546] flex-shrink-0" aria-hidden="true">expand_more</span>
               </span>
             </label>
           </div>
@@ -92,12 +82,7 @@
               Project Details / Message <span class="text-red-600">*</span>
             </span>
             <span class="relative block">
-              <svg class="pointer-events-none absolute left-4 top-4 size-4 text-[#6b9880]" fill="none"
-                stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"
-                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L8.5 18.152 4 19l.848-4.5L16.862 4.487z">
-                </path>
-              </svg>
+              <span class="material-icons pointer-events-none absolute left-4 top-4 text-[#6b9880] flex-shrink-0" aria-hidden="true">edit</span>
               <textarea rows="5" placeholder="Tell us about your project requirements, specifications, ideas..."
                 class="w-full resize-none rounded border border-[#d9e1dc] bg-white px-4 py-3 pl-11 text-sm text-[#1f3327] outline-none transition placeholder:text-[#8f9b94] focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10"></textarea>
             </span>
@@ -109,19 +94,14 @@
               <a routerLink="/contact" class="font-bold text-[#006b33]">Terms & Conditions</a></span>
           </label>
 
-          <button type="button"
+            <button type="button"
             class="flex h-13 w-full items-center justify-center gap-3 rounded bg-[#00743a] text-xs font-bold uppercase tracking-wide text-white shadow-sm transition hover:bg-[#005b28]">
-            <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10l18-7-7 18-3-8-8-3z"></path>
-            </svg>
+            <span class="material-icons flex-shrink-0" aria-hidden="true">send</span>
             Submit Quote Request
           </button>
 
           <p class="flex items-center justify-center gap-2 text-center text-xs text-[#78877d]">
-            <svg class="size-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M12 11c1.657 0 3-1.343 3-3V6a3 3 0 10-6 0v2c0 1.657 1.343 3 3 3zm-6 0h12v10H6V11z"></path>
-            </svg>
+            <span class="material-icons flex-shrink-0" aria-hidden="true">lock</span>
             We respect your privacy. Your information is safe with us.
           </p>
         </form>

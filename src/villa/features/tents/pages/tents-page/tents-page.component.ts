@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TentsHighlightComponent } from '../../components/tents-highlight/tents-highlight.component';
 
@@ -9,4 +9,6 @@ import { TentsHighlightComponent } from '../../components/tents-highlight/tents-
   templateUrl: './tents-page.component.html',
   styleUrls: ['./tents-page.component.scss']
 })
-export class TentsPageComponent {}
+export class TentsPageComponent {
+  @Input() data: any;
+}

@@ -55,28 +55,148 @@
             class="text-sm font-semibold text-black hover:text-[#005b28] uppercase transition-colors duration-200">
             home
           </a>
-          <a routerLink="/about" routerLinkActive="!text-[#005b28] underline underline-offset-[8px] decoration-2"
+          <a routerLink="/about-us" routerLinkActive="!text-[#005b28] underline underline-offset-[8px] decoration-2"
             class="text-sm font-semibold text-black hover:text-[#005b28] uppercase transition-colors duration-200">
             about us
           </a>
-          <div class="relative group">
-            <button
-              class="text-sm font-semibold text-black hover:text-[#005b28] transition-colors duration-200 flex items-center gap-1 whitespace-nowrap uppercase">
-              tent collections
-              <svg class="size-4.5 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </button>
-          </div>
-          <div class="relative group">
-            <a routerLink="/projects" routerLinkActive="!text-[#005b28] underline underline-offset-[8px] decoration-2"
-              class="text-sm font-semibold text-black hover:text-[#005b28] transition-colors duration-200 flex items-center gap-1 whitespace-nowrap uppercase cursor-pointer">
-              projects
-              <svg class="size-4.5 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
+            <div class="relative group">
+                <a
+                    [routerLink]="resortTents?.slug"
+                    class="flex items-center gap-1 text-sm font-semibold uppercase hover:text-[#005b28]">
+
+                    {{ resortTents?.name }}
+
+                    <svg class="w-4 h-4 transition group-hover:rotate-90">
+                        ...
+                    </svg>
+                </a>
+
+                @if (resortTents?.children?.length) {
+
+                    <ul class="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl border min-w-[300px] z-50">
+
+                    @for (child of resortTents.children; track child.id) {
+
+                        <li class="relative group/sub">
+
+                            <a
+                                [routerLink]="['/', child.slug]"
+                                class="flex justify-between items-center px-5 py-3 hover:bg-[#005b28] hover:text-white">
+
+                                {{ child.name }}
+
+                                @if(child.children?.length){
+                                    <svg class="w-4 h-4">
+                                        ...
+                                    </svg>
+                                }
+
+                            </a>
+
+                            @if (child.children?.length) {
+
+                                <ul
+                                    class="absolute left-full top-0 hidden group-hover/sub:block bg-white shadow-xl border min-w-[280px]">
+
+                                    @for (sub of child.children; track sub.id) {
+
+                                        <li>
+
+                                            <a
+                                                [routerLink]="['/', sub.slug]"
+                                                class="block px-5 py-3 hover:bg-[#005b28] hover:text-white">
+
+                                                {{ sub.name }}
+
+                                            </a>
+
+                                        </li>
+
+                                    }
+
+                                </ul>
+
+                            }
+
+                        </li>
+
+                    }
+
+                    </ul>
+
+                }
+
+            </div>
+            <div class="relative group">
+
+                <a
+                [routerLink]="projects?.slug"
+                class="flex items-center gap-1 text-sm font-semibold uppercase hover:text-[#005b28]">
+
+                {{ projects?.name }}
+
+                <svg class="w-4 h-4 transition group-hover:rotate-90">
+                    ...
+                </svg>
+
+                </a>
+
+                @if (projects?.children?.length) {
+
+                    <ul class="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl border min-w-[300px] z-50">
+
+                    @for (child of projects.children; track child.id) {
+
+                        <li class="relative group/sub">
+
+                            <a
+                                [routerLink]="child.slug"
+                                class="flex justify-between items-center px-5 py-3 hover:bg-[#005b28] hover:text-white">
+
+                                {{ child.name }}
+
+                                @if(child.children?.length){
+                                    <svg class="w-4 h-4">
+                                        ...
+                                    </svg>
+                                }
+
+                            </a>
+
+                            @if (child.children?.length) {
+
+                                <ul
+                                    class="absolute left-full top-0 hidden group-hover/sub:block bg-white shadow-xl border min-w-[280px]">
+
+                                    @for (sub of child.children; track sub.id) {
+
+                                        <li>
+
+                                            <a
+                                                [routerLink]="sub.slug"
+                                                class="block px-5 py-3 hover:bg-[#005b28] hover:text-white">
+
+                                                {{ sub.name }}
+
+                                            </a>
+
+                                        </li>
+
+                                    }
+
+                                </ul>
+
+                            }
+
+                        </li>
+
+                    }
+
+                    </ul>
+
+                }
+
+            </div>
           <a routerLink="/gallery" routerLinkActive="!text-[#005b28] underline underline-offset-[8px] decoration-2"
             class="text-sm font-semibold text-black hover:text-[#005b28] transition-colors duration-200 whitespace-nowrap uppercase">
             gallery
@@ -139,7 +259,7 @@
             <span class="text-[10px] font-bold tracking-wider uppercase">home</span>
           </a>
 
-          <a routerLink="/about" routerLinkActive="!text-[#003d1a]" (click)="toggleMobileMenu()"
+          <a routerLink="/about-us" routerLinkActive="!text-[#003d1a]" (click)="toggleMobileMenu()"
             class="flex flex-col items-center justify-center flex-1 px-4 gap-3 min-w-[90px] text-gray-800 hover:text-[#005b28] transition group border-r border-gray-100 last:border-0">
             <div class="flex items-center justify-center group-[.active]:bg-[#005b28]">
               <svg class="size-6.25" fill="none" stroke="currentColor" viewBox="0 0 24 24">

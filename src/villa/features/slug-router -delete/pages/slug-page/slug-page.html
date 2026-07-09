@@ -1,0 +1,22 @@
+<div *ngIf="data">
+
+  <ng-container [ngSwitch]="data.type">
+
+    <app-tent-detail
+      *ngSwitchCase="'tent'"
+      [data]="data">
+    </app-tent-detail>
+
+    <app-project-detail
+      *ngSwitchCase="'project'"
+      [data]="data">
+    </app-project-detail>
+
+    <app-static-page
+      *ngSwitchDefault
+      [data]="data">
+    </app-static-page>
+
+  </ng-container>
+
+</div>

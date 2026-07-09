@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit, inject, Injector } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HomeHighlightComponent } from '../../components/home-highlight/home-highlight.component';
@@ -9,6 +9,7 @@ import { HomeStatsStripComponent } from '../../components/home-stats-strip/home-
 import { HomeFeaturedProjectsComponent } from '../../components/home-featured-projects/home-featured-projects.component';
 import { HomeTestimonialsComponent } from '../../components/home-testimonials/home-testimonials.component';
 import { HomeContactComponent } from '../../components/home-contact/home-contact.component';
+import { ApiService } from '../../../../services/api.service';
 
 @Component({
   selector: 'villa-home-page',
@@ -35,5 +36,16 @@ export class HomePageComponent {
     } else {
       container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
+  }
+
+  pageData: any;
+  
+  constructor(private route: RouterModule) {}
+  private ApiService = inject(ApiService);
+
+  ngOnInit() {
+    this.ApiService.getPage('Action=GetHomePage').subscribe(res => {
+      this.pageData = res;
+    });
   }
 }

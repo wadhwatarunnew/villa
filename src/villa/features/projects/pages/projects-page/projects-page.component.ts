@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProjectsHighlightComponent } from '../../components/projects-highlight/projects-highlight.component';
 
 @Component({
   selector: 'villa-projects-page',
   standalone: true,
-  imports: [CommonModule, ProjectsHighlightComponent],
+  imports: [CommonModule],
   templateUrl: './projects-page.component.html',
   styleUrls: ['./projects-page.component.scss']
 })
-export class ProjectsPageComponent {}
+export class ProjectsPageComponent {
+   @Input() data: any;
+}

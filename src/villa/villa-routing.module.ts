@@ -13,11 +13,11 @@ const routes: Routes = [
         loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule)
       },
       {
-        path: 'about',
+        path: 'about-us',
         loadChildren: () => import('./features/about/about.module').then(m => m.AboutModule)
       },
       {
-        path: 'tents',
+        path: 'resort-tent',
         loadChildren: () => import('./features/tents/tents.module').then(m => m.TentsModule)
       },
       {
@@ -33,13 +33,23 @@ const routes: Routes = [
         loadChildren: () => import('./features/blogs/blogs.module').then(m => m.BlogsModule)
       },
       {
-        path: 'contact',
+        path: 'contact-us',
         loadChildren: () => import('./features/contact/contact.module').then(m => m.ContactModule)
       },
       {
         path: 'quote',
         loadChildren: () => import('./features/quote/quote.module').then(m => m.QuoteModule)
+      },
+      {
+        path: ':slug',
+        loadComponent: () =>
+          import('./dynamic-page/dynamic-page.component')
+          .then(m => m.DynamicPageComponent)
       }
+      // {
+      //   path: ':slug',
+      //   loadChildren: () => import('./features/slug-router/slug-router-module').then(m => m.SlugRouterModule)
+      // }
     ]
   },
   {

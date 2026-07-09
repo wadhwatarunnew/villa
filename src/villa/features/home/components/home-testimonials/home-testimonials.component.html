@@ -10,11 +10,8 @@
       <ng-container *ngFor="let testimonial of testimonials">
         <div
           class="bg-white p-8 rounded-sm border border-gray-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.03)] relative flex flex-col h-full">
-          <div class="text-[#005b28] opacity-30 mb-4">
-            <svg class="size-8" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-            </svg>
+          <div class="text-[#005b28] opacity-30">
+            <span class="material-icons !text-6xl flex-shrink-0">format_quote</span>
           </div>
           <p class="text-sm text-[#005b28] leading-relaxed mb-8 flex-grow" [innerHTML]="testimonial.quote"></p>
           <div class="flex items-center gap-3 justify-between border-t border-gray-100 pt-5 mt-auto">
@@ -22,7 +19,7 @@
               <p class="font-bold text-[#0e2614] text-sm">{{ testimonial.name }}</p>
               <p class="text-[13px] text-gray-500 mt-0.5">{{ testimonial.role }}</p>
             </div>
-            <div class="text-[13px] font-serif text-gray-400 italic">{{ testimonial.brand }}</div>
+            <div class="text-[13px] text-nowrap font-serif text-gray-400 italic">{{ testimonial.brand }}</div>
           </div>
         </div>
       </ng-container>
@@ -30,14 +27,4 @@
   </div>
 
 </section>
-<div class="text-center px-8 py-16">
-  <p class="text-[#005b28] font-bold tracking-[0.2em] text-sm uppercase mb-8">Trusted By Global Brands</p>
-  <div #brandsSlider
-    class="flex items-center justify-center space-x-12 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] px-4 opacity-60 snap-x">
-    <ng-container *ngFor="let brand of brands">
-      <div class="text-[#005b28] hover:opacity-100 transition cursor-pointer">
-        <span class="font-serif text-xl tracking-wider">{{ brand }}</span>
-      </div>
-    </ng-container>
-  </div>
-</div>
+ 

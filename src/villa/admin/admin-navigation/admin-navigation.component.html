@@ -1,0 +1,20 @@
+<aside class="admin-navigation" [class.collapsed]="!isOpen">
+  <!-- Navigation Items -->
+  <nav class="navigation-menu">
+    <a
+      *ngFor="let item of navItems; let i = index"
+      [routerLink]="item.route"
+      [class.active]="isActive(item.route)"
+      [class.divider]="item.divider"
+      class="nav-item">
+      <span class="material-icons nav-icon">{{ item.icon }}</span>
+      <span class="nav-label">{{ item.label }}</span>
+      <span *ngIf="item.badge" class="nav-badge">{{ item.badge }}</span>
+    </a>
+  </nav>
+    <div class="navigation-header">
+    <button (click)="toggleSidebar()" class="toggle-btn">
+      <span class="material-icons">{{ isOpen ? 'chevron_left' : 'chevron_right' }}</span>
+    </button>
+  </div>
+</aside>

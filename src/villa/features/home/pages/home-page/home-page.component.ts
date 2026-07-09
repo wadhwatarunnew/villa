@@ -5,11 +5,13 @@ import { HomeHighlightComponent } from '../../components/home-highlight/home-hig
 import { HomeAboutComponent } from '../../components/home-about/home-about.component';
 import { HomeTentCollectionComponent } from '../../components/home-tent-collection/home-tent-collection.component';
 import { HomeServicesComponent } from '../../components/home-services/home-services.component';
-import { HomeStatsStripComponent } from '../../components/home-stats-strip/home-stats-strip.component';
+import { RewardsStatsComponent } from '../../../../shared/components/rewards-stats/rewards-stats.component';
 import { HomeFeaturedProjectsComponent } from '../../components/home-featured-projects/home-featured-projects.component';
 import { HomeTestimonialsComponent } from '../../components/home-testimonials/home-testimonials.component';
+import { BrandsComponent } from '../../../../shared/components/brands/brands.component';
 import { HomeContactComponent } from '../../components/home-contact/home-contact.component';
 import { ApiService } from '../../../../services/api.service';
+import { CommonCtaComponent } from '../../../../shared/components/common-cta/common-cta.component';
 
 @Component({
   selector: 'villa-home-page',
@@ -21,10 +23,12 @@ import { ApiService } from '../../../../services/api.service';
     HomeAboutComponent,
     HomeTentCollectionComponent,
     HomeServicesComponent,
-    HomeStatsStripComponent,
+    RewardsStatsComponent,
     HomeFeaturedProjectsComponent,
     HomeTestimonialsComponent,
+    BrandsComponent,
     HomeContactComponent,
+    CommonCtaComponent,
   ],
   templateUrl: './home-page.component.html'
 })

@@ -1,7 +1,20 @@
-<div class="admin-layout min-h-screen flex flex-col">
-  <villa-header></villa-header>
-  <main class="flex-1">
-    <router-outlet></router-outlet>
-  </main>
-  <villa-footer></villa-footer>
+<div class="admin-layout">
+  <!-- Admin Header (Fixed) -->
+  <villa-admin-header></villa-admin-header>
+
+  <!-- Main Content with Navigation (Scrollable) -->
+  <div class="admin-main-wrapper">
+    <!-- Admin Navigation Sidebar -->
+    <villa-admin-navigation></villa-admin-navigation>
+
+    <!-- Main Content Area (Scrollable) -->
+    <main class="admin-main-content">
+      <div class="admin-content-inner">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+
+  <!-- Admin Footer (Fixed) -->
+  <villa-admin-footer></villa-admin-footer>
 </div>

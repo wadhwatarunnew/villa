@@ -9,11 +9,12 @@ import { MenuItem } from '../../models/menu-item.interface';
 @Component({
   selector: 'villa-header',
   standalone: true,
-  imports: [RouterModule, NgIcon],
+  imports: [RouterModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
   readonly heroPhoneIcon = heroPhoneSolid;
   readonly heroEnvelopeIcon = heroEnvelopeSolid;
   readonly heroChevronDownIcon = heroChevronDown;
@@ -28,10 +29,10 @@ export class HeaderComponent implements OnInit {
   isMobileMenuOpen = false;
 
   readonly topBarHighlights = [
-    { icon: heroTruckSolid, label: 'Worldwide Delivery' },
-    { icon: heroPencilSquareSolid, label: 'Custom Designs' },
-    { icon: heroSparklesSolid, label: 'Premium Quality' },
-    { icon: heroGlobeAltSolid, label: 'Sustainable Solutions' }
+    { icon: 'local_shipping', label: 'Worldwide Delivery' },
+    { icon: 'edit', label: 'Custom Designs' },
+    { icon: 'star', label: 'Premium Quality' },
+    { icon: 'public', label: 'Sustainable Solutions' }
   ];
 
   readonly primaryNav = [

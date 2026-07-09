@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home-featured-projects.component.html',
 })
 export class HomeFeaturedProjectsComponent {
+
   defaultProjects = [
               { title: 'The Oberoi, Rajasthan', location: 'Ranthambore', image: 'https://images.unsplash.com/photo-1544144433-d50aff500b91?q=80&w=600&auto=format&fit=crop' },
               { title: 'Al Maha Resort', location: 'Dubai, UAE', image: 'https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=600&auto=format&fit=crop' },

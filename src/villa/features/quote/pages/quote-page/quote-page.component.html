@@ -1,4 +1,111 @@
-<section>
-  <h1>Villa Quote</h1>
-  <villa-quote-highlight></villa-quote-highlight>
-</section>
+<main class="quote-page bg-[#f7f8f5] text-[#153221]">
+  <section class="quote-hero relative flex h-[600px] pt-50 items-center overflow-hidden bg-cover bg-center"
+    style="background-image: url('assets/images/villatent.webp');">
+    <div class="absolute inset-0 bg-black/45"></div>
+
+    <div class="relative z-10 w-full px-10">
+      <div class="max-w-6xl">
+        <p class="text-white font-semibold tracking-[0.2em] text-sm uppercase mb-5">— GET A QUOTE</p>
+        <h1 class="heading mb-3 text-4xl font-bold uppercase tracking-wide text-white md:text-5xl">Get A Quote</h1>
+        <p class="max-w-md text-white md:text-lg leading-relaxed">
+          Tell us about your project and our team will get back to you within 24 hours.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16">
+    <div class="grid gap-7 lg:grid-cols-[360px_minmax(0,1fr)]">
+      <aside class="rounded bg-white p-8 shadow-[0_6px_24px_rgba(0,0,0,0.05)]">
+        <div class="mb-7 flex justify-center">
+            <div class="flex size-18 items-center justify-center rounded-full bg-[#eff7f1] text-[#006b33] shadow-inner">
+            <img src="assets/images/villa-tent.webp" alt="The Villa Tent" class="size-15 rounded-full object-cover" />
+          </div>
+        </div>
+
+        <h2 class="heading mx-auto max-w-52 text-center text-2xl font-bold leading-tight text-[#1d4a30]">
+          Why Choose<br />The Villa Tent?
+        </h2>
+        <div class="mx-auto my-5 h-0.5 w-12 bg-[#006b33]"></div>
+        <p class="mb-7 text-center text-sm leading-relaxed text-[#33483b]">
+          We deliver premium quality tents and hospitality solutions with unmatched craftsmanship and personalized
+          service.
+        </p>
+
+        <div class="space-y-5">
+          <article *ngFor="let item of whyChooseItems; let last = last"
+            class="flex gap-4 border-[#dfe8df] pb-5 last:pb-0" [class.border-b]="!last">
+            <div class="flex shrink-0 size-12 p-3 items-center justify-center rounded-full bg-[#00743a] text-white">
+              <span class="material-icons flex-shrink-0" aria-hidden="true">{{ item.iconName }}</span>
+            </div>
+            <div>
+              <h3 class="mb-1 text-sm font-bold text-[#1d4a30]">{{ item.title }}</h3>
+              <a *ngIf="item.link" [href]="item.link" [target]="item.link.startsWith('http') ? '_blank' : '_self'"
+                rel="noopener noreferrer"
+                class="text-xs leading-relaxed text-[#4b5f52] hover:text-[#006b33] hover:underline transition-colors">
+                {{ item.text }}
+              </a>
+              <p *ngIf="!item.link" class="text-xs leading-relaxed text-[#4b5f52]">{{ item.text }}</p>
+            </div>
+          </article>
+        </div>
+      </aside>
+
+      <section class="rounded bg-white p-6 shadow-[0_6px_24px_rgba(0,0,0,0.05)] md:p-9">
+        <h2 class="heading text-3xl font-bold text-[#1d4a30]">Tell Us About Your Project</h2>
+        <div class="mb-7 mt-3 h-0.5 w-16 bg-[#006b33]"></div>
+
+        <form class="space-y-6">
+          <div class="grid gap-x-8 gap-y-5 md:grid-cols-2">
+            <label *ngFor="let field of projectFields" class="block">
+              <span class="mb-2 block text-xs font-bold text-[#2f4136]">{{ field.label }} <span
+                  class="text-red-600">*</span></span>
+              <span class="relative block">
+                <span class="material-icons pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[#6b9880] flex-shrink-0" aria-hidden="true">{{ field.iconName }}</span>
+
+                <input *ngIf="field.type !== 'select'" [type]="field.type" [placeholder]="field.placeholder"
+                  class="h-12 w-full rounded border border-[#d9e1dc] bg-white pl-11 pr-4 text-sm text-[#1f3327] outline-none transition placeholder:text-[#8f9b94] focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10" />
+
+                <select *ngIf="field.type === 'select'"
+                  class="h-12 w-full appearance-none rounded border border-[#d9e1dc] bg-white pl-11 pr-10 text-sm text-[#8f9b94] outline-none transition focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10">
+                  <option value="" selected>{{ field.placeholder }}</option>
+                  <option>{{ field.label }}</option>
+                </select>
+
+                <span *ngIf="field.type === 'select'" class="material-icons pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#3d5546] flex-shrink-0" aria-hidden="true">expand_more</span>
+              </span>
+            </label>
+          </div>
+
+          <label class="block">
+            <span class="mb-2 block text-xs font-bold text-[#2f4136]">
+              Project Details / Message <span class="text-red-600">*</span>
+            </span>
+            <span class="relative block">
+              <span class="material-icons pointer-events-none absolute left-4 top-4 text-[#6b9880] flex-shrink-0" aria-hidden="true">edit</span>
+              <textarea rows="5" placeholder="Tell us about your project requirements, specifications, ideas..."
+                class="w-full resize-none rounded border border-[#d9e1dc] bg-white px-4 py-3 pl-11 text-sm text-[#1f3327] outline-none transition placeholder:text-[#8f9b94] focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10"></textarea>
+            </span>
+          </label>
+
+          <label class="flex items-center gap-3 text-xs text-[#53665a]">
+            <input type="checkbox" class="mt-0.5 size-4 rounded border-[#b8c9bd] accent-[#006b33]" />
+            <span>I agree to the <a routerLink="/contact" class="font-bold text-[#006b33]">Privacy Policy</a> and
+              <a routerLink="/contact" class="font-bold text-[#006b33]">Terms & Conditions</a></span>
+          </label>
+
+            <button type="button"
+            class="flex h-13 w-full items-center justify-center gap-3 rounded bg-[#00743a] text-xs font-bold uppercase tracking-wide text-white shadow-sm transition hover:bg-[#005b28]">
+            <span class="material-icons flex-shrink-0" aria-hidden="true">send</span>
+            Submit Quote Request
+          </button>
+
+          <p class="flex items-center justify-center gap-2 text-center text-xs text-[#78877d]">
+            <span class="material-icons flex-shrink-0" aria-hidden="true">lock</span>
+            We respect your privacy. Your information is safe with us.
+          </p>
+        </form>
+      </section>
+    </div>
+  </section>
+</main>

@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home-tent-collection.component.html',
 })
 export class HomeTentCollectionComponent {
+
   defaultTents = [
                   {
                     index: '01',

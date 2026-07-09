@@ -1,77 +1,90 @@
-<!-- Contact Form Section -->
-<section class="bg-[#faf9f6] py-16">
-  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+<section class="bg-white py-16">
+  <div class="mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 items-stretch">
 
-      <!-- Left: Image -->
-      <div class="rounded-sm overflow-hidden min-h-[420px]">
-        <img
-          src="https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?auto=format&fit=crop&w=900&q=80"
-          alt="Villa Tent Contact"
-          class="w-full h-full object-cover" />
+      <div class="relative rounded-sm overflow-hidden min-h-[420px]">
+        <img src="assets/images/villatent.webp" alt="Villa Tent Contact" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black/20"></div>
       </div>
 
-      <!-- Right: Form -->
-      <div class="bg-white border border-gray-200 rounded-sm p-8 lg:p-10">
-        <h2 class="text-2xl font-serif text-gray-900 mb-6">Send Us a Message</h2>
+      <div class="bg-[#f7f7f5] border border-gray-200 rounded-sm py-8 px-6">
+        <h2 class="text-2xl font-serif text-gray-900 mb-4">Send Us a Message</h2>
+        <div class="mb-7 h-0.5 w-16 bg-[#006b33]"></div>
 
-        <form class="space-y-4">
-          <!-- Row 1: Full Name + Email -->
+        <form class="space-y-5">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <input type="text" placeholder="Full Name *"
-                class="w-full border border-gray-200 rounded-sm px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#b48a45] transition" />
-            </div>
-            <div>
-              <input type="email" placeholder="Email Address *"
-                class="w-full border border-gray-200 rounded-sm px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#b48a45] transition" />
-            </div>
+            <label class="block">
+              <span class="mb-2 block text-xs font-bold text-[#2f4136]">Full Name <span class="text-red-600">*</span></span>
+              <span class="relative block">
+                <svg class="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-[#6b9880]"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"
+                    d="M15 7a3 3 0 11-6 0 3 3 0 016 0zM5 21a7 7 0 0114 0">
+                  </path>
+                </svg>
+                <input type="text" placeholder="Full Name"
+                  class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
+              </span>
+            </label>
+            <label class="block">
+              <span class="mb-2 block text-xs font-bold text-[#2f4136]">Email Address <span class="text-red-600">*</span></span>
+              <span class="relative block">
+                <svg class="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-[#6b9880]"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                  </path>
+                </svg>
+                <input type="email" placeholder="Email Address"
+                  class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
+              </span>
+            </label>
           </div>
 
-          <!-- Row 2: Phone + Project Location -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <input type="tel" placeholder="Phone Number *"
-                class="w-full border border-gray-200 rounded-sm px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#b48a45] transition" />
-            </div>
-            <div>
-              <input type="text" placeholder="Project Location"
-                class="w-full border border-gray-200 rounded-sm px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#b48a45] transition" />
-            </div>
+            <label class="block">
+              <span class="mb-2 block text-xs font-bold text-[#2f4136]">Phone Number <span class="text-red-600">*</span></span>
+              <span class="relative block">
+                <svg class="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-[#6b9880]"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"
+                    d="M3 5a2 2 0 012-2h2l2 5-2 1a11 11 0 005 5l1-2 5 2v2a2 2 0 01-2 2h-1C9.7 18 6 14.3 6 8V7a2 2 0 00-2-2H3z">
+                  </path>
+                </svg>
+                <input type="tel" placeholder="Phone Number"
+                  class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
+              </span>
+            </label>
           </div>
 
-          <!-- Row 3: How did you hear -->
-          <div>
-            <select
-              class="w-full border border-gray-200 rounded-sm px-4 py-3 text-sm text-gray-400 focus:outline-none focus:border-[#b48a45] transition appearance-none bg-white">
-              <option value="" disabled selected>How did you hear about us?</option>
-              <option value="google">Google Search</option>
-              <option value="social">Social Media</option>
-              <option value="referral">Referral</option>
-              <option value="exhibition">Exhibition / Trade Show</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
+          <label class="block">
+            <span class="mb-2 block text-xs font-bold text-[#2f4136]">Your Message / Requirements <span class="text-red-600">*</span></span>
+            <span class="relative block">
+              <svg class="pointer-events-none absolute left-4 top-4 size-4 text-[#6b9880]" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"
+                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L8.5 18.152 4 19l.848-4.5L16.862 4.487z">
+                </path>
+              </svg>
+              <textarea rows="4" placeholder="Your Message / Requirements"
+                class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition resize-none"></textarea>
+            </span>
+          </label>
 
-          <!-- Row 4: Message -->
-          <div>
-            <textarea rows="4" placeholder="Your Message / Requirements *"
-              class="w-full border border-gray-200 rounded-sm px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#b48a45] transition resize-none"></textarea>
-          </div>
-
-          <!-- Submit -->
           <button type="submit"
-            class="w-full bg-[#0e2614] hover:bg-[#1a3d22] text-white py-4 text-[11px] font-bold tracking-widest uppercase transition flex items-center justify-center gap-3 rounded-sm">
+            class="w-full bg-[#005b28] hover:bg-[#004620] text-white py-3 text-xs font-bold tracking-widest uppercase transition flex items-center justify-center gap-3 rounded-sm shadow-sm">
             SEND MESSAGE
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+              </path>
             </svg>
           </button>
 
-          <!-- Privacy note -->
-          <p class="text-[11px] text-gray-400 flex items-center gap-2 mt-2">
-            <svg class="w-3.5 h-3.5 text-[#b48a45] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 1l2.39 4.845 5.345.777-3.867 3.77.913 5.318L10 13.347l-4.781 2.363.913-5.318L2.265 6.622l5.345-.777L10 1z" clip-rule="evenodd"></path>
+          <p class="text-xs text-gray-600 flex items-center gap-2 mt-3">
+            <svg class="w-3.5 h-3.5 text-[#006b33] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 1l2.39 4.845 5.345.777-3.867 3.77.913 5.318L10 13.347l-4.781 2.363.913-5.318L2.265 6.622l5.345-.777L10 1z"
+                clip-rule="evenodd"></path>
             </svg>
             We respect your privacy. Your information is safe with us.
           </p>

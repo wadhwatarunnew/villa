@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeServicesComponent {
   stats = [
-    { value: '10+', label: 'Years of Experience' },
+    { value: '30+', label: 'Years of Experience' },
     { value: '500+', label: 'Projects Completed' },
     { value: '40+', label: 'Countries Served' },
     { value: '100%', label: 'Client Satisfaction' },
@@ -19,32 +19,32 @@ export class HomeServicesComponent {
     {
       title: 'Resort Tent Manufacturing',
       description: 'Custom-built luxury tents designed for premium resorts, hospitality projects, and luxury stays.',
-      iconPath: 'M3 21h18M12 3l9 18M12 3L3 21M12 3v18',
+      iconName: 'build',
     },
     {
       title: 'Eco Resort Setup',
       description: 'Complete eco-friendly glamping infrastructure solutions crafted for sustainable tourism destinations.',
-      iconPath: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+      iconName: 'public',
     },
     {
       title: 'Glamping Solutions',
       description: 'Turn outdoor landscapes into luxurious glamping experiences with bespoke tent concepts and layouts.',
-      iconPath: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+      iconName: 'park',
     },
     {
       title: 'Luxury Camps & Retreats',
       description: 'Elegant tented accommodations for wellness retreats, safari camps, and experiential hospitality spaces.',
-      iconPath: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
+      iconName: 'star',
     },
     {
       title: 'Corporate Tent Solutions',
       description: 'Premium temporary and semi-permanent structures for corporate events, exhibitions, and hospitality setups.',
-      iconPath: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+      iconName: 'business_center',
     },
     {
       title: 'Adventure Projects',
       description: 'Durable and weather-resistant tent structures engineered for adventure tourism and outdoor experiences.',
-      iconPath: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6',
+      iconName: 'terrain',
     },
   ];
 }

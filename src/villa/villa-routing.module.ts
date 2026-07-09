@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule)
+        loadComponent: () => import('./features/home/pages/home-page/home-page.component').then(m => m.HomePageComponent)
       },
       {
         path: 'about-us',
@@ -22,15 +22,15 @@ const routes: Routes = [
       },
       {
         path: 'projects',
-        loadChildren: () => import('./features/projects/projects.module').then(m => m.ProjectsModule)
+        loadComponent: () => import('./features/projects/pages/projects-page/projects-page.component').then(m => m.ProjectsPageComponent)
       },
       {
         path: 'gallery',
-        loadChildren: () => import('./features/gallery/gallery.module').then(m => m.GalleryModule)
+        loadComponent: () => import('./features/gallery/pages/gallery-page/gallery-page.component').then(m => m.GalleryPageComponent)
       },
       {
         path: 'blogs',
-        loadChildren: () => import('./features/blogs/blogs.module').then(m => m.BlogsModule)
+        loadComponent: () => import('./features/blogs/pages/blogs-page/blogs-page.component').then(m => m.BlogsPageComponent)
       },
       {
         path: 'contact-us',
@@ -53,12 +53,16 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'villadashboard',
+    loadComponent: () => import('./admin/authentication/login/pages/login-page/login-page.component').then(m => m.LoginPageComponent)
+  },
+  {
     path: 'admin',
     component: AdminLayoutComponent,
     children: [
       {
         path: '',
-        loadChildren: () => import('./admin/dashboard/dashboard.module').then(m => m.DashboardModule)
+        loadComponent: () => import('./admin/dashboard/dashboard.component').then(m => m.DashboardComponent)
       }
     ]
   },

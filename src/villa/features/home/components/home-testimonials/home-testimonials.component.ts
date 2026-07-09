@@ -40,7 +40,12 @@ export class HomeTestimonialsComponent {
     return this._testimonials;
   }
 
-  brands = ['THE OBEROI', 'TAJ', 'ACCOR', 'FOUR SEASONS', 'ANANTARA', 'SONEVA', 'RAFFLES'];
+  brands: Array<{ name: string; logo?: string }> = [
+    { name: 'ITC Hotels', logo: 'assets/images/logos/itc-hotels.webp' },
+    { name: 'Godwin Hotels', logo: 'assets/images/logos/godwin-hotels.webp' },
+    { name: 'The Oberoi', logo: 'assets/images/logos/ohr.webp' },
+    { name: 'Tenzinling Hotels', logo: 'assets/images/logos/tenzinling-hotels.webp' },
+  ];
 
   scrollSlider(container: HTMLElement, direction: 'left' | 'right') {
     const scrollAmount = 300;

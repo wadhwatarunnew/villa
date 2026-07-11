@@ -1,5 +1,5 @@
 <header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
-  <div class="hidden lg:block bg-[#005b28] text-white">
+  <div class="bg-[#005b28] text-white">
     <div class="mx-auto px-10 py-3 flex items-center justify-between gap-8 text-xs font-medium">
       <div class="flex items-center gap-6 text-white/90">
         <a href="tel:+919876543210"
@@ -51,11 +51,11 @@
           class="size-15 object-cover border border-[#005b28] flex-shrink-0 rounded-full" />
         <div class="flex flex-col gap-0.5">
           <span class="text-2xl heading font-bold tracking-wider text-[#005b28] uppercase">the villa tent</span>
-          <span class="text-xs text-[#005b28] uppercase">luxury tents & hospitality solutions</span>
+          <span class="text-xs text-[#005b28] uppercase">we are our competitors</span>
         </div>
       </a>
       <div class="flex items-center gap-8">
-        <nav class="hidden 2xl:flex items-center gap-8">
+        <nav class="hidden 2xl:flex items-center gap-7">
           <a routerLink="/" routerLinkActive="!text-[#005b28] underline underline-offset-[8px] decoration-2"
             [routerLinkActiveOptions]="{exact: true}"
             class="text-sm font-semibold text-black hover:text-[#005b28] uppercase transition-colors duration-200">
@@ -90,15 +90,15 @@
             contact us
           </a>
         </nav>
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-3">
           <button
-            class="hidden 2xl:flex px-5 py-3 tracking-wider text-sm font-medium border border-[#003d1a] text-black hover:text-white hover:bg-[#003d1a] rounded-md transition-all duration-200 shadow-lg items-center gap-2 uppercase">
+            class="hidden 2xl:flex px-4 py-3 tracking-wider text-sm font-medium border border-[#003d1a] text-black hover:text-white hover:bg-[#003d1a] rounded-md transition-all duration-200 shadow-lg items-center gap-2 uppercase">
             download brochure
             <span class="material-icons flex-shrink-0" aria-hidden="true">file_download</span>
           </button>
 
           <a routerLink="/quote"
-            class="hidden 2xl:flex px-5 py-3 tracking-wider text-sm font-medium text-white bg-[#005b28] border border-[#[#005b28]] hover:bg-[#003d1a] rounded-lg transition-all duration-200 shadow-lg items-center gap-2 uppercase">
+            class="hidden 2xl:flex px-4 py-3 tracking-wider text-sm font-medium text-white bg-[#005b28] border border-[#[#005b28]] hover:bg-[#003d1a] rounded-lg transition-all duration-200 shadow-lg items-center gap-2 uppercase">
             get a quote
             <span class="material-icons flex-shrink-0" aria-hidden="true">arrow_forward</span>
           </a>
@@ -106,7 +106,7 @@
 
         <!-- Mobile Menu Button -->
         <button (click)="toggleMobileMenu()"
-          class="2xl:hidden p-2.5 text-white bg-[#005b28] hover:bg-[#003d1a] rounded-lg transition-colors"
+          class="2xl:hidden p-2.5 text-white bg-[#005b28] hover:bg-[#003d1a] rounded-lg transition-colors flex items-center justify-center"
           aria-label="Toggle mobile menu">
           @if (!isMobileMenuOpen) {
           <span class="material-icons flex-shrink-0" aria-hidden="true">menu</span>

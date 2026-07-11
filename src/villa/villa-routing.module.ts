@@ -30,7 +30,16 @@ const routes: Routes = [
       },
       {
         path: 'blogs',
-        loadComponent: () => import('./features/blogs/pages/blogs-page/blogs-page.component').then(m => m.BlogsPageComponent)
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./features/blogs/pages/blogs-page/blogs-page.component').then(m => m.BlogsPageComponent)
+          },
+          {
+            path: ':slug',
+            loadComponent: () => import('./features/blog-detail/pages/blog-detail-page/blog-detail-page.component').then(m => m.BlogDetailPageComponent)
+          }
+        ]
       },
       {
         path: 'contact',

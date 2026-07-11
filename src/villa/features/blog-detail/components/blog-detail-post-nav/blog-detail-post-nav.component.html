@@ -1,0 +1,16 @@
+<nav class="grid gap-6 py-8 text-sm md:grid-cols-2">
+  <a *ngIf="previousPost" [routerLink]="['/blogs', getSlug(previousPost)]" class="group block text-[#18251d] no-underline">
+    <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-[#9aa19a]">← Previous Post</span>
+    <strong class="mt-2 block max-w-xs font-serif text-base leading-snug group-hover:text-[#005b28]">
+      {{ previousPost.title }}
+    </strong>
+  </a>
+
+  <a *ngIf="nextPost" [routerLink]="['/blogs', getSlug(nextPost)]"
+    class="group block text-left text-[#18251d] no-underline md:text-right">
+    <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-[#9aa19a]">Next Post →</span>
+    <strong class="ml-auto mt-2 block max-w-xs font-serif text-base leading-snug group-hover:text-[#005b28]">
+      {{ nextPost.title }}
+    </strong>
+  </a>
+</nav>

@@ -1,0 +1,23 @@
+<div class="mt-12 space-y-10">
+  <section *ngFor="let section of sections; let i = index"
+    class="grid items-center gap-7 md:grid-cols-2">
+    <div [ngClass]="{ 'md:order-2': i % 2 === 1 }">
+      <h2 class="font-serif text-2xl leading-snug text-[#18251d]">
+        {{ i + 1 }}. {{ section.title }}
+      </h2>
+      <p class="mt-4 text-sm leading-7 text-[#435147]">{{ section.copy }}</p>
+    </div>
+
+    <figure class="overflow-hidden rounded-md bg-[#edf0ea]" [ngClass]="{ 'md:order-1': i % 2 === 1 }">
+      <img [src]="section.image" [alt]="section.imageAlt" class="h-56 w-full object-cover" />
+    </figure>
+  </section>
+
+  <section class="border-b border-[#e5e7df] pb-10">
+    <h2 class="font-serif text-2xl text-[#18251d]">Conclusion</h2>
+    <p class="mt-4 max-w-3xl text-sm leading-7 text-[#435147]">
+      Luxury tents are more than just a trend - they are the future of hospitality. They help resorts create
+      unforgettable experiences that guests cherish forever.
+    </p>
+  </section>
+</div>

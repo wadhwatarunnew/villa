@@ -1,0 +1,13 @@
+@keyframes mobile-menu-slide-in {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.mobile-menu-drawer {
+  animation: mobile-menu-slide-in 220ms ease-out;
+}

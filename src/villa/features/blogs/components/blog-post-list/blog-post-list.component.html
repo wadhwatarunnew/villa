@@ -1,8 +1,9 @@
 <section class="bg-gray-50 py-16 md:py-24">
   <div class="w-full mx-auto px-6 lg:px-10">
     <div class="grid grid-cols-1 gap-8 mb-16 md:grid-cols-2 lg:grid-cols-3">
-      <a *ngFor="let blog of blogPosts" [routerLink]="['/blogs', getSlug(blog)]"
-        class="group flex h-full flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm no-underline transition-shadow hover:shadow-md">
+      <a *ngFor="let blog of blogPosts; let i = index" [routerLink]="['/blogs', getSlug(blog)]"
+        class="group flex h-full flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm no-underline transition-shadow hover:shadow-md"
+        [ngClass]="{ 'md:justify-self-end lg:justify-self-end': i === 0 }">
         <div class="relative h-64 overflow-hidden">
           <img [src]="blog.image" [alt]="blog.title"
             class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -23,8 +24,8 @@
               <span>{{ blog.readTime }}</span>
             </div>
             <span
-              class="flex items-center text-sm font-semibold tracking-wider text-[#005b28] transition-colors group-hover:text-[#005b28]">
-              READ MORE <span class="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
+              class="flex uppercase items-center text-sm font-semibold tracking-wider text-[#005b28] transition-colors group-hover:text-[#005b28]">
+              read more <span class="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
             </span>
           </div>
         </div>
@@ -33,8 +34,8 @@
 
     <div class="flex justify-center">
       <button
-        class="flex items-center rounded border border-[#005b28] bg-[#005b28] px-8 py-3 text-sm font-semibold tracking-wider text-white transition-colors hover:bg-transparent hover:text-[#005b28]">
-        LOAD MORE ARTICLES
+        class="flex items-center uppercase rounded border border-[#005b28] bg-[#005b28] px-8 py-3 text-sm font-semibold tracking-wider text-white transition-colors hover:bg-transparent hover:text-[#005b28]">
+        load more articles
         <span class="material-icons ml-2 flex-shrink-0 text-[18px]">autorenew</span>
       </button>
     </div>

@@ -7,7 +7,6 @@ This folder contains the working instruction docs for The Villa Tent project.
 These docs appear coherent and correctly scoped for the frontend/instruction set:
 
 - FEATURE_LIBRARY_GUIDE.md
-- VILLA_ADMIN_DASHBOARD.md
 - VILLA_ARCHITECTURE_SETUP.md
 - VILLA_CODING_STANDARDS.md
 - VILLA_COMPONENT_GUIDELINES.md

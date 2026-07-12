@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CustomerLayoutComponent } from './layouts/customer-layout/customer-layout.component';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 const routes: Routes = [
   {
@@ -48,20 +47,6 @@ const routes: Routes = [
       {
         path: 'quote',
         loadComponent: () => import('./features/quote/pages/quote-page/quote-page.component').then(m => m.QuotePageComponent)
-      }
-    ]
-  },
-  {
-    path: 'villadashboard',
-    loadComponent: () => import('./admin/authentication/login/pages/login-page/login-page.component').then(m => m.LoginPageComponent)
-  },
-  {
-    path: 'admin',
-    component: AdminLayoutComponent,
-    children: [
-      {
-        path: '',
-        loadComponent: () => import('./admin/dashboard/dashboard.component').then(m => m.DashboardComponent)
       }
     ]
   },

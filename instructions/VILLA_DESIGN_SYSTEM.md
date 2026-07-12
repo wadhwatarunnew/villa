@@ -564,7 +564,6 @@ Use Icons In:
 * Statistics
 * Features
 * Contact Information
-* Admin Dashboard
 
 Do Not Use Icons In Navbar
 

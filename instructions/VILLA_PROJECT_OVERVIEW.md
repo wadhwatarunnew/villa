@@ -178,23 +178,6 @@ Brochure downloads and lead capture.
 
 ---
 
-# Admin Panel Scope
-
-Modules:
-
-* Dashboard
-* Hero Banners
-* Tents
-* Projects
-* Gallery
-* Blogs
-* Leads
-* Quotes
-* SEO
-* Settings
-
----
-
 # Technology Stack
 
 ## Frontend
@@ -298,12 +281,6 @@ Browse information.
 ## Potential Clients
 
 Submit inquiries.
-
----
-
-## Administrators
-
-Manage website content.
 
 ---
 

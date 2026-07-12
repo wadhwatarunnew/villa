@@ -1,4 +1,26 @@
-<section>
-  <h1>Villa Gallery</h1>
-  <villa-gallery-highlight></villa-gallery-highlight>
-</section>
+<villa-gallery-hero></villa-gallery-hero>
+
+<villa-gallery-filters [tabs]="tabs" [activeTab]="activeTab" (activeTabChange)="setActiveTab($event)">
+</villa-gallery-filters>
+
+<villa-gallery-grid [items]="filteredItems" (imageClick)="openLightbox($event)"></villa-gallery-grid>
+
+<div class="flex justify-center px-4 pb-16 sm:px-6 lg:px-10">
+  <button
+    type="button"
+    class="flex items-center uppercase rounded border border-[#005b28] bg-[#005b28] px-8 py-3 text-sm font-semibold tracking-wider text-white transition-colors hover:bg-transparent hover:text-[#005b28]">
+    load more images
+    <span class="material-icons ml-2 flex-shrink-0 text-[18px]">autorenew</span>
+  </button>
+</div>
+
+@if (lightboxOpen) {
+  <villa-gallery-lightbox
+    [items]="filteredItems"
+    [activeIndex]="activeIndex"
+    (closed)="closeLightbox()"
+    (activeIndexChange)="setLightboxIndex($event)">
+  </villa-gallery-lightbox>
+}
+
+<villa-common-cta></villa-common-cta>

@@ -30,16 +30,6 @@ export class HomeTentCollectionComponent {
       title: 'Geodesic Domes',
       image: 'assets/images/villatent9.webp', description: 'Modern, strong &<br />perfect for all climates',
     },
-    // {
-    //   index: '05',
-    //   title: 'Luxury Villas',
-    //   image: 'assets/images/villatent5.webp', description: 'Spacious luxury for<br />exclusive stays',
-    // },
-    // {
-    //   index: '06',
-    //   title: 'Custom Structures',
-    //   image: 'assets/images/villatent6.webp', description: 'Fully customized tents<br />tailored to your vision',
-    // },
   ];
 }
 

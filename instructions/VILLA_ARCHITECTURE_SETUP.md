@@ -14,7 +14,6 @@
 - `CoreModule` for singleton services, guards, and villa-wide providers
 - `SharedModule` for reusable components, directives, pipes, and shared UI modules
 - Feature modules for each major domain
-- `AdminModule` for admin panel routes and functionality
 - `VillaRoutingModule` for global route configuration and lazy loading
 
 ### Project Structure
@@ -32,7 +31,6 @@ src/
     - modules/
   - layouts/
     - public-layout/
-    - admin-layout/
   - features/
     - home/
     - about/
@@ -42,12 +40,6 @@ src/
     - blogs/
     - contact/
     - quote/
-  - admin/
-    - dashboard/
-    - tents-management/
-    - projects-management/
-    - blogs-management/
-    - gallery-management/
   - villa-routing.module.ts
   - villa.component.ts
   - villa.module.ts
@@ -69,8 +61,7 @@ src/
   - `/blogs` -> Blogs
   - `/contact` -> Contact
   - `/quote` -> Quote
-  - `/admin` -> Admin (protected by guard)
-- Use `AuthGuard` or `AdminGuard` for admin routes and restricted pages
+- Use route guards for restricted pages when needed
 
 ### Modules
 - `CoreModule`

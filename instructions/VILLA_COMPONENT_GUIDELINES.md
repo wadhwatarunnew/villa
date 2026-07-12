@@ -15,7 +15,7 @@ Framework:
 
 # Purpose
 
-This document defines the component architecture, naming conventions, reusability rules, and development standards for all frontend components used in The Villa Tent website and admin dashboard.
+This document defines the component architecture, naming conventions, reusability rules, and development standards for all frontend components used in The Villa Tent website.
 
 Goals:
 
@@ -45,8 +45,6 @@ villa-page-banner
 villa-breadcrumb
 
 villa-sidebar
-
-villa-admin-header
 ```
 
 ---
@@ -730,24 +728,6 @@ contact-info
 contact-form
 
 google-map
-```
-
----
-
-# Admin Components
-
-```text
-admin-sidebar
-
-admin-header
-
-admin-card
-
-admin-table
-
-admin-form
-
-admin-modal
 ```
 
 ---

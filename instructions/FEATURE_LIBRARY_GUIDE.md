@@ -18,7 +18,7 @@ src/villa/features/<feature-name>/
 3. Use standalone components for page-level and child components.
 4. Keep shared or cross-feature UI in src/villa/shared/.
 5. Keep feature modules lazy-loaded through the main villa routing.
-6. For admin/auth and similar UI, mirror the same structure under the feature folder: use a `pages/<page-name>/` folder for the standalone page and `components/` for page-specific subcomponents.
+6. For any page-specific flow, mirror the same structure under the feature folder: use a `pages/<page-name>/` folder for the standalone page and `components/` for page-specific subcomponents.
 
 ## Home example
 - pages/home-page/ contains the main page component

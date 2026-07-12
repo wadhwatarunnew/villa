@@ -4,7 +4,7 @@ Version: 1.0
 
 ## Purpose
 
-This document defines the MySQL database structure for The Villa Tent website, admin dashboard, content management, SEO, and lead generation workflows.
+This document defines the MySQL database structure for The Villa Tent website, content management, SEO, and lead generation workflows.
 
 ## Database
 
@@ -68,7 +68,6 @@ Columns:
 
 Roles:
 
-- `super_admin`
 - `content_manager`
 - `sales_manager`
 - `seo_manager`

@@ -2,6 +2,7 @@ import { Component, Input, OnInit, inject, Injector } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ApiService } from '../../../../services/api.service';
+import { SeoService } from '../../../../services/seo.service';
 import {
   AboutHeroComponent,
   AboutIntroComponent,
@@ -31,12 +32,13 @@ import { CommonCtaComponent } from '../../../../shared/components/common-cta/com
 export class AboutPageComponent {
   pageData: any;
     
-  constructor(private route: RouterModule) {}
+  constructor(private route: RouterModule, private seoService:SeoService) {}
   private ApiService = inject(ApiService);
 
   ngOnInit() {
     this.ApiService.getPage('Action=GetAboutPage').subscribe(res => {
       this.pageData = res;
+      this.seoService.setSEO(this.pageData.Data.SEOInfo);
     });
   }
 }

@@ -11,6 +11,7 @@ import { HomeTestimonialsComponent } from '../../components/home-testimonials/ho
 import { BrandsComponent } from '../../../../shared/components/brands/brands.component';
 import { HomeContactComponent } from '../../components/home-contact/home-contact.component';
 import { ApiService } from '../../../../services/api.service';
+import { SeoService } from '../../../../services/seo.service';
 import { CommonCtaComponent } from '../../../../shared/components/common-cta/common-cta.component';
 
 @Component({
@@ -43,13 +44,15 @@ export class HomePageComponent {
   }
 
   pageData: any;
+  seoData: any;
   
-  constructor(private route: RouterModule) {}
+  constructor(private route: RouterModule, private seoService:SeoService) {}
   private ApiService = inject(ApiService);
 
   ngOnInit() {
     this.ApiService.getPage('Action=GetHomePage').subscribe(res => {
       this.pageData = res;
+      this.seoService.setSEO(this.pageData.Data.SEOInfo);
     });
   }
 }

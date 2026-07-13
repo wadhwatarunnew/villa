@@ -1,6 +1,6 @@
 <main class="w-full bg-[#faf9f6]">
-  <villa-about-hero></villa-about-hero>
-  <villa-about-intro></villa-about-intro>
+  <villa-about-hero [about]="pageData.Data.AboutInfo"></villa-about-hero>
+  <villa-about-intro [founders]="pageData.Data.Founders" [about]="pageData.Data.AboutInfo" [stats]="pageData.Data.RewardStats"></villa-about-intro>
   <!-- <villa-about-stats-banner></villa-about-stats-banner> -->
   <villa-about-values></villa-about-values>
   <villa-about-mission-vision></villa-about-mission-vision>

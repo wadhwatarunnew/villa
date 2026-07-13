@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, Input } from '@angular/core';
 
 @Component({
   selector: 'villa-rewards-stats',
@@ -10,23 +10,23 @@ import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 })
 export class RewardsStatsComponent implements AfterViewInit, OnDestroy {
   // stats contain numeric targets and optional suffix so we can animate counts on load
-  stats: Array<{ target: number; suffix?: string; label: string; iconName: string; display: string }> = [
+  defaultStats: Array<{ target: number; suffix?: string; label: string; iconName: string; display: string }> = [
     {
-      target: 30,
+      target: 10,
       suffix: '+',
       label: 'Years of Experience',
       iconName: 'emoji_events',
       display: '0+'
     },
     {
-      target: 500,
+      target: 20,
       suffix: '+',
       label: 'Projects Completed',
       iconName: 'work',
       display: '0+'
     },
     {
-      target: 40,
+      target: 10,
       suffix: '+',
       label: 'Countries Served',
       iconName: 'public',
@@ -40,6 +40,18 @@ export class RewardsStatsComponent implements AfterViewInit, OnDestroy {
       display: '0%'
     }
   ];
+
+  private _defaultStats = this.defaultStats;
+
+  @Input()
+  set stats(value: any[] | null | undefined) {
+    this._defaultStats =
+      value && value.length ? value : this.defaultStats;
+  }
+
+  get stats(): any[] {
+    return this._defaultStats;
+  }
 
   private _rafId: number | null = null;
   private _observer: IntersectionObserver | null = null;

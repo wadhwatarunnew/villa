@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,4 +8,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './about-intro.component.html',
   styleUrls: ['./about-intro.component.scss']
 })
-export class AboutIntroComponent {}
+export class AboutIntroComponent {
+  @Input() founders: any[] = [];
+  @Input() about: any = {};
+  @Input() stats: any = {};
+}

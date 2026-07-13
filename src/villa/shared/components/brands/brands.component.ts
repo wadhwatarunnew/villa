@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,14 +10,32 @@ import { CommonModule } from '@angular/common';
 export class BrandsComponent implements AfterViewInit, OnDestroy {
   @ViewChild('brandCarousel', { static: true }) brandCarousel!: ElementRef<HTMLDivElement>;
 
-  brands: Array<{ name: string; logo?: string }> = [
+  defaultBrands: Array<{ name: string; logo?: string }> = [
     { name: 'ITC Hotels', logo: 'assets/images/logos/itc-hotels.webp' },
     { name: 'Godwin Hotels', logo: 'assets/images/logos/godwin-hotels.webp' },
     { name: 'The Oberoi', logo: 'assets/images/logos/ohr.webp' },
     { name: 'Tenzinling Hotels', logo: 'assets/images/logos/tenzinling-hotels.webp' },
   ];
 
-  brandsExtended = [...this.brands, ...this.brands, ...this.brands];
+  private _brands = this.defaultBrands;
+
+  brandsExtended: Array<{ name: string; logo?: string }> = [];
+
+  @Input()
+  set brands(value: Array<{ name: string; logo?: string }> | null | undefined) {
+    this._brands = value && value.length ? value : this.defaultBrands;
+
+    this.brandsExtended = [
+      ...this._brands,
+      ...this._brands,
+      ...this._brands
+    ];
+  }
+
+  get brands(): Array<{ name: string; logo?: string }> {
+    return this._brands;
+  }
+
 
   private slideInterval?: number;
   private readonly scrollSpeed = 1;

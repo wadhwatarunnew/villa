@@ -9,28 +9,28 @@
       <div class="text-sm sm:text-base text-white/80">
         {{ activeIndex + 1 }} / {{ items.length }}
       </div>
-      <div class="flex items-center gap-4">
-        <button type="button" class="text-white/75 transition hover:text-white" (click)="close()" aria-label="Close">
+      <div>
+        <button type="button" class="flex items-center justify-center text-white/75 size-8 transition hover:text-white cursor-pointer" (click)="close()" aria-label="Close">
           <span class="material-icons text-3xl">close</span>
         </button>
       </div>
     </div>
 
-    <div class="relative flex min-h-0 flex-1 items-center justify-center px-4 sm:px-10">
+    <div class="relative flex min-h-0 flex-1 items-center justify-center px-4 sm:px-20">
       <button
         type="button"
-        class="absolute left-4 top-1/2 -translate-y-1/2 rounded-md bg-white/10 p-2 text-white/80 transition hover:bg-white/20 hover:text-white"
+        class="absolute left-4 top-1/2 -translate-y-1/2 rounded-md bg-white/10 p-2 text-white/80 transition hover:bg-white/20 hover:text-white flex items-center justify-center cursor-pointer"
         (click)="prev()"
         aria-label="Previous image">
         <span class="material-icons text-3xl">arrow_back</span>
       </button>
 
       @if (currentItem) {
-        <div class="relative w-full max-w-[1600px] overflow-hidden rounded-[1.25rem]">
+        <div class="relative max-h-[62vh] w-full max-w-[1020px] overflow-hidden rounded-[1.25rem] bg-black">
           <img
             [src]="currentItem.image"
             [alt]="currentItem.title"
-            class="max-h-[calc(100vh-180px)] w-full object-cover" />
+            class="mx-auto block max-h-[62vh] max-w-full object-contain" />
 
           <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent"></div>
 
@@ -50,7 +50,7 @@
 
       <button
         type="button"
-        class="absolute right-4 top-1/2 -translate-y-1/2 rounded-md bg-white/10 p-2 text-white/80 transition hover:bg-white/20 hover:text-white"
+        class="absolute right-4 top-1/2 -translate-y-1/2 rounded-md bg-white/10 p-2 text-white/80 transition hover:bg-white/20 hover:text-white flex items-center justify-center cursor-pointer"
         (click)="next()"
         aria-label="Next image">
         <span class="material-icons text-3xl">arrow_forward</span>
@@ -64,7 +64,7 @@
             type="button"
             class="relative h-20 w-28 flex-shrink-0 overflow-hidden rounded-md border-2 transition"
             [ngClass]="{
-              'border-[#005b28] opacity-100': activeIndex === index,
+              'border-[#003d1a] opacity-100': activeIndex === index,
               'border-transparent opacity-70': activeIndex !== index
             }"
             (click)="select(index)">

@@ -3,9 +3,9 @@
     <button
       type="button"
       (click)="selectTab(tab.value)"
-      class="rounded-md border border-[#e8e2d6] bg-white px-4 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-[#4d4d4d] transition hover:border-[#005b28] hover:bg-[#005b28] hover:text-white"
+      class="rounded-md border border-[#e8e2d6] bg-white px-4 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-[#4d4d4d] transition hover:border-[#003d1a] hover:bg-[#003d1a] hover:text-white"
       [ngClass]="{
-        '!bg-[#005b28] text-white border-[#005b28]': activeTab === tab.value
+        '!bg-[#003d1a] text-white border-[#003d1a]': activeTab === tab.value
       }">
       {{ tab.label }}
     </button>

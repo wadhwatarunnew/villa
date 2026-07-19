@@ -1,8 +1,8 @@
 <div class="text-center px-8 py-16">
-  <p class="text-[#005b28] font-bold tracking-[0.2em] text-sm uppercase mb-8">Trusted By Global Brands</p>
+  <p class="text-[#003d1a] font-bold tracking-[0.2em] text-sm uppercase mb-8">Trusted By Global Brands</p>
   <div class="relative">
     <button (click)="scrollSlider('left')"
-      class="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white text-[#005b28] shadow-sm flex items-center justify-center hover:bg-gray-50 transition hidden md:flex">
+      class="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white text-[#003d1a] shadow-sm flex items-center justify-center hover:bg-gray-50 transition hidden md:flex">
       <span class="material-icons text-[22px]">keyboard_arrow_left</span>
     </button>
     <div #brandCarousel
@@ -14,13 +14,13 @@
             <img [src]="brand.logo" [alt]="brand.name" [title]="brand.name" class="h-14 object-contain" />
           </ng-container>
           <ng-template #textBrand>
-            <span class="font-serif text-xl tracking-wider text-[#005b28]">{{ brand.name }}</span>
+            <span class="font-serif text-xl tracking-wider text-[#003d1a]">{{ brand.name }}</span>
           </ng-template>
         </div>
       </ng-container>
     </div>
     <button (click)="scrollSlider('right')"
-      class="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white text-[#005b28] shadow-sm flex items-center justify-center hover:bg-gray-50 transition hidden md:flex">
+      class="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white text-[#003d1a] shadow-sm flex items-center justify-center hover:bg-gray-50 transition hidden md:flex">
       <span class="material-icons text-[22px]">keyboard_arrow_right</span>
     </button>
   </div>

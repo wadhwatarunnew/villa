@@ -1,0 +1,35 @@
+<section class="px-6 lg:px-10 py-16">
+  <div class="grid gap-8 lg:grid-cols-2 lg:items-start">
+    <!-- <div><img class="aspect-[1.45] w-full rounded-xl object-cover shadow-lg" [src]="image" [alt]="name" />
+      <div class="mt-3 grid grid-cols-5 gap-2"><img *ngFor="let thumbnail of images.slice(0, 5)"
+          class="aspect-[1.4] w-full rounded-md object-cover" [src]="thumbnail" [alt]="name + ' view'" /></div>
+    </div> -->
+    <villa-tent-image-gallery [name]="name" [images]="images"></villa-tent-image-gallery>
+    <div class="py-2 flex flex-col justify-center h-full">
+      <p class="text-xs font-bold uppercase tracking-wider text-[#003d1a]">Heritage luxury collection</p>
+      <h1 class="mt-3 font-serif text-4xl text-[#0e2614] md:text-5xl">{{ name }}</h1>
+      <p class="mt-4 max-w-xl leading-relaxed text-gray-600">Inspired by exceptional hospitality, {{ name }} offers a
+        refined balance of luxury, comfort and nature for memorable resort experiences.</p>
+      <div class="mt-7 grid grid-cols-2 gap-x-5 gap-y-6 border-y border-gray-200 py-6 sm:grid-cols-4">
+        <div class="flex items-center gap-3"><span class="material-icons text-[#007735]"
+            aria-hidden="true">square_foot</span>
+          <div><b class="block text-[11px] uppercase tracking-wider text-gray-500">Size</b><span
+              class="text-sm font-semibold text-[#0e2614]">65 SQM</span></div>
+        </div>
+        <div class="flex items-center gap-3"><span class="material-icons text-[#007735]" aria-hidden="true">group</span>
+          <div><b class="block text-[11px] uppercase tracking-wider text-gray-500">Capacity</b><span
+              class="text-sm font-semibold text-[#0e2614]">2 – 4 Guests</span></div>
+        </div>
+        <div class="flex items-center gap-3"><span class="material-icons text-[#007735]" aria-hidden="true">bed</span>
+          <div><b class="block text-[11px] uppercase tracking-wider text-gray-500">Bedrooms</b><span
+              class="text-sm font-semibold text-[#0e2614]">1 Bedroom</span></div>
+        </div>
+        <div class="flex items-center gap-3"><span class="material-icons text-[#007735]"
+            aria-hidden="true">bathtub</span>
+          <div><b class="block text-[11px] uppercase tracking-wider text-gray-500">Bathrooms</b><span
+              class="text-sm font-semibold text-[#0e2614]">1 Ensuite</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

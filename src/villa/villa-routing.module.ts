@@ -17,7 +17,17 @@ const routes: Routes = [
       },
       {
         path: 'tents',
+        pathMatch: 'full',
         loadComponent: () => import('./features/tents/pages/tents-page/tents-page.component').then(m => m.TentsPageComponent)
+      },
+      {
+        path: 'tents/:category/:tent',
+        loadComponent: () => import('./features/tents/pages/tent-detail-page/tent-detail-page.component').then(m => m.TentDetailPageComponent)
+      },
+      {
+        path: 'tents/:category',
+        pathMatch: 'full',
+        loadComponent: () => import('./features/tents/pages/tent-category-page/tent-category-page.component').then(m => m.TentCategoryPageComponent)
       },
       {
         path: 'projects',

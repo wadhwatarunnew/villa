@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { GalleryItem } from '../gallery-data';
 
 @Component({
@@ -8,11 +8,23 @@ import { GalleryItem } from '../gallery-data';
   imports: [CommonModule],
   templateUrl: './gallery-lightbox.component.html'
 })
-export class GalleryLightboxComponent {
+export class GalleryLightboxComponent implements OnInit, OnDestroy {
   @Input() items: GalleryItem[] = [];
   @Input() activeIndex = 0;
   @Output() closed = new EventEmitter<void>();
   @Output() activeIndexChange = new EventEmitter<number>();
+
+  private slideshowTimer?: ReturnType<typeof setInterval>;
+
+  ngOnInit(): void {
+    this.slideshowTimer = setInterval(() => this.next(), 10_000);
+  }
+
+  ngOnDestroy(): void {
+    if (this.slideshowTimer) {
+      clearInterval(this.slideshowTimer);
+    }
+  }
 
   get currentItem(): GalleryItem | null {
     return this.items[this.activeIndex] || null;

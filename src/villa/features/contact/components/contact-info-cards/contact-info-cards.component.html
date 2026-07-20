@@ -4,7 +4,7 @@
       <div *ngFor="let card of siteInfo"
         class="flex min-h-[200px] flex-col items-center text-center rounded-lg border border-gray-100 bg-white px-4 py-5 shadow-[0_1px_6px_rgba(0,0,0,0.04)] transition hover:border-gray-200">
         <div class="mb-3 flex size-12 p-3 items-center justify-center rounded-full bg-[#edf5ee]">
-          <svg class="text-[#005b28] flex-shrink-0" [attr.fill]="card.fill"
+          <svg class="text-[#003d1a] flex-shrink-0" [attr.fill]="card.fill"
             [attr.stroke]="card.fill === 'none' ? 'currentColor' : null" viewBox="0 0 24 24">
             <path *ngFor="let path of card.paths" [attr.stroke-linecap]="card.fill === 'none' ? 'round' : null"
               [attr.stroke-linejoin]="card.fill === 'none' ? 'round' : null"
@@ -12,16 +12,16 @@
             </path>
           </svg>
         </div>
-        <p class="mb-1 text-sm font-bold uppercase tracking-wide text-[#005b28]">{{ card.label }}</p>
+        <p class="mb-1 text-sm font-bold uppercase tracking-wide text-[#003d1a]">{{ card.label }}</p>
         <div *ngIf="card.links; else singleValue" class="mb-1 flex flex-col gap-0.5">
           <a *ngFor="let link of card.links" [href]="link.href"
-            class="text-sm font-semibold text-gray-950 transition hover:text-[#005b28]">
+            class="text-sm font-semibold text-gray-950 transition hover:text-[#003d1a]">
             {{ link.label }}
           </a>
         </div>
         <ng-template #singleValue>
           <a *ngIf="card.href; else plainValue" [href]="card.href" [attr.target]="card.target"
-            class="mb-1 text-sm font-semibold text-gray-950 transition hover:text-[#005b28]">
+            class="mb-1 text-sm font-semibold text-gray-950 transition hover:text-[#003d1a]">
             {{ card.value }}
           </a>
         </ng-template>

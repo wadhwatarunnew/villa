@@ -1,6 +1,6 @@
 <main class="w-full bg-white">
-  <villa-contact-hero></villa-contact-hero>
-  <villa-contact-info-cards></villa-contact-info-cards>
-  <villa-contact-form></villa-contact-form>
+  <villa-contact-hero [topSection]="pageData?.Data?.ContactInfo"></villa-contact-hero>
+  <villa-contact-info-cards [siteInfo]="pageData?.Data?.SiteInfo"></villa-contact-info-cards>
+  <villa-contact-form [topSection]="pageData?.Data?.ContactInfo"></villa-contact-form>
   <villa-contact-location></villa-contact-location>
 </main>

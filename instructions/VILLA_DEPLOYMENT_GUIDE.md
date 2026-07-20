@@ -129,7 +129,6 @@ Never make the full project writable.
 - Contact form submits successfully.
 - Quote form submits successfully.
 - Brochure form submits successfully.
-- Admin login works.
 - Images load correctly.
 - Sitemap is available.
 - Robots file is available.
@@ -145,11 +144,10 @@ Required production files:
 /robots.txt
 ```
 
-Robots file should block admin and API routes from crawling:
+Robots file should block API routes from crawling:
 
 ```text
 User-agent: *
-Disallow: /admin
 Disallow: /api
 Allow: /
 Sitemap: https://www.thevillatent.com/sitemap.xml
@@ -167,7 +165,6 @@ Sitemap: https://www.thevillatent.com/sitemap.xml
 ## Security Checklist
 
 - Use HTTPS.
-- Protect admin APIs with authentication.
 - Validate all backend inputs.
 - Sanitize rich text content.
 - Restrict file upload types.
@@ -188,8 +185,8 @@ If deployment fails:
 1. Restore previous frontend files.
 2. Restore previous backend files if changed.
 3. Restore database backup if migrations failed.
-4. Re-test public website and admin login.
+4. Re-test public website flows and form submissions.
 
 ## Final Rule
 
-Deployment is complete only when the public website, admin dashboard, forms, API, SEO files, and SSL are verified on the production domain.
+Deployment is complete only when the public website, forms, API, SEO files, and SSL are verified on the production domain.

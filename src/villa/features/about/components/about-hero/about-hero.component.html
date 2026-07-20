@@ -1,15 +1,12 @@
-<section class="relative w-full h-[1000px] flex items-center bg-cover bg-center bg-no-repeat"
-  style="background-image: url('{{about.image}}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<section class="relative w-full h-[calc(100vh-146px)] flex items-center bg-cover bg-center bg-no-repeat"
+  style="background-image: url('{{topSection.image}}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
   <div class="absolute inset-0 bg-black/45"></div>
   <div class="relative z-10 mx-auto px-6 lg:px-10 w-full">
     <div class="max-w-2xl">
-      <p class="text-white font-semibold tracking-widest text-sm uppercase mb-4">— Our Story</p>
-      <h1 class="text-white text-5xl md:text-6xl font-serif leading-tight mb-6">
-        Crafting Luxury<br />Experiences Since 2008
+      <p class="text-white font-semibold tracking-widest text-sm uppercase mb-4">{{topSection.subtitle}}</p>
+      <h1 class="text-white text-5xl md:text-6xl font-serif leading-tight mb-6" [innerHTML]="topSection.title">
       </h1>
-      <p class="text-white text-lg mb-8 max-w-lg">
-        The Villa Tent is a leading manufacturer of luxury tents, offering world-class glamping solutions for resorts,
-        hotels, events and unique destinations around the globe.
+      <p class="text-white text-lg mb-8 max-w-lg" [innerHTML]="topSection.content">
       </p>
       <button
         class="bg-[#005b28] hover:bg-[#003d1a] text-white border border-[#1b402e] px-8 py-3 rounded text-sm font-medium transition flex items-center group">

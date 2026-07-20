@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -8,4 +8,6 @@ import { RouterModule } from '@angular/router';
   templateUrl: './home-about.component.html',
   styleUrls: ['./home-about.component.scss']
 })
-export class HomeAboutComponent {}
+export class HomeAboutComponent {
+  @Input() aboutSection: any = {};
+}

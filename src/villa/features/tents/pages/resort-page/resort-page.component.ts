@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { MenuService } from '../../../../services/menu.service';
 import { ApiService } from '../../../../services/api.service';
+import { SeoService } from '../../../../services/seo.service';
 import { TentsHighlightComponent } from '../../components/tents-highlight/tents-highlight.component';
 
 @Component({
@@ -18,7 +19,7 @@ export class ResortPageComponent {
   resortGalleryInfo: any;
   injector!: Injector;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private seoService:SeoService) {}
   private MenuService = inject(MenuService);
   private ApiService = inject(ApiService);
 
@@ -28,8 +29,7 @@ export class ResortPageComponent {
       this.resortData = this.pageData.Data.ResortInfo;
       this.resortMetaData = this.pageData.Data.SEOInfo;
       this.resortGalleryInfo = this.pageData.Data.GalleryInfo;
-
-      console.log("pageData === ", this.pageData);
+      this.seoService.setSEO(this.pageData.Data.SEOInfo);
     });
   }
 }

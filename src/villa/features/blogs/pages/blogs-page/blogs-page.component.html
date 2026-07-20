@@ -1,1 +1,4 @@
-<villa-blogs-highlight [blogPosts]="pageData.Data.Blogs" [brands]="pageData.Data.Brands"></villa-blogs-highlight>
+<villa-blogs-highlight [topSection]="pageData?.Data?.Info" [blogPosts]="pageData?.Data?.Blogs" [brands]="pageData?.Data?.Brands"></villa-blogs-highlight>
+<!-- <villa-blog-post-list [blogPosts]="filteredBlogPosts"></villa-blog-post-list> -->
+<villa-brands [brands]="pageData?.Data?.Brands"></villa-brands>
+<villa-common-cta></villa-common-cta>

@@ -1,7 +1,7 @@
 <!-- Hero Section -->
 <section class="relative h-[1000px] w-full bg-slate-900 overflow-hidden flex flex-col justify-end">
   <div class="absolute inset-0 w-full h-full">
-    <img src="assets/images/villatent.webp" alt="Luxury Glamping Tent"
+    <img src="{{topSection?.image}}" alt="{{topSection?.title}}"
       class="w-full h-full object-cover object-[center_62%] opacity-75">
     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10"></div>
   </div>
@@ -9,15 +9,12 @@
   <div class="relative mx-auto z-10 w-full px-6 lg:px-10 pb-16">
     <div class="flex items-center space-x-4 mb-4">
       <div class="w-8 h-[2px] bg-amber-500"></div>
-      <span class="text-white font-medium tracking-widest text-sm uppercase">Our Blogs</span>
+      <span class="text-white font-medium tracking-widest text-sm uppercase" [innerHTML]="topSection?.subtitle"></span>
     </div>
 
-    <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6 leading-tight">
-      Stories, Insights & Inspiration
-    </h1>
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6 leading-tight" [innerHTML]="topSection?.title"></h1>
 
-    <p class="text-gray-200 text-lg max-w-2xl mb-8">
-      Explore our blog for expert tips, project stories, and the latest in luxury glamping.
+    <p class="text-gray-200 text-lg max-w-2xl mb-8" [innerHTML]="topSection?.content">
     </p>
 
     <div class="flex items-center space-x-2 text-sm text-gray-300">
@@ -33,18 +30,18 @@
   <div class="w-full mx-auto px-6 lg:px-10">
 
     <!-- Filter Tabs -->
-    <div class="flex flex-wrap justify-center gap-3 mb-12">
+    <!-- <div class="flex flex-wrap justify-center gap-3 mb-12">
       <button *ngFor="let category of categories" type="button" (click)="selectCategory(category)"
         [class]="selectedCategory === category
           ? 'px-6 py-2 bg-[#0c2a20] text-white text-xs font-semibold tracking-wider rounded border border-[#0c2a20] transition-colors'
           : 'px-6 py-2 bg-white text-gray-600 text-xs font-semibold tracking-wider rounded border border-gray-200 hover:border-gray-300 transition-colors'">
         {{ category }}
       </button>
-    </div>
+    </div> -->
 
     <!-- Blog Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-      <article *ngFor="let blog of filteredBlogPosts"
+      <article *ngFor="let blog of visibleItems"
         class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group flex flex-col h-full border border-gray-100">
         <div class="relative h-64 overflow-hidden">
           <img [src]="blog.image" [alt]="blog.title"
@@ -65,7 +62,7 @@
               <span>•</span>
               <span>{{ blog.readTime }}</span>
             </div>
-            <a href="#"
+            <a href="/{{blog.blogurl}}"
               class="text-amber-600 text-sm font-semibold tracking-wider flex items-center group-hover:text-amber-500 transition-colors">
               READ MORE <span class="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
             </a>
@@ -77,17 +74,20 @@
 
     <!-- Load More Button -->
     <div class="flex justify-center">
-      <button
-        class="px-8 py-3 bg-white text-amber-600 text-sm font-semibold tracking-wider border border-amber-500 rounded hover:bg-amber-50 transition-colors flex items-center">
-        LOAD MORE ARTICLES
-        <span class="material-icons ml-2 flex-shrink-0 text-[18px]">autorenew</span>
-      </button>
+      @if (canLoadMore) {
+        <button
+        (click)="loadMoreBlogs()"
+          class="px-8 py-3 bg-white text-amber-600 text-sm font-semibold tracking-wider border border-amber-500 rounded hover:bg-amber-50 transition-colors flex items-center">
+          LOAD MORE ARTICLES
+          <span class="material-icons ml-2 flex-shrink-0 text-[18px]">autorenew</span>
+        </button>
+      }
     </div>
   </div>
 </section>
 
 <!-- Brands Section -->
-<section class="py-16 bg-white border-t border-b border-gray-100">
+<!-- <section class="py-16 bg-white border-t border-b border-gray-100">
   <div class="w-full mx-auto px-6 lg:px-10">
     <div class="flex items-center justify-center mb-12">
       <div class="h-px bg-gray-300 w-16"></div>
@@ -102,12 +102,12 @@
       </ng-container>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- CTA Section -->
-<section class="bg-gray-50 flex justify-center py-8 px-6 lg:px-10">
+<!-- <section class="bg-gray-50 flex justify-center py-8 px-6 lg:px-10">
   <div class="w-full flex flex-col lg:flex-row shadow-xl rounded-lg overflow-hidden">
-    <!-- Left Side: Image & Text -->
+
     <div class="relative w-full lg:w-1/2 min-h-[400px] lg:min-h-0 p-12 flex flex-col justify-center">
       <div class="absolute inset-0">
         <img src="assets/images/villatent.webp" alt="Tent Background" class="w-full h-full object-cover">
@@ -136,41 +136,22 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Right Side: Contact Form -->
-    <div class="w-full lg:w-1/2 bg-[#0c2a20] p-8 md:p-12 lg:p-16 flex flex-col justify-center">
-      <form class="space-y-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <input type="text" placeholder="Full Name *"
-              class="w-full bg-transparent border border-white/20 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors">
-          </div>
-          <div>
-            <input type="email" placeholder="Email Address *"
-              class="w-full bg-transparent border border-white/20 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors">
-          </div>
-          <div>
-            <input type="tel" placeholder="Phone Number *"
-              class="w-full bg-transparent border border-white/20 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors">
-          </div>
-          <div>
-            <input type="text" placeholder="Project Location *"
-              class="w-full bg-transparent border border-white/20 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors">
-          </div>
-        </div>
+      <h1 class="mb-6 font-serif text-4xl leading-tight text-white sm:text-5xl lg:text-6xl">
+        Stories, Insights & Inspiration
+      </h1>
 
-        <div>
-          <textarea rows="4" placeholder="Your Message / Requirements *"
-            class="w-full bg-transparent border border-white/20 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-amber-500 transition-colors resize-none"></textarea>
-        </div>
+      <p class="mb-8 max-w-2xl text-base leading-relaxed text-gray-200 sm:text-lg">
+        Explore our blog for expert tips, project stories, and the latest in luxury glamping.
+      </p>
 
-        <button type="button"
-          class="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold tracking-wider py-4 rounded transition-colors flex items-center justify-center">
-          SEND MESSAGE
-          <span class="material-icons ml-2 flex-shrink-0 text-[18px]">arrow_forward</span>
+      <div class="flex items-center gap-6">
+        <button
+          class="bg-[#005b28] hover:bg-[#003d1a] text-white px-8 py-3.5 rounded-md text-[11px] font-bold tracking-widest uppercase transition flex items-center group">
+          explore our tents
+          <span class="material-icons ml-3 group-hover:translate-x-1 transition-transform flex-shrink-0">arrow_forward</span>
         </button>
-      </form>
+      </div>
     </div>
   </div>
-</section>
+</section> -->

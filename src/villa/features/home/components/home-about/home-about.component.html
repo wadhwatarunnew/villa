@@ -1,23 +1,14 @@
 <section class="mx-auto px-6 lg:px-10 pt-25 pb-16 bg-white">
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
     <div class="relative overflow-hidden rounded-xl aspect-[16/9] lg:aspect-[1.72/1]">
-      <img src="assets/images/villatent11.webp" alt="Luxury villa tent at sunset" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-black/45"></div>
+      <img src="{{aboutSection?.image}}" alt="{{aboutSection?.title}}" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-black/20"></div>
     </div>
 
     <div class="max-w-2xl">
-      <h2 class="text-3xl md:text-4xl lg:text-[2.5rem] font-serif leading-tight text-[#0e2614] mb-5">
-        Crafting Luxury Outdoor Hospitality Experiences Worldwide
+      <h2 class="text-3xl md:text-4xl lg:text-[2.5rem] font-serif leading-tight text-[#0e2614] mb-5" [innerHTML]="aboutSection?.title">
       </h2>
-      <p class="  text-gray-600 leading-relaxed mb-5">
-        At The Villa Tent, we specialize in designing, manufacturing, and installing premium luxury tents for
-        resorts, eco-retreats, glamping destinations, and hospitality projects. Every structure is thoughtfully
-        engineered to combine timeless elegance with long-lasting durability.
-      </p>
-      <p class="  text-gray-600 leading-relaxed mb-7">
-        With years of industry expertise, our team delivers fully customized tent solutions tailored to each
-        project's location, climate, and architectural vision. From concept and manufacturing to installation and
-        after-sales support, we ensure every project meets the highest standards of quality and craftsmanship.
+      <p class="  text-gray-600 leading-relaxed mb-5" [innerHTML]="aboutSection?.content">
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mb-8">

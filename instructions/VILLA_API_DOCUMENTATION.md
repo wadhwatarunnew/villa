@@ -4,9 +4,9 @@ Version: 1.0
 
 ## Purpose
 
-This document defines the backend API contract for The Villa Tent website and admin dashboard.
+This document defines the backend API contract for The Villa Tent website.
 
-The backend stack is PHP with MySQL. The API should return JSON responses and support public website content, lead capture, and authenticated admin management.
+The backend stack is PHP with MySQL. The API should return JSON responses and support public website content and lead capture.
 
 ## Base URL
 
@@ -56,14 +56,6 @@ Error response:
 - `500` Server error
 
 ## Authentication
-
-Admin APIs require token authentication.
-
-Header:
-
-```text
-Authorization: Bearer <token>
-```
 
 Public APIs do not require authentication.
 
@@ -225,64 +217,10 @@ Payload:
 }
 ```
 
-## Admin Auth APIs
-
-### Login
-
-```text
-POST /admin/login
-```
-
-Payload:
-
-```json
-{
-  "email": "admin@example.com",
-  "password": "password"
-}
-```
-
-### Logout
-
-```text
-POST /admin/logout
-```
-
-### Get Profile
-
-```text
-GET /admin/profile
-```
-
-## Admin CRUD APIs
-
-Use the same pattern for admin resources:
-
-```text
-GET /admin/{resource}
-GET /admin/{resource}/{id}
-POST /admin/{resource}
-PUT /admin/{resource}/{id}
-DELETE /admin/{resource}/{id}
-```
-
-Resources:
-
-- `hero-banners`
-- `tents`
-- `projects`
-- `gallery`
-- `blogs`
-- `leads`
-- `quotes`
-- `brochure-downloads`
-- `seo`
-- `settings`
-
 ## File Upload API
 
 ```text
-POST /admin/uploads
+POST /uploads
 ```
 
 Supported file types:

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CustomerLayoutComponent } from './layouts/customer-layout/customer-layout.component';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 const routes: Routes = [
   {
@@ -30,7 +29,16 @@ const routes: Routes = [
       },
       {
         path: 'blogs',
-        loadComponent: () => import('./features/blogs/pages/blogs-page/blogs-page.component').then(m => m.BlogsPageComponent)
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./features/blogs/pages/blogs-page/blogs-page.component').then(m => m.BlogsPageComponent)
+          },
+          {
+            path: ':slug',
+            loadComponent: () => import('./features/blog-detail/pages/blog-detail-page/blog-detail-page.component').then(m => m.BlogDetailPageComponent)
+          }
+        ]
       },
       {
         path: 'contact-us',
@@ -50,20 +58,6 @@ const routes: Routes = [
       //   path: ':slug',
       //   loadChildren: () => import('./features/slug-router/slug-router-module').then(m => m.SlugRouterModule)
       // }
-    ]
-  },
-  {
-    path: 'villadashboard',
-    loadComponent: () => import('./admin/authentication/login/pages/login-page/login-page.component').then(m => m.LoginPageComponent)
-  },
-  {
-    path: 'admin',
-    component: AdminLayoutComponent,
-    children: [
-      {
-        path: '',
-        loadComponent: () => import('./admin/dashboard/dashboard.component').then(m => m.DashboardComponent)
-      }
     ]
   },
   {

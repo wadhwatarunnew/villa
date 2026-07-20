@@ -370,7 +370,6 @@ Allow:
 
 Block:
 
-* Admin
 * API Endpoints
 * Temporary Files
 

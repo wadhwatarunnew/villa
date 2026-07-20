@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,4 +8,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home-highlight.component.html',
   styleUrls: ['./home-highlight.component.scss']
 })
-export class HomeHighlightComponent {}
+export class HomeHighlightComponent {
+  @Input() topSection: any = {};
+}

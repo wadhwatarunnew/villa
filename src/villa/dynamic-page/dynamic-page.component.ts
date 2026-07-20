@@ -3,10 +3,12 @@ import { NgComponentOutlet, JsonPipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { MenuService } from '../services/menu.service';
 import { ApiService } from '../services/api.service';
+import { SeoService } from '../services/seo.service';
 import { TentsPageComponent } from '../features/tents/pages/tents-page/tents-page.component';
 import { CategoryPageComponent } from '../features/tents/pages/category/category.component';
 import { ProjectsPageComponent } from '../features/projects/pages/projects-page/projects-page.component';
 import { ProjectCategoryComponent } from '../features/projects/pages/category/category.component';
+import { BlogDetailPageComponent } from '../features/blog-detail/pages/blog-detail-page/blog-detail-page.component';
 
 @Component({
   selector: 'villa-dynamic-page',
@@ -24,15 +26,16 @@ export class DynamicPageComponent {
   @ViewChild('container', { read: ViewContainerRef, static: true })
   vcr!: ViewContainerRef;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private seoService:SeoService) {}
   private MenuService = inject(MenuService);
   private ApiService = inject(ApiService);
 
   componentMap: Record<string, any> = {
     resortTent: TentsPageComponent,
-    resortCateogry: CategoryPageComponent,
+    resortCategory: CategoryPageComponent,
     project: ProjectsPageComponent,
-    projectCateogry: ProjectCategoryComponent
+    projectCategory: ProjectCategoryComponent,
+    blogDetail: BlogDetailPageComponent
   };
 
   ngOnInit() {
@@ -42,33 +45,33 @@ export class DynamicPageComponent {
       const slug = params['slug'];
       this.loadPage(slug);
 
-      const page = this.MenuService.findSlug(slug);
+      // const page = this.MenuService.findSlug(slug);
 
-      if (!page) return;
+      // if (!page) return;
 
-      this.ApiService.getPage(page.api).subscribe(res => {
+      // this.ApiService.getPage(page.api).subscribe(res => {
 
-        this.pageData = res;
-        this.vcr.clear();
-        const component = this.componentMap[page.type] as any;
+      //   this.pageData = res;
+      //   this.seoService.setSEO(this.pageData.Data.SEOInfo);
+      //   this.vcr.clear();
+      //   const component = this.componentMap[page.type] as any;
 
-        if (!component) {
-          console.error('Component not found:', page.type);
-          return;
-        }
+      //   if (!component) {
+      //     console.error('Component not found:', page.type);
+      //     return;
+      //   }
 
-        const compRef = this.vcr.createComponent(component);
-        (compRef.instance as any).data = res;
-        console.log('selectedComponent:', this.selectedComponent);
-      });
+      //   const compRef = this.vcr.createComponent(component);
+      //   (compRef.instance as any).data = res;
+      //   console.log('selectedComponent:', this.selectedComponent);
+      // });
 
     });
   }
 
-  loadPage(slug: string) {
-
-  const page = this.MenuService.findSlug(slug);
-
+  loadPage(slug: string)
+  {
+    const page = this.MenuService.findSlug(slug);
     if (!page) {
       setTimeout(() => {
         this.loadPage(slug);
@@ -78,20 +81,22 @@ export class DynamicPageComponent {
 
     this.selectedComponent = this.componentMap[page.type];
 
-     this.ApiService.getPage(page.api).subscribe(res => {
+    this.ApiService.getPage(page.api).subscribe(res => {
 
-        this.pageData = res;
-        this.vcr.clear();
-        const component = this.componentMap[page.type] as any;
+      this.pageData = res;
+      this.seoService.setSEO(this.pageData.Data.SEOInfo);
+      
+      this.vcr.clear();
+      const component = this.componentMap[page.type] as any;
 
-        if (!component) {
-          console.error('Component not found:', page.type);
-          return;
-        }
+      if (!component) {
+        console.error('Component not found:', page.type);
+        return;
+      }
 
-        const compRef = this.vcr.createComponent(component);
-        (compRef.instance as any).data = res;
-        console.log('selectedComponent:', this.selectedComponent);
-      });
+      const compRef = this.vcr.createComponent(component);
+      (compRef.instance as any).data = res;
+      console.log('selectedComponent:', this.selectedComponent);
+    });
   }
 }

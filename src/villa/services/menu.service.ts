@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject  } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { MenuItem } from '../models/menu-item.interface';
 import { ApiService } from '../services/api.service';
@@ -20,6 +20,9 @@ export class MenuService {
   resortTents: any[] = [];
   projects: any[] = [];
 
+  private menuSubject = new BehaviorSubject<any>(null);
+  menu$ = this.menuSubject.asObservable();
+
   // Replace with your API endpoint
   private apiUrl = 'http://local.villatent.com:8081/AjaxCall.php?Action=GetURLs';
   
@@ -31,11 +34,9 @@ export class MenuService {
 
   setMenu(data: any) {
     this.menuData = data;
-    // console.log("menuData === ", this.menuData);
+    this.menuSubject.next(this.menuData);
     const rootItems = Object.values(this.menuData);
-    // console.log("rootItems === ", rootItems);
     this.allItems = this.flatten(rootItems);
-    // console.log("allItems === ", this.allItems);
   }
 
   findSlug(slug: string): any {

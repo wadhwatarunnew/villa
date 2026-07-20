@@ -3,7 +3,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 items-stretch">
 
       <div class="relative rounded-sm overflow-hidden min-h-[420px]">
-        <img src="assets/images/villatent.webp" alt="Villa Tent Contact" class="w-full h-full object-cover" />
+        <img src="{{topSection?.image}}" alt="{{topSection?.title}}" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-black/20"></div>
       </div>
 
@@ -11,7 +11,7 @@
         <h2 class="text-2xl font-serif text-gray-900 mb-4">Send Us a Message</h2>
         <div class="mb-7 h-0.5 w-16 bg-[#006b33]"></div>
 
-        <form class="space-y-5">
+        <form class="space-y-5" [formGroup]="contactForm" (ngSubmit)="submitForm()">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <label class="block">
               <span class="mb-2 block text-xs font-bold text-[#2f4136]">Full Name <span class="text-red-600">*</span></span>
@@ -22,9 +22,14 @@
                     d="M15 7a3 3 0 11-6 0 3 3 0 016 0zM5 21a7 7 0 0114 0">
                   </path>
                 </svg>
-                <input type="text" placeholder="Full Name"
+                <input type="text" placeholder="Full Name" formControlName="name"
                   class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
               </span>
+              <strong 
+                *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid"
+                class="text-red-600 text-xs mt-1">
+                Name is required.
+              </strong>
             </label>
             <label class="block">
               <span class="mb-2 block text-xs font-bold text-[#2f4136]">Email Address <span class="text-red-600">*</span></span>
@@ -35,9 +40,22 @@
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
                   </path>
                 </svg>
-                <input type="email" placeholder="Email Address"
+                <input type="email" placeholder="Email Address" formControlName="email"
                   class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
               </span>
+              <strong 
+                *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid"
+                class="text-red-600 text-xs mt-1">
+
+                <span *ngIf="contactForm.get('email')?.errors?.['required']">
+                  Email is required.
+                </span>
+
+                <span *ngIf="contactForm.get('email')?.errors?.['email']">
+                  Please enter a valid email address.
+                </span>
+
+              </strong>
             </label>
           </div>
 
@@ -51,14 +69,55 @@
                     d="M3 5a2 2 0 012-2h2l2 5-2 1a11 11 0 005 5l1-2 5 2v2a2 2 0 01-2 2h-1C9.7 18 6 14.3 6 8V7a2 2 0 00-2-2H3z">
                   </path>
                 </svg>
-                <input type="tel" placeholder="Phone Number"
+                <input type="tel" placeholder="Phone Number" formControlName="phonenumber"
+                  class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
+              </span>
+              <strong 
+                *ngIf="contactForm.get('phonenumber')?.touched && contactForm.get('phonenumber')?.invalid"
+                class="text-red-600 text-xs mt-1">
+                Phone number is required.
+              </strong>
+            </label>
+            <label class="block">
+              <span class="mb-2 block text-xs font-bold text-[#2f4136]">Project Location</span>
+              <span class="relative block">
+                <svg class="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-[#6b9880]"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"
+                    d="M12 21s6-5.3 6-11a6 6 0 10-12 0c0 5.7 6 11 6 11zm0-8a3 3 0 100-6 3 3 0 000 6z">
+                  </path>
+                </svg>
+                <input type="text" placeholder="Project Location"
                   class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
               </span>
             </label>
           </div>
-
           <label class="block">
-            <span class="mb-2 block text-xs font-bold text-[#2f4136]">Your Message / Requirements <span class="text-red-600">*</span></span>
+            <span class="mb-2 block text-xs font-bold text-[#2f4136]">How did you hear about us?</span>
+            <span class="relative block">
+              <svg class="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-[#6b9880]"
+                fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"
+                  d="M12 21a9 9 0 100-18 9 9 0 000 18zm0 0c2-2.4 3-5.4 3-9s-1-6.6-3-9m0 18c-2-2.4-3-5.4-3-9s1-6.6 3-9M3.6 9h16.8M3.6 15h16.8">
+                </path>
+              </svg>
+              <select
+                class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 pr-10 py-3 text-sm text-[#8f9b94] focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition appearance-none">
+                <option value="" disabled selected>Select an option</option>
+                <option value="google">Google Search</option>
+                <option value="social">Social Media</option>
+                <option value="referral">Referral</option>
+                <option value="exhibition">Exhibition / Trade Show</option>
+                <option value="other">Other</option>
+              </select>
+              <svg class="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-[#3d5546]"
+                fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </span>
+          </label>
+          <label class="block">
+            <span class="mb-2 block text-xs font-bold text-[#2f4136]">Your Message / Requirements</span>
             <span class="relative block">
               <svg class="pointer-events-none absolute left-4 top-4 size-4 text-[#6b9880]" fill="none"
                 stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -66,9 +125,14 @@
                   d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L8.5 18.152 4 19l.848-4.5L16.862 4.487z">
                 </path>
               </svg>
-              <textarea rows="4" placeholder="Your Message / Requirements"
+              <textarea rows="4" placeholder="Your Message / Requirements" formControlName="message"
                 class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition resize-none"></textarea>
             </span>
+            <strong 
+              *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid"
+              class="text-red-600 text-xs mt-1">
+              Message is required.
+            </strong>
           </label>
 
           <button type="submit"

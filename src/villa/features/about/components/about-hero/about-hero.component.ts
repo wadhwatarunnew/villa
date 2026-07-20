@@ -9,5 +9,6 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./about-hero.component.scss']
 })
 export class AboutHeroComponent {
+  @Input() topSection: any = {};
   @Input() about: any = {};
 }

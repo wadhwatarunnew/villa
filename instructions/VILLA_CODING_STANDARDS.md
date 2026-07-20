@@ -39,8 +39,8 @@ standalone: true
 
 Avoid NgModules unless absolutely required.
 
-- For page-level and admin auth pages, prefer standalone components with a local folder structure and an `index.ts` barrel export.
-- Example: `src/villa/admin/authentication/login/login-page.component.ts` and `src/villa/admin/authentication/login/index.ts`.
+- For page-level components, prefer standalone components with a local folder structure and an `index.ts` barrel export.
+- Example: `src/villa/features/home/pages/home-page/home-page.component.ts`.
 
 ---
 
@@ -56,8 +56,6 @@ shared/
 layouts/
 
 features/
-
-admin/
 ```
 
 Never place everything inside one folder.
@@ -501,23 +499,6 @@ Avoid Large Libraries
 Minimize DOM Nodes
 
 Reuse Components
-
----
-
-# Admin Dashboard Rules
-
-Use same design system.
-
-Same colors:
-
-Green:
-#007735
-
-Sand:
-#F2E6C9
-
-Brown:
-#63380E
 
 ---
 

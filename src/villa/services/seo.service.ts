@@ -13,7 +13,6 @@ export class SeoService {
 
 
   setSEO(seo: any) {
-    console.log("seo === ", seo);
     if (!seo) {
       return;
     }

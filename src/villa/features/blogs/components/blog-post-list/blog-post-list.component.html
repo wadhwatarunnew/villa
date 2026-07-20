@@ -1,0 +1,43 @@
+<section class="bg-gray-50 py-16 md:py-24">
+  <div class="w-full mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 gap-8 mb-16 md:grid-cols-2 lg:grid-cols-3">
+      <a *ngFor="let blog of blogPosts; let i = index" [routerLink]="['/blogs', getSlug(blog)]"
+        class="group flex h-full flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm no-underline transition-shadow hover:shadow-md"
+        [ngClass]="{ 'md:justify-self-end lg:justify-self-end': i === 0 }">
+        <div class="relative h-64 overflow-hidden">
+          <img [src]="blog.image" [alt]="blog.title"
+            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute inset-0 bg-black/20"></div>
+        </div>
+        <div class="flex flex-grow flex-col p-6">
+          <span
+            class="mb-4 inline-block self-start rounded-sm bg-gray-100 px-3 py-1 text-xs font-semibold tracking-wider text-gray-500">{{
+            blog.category }}</span>
+          <h3
+            class="mb-4 line-clamp-2 font-serif text-xl text-gray-900 transition-colors group-hover:text-[#005b28]">
+            {{ blog.title }}</h3>
+          <p class="mb-6 flex-grow text-sm text-gray-600 line-clamp-3">{{ blog.excerpt }}</p>
+          <div class="flex flex-col space-y-3 border-t border-gray-50">
+            <div class="flex items-center space-x-2 text-xs text-gray-500">
+              <span>{{ blog.date }}</span>
+              <span>•</span>
+              <span>{{ blog.readTime }}</span>
+            </div>
+            <span
+              class="flex uppercase items-center text-sm font-semibold tracking-wider text-[#005b28] transition-colors group-hover:text-[#005b28]">
+              read more <span class="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
+            </span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="flex justify-center">
+      <button
+        class="flex items-center uppercase rounded border border-[#005b28] bg-[#005b28] px-8 py-3 text-sm font-semibold tracking-wider text-white transition-colors hover:bg-transparent hover:text-[#005b28]">
+        load more articles
+        <span class="material-icons ml-2 flex-shrink-0 text-[18px]">autorenew</span>
+      </button>
+    </div>
+  </div>
+</section>

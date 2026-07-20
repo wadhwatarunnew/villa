@@ -221,54 +221,6 @@ Used Across All Pages
 
 ---
 
-## Admin Dashboard Pages
-
-### Dashboard
-
-/admin
-
-### Hero Banners
-
-/admin/hero-banners
-
-### Tents
-
-/admin/tents
-
-### Projects
-
-/admin/projects
-
-### Blogs
-
-/admin/blogs
-
-### Gallery
-
-/admin/gallery
-
-### Leads
-
-/admin/leads
-
-### Quotes
-
-/admin/quotes
-
-### SEO
-
-/admin/seo
-
-### Settings
-
-/admin/settings
-
-### Profile
-
-/admin/profile
-
----
-
 ## Design Consistency Rules
 
 Every page must have:

@@ -1,0 +1,20 @@
+<div class="grid grid-cols-1 gap-3 px-4 sm:px-10 pb-16 lg:grid-cols-3 lg:gap-4">
+  @for (item of items; track item.title) {
+    <article
+      class="group relative overflow-hidden rounded-[1.1rem] bg-[#102116] h-[16rem] sm:h-[18rem] lg:h-[20rem] cursor-pointer"
+      (click)="openImage($index)">
+      <img
+        [src]="item.image"
+        [alt]="item.title"
+        class="h-full w-full object-cover scale-[1.01] transition-transform duration-500 group-hover:scale-105" />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#05100c]/95 via-[#05100c]/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+      <div class="absolute inset-x-0 bottom-0 translate-y-4 p-5 text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+        <p class="m-0 text-[0.78rem] uppercase tracking-[0.12em] text-white/75">{{ item.location }}</p>
+        <h3 class="my-1 text-[1.1rem] font-serif">{{ item.title }}</h3>
+        <p class="m-0 text-[0.78rem] uppercase tracking-[0.12em] text-white/75">
+          {{ item.category.split('-').join(' ') }}
+        </p>
+      </div>
+    </article>
+  }
+</div>

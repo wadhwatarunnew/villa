@@ -1,23 +1,22 @@
-<section class="relative h-[1000px] flex flex-col justify-center bg-cover bg-center bg-no-repeat"
-  style="background-image: url('assets/images/villatent1.webp');">
+<section class="relative h-[calc(100vh-146px)] flex flex-col justify-center bg-cover bg-center bg-no-repeat"
+  style="background-image: url('{{topSection?.image}}');">
   <div class="absolute inset-0 bg-black/45"></div>
   <div class="relative z-10 mx-auto px-10 w-full mt-20">
     <div class="max-w-2xl">
-      <p class="text-white font-semibold tracking-[0.2em] text-sm uppercase mb-5">— Premium Glamping Tent
-        Manufacturer</p>
-      <h1 class="text-white text-5xl md:text-6xl !secondary lg:text-[60px] font-serif leading-[1.3] mb-6">
-        Crafting <span class="text-white">Luxury</span> Glamping Experiences Around the World
+      <p class="text-white font-semibold tracking-[0.2em] text-sm uppercase mb-5">{{topSection?.subtitle}}</p>
+      <h1 class="text-white text-5xl md:text-6xl !secondary lg:text-[60px] font-serif leading-[1.3] mb-6" [innerHTML]="topSection?.title">
       </h1>
       <p class="text-white md:text-lg mb-10 max-w-[500px] leading-relaxed">
-        We design and manufacture high-end glamping tents that blend comfort, durability and nature in perfect
-        harmony.
+        {{topSection?.content}}
       </p>
       <div class="flex items-center gap-6">
-        <button
-          class="bg-[#005b28] hover:bg-[#003d1a] text-white px-8 py-3.5 rounded-md text-[11px] font-bold tracking-widest uppercase transition flex items-center group">
-          explore our tents
-          <span class="material-icons ml-3 group-hover:translate-x-1 transition-transform flex-shrink-0">arrow_forward</span>
-        </button>
+        <a href="/resort-tent">
+          <button
+            class="bg-[#005b28] hover:bg-[#003d1a] text-white px-8 py-3.5 rounded-md text-[11px] font-bold tracking-widest uppercase transition flex items-center group">
+            explore our tents
+            <span class="material-icons ml-3 group-hover:translate-x-1 transition-transform flex-shrink-0">arrow_forward</span>
+          </button>
+        </a>
       </div>
     </div>
   </div>

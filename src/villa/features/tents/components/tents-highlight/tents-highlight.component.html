@@ -1,3 +1,22 @@
-<article class="highlight-card">
-  <p>This is a tents highlight section showing the feature-owned component structure.</p>
-</article>
+<section id="tent-collections" class="px-6 lg:px-10 py-16" aria-labelledby="collections-title">
+  <div class="mx-auto mb-11 text-center max-w-3xl">
+    <p class="mb-2.5 text-xs font-bold uppercase tracking-[0.14em] text-[#007735]">Our collection</p>
+    <h2 id="collections-title" class="font-serif text-[clamp(2rem,3.2vw,3rem)] font-medium leading-[1.16] text-[#0e2614] mb-4">
+      Luxury tents crafted for every experience
+    </h2>
+    <p class="mt-4 leading-relaxed text-gray-500">From ultra-luxury resorts to heritage stays, explore our wide range of premium tent collections.</p>
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 text-left sm:grid-cols-2 lg:grid-cols-4">
+    <a class="group overflow-hidden rounded-lg border border-gray-200 bg-white text-inherit no-underline shadow-[0_4px_12px_rgba(31,41,55,0.06)] transition duration-200 hover:-translate-y-1 hover:shadow-[0_13px_24px_rgba(0,61,26,0.15)]" [routerLink]="['/tents', collection.slug]" *ngFor="let collection of collections">
+      <img class="block aspect-[1.38] w-full object-cover" [src]="collection.image" [alt]="collection.name" loading="lazy" />
+      <div class="flex min-h-[5.4rem] items-center gap-2.5 p-3">
+        <span class="material-icons text-[1.45rem] text-[#007735]" aria-hidden="true">park</span>
+        <div>
+          <h3 class="m-0 text-base font-bold leading-snug text-[#1f2937]">{{ collection.name }}</h3>
+          <p class="mt-1 text-sm text-gray-500">{{ collection.tents.length }} Models</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>

@@ -20,6 +20,20 @@ const routes: Routes = [
         loadChildren: () => import('./features/tents/tents.module').then(m => m.TentsModule)
       },
       {
+        path: 'tents',
+        pathMatch: 'full',
+        loadComponent: () => import('./features/tents/pages/tents-page/tents-page.component').then(m => m.TentsPageComponent)
+      },
+      {
+        path: 'tents/:category/:tent',
+        loadComponent: () => import('./features/tents/pages/tent-detail-page/tent-detail-page.component').then(m => m.TentDetailPageComponent)
+      },
+      {
+        path: 'tents/:category',
+        pathMatch: 'full',
+        loadComponent: () => import('./features/tents/pages/tent-category-page/tent-category-page.component').then(m => m.TentCategoryPageComponent)
+      },
+      {
         path: 'projects',
         loadComponent: () => import('./features/projects/pages/projects-page/projects-page.component').then(m => m.ProjectsPageComponent)
       },

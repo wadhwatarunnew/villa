@@ -1,0 +1,8 @@
+<main class="min-h-screen bg-[#faf9f6]">
+    <villa-tent-detail-banner [name]="tent" [category]="category.name" [image]="image"
+        [images]="images"></villa-tent-detail-banner>
+    <villa-tent-features [name]="tent"></villa-tent-features>
+    <villa-tent-overview [name]="tent"></villa-tent-overview>
+    <villa-related-tents-slider [category]="category.name" [slug]="category.slug" [currentTent]="tent" [tents]="category.tents" [images]="images"></villa-related-tents-slider>
+</main>
+<villa-common-cta></villa-common-cta>

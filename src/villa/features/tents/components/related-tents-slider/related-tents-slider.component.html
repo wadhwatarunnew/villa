@@ -1,0 +1,26 @@
+<section class="px-6 lg:px-10 py-16 bg-white" *ngIf="relatedTents.length">
+    <div class="mb-5 flex items-center justify-between">
+        <div>
+            <p class="text-xs font-bold uppercase tracking-wider text-[#003d1a]">More to explore</p>
+            <h2 class="mt-1 font-serif text-3xl text-[#0e2614]">Explore more {{ category }}</h2>
+        </div>
+        <div class="flex gap-2"><button type="button" (click)="scroll(slider, -1)"
+                class="grid size-10 place-items-center rounded-full border border-gray-200 text-[#005b28] hover:bg-[#005b28] hover:text-white">
+            <span class="material-icons text-3xl">chevron_left</span>
+            </button><button
+                type="button" (click)="scroll(slider, 1)"
+                class="grid size-10 place-items-center rounded-full border border-gray-200 text-[#005b28] hover:bg-[#005b28] hover:text-white">
+            <span class="material-icons text-3xl">chevron_right</span></button>
+        </div>
+    </div>
+    <div #slider class="flex snap-x gap-5 overflow-x-auto scroll-smooth pb-3 [scrollbar-width:none]"><a
+            *ngFor="let relatedTent of relatedTents; let i = index" [routerLink]="['/tents', slug, relatedTent]"
+            class="w-[270px] shrink-0 snap-start overflow-hidden rounded-lg border border-gray-200 bg-white no-underline shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:w-[310px]"><img
+                class="aspect-[1.65] w-full object-cover" [src]="images[i % images.length]" [alt]="relatedTent"
+                loading="lazy" />
+            <div class="p-4">
+                <h3 class="font-bold text-[#1f2937]">{{ relatedTent }}</h3>
+                <p class="mt-1 text-sm text-gray-500">{{ category }}</p>
+            </div>
+        </a></div>
+</section>

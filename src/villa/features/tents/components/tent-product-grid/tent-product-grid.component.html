@@ -1,0 +1,25 @@
+<section class="px-6 lg:px-10 py-16">
+    <div class="mb-7 flex items-center justify-between">
+        <p class="text-sm text-gray-500"><b class="text-[#005b28]">{{ tents.length }}</b> models available</p><a
+            routerLink="/tents" class="text-xs font-bold uppercase tracking-wider text-[#005b28]">← All collections</a>
+    </div>
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <article [routerLink]="['/tents', slug, tent]"
+            class="cursor-pointer overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+            *ngFor="let tent of displayedTents; let i = index"><img class="aspect-[1.45] w-full object-cover"
+                [src]="images[i % images.length]" [alt]="tent" loading="lazy" />
+            <div class="p-4">
+                <h2 class="text-lg font-bold text-[#1f2937]">{{ tent }}</h2>
+                <p class="mt-1 text-sm text-gray-500">Premium {{ name }}</p>
+                <a [routerLink]="['/tents', slug, tent]"
+                    class="mt-3 text-xs flex items-center gap-2 font-semibold uppercase tracking-wider text-[#005b28]">View
+                    details <span class="material-icons">arrow_forward</span></a>
+            </div>
+        </article>
+    </div>
+    <div class="mt-10 flex justify-center">
+        <button *ngIf="tents.length > 8 && !showAll" type="button" (click)="showAll = true"
+            class="flex items-center uppercase rounded border border-[#003d1a] bg-[#003d1a] px-8 py-3 text-sm font-semibold tracking-wider text-white transition-colors hover:bg-transparent hover:text-[#003d1a] cursor-pointer">Load
+            more <span class="material-icons ml-2 flex-shrink-0 text-[18px]">autorenew</span></button>
+        </div>
+        </section>

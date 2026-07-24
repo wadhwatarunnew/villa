@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpParams  } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { environment } from '../../../../../../src/environments/environment';
 
 @Component({
   selector: 'villa-contact-form',
@@ -16,13 +17,17 @@ export class ContactFormComponent {
   
   submitted = false;
   contactForm!: FormGroup;
+  ErrorMessage: string = '';
+  messageType: string = '';
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phonenumber: ['', Validators.required],
-      message: ['', Validators.required]
+      message: ['', Validators.required],
+      location: [''],
+      referredby: ['']
     });
   }
 
@@ -38,15 +43,18 @@ export class ContactFormComponent {
     .set('email', this.contactForm.value.email || '')
     .set('phonenumber', this.contactForm.value.phonenumber || '')
     .set('location', this.contactForm.value.location || '')
-    .set('reference', this.contactForm.value.reference || '')
+    .set('referredby', this.contactForm.value.referredby || '')
     .set('message', this.contactForm.value.message || '');
     
+    const BaseUrl = `${environment.apiBaseUrl}/AjaxCall.php`;
     this.http.get(
-      'http://local.villatent.com:8081/AjaxCall.php',
+      BaseUrl,
       { params }
     )
     .subscribe({
-      next: () => {
+      next: (response: any) => {
+        this.ErrorMessage = response.Message;
+        this.messageType = response.Status;
         this.submitted = true;
         this.contactForm.reset();
       },

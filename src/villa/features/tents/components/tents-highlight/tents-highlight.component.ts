@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { tentCategories } from '../../tent-collections.data';
@@ -10,5 +10,5 @@ import { tentCategories } from '../../tent-collections.data';
   templateUrl: './tents-highlight.component.html'
 })
 export class TentsHighlightComponent {
-  readonly collections = tentCategories;
+  @Input() collections!: any;
 }

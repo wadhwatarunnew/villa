@@ -22,9 +22,6 @@ export class MenuService {
 
   private menuSubject = new BehaviorSubject<any>(null);
   menu$ = this.menuSubject.asObservable();
-
-  // Replace with your API endpoint
-  private apiUrl = 'http://local.villatent.com:8081/AjaxCall.php?Action=GetURLs';
   
   getMenus(): Observable<any> {
     const cacheBuster = `_=${Date.now()}`;

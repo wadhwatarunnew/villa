@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit, inject, Injector } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ApiService } from '../../../../services/api.service';
+import { SeoService } from '../../../../services/seo.service';
 
 @Component({
   selector: 'villa-quote-page',
@@ -34,4 +36,15 @@ export class QuotePageComponent {
     { title: 'Working Hours', text: 'Mon - Sat: 10 AM - 7 PM', link: null, iconName: 'schedule' },
     { title: 'Our Location', text: 'Noida, Uttar Pradesh, India', link: 'https://maps.google.com/?q=Noida+Uttar+Pradesh+India', iconName: 'place' }
   ];
+
+  constructor(private route: RouterModule, private seoService:SeoService) {}
+  private ApiService = inject(ApiService);
+  pageData: any;
+
+  ngOnInit() {
+    this.ApiService.getPage('Action=GetQuotePage').subscribe(res => {
+      this.pageData = res;
+      this.seoService.setSEO(this.pageData.Data.SEOInfo);
+    });
+  }
 }

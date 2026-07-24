@@ -13,5 +13,7 @@ export class TentDetailBannerComponent {
   @Input({ required: true }) name = '';
   @Input({ required: true }) category = '';
   @Input({ required: true }) image = '';
-  @Input({ required: true }) images: string[] = [];
+  // @Input({ required: true }) images: string[] = [];
+  @Input() images: string[] = [];
+  @Input() tentDetails: any = {};
 }

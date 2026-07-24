@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { tentCategories, tentImages } from '../../tent-collections.data';
@@ -8,6 +8,8 @@ import { TentProductGridComponent } from '../../components/tent-product-grid/ten
 
 @Component({ selector: 'villa-tent-category-page', standalone: true, imports: [CommonModule, RouterModule, CommonCtaComponent, TentCategoryHeroComponent, TentProductGridComponent], templateUrl: './tent-category-page.component.html' })
 export class TentCategoryPageComponent {
+  @Input() data!: any;
+  // console.log("data === ", this.data);
   readonly categories = tentCategories;
   readonly images = tentImages;
   category = tentCategories[0];

@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiBaseUrl: ''
+  apiBaseUrl: 'http://local.villatent.com:8081'
 };

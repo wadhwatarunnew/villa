@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { tentCategories, tentImages } from '../../tent-collections.data';
 import { TentDetailBannerComponent } from '../../components/tent-detail-banner/tent-detail-banner.component';
@@ -14,5 +14,8 @@ export class TentDetailPageComponent {
   tent = this.category.tents[0];
   image = tentImages[0];
   readonly images = tentImages;
+
+  @Input() data!: any;
+
   constructor(route: ActivatedRoute) { route.paramMap.subscribe(params => { this.category = tentCategories.find(item => item.slug === params.get('category')) ?? tentCategories[0]; this.tent = this.category.tents.find(item => item === params.get('tent')) ?? this.category.tents[0]; this.image = tentImages[this.category.tents.indexOf(this.tent) % tentImages.length]; }); }
 }

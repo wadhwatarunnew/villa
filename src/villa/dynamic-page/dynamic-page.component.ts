@@ -4,8 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { MenuService } from '../services/menu.service';
 import { ApiService } from '../services/api.service';
 import { SeoService } from '../services/seo.service';
-import { TentsPageComponent } from '../features/tents/pages/tents-page/tents-page.component';
-import { CategoryPageComponent } from '../features/tents/pages/category/category.component';
+import { TentDetailPageComponent } from '../features/tents/pages/tent-detail-page/tent-detail-page.component';
+import { TentCategoryPageComponent } from '../features/tents/pages/tent-category-page/tent-category-page.component';
 import { ProjectsPageComponent } from '../features/projects/pages/projects-page/projects-page.component';
 import { ProjectCategoryComponent } from '../features/projects/pages/category/category.component';
 import { BlogDetailPageComponent } from '../features/blog-detail/pages/blog-detail-page/blog-detail-page.component';
@@ -31,8 +31,8 @@ export class DynamicPageComponent {
   private ApiService = inject(ApiService);
 
   componentMap: Record<string, any> = {
-    resortTent: TentsPageComponent,
-    resortCategory: CategoryPageComponent,
+    resortTent: TentDetailPageComponent,
+    resortCategory: TentCategoryPageComponent,
     project: ProjectsPageComponent,
     projectCategory: ProjectCategoryComponent,
     blogDetail: BlogDetailPageComponent

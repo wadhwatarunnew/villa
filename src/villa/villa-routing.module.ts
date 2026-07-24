@@ -17,7 +17,8 @@ const routes: Routes = [
       },
       {
         path: 'resort-tent',
-        loadChildren: () => import('./features/tents/tents.module').then(m => m.TentsModule)
+        pathMatch: 'full',
+        loadComponent: () => import('./features/tents/pages/tents-page/tents-page.component').then(m => m.TentsPageComponent)
       },
       {
         path: 'tents',

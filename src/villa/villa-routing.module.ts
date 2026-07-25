@@ -30,6 +30,14 @@ const routes: Routes = [
         loadComponent: () => import('./features/tents/pages/tent-category-page/tent-category-page.component').then(m => m.TentCategoryPageComponent)
       },
       {
+        path: 'projects/:category/:project',
+        loadComponent: () => import('./features/projects/pages/project-detail-page/project-detail-page.component').then(m => m.ProjectDetailPageComponent)
+      },
+      {
+        path: 'projects/:category',
+        loadComponent: () => import('./features/projects/pages/project-category-page/project-category-page.component').then(m => m.ProjectCategoryPageComponent)
+      },
+      {
         path: 'projects',
         loadComponent: () => import('./features/projects/pages/projects-page/projects-page.component').then(m => m.ProjectsPageComponent)
       },

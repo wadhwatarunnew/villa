@@ -3,7 +3,7 @@
         <p class="text-sm text-gray-500"><b class="text-[#005b28]">{{ tents.length }}</b> models available</p><a
             routerLink="/tents" class="text-xs font-bold uppercase tracking-wider text-[#005b28]">← All collections</a>
     </div>
-    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div class="grid grid-cols-1 gap-4.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <article [routerLink]="['/tents', slug, tent]"
             class="cursor-pointer overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
             *ngFor="let tent of displayedTents; let i = index"><img class="aspect-[1.45] w-full object-cover"

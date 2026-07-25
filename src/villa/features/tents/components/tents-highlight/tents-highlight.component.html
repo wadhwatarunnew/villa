@@ -7,7 +7,7 @@
     <p class="mt-4 leading-relaxed text-gray-500">From ultra-luxury resorts to heritage stays, explore our wide range of premium tent collections.</p>
   </div>
 
-  <div class="grid grid-cols-1 gap-4 text-left sm:grid-cols-2 lg:grid-cols-4">
+  <div class="grid grid-cols-1 gap-4.5 text-left sm:grid-cols-2 lg:grid-cols-4">
     <a class="group overflow-hidden rounded-lg border border-gray-200 bg-white text-inherit no-underline shadow-[0_4px_12px_rgba(31,41,55,0.06)] transition duration-200 hover:-translate-y-1 hover:shadow-[0_13px_24px_rgba(0,61,26,0.15)]" [routerLink]="['/tents', collection.slug]" *ngFor="let collection of collections">
       <img class="block aspect-[1.38] w-full object-cover" [src]="collection.image" [alt]="collection.name" loading="lazy" />
       <div class="flex min-h-[5.4rem] items-center gap-2.5 p-3">

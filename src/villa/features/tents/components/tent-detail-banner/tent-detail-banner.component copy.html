@@ -1,9 +1,5 @@
 <section class="px-6 lg:px-10 py-16">
-  <div class="grid gap-8 lg:grid-cols-2 lg:items-start">
-    <!-- <div><img class="aspect-[1.45] w-full rounded-xl object-cover shadow-lg" [src]="image" [alt]="name" />
-      <div class="mt-3 grid grid-cols-5 gap-2"><img *ngFor="let thumbnail of images.slice(0, 5)"
-          class="aspect-[1.4] w-full rounded-md object-cover" [src]="thumbnail" [alt]="name + ' view'" /></div>
-    </div> -->
+  <div class="grid gap-8 lg:grid-cols-2 lg:items-start md:min-h-[38rem] min-h-[34rem]">
     <villa-tent-image-gallery [name]="name" [images]="images"></villa-tent-image-gallery>
     <div class="py-2 flex flex-col justify-center h-full">
       <p class="text-xs font-bold uppercase tracking-wider text-[#003d1a]">Heritage luxury collection</p>

@@ -14,7 +14,7 @@
         </div>
     </div>
     <div #slider class="flex snap-x gap-4.5 overflow-x-auto scroll-smooth [scrollbar-width:none]"><a
-            *ngFor="let relatedTent of relatedTents; let i = index" [routerLink]="['/tents', slug, relatedTent]"
+            *ngFor="let relatedTent of relatedTents; let i = index" [routerLink]="['/tents', slug, routeSlug(relatedTent)]"
             class="w-[270px] shrink-0 snap-start overflow-hidden rounded-lg border border-gray-200 bg-white no-underline shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:w-[310px]"><img
                 class="aspect-[1.65] w-full object-cover" [src]="images[i % images.length]" [alt]="relatedTent"
                 loading="lazy" />

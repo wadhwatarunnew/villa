@@ -36,3 +36,11 @@ export function projectGallery(categorySlug: string, project: string): string[] 
   const seed = [...(categorySlug + project)].reduce((total, char) => total + char.charCodeAt(0), 0);
   return Array.from({ length: 6 }, (_, index) => projectImages[(seed + index) % projectImages.length]);
 }
+
+export function projectRouteSlug(name: string): string {
+  return name.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+export function matchesProjectRoute(name: string, routeValue: string): boolean {
+  return projectRouteSlug(name) === routeValue || name.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === routeValue.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+}

@@ -1,33 +1,66 @@
 <main>
-    <section class="px-6 py-14 lg:px-10">
-        <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
-            <div class="relative overflow-hidden rounded-xl bg-black shadow-lg"><img [src]="gallery[activeIndex]"
-                    [alt]="project" class="aspect-[1.35] w-full object-cover"><button (click)="previous()"
-                    class="absolute left-4 top-1/2 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-[#003d1a]"><span
-                        class="material-icons text-3xl">chevron_left</span></button><button (click)="next()"
-                    class="absolute right-4 top-1/2 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-[#003d1a]"><span
-                        class="material-icons text-3xl">chevron_right</span></button><button (click)="isFullscreen=true"
-                    class="absolute right-4 top-4 grid size-10 place-items-center rounded-full bg-black/50 text-white"><span
-                        class="material-icons">fullscreen</span></button></div>
-            <div>
-                <p class="text-xs font-bold uppercase tracking-wider text-[#003d1a]">Completed project</p>
-                <h1 class="mt-3 font-serif text-4xl leading-tight text-[#0e2614] md:text-5xl">{{ project }}</h1>
-                <p class="mt-5 max-w-xl leading-7 text-gray-600">A bespoke luxury resort tent installation by The Villa
-                    Tent, designed to complement the destination and deliver a refined guest experience.</p>
-                <div class="mt-7 flex gap-7 border-y border-gray-200 py-5 text-sm">
-                    <div class="flex-1"><b class="block text-[#0e2614]">{{ category.name }}</b><span
-                            class="text-gray-500">Collection</span></div>
-                    <div class="flex-1"><b class="block text-[#0e2614]">Custom build</b><span class="text-gray-500">Project type</span>
-                    </div>
+    <villa-project-detail-hero [project]="project" [category]="category.name"
+        [image]="gallery[activeIndex]"></villa-project-detail-hero>
+    <section id="project-gallery" class="px-6 py-16 lg:px-10">
+        <div class="grid gap-6 lg:grid-cols-[1fr_.82fr_1.2fr] lg:gap-10">
+            <article class="py-2">
+                <p class="text-xs font-bold uppercase tracking-[.14em] text-[#003d1a]">Project overview</p>
+                <h2 class="mt-4 font-serif text-4xl leading-tight text-[#0e2614]">A Remarkable Hospitality Experience
+                </h2>
+                <p class="mt-6 text-sm leading-7 text-gray-600">We had the privilege of delivering {{ project }}. The
+                    project brings together refined design, dependable craftsmanship and world-class glamping
+                    hospitality.</p>
+                <p class="mt-5 text-sm leading-7 text-gray-600">Every structure is custom-designed with premium
+                    materials and thoughtful details to deliver an exceptional, comfortable experience for every guest.
+                </p><a routerLink="/quote"
+                    class="mt-8 inline-flex items-center gap-3 rounded bg-[#003d1a] px-7 py-3 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-[#005b28]">Enquire
+                    about similar project <span class="material-icons text-base">arrow_forward</span></a>
+            </article>
+            <article class="divide-y divide-gray-200 bg-[#faf9f6] px-6 py-3 shadow-sm">
+                <div class="flex gap-4 py-5"><span class="material-icons text-[#007735]">business</span>
+                    <div><b class="block text-sm text-[#0e2614]">Client</b><span class="text-sm text-gray-500">The Villa
+                            Tent Hospitality Partner</span></div>
                 </div>
-            </div>
+                <div class="flex gap-4 py-5"><span class="material-icons text-[#007735]">location_on</span>
+                    <div><b class="block text-sm text-[#0e2614]">Location</b><span class="text-sm text-gray-500">{{
+                            category.name }}</span></div>
+                </div>
+                <div class="flex gap-4 py-5"><span class="material-icons text-[#007735]">calendar_month</span>
+                    <div><b class="block text-sm text-[#0e2614]">Year of Completion</b><span
+                            class="text-sm text-gray-500">Completed project</span></div>
+                </div>
+                <div class="flex gap-4 py-5"><span class="material-icons text-[#007735]">cabin</span>
+                    <div><b class="block text-sm text-[#0e2614]">Tent Category</b><span
+                            class="text-sm text-gray-500">Luxury Resort Tents</span></div>
+                </div>
+                <div class="flex gap-4 py-5"><span class="material-icons text-[#007735]">roofing</span>
+                    <div><b class="block text-sm text-[#0e2614]">No. of Tents</b><span
+                            class="text-sm text-gray-500">42</span></div>
+                </div>
+                <div class="flex gap-4 py-5"><span class="material-icons text-[#007735]">architecture</span>
+                    <div><b class="block text-sm text-[#0e2614]">Scope of Work</b><span
+                            class="text-sm text-gray-500">Design, manufacturing, supply &amp; installation</span></div>
+                </div>
+            </article>
+            <article>
+                <div class="relative overflow-hidden rounded-lg bg-black shadow-lg"><img [src]="gallery[activeIndex]"
+                        [alt]="project" class="aspect-[1.4] w-full object-cover"><button (click)="previous()"
+                        class="absolute left-3 top-1/2 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-[#003d1a]"><span
+                            class="material-icons text-2xl">chevron_left</span></button><button (click)="next()"
+                        class="absolute right-3 top-1/2 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-[#003d1a]"><span
+                            class="material-icons text-2xl">chevron_right</span></button><button
+                        (click)="isFullscreen=true"
+                        class="absolute right-3 top-3 grid size-9 place-items-center rounded-full bg-black/50 text-white"><span
+                            class="material-icons text-lg">fullscreen</span></button></div>
+                <div class="mt-3 grid grid-cols-4 gap-2"><button
+                        *ngFor="let image of gallery.slice(0, 4); let i = index" (click)="select(i)"
+                        class="overflow-hidden rounded border-2" [class.border-green-700]="activeIndex === i"
+                        [class.border-transparent]="activeIndex !== i"><img [src]="image" [alt]="project + ' view'"
+                            class="aspect-[1.5] w-full object-cover"></button></div>
+            </article>
         </div>
-        <div class="mt-4 flex gap-3 overflow-x-auto"><button *ngFor="let image of gallery; let i = index"
-                (click)="select(i)" class="shrink-0 overflow-hidden rounded border-2"
-                [class.border-green-700]="activeIndex === i" [class.border-transparent]="activeIndex !== i"><img
-                    [src]="image" [alt]="project + ' view'" class="h-16 w-24 object-cover"></button></div>
     </section>
-    <villa-project-case-study></villa-project-case-study>
+    <!-- <villa-project-case-study></villa-project-case-study> -->
     <section *ngIf="related.length" class="bg-white px-6 py-16 lg:px-10">
         <div class="mb-6 flex items-end justify-between">
             <div>
@@ -41,7 +74,7 @@
                         class="material-icons">chevron_right</span></button></div>
         </div>
         <div #slider class="flex gap-5 overflow-x-auto scroll-smooth pb-3"><a *ngFor="let item of related; let i=index"
-                [routerLink]="['/projects', category.slug, item]"
+                [routerLink]="['/projects', category.slug, routeSlug(item)]"
                 class="w-[290px] shrink-0 overflow-hidden rounded-lg border border-gray-200 bg-[#faf9f6]"><img
                     [src]="gallery[(i + 1) % gallery.length]" [alt]="item" class="aspect-[1.65] w-full object-cover">
                 <h3 class="p-4 font-bold text-[#1f2937]">{{ item }}</h3>
@@ -53,9 +86,9 @@
             gallery.length }}</span><button type="button" (click)="isFullscreen = false"
             class="grid size-11 place-items-center rounded-full bg-white/10 hover:bg-white/20"><span
                 class="material-icons">close</span></button></div>
-    <div class="relative flex flex-1 items-center justify-center py-5"><img [src]="gallery[activeIndex]"
-            [alt]="project" class="max-h-[calc(100vh-14rem)] max-w-[78vw] rounded-xl object-contain shadow-2xl"><button
-            type="button" (click)="previous()"
+    <div class="relative flex flex-1 items-center justify-center py-5"><img [src]="gallery[activeIndex]" [alt]="project"
+            class="max-h-[calc(100vh-14rem)] max-w-[78vw] rounded-xl object-contain shadow-2xl"><button type="button"
+            (click)="previous()"
             class="absolute left-0 grid size-12 place-items-center rounded bg-white/15 hover:bg-white/25"><span
                 class="material-icons text-3xl">chevron_left</span></button><button type="button" (click)="next()"
             class="absolute right-0 grid size-12 place-items-center rounded bg-white/15 hover:bg-white/25"><span

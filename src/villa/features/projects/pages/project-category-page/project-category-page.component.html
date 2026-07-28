@@ -14,7 +14,7 @@
         categories</a>
     </div>
     <div class="grid grid-cols-1 gap-4.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"><a
-        *ngFor="let project of category.projects; let i = index" [routerLink]="['/projects', category.slug, project]"
+        *ngFor="let project of category.projects; let i = index" [routerLink]="['/projects', category.slug, routeSlug(project)]"
         class="group overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"><img
           [src]="images[i % images.length].image" [alt]="project" class="aspect-[1.45] w-full object-cover"
           loading="lazy">

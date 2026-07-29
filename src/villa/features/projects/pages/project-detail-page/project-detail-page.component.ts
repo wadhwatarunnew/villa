@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonCtaComponent } from '../../../../shared/components/common-cta/common-cta.component';
 import { matchesProjectRoute, projectCategories, projectGallery, projectRouteSlug } from '../../project-collections.data';
-import { ProjectCaseStudyComponent } from '../../components/project-case-study/project-case-study.component';
 import { ProjectDetailHeroComponent } from '../../components/project-detail-hero/project-detail-hero.component';
+import { ProjectChallengeSolutionComponent } from '../../components/project-challenge-solution/project-challenge-solution.component';
 
-@Component({ selector: 'villa-project-detail-page', standalone: true, imports: [CommonModule, RouterModule, CommonCtaComponent, ProjectCaseStudyComponent, ProjectDetailHeroComponent], templateUrl: './project-detail-page.component.html' })
+@Component({ selector: 'villa-project-detail-page', standalone: true, imports: [CommonModule, RouterModule, CommonCtaComponent, ProjectDetailHeroComponent, ProjectChallengeSolutionComponent], templateUrl: './project-detail-page.component.html' })
 export class ProjectDetailPageComponent implements OnInit, OnDestroy {
   category = projectCategories[0]; project = this.category.projects[0]; gallery: string[] = []; activeIndex = 0; isFullscreen = false;
   private intervalId?: ReturnType<typeof setInterval>;

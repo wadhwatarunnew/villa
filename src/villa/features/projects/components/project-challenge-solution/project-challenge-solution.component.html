@@ -1,0 +1,40 @@
+<section class="bg-[#faf9f6] px-6 pb-16 lg:px-10">
+  <div class="grid overflow-hidden rounded-xl border border-[#e5e7e2] bg-white shadow-[0_10px_30px_-24px_rgba(14,38,20,0.35)] xl:grid-cols-[1fr_1fr_390px]">
+    <article class="p-7 md:p-10 xl:border-r xl:border-[#e5e7e2]">
+      <h2 class="text-lg font-bold uppercase tracking-wide text-[#0e2614]">Challenge</h2>
+      <ul class="mt-7 space-y-7">
+        <li *ngFor="let challenge of challenges" class="flex items-start gap-4 text-sm leading-6 text-[#48534b]">
+          <span class="material-icons mt-0.5 shrink-0 text-[25px] text-[#39725b]">task_alt</span>
+          <span>{{ challenge }}</span>
+        </li>
+      </ul>
+    </article>
+
+    <article class="relative p-7 md:p-10">
+      <span class="absolute -left-5 top-1/2 hidden size-10 -translate-y-1/2 place-items-center rounded-full border border-gray-300 bg-white text-[#0e2614] shadow-sm xl:grid">
+        <span class="material-icons">chevron_right</span>
+      </span>
+      <h2 class="text-lg font-bold uppercase tracking-wide text-[#0e2614]">Our solution</h2>
+      <ul class="mt-7 space-y-7">
+        <li *ngFor="let solution of solutions" class="flex items-start gap-4 text-sm leading-6 text-[#48534b]">
+          <span class="material-icons mt-0.5 shrink-0 text-[25px] text-[#39725b]">check_circle</span>
+          <span>{{ solution }}</span>
+        </li>
+      </ul>
+    </article>
+
+    <aside class="flex flex-col justify-between bg-[#062c1c] p-8 text-white md:p-10">
+      <div>
+        <span class="material-icons text-5xl leading-none text-[#b9975b]">format_quote</span>
+        <blockquote class="mt-4 text-base font-medium leading-7 text-white/95">
+          The Villa Tent delivered beyond our expectations. The tents are beautiful, comfortable and have received exceptional feedback from our guests.
+        </blockquote>
+      </div>
+      <footer class="mt-10">
+        <span class="block h-1 w-10 bg-[#b9975b]"></span>
+        <p class="mt-4 text-sm font-semibold">General Manager</p>
+        <p class="mt-1 text-sm text-white/80">The Oberoi Rajgarh Palace</p>
+      </footer>
+    </aside>
+  </div>
+</section>

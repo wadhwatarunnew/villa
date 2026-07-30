@@ -4,5 +4,8 @@
     "types": []
   },
   "files": ["src/main.ts", "src/polyfills.ts"],
-  "include": ["src/**/*.d.ts"]
+  "include": [
+    "src/**/*.d.ts",
+    "src/villa/features/terms/pages/terms-page/terms-page.component.ts"
+  ]
 }

@@ -65,6 +65,10 @@ const routes: Routes = [
       {
         path: 'quote',
         loadComponent: () => import('./features/quote/pages/quote-page/quote-page.component').then(m => m.QuotePageComponent)
+      },
+      {
+        path: 'terms',
+        loadComponent: () => import('./features/terms/pages/terms-page/terms-page.component').then(m => m.TermsPageComponent)
       }
     ]
   },
@@ -75,7 +79,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' })],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabledBlocking',
+    anchorScrolling: 'enabled',
+    scrollPositionRestoration: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class VillaRoutingModule {}

@@ -1,15 +1,12 @@
 <footer class="villa-footer">
   <!-- Main Footer Content -->
-  <div class="px-6 lg:px-10 pt-14 pb-8 ">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+  <div class="px-6 lg:px-10 pt-14 pb-8 max-md:py-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-5 lg:gap-6 gap-4">
       <!-- Brand Section -->
-      <div class="lg:col-span-1">
+      <div class="xl:col-span-1 md:col-span-4 sm:col-span-2 max-sm:pb-3 max-sm:border-b md:border-[#005b2866]">
         <a routerLink="/" class="flex items-center gap-2 flex-shrink-0">
-          <div
-            class="size-16 shrink-0 rounded-full border border-white flex items-center justify-center overflow-hidden">
             <img src="assets/images/villa-tent.webp" alt="The Villa Tent Logo"
-              class="size-15 object-cover border border-[#003d1a] flex-shrink-0 rounded-full" />
-          </div>
+              class="size-12 object-cover border border-[#003d1a] flex-shrink-0 rounded-full" />
           <div class="flex flex-col gap-0.5">
             <span class="text-xl heading font-bold text-[#003d1a] tracking-wider uppercase">the villa tent</span>
             <span class="text-xs uppercase text-[#003d1a]">we are our competitors</span>
@@ -54,7 +51,7 @@
       </div>
 
       <!-- Quick Links Column -->
-      <div class="md:border-r md:border-[#005b2866] md:pr-8">
+      <div class="col-span-1 sm:border-r md:border-[#005b2866] max-lg:pr-3 max-sm:pb-3 max-sm:border-b md:border-[#005b2866]">
         <h3 class="font-bold text-base mb-4 text-[#003d1a] uppercase tracking-wider">quick links</h3>
         <ul class="space-y-2">
           <li><a href="#" class="text-sm text-black hover:text-[#003d1a] transition-colors">Home</a></li>
@@ -67,7 +64,7 @@
       </div>
 
       <!-- Tent Collections Column -->
-      <div class="md:border-r md:border-[#005b2866]">
+      <div class="col-span-1 md:border-r md:border-[#005b2866] max-lg:pr-3 max-sm:pb-3 max-sm:border-b md:border-[#005b2866]">
         <h3 class="font-bold text-base mb-4 text-[#003d1a] uppercase tracking-wider">Tent collections</h3>
         <ul class="space-y-2">
           <li><a href="#" class="text-sm text-black hover:text-[#003d1a] transition-colors">Safari Tents</a></li>
@@ -79,7 +76,7 @@
       </div>
 
       <!-- Solutions Column -->
-      <div class="md:border-r md:border-[#005b2866]">
+      <div class="col-span-1 sm:border-r md:border-[#005b2866] max-lg:pr-3 max-sm:pb-3 max-sm:border-b md:border-[#005b2866]">
         <h3 class="font-bold text-base mb-4 text-[#003d1a] uppercase tracking-wider">Services</h3>
         <ul class="space-y-2">
           <li><a href="#" class="text-sm text-black hover:text-[#003d1a] transition-colors">Resort Tent
@@ -96,7 +93,7 @@
       </div>
 
       <!-- Contact Us Column -->
-      <div>
+      <div class="col-span-1">
         <h3 class="font-bold text-base mb-4 text-[#003d1a] uppercase tracking-wider">Contact Us</h3>
         <div class="space-y-3">
           <div class="flex items-start gap-2">
@@ -121,8 +118,8 @@
   </div>
 
   <!-- Bottom Footer -->
-  <div class="bg-[#003d1a] !text-white px-10">
-    <div class="py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+  <div class="bg-[#003d1a] !text-white px-6 py-5 lg:px-10">
+    <div class="flex max-sm:flex-col items-center max-sm:justify-center justify-between sm:gap-4 gap-2">
       <p class="text-xs text-white">© {{ year }} The Villa Tent. All Rights Reserved.</p>
       <a routerLink="/terms" class="text-xs text-white hover:text-white/75 transition-colors cursor-pointer">Terms &
         Conditions</a>

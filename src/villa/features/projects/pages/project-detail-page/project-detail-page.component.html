@@ -73,7 +73,7 @@
                     class="grid size-10 place-items-center rounded-full border border-gray-200 text-[#005b28] hover:bg-[#005b28] bg-[#faf9f6] hover:text-white"><span
                         class="material-icons">chevron_right</span></button></div>
         </div>
-        <div #slider class="flex gap-5 overflow-x-auto scroll-smooth pb-3"><a *ngFor="let item of related; let i=index"
+        <div #slider class="flex gap-5 overflow-hidden scroll-smooth pb-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"><a *ngFor="let item of related; let i=index"
                 [routerLink]="['/projects', category.slug, routeSlug(item)]"
                 class="w-[290px] shrink-0 overflow-hidden rounded-lg border border-gray-200 bg-[#faf9f6]"><img
                     [src]="gallery[(i + 1) % gallery.length]" [alt]="item" class="aspect-[1.65] w-full object-cover">

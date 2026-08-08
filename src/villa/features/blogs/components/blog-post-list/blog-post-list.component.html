@@ -1,5 +1,5 @@
 <section class="bg-gray-50 py-16 md:py-16">
-  <div class="w-full px-6 lg:px-10">
+  <div class="w-full px-4 md:px-6 lg:px-10">
     <div class="grid grid-cols-1 gap-4.5 mb-16 md:grid-cols-2 lg:grid-cols-3">
       <a *ngFor="let blog of blogPosts; let i = index" [routerLink]="['/blogs', getSlug(blog)]"
         class="group flex h-full flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm no-underline transition-shadow hover:shadow-md"

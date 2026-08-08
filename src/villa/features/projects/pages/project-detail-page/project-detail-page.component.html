@@ -1,7 +1,7 @@
 <main>
     <villa-project-detail-hero [project]="project" [category]="category.name"
         [image]="gallery[0] || ''"></villa-project-detail-hero>
-    <section id="project-gallery" class="px-6 py-16 lg:px-10">
+    <section id="project-gallery" class="px-4 py-16 lg:px-10">
         <div class="grid gap-6 lg:grid-cols-[1fr_.82fr_1.2fr] lg:gap-10">
             <article class="py-2">
                 <p class="text-xs font-bold uppercase tracking-[.14em] text-[#003d1a]">Project overview</p>
@@ -16,7 +16,7 @@
                     class="mt-8 inline-flex items-center gap-3 rounded bg-[#003d1a] px-7 py-3 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-[#005b28]">Enquire
                     about similar project <span class="material-icons text-base">arrow_forward</span></a>
             </article>
-            <article class="divide-y divide-gray-200 bg-[#faf9f6] px-6 py-3 shadow-sm">
+            <article class="divide-y divide-gray-200 bg-[#faf9f6] px-4 py-3 shadow-sm">
                 <div class="flex gap-4 py-5"><span class="material-icons text-[#007735]">business</span>
                     <div><b class="block text-sm text-[#0e2614]">Client</b><span class="text-sm text-gray-500">The Villa
                             Tent Hospitality Partner</span></div>
@@ -61,7 +61,7 @@
         </div>
     </section>
     <villa-project-challenge-solution></villa-project-challenge-solution>
-    <section *ngIf="related.length" class="bg-white px-6 py-16 lg:px-10">
+    <section *ngIf="related.length" class="bg-white px-4 py-16 lg:px-10">
         <div class="mb-6 flex items-end justify-between">
             <div>
                 <p class="text-xs font-bold uppercase tracking-wider text-[#003d1a]">More to explore</p>

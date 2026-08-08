@@ -1,6 +1,6 @@
 <main>
     <villa-project-detail-hero [project]="project" [category]="category.name"
-        [image]="gallery[activeIndex]"></villa-project-detail-hero>
+        [image]="gallery[0] || ''"></villa-project-detail-hero>
     <section id="project-gallery" class="px-6 py-16 lg:px-10">
         <div class="grid gap-6 lg:grid-cols-[1fr_.82fr_1.2fr] lg:gap-10">
             <article class="py-2">

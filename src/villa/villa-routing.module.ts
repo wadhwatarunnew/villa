@@ -67,6 +67,10 @@ const routes: Routes = [
         loadComponent: () => import('./features/quote/pages/quote-page/quote-page.component').then(m => m.QuotePageComponent)
       },
       {
+        path: 'download-brochure',
+        loadComponent: () => import('./features/download-brochure/pages/download-brochure-page/download-brochure-page.component').then(m => m.DownloadBrochurePageComponent)
+      },
+      {
         path: 'terms',
         loadComponent: () => import('./features/terms/pages/terms-page/terms-page.component').then(m => m.TermsPageComponent)
       }

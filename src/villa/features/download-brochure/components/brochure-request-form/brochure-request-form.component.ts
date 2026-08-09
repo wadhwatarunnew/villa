@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 import { SharedContactFormComponent } from '../../../../shared/components/contact-form/contact-form.component';
 
 @Component({
-  selector: 'villa-contact-form',
+  selector: 'villa-brochure-request-form',
   standalone: true,
   imports: [CommonModule, SharedContactFormComponent],
-  templateUrl: './contact-form.component.html',
-  styleUrls: ['./contact-form.component.scss']
+  templateUrl: './brochure-request-form.component.html'
 })
-export class ContactFormComponent {}
+export class BrochureRequestFormComponent {}

@@ -17,7 +17,7 @@ export class BlogDetailSidebarComponent {
   @Input() posts: BlogPost[] = [];
   // console.log(posts);
   categories = ['All', 'Glamping Guide', 'Project Stories', 'Industry Trends', 'Tent Care', 'Sustainability'];
-
+  
   get recentPosts(): BlogPost[] {
     return this.posts.slice(0, 5);
   }

@@ -1,10 +1,9 @@
 <section id="tent-collections" class="px-4 md:px-6 lg:px-10 lg:py-16 py-14" aria-labelledby="collections-title">
   <div class="mx-auto mb-11 text-center max-w-3xl">
     <p class="mb-3 text-sm font-bold uppercase tracking-widest text-[#007735]">Our collection</p>
-    <h2 id="collections-title" class="font-serif text-[clamp(2rem,3.2vw,3rem)] font-medium leading-[1.16] text-[#0e2614] mb-4">
-      Luxury tents crafted for every experience
+    <h2 id="collections-title" class="font-serif text-[clamp(2rem,3.2vw,3rem)] font-medium leading-[1.16] text-[#0e2614] mb-4" [innerHTML]="resortData.title">
     </h2>
-    <p class="leading-relaxed text-gray-500">From ultra-luxury resorts to heritage stays, explore our wide range of premium tent collections.</p>
+    <p class="leading-relaxed text-gray-500" [innerHTML]="resortData.content"></p>
   </div>
 
   <div class="grid grid-cols-1 gap-4.5 text-left sm:grid-cols-2 lg:grid-cols-4">

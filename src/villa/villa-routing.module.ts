@@ -21,47 +21,12 @@ const routes: Routes = [
         loadComponent: () => import('./features/tents/pages/tents-page/tents-page.component').then(m => m.TentsPageComponent)
       },
       {
-        path: 'tents',
-        pathMatch: 'full',
-        loadComponent: () => import('./features/tents/pages/tents-page/tents-page.component').then(m => m.TentsPageComponent)
-      },
-      {
-        path: 'tents/:category/:tent',
-        loadComponent: () => import('./features/tents/pages/tent-detail-page/tent-detail-page.component').then(m => m.TentDetailPageComponent)
-      },
-      {
-        path: 'tents/:category',
-        pathMatch: 'full',
-        loadComponent: () => import('./features/tents/pages/tent-category-page/tent-category-page.component').then(m => m.TentCategoryPageComponent)
-      },
-      {
-        path: 'projects/:category/:project',
-        loadComponent: () => import('./features/projects/pages/project-detail-page/project-detail-page.component').then(m => m.ProjectDetailPageComponent)
-      },
-      {
-        path: 'projects/:category',
-        loadComponent: () => import('./features/projects/pages/project-category-page/project-category-page.component').then(m => m.ProjectCategoryPageComponent)
-      },
-      {
         path: 'projects',
         loadComponent: () => import('./features/projects/pages/projects-page/projects-page.component').then(m => m.ProjectsPageComponent)
       },
       {
         path: 'gallery',
         loadComponent: () => import('./features/gallery/pages/gallery-page/gallery-page.component').then(m => m.GalleryPageComponent)
-      },
-      {
-        path: 'blogs',
-        children: [
-          {
-            path: '',
-            loadComponent: () => import('./features/blogs/pages/blogs-page/blogs-page.component').then(m => m.BlogsPageComponent)
-          },
-          {
-            path: ':slug',
-            loadComponent: () => import('./features/blog-detail/pages/blog-detail-page/blog-detail-page.component').then(m => m.BlogDetailPageComponent)
-          }
-        ]
       },
       {
         path: 'contact-us',
@@ -78,11 +43,26 @@ const routes: Routes = [
       {
         path: 'terms',
         loadComponent: () => import('./features/terms/pages/terms-page/terms-page.component').then(m => m.TermsPageComponent)
+      },
+      {
+        path: 'blogs',
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./features/blogs/pages/blogs-page/blogs-page.component').then(m => m.BlogsPageComponent)
+          },
+          {
+            path: ':slug',
+            loadComponent: () => import('./features/blog-detail/pages/blog-detail-page/blog-detail-page.component').then(m => m.BlogDetailPageComponent)
+          }
+        ]
+      },
+      {
+        path: ':slug',
+        loadComponent: () =>
+          import('./dynamic-page/dynamic-page.component')
+          .then(m => m.DynamicPageComponent)
       }
-      // {
-      //   path: ':slug',
-      //   loadChildren: () => import('./features/slug-router/slug-router-module').then(m => m.SlugRouterModule)
-      // }
     ]
   },
   {

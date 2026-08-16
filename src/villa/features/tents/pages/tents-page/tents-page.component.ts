@@ -17,6 +17,7 @@ import { CommonCtaComponent } from '../../../../shared/components/common-cta/com
 export class TentsPageComponent {
   pageData: any;
   resortData: any;
+  topSection: any;
   categoriesData: any;
   resortGalleryInfo: any;
   injector!: Injector;
@@ -28,6 +29,7 @@ export class TentsPageComponent {
   ngOnInit() {
     this.ApiService.getPage('Action=GetResortTentPage').subscribe(res => {
       this.pageData = res;
+      this.topSection = this.pageData.Data.TopSection;
       this.resortData = this.pageData.Data.ResortInfo;
       this.categoriesData = this.pageData.Data.Categories;
       this.seoService.setSEO(this.pageData.Data.SEOInfo);

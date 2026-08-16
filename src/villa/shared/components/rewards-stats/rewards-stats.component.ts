@@ -45,8 +45,7 @@ export class RewardsStatsComponent implements AfterViewInit, OnDestroy {
 
   @Input()
   set stats(value: any[] | null | undefined) {
-    this._defaultStats =
-      value && value.length ? value : this.defaultStats;
+    this._defaultStats = value ? Array.isArray(value) ? value : Object.values(value) : this.defaultStats;
   }
 
   get stats(): any[] {

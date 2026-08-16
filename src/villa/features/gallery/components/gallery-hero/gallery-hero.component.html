@@ -4,19 +4,20 @@
   <div class="absolute inset-0 bg-black/45"></div>
   <div class="relative z-10 px-4 sm:px-10 w-full">
     <div>
-      <p class="text-white font-semibold text-sm uppercase mb-3 tracking-widest">- Our Gallery</p>
-      <h1 class="text-white text-5xl md:text-6xl !secondary lg:text-[60px] font-serif leading-[1.3] mb-6">
-        Gallery
+      <p class="text-white font-semibold text-sm uppercase mb-3 tracking-widest" [innerHTML]="topSection.subtitle"></p>
+      <h1 class="text-white text-5xl md:text-6xl !secondary lg:text-[60px] font-serif leading-[1.3] mb-6" [innerHTML]="topSection.title">
       </h1>
-      <p class="text-white md:text-lg mb-10 max-w-125 leading-relaxed" [innerHTML]="topSection.title">
+      <p class="text-white md:text-lg mb-10 max-w-125 leading-relaxed" [innerHTML]="topSection.content">
       </p>
       <div class="flex items-center gap-6">
-        <a
-          routerLink="/quote"
-          class="bg-[#003d1a] hover:bg-[#005b28] text-white px-8 py-3 rounded-md text-[13px] font-medium uppercase transition flex items-center group max-w-max cursor-pointer" href="/contact">
-          get a quote
-          <span class="material-icons ml-3 group-hover:translate-x-1 transition-transform flex-shrink-0">arrow_forward</span>
-        </a>
+        @if (topSection.btn_url) {
+          <a
+            routerLink="/{{topSection.btn_url}}"
+            class="bg-[#003d1a] hover:bg-[#005b28] text-white px-8 py-3 rounded-md text-[13px] font-medium uppercase transition flex items-center group max-w-max cursor-pointer" href="/contact">
+            {{topSection.btn_txt}}
+            <span class="material-icons ml-3 group-hover:translate-x-1 transition-transform flex-shrink-0">arrow_forward</span>
+          </a>
+        }
       </div>
     </div>
   </div>

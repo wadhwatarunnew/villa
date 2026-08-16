@@ -13,5 +13,7 @@ export class TentCategoryPageComponent {
   readonly categories = tentCategories;
   readonly images = tentImages;
   category = tentCategories[0];
-  constructor(route: ActivatedRoute) { route.paramMap.subscribe(params => this.category = tentCategories.find(item => item.slug === params.get('category')) ?? tentCategories[0]); }
+  constructor(route: ActivatedRoute) {
+    route.paramMap.subscribe(params => this.category = tentCategories.find(item => item.slug === params.get('category')) ?? tentCategories[0]);
+  }
 }

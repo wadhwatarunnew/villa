@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,4 +8,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './about-mission-vision.component.html',
   styleUrls: ['./about-mission-vision.component.scss']
 })
-export class AboutMissionVisionComponent {}
+export class AboutMissionVisionComponent {
+  @Input() missioninfo: any = {};
+}

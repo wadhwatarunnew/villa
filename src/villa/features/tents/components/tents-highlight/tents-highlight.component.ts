@@ -10,5 +10,6 @@ import { tentCategories } from '../../tent-collections.data';
   templateUrl: './tents-highlight.component.html'
 })
 export class TentsHighlightComponent {
+  @Input() resortData!: any;
   @Input() collections!: any;
 }

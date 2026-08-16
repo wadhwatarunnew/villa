@@ -6,23 +6,22 @@
   <div class="relative">
     <div class="max-w-2xl">
       <p class="text-white font-semibold text-sm uppercase mb-3 tracking-widest">
-        — Our Blogs
-    </p>
-      <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.3] mb-5">
-        Stories, Insights & Inspiration
+        {{topSection?.subtitle}}
+      </p>
+      <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.3] mb-5" [innerHTML]="topSection?.title">
       </h1>
 
-      <p class="mb-8 text-base leading-relaxed text-gray-200 sm:text-lg">
-        Explore our blog for expert tips, project stories, and the latest in luxury glamping.
+      <p class="mb-8 text-base leading-relaxed text-gray-200 sm:text-lg" [innerHTML]="topSection?.content">
       </p>
 
       <div class="flex items-center gap-6">
-        <a
-          class="bg-[#003d1a] hover:bg-[#005b28] text-white px-8 py-3 rounded-md text-[13px] font-medium uppercase transition flex items-center group max-w-max cursor-pointer" href="/tents">
-          explore our tents
-          <span
-            class="material-icons ml-3 group-hover:translate-x-1 transition-transform flex-shrink-0">arrow_forward</span>
-      </a>
+        @if (topSection.btn_url) {
+          <a
+            class="bg-[#003d1a] hover:bg-[#005b28] text-white px-8 py-3 rounded-md text-[13px] font-medium uppercase transition flex items-center group max-w-max cursor-pointer" href="/{{topSection?.btn_url}}">
+            {{topSection?.btn_txt}}
+            <span class="material-icons ml-3 group-hover:translate-x-1 transition-transform flex-shrink-0">arrow_forward</span>
+          </a>
+        }
       </div>
     </div>
   </div>

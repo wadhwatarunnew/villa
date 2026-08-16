@@ -26,7 +26,28 @@ function slugify(text: string): string {
   styleUrls: ['./blog-post-list.component.scss']
 })
 export class BlogPostListComponent {
-  @Input() blogPosts: BlogPost[] = [];
+  @Input() blogPosts: BlogPost[] | null = [];
+
+  visiblePosts: BlogPost[] = [];
+  itemsPerLoad = 6;
+
+  ngOnChanges(): void {
+    const posts = this.blogPosts ?? [];
+    this.visiblePosts = posts.slice(0, this.itemsPerLoad);
+  }
+
+  loadMore(): void {
+    const currentLength = this.visiblePosts.length;
+
+    this.visiblePosts = (this.blogPosts ?? []).slice(
+      0,
+      currentLength + this.itemsPerLoad
+    );
+  }
+
+  get hasMorePosts(): boolean {
+    return this.visiblePosts.length < (this.blogPosts?.length ?? 0);
+  }
 
   getSlug(blog: BlogPost): string {
     return slugify(blog.title);

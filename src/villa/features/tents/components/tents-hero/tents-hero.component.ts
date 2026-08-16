@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   templateUrl: './tents-hero.component.html'
 })
 export class TentsHeroComponent {
-  @Input() resortData!: any;
+  @Input() topSection!: any;
 }

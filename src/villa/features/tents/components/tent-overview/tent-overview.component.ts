@@ -1,7 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
-@Component({ selector: 'villa-tent-overview', standalone: true, templateUrl: './tent-overview.component.html' })
+@Component({
+            selector: 'villa-tent-overview',
+            standalone: true,
+            imports: [CommonModule],
+            templateUrl: './tent-overview.component.html' })
 export class TentOverviewComponent {
     @Input({ required: true }) name = '';
-    @Input() tentDetails: any = {};
+     @Input() tentDetails: any = {};
 }

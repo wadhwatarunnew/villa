@@ -1,8 +1,8 @@
 <main>
     <villa-tent-detail-banner [tentDetails]="data.Data.Data"
         [images]="data.Data.GalleryInfo.images" [name]="tent" [category]="category.name" [image]="image"></villa-tent-detail-banner>
-    <villa-tent-features [name]="tent" [tentDetails]="data.Data.Data"></villa-tent-features>
-    <villa-tent-overview [name]="tent" [tentDetails]="data.Data.Data"></villa-tent-overview>
+    <villa-tent-features [name]="tent" [tentDetails]="data.Data.TentDetails"></villa-tent-features>
+    <villa-tent-overview [name]="tent" [tentDetails]="data.Data.TentDetails"></villa-tent-overview>
     <villa-related-tents-slider [category]="data.Data.Data.category" [slug]="category.slug" [currentTent]="tent" [tents]="data.Data.OtherTents" [images]="images"></villa-related-tents-slider>
 </main>
 <villa-common-cta></villa-common-cta>

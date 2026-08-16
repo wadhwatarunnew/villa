@@ -6,3 +6,11 @@ export const tentCategories = [
 ];
 
 export const tentImages = ['assets/images/villatent1.webp', 'assets/images/villatent2.webp', 'assets/images/villatent3.webp', 'assets/images/villatent4.webp', 'assets/images/villatent5.webp', 'assets/images/villatent6.webp', 'assets/images/villatent7.webp', 'assets/images/villatent8.webp', 'assets/images/villatent9.webp', 'assets/images/villatent10.webp', 'assets/images/villatent11.webp'];
+
+export function tentRouteSlug(name: string): string {
+  return name.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+export function matchesTentRoute(name: string, routeValue: string): boolean {
+  return tentRouteSlug(name) === routeValue || name.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === routeValue.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+}

@@ -1,21 +1,23 @@
-<section class="px-6 lg:px-10 py-16 bg-white" *ngIf="relatedTents.length">
+<section class="px-4 md:px-6 lg:px-10 lg:py-16 py-14 bg-[#faf9f6]" *ngIf="relatedTents.length">
     <div class="mb-5 flex items-center justify-between">
         <div>
-            <!-- <p class="text-xs font-bold uppercase tracking-wider text-[#003d1a]">More to explore</p> -->
-            <h2 class="mt-1 font-serif text-3xl text-[#0e2614]">Explore more</h2>
+
+            <p class="text-[13px] font-bold uppercase tracking-widest text-[#003d1a]">More to explore</p>
+            <h2 class="mt-1 font-serif text-3xl text-[#0e2614]">Explore more {{ category }}</h2>
         </div>
         <div class="flex gap-2"><button type="button" (click)="scroll(slider, -1)"
-                class="grid size-10 place-items-center rounded-full border border-gray-200 text-[#005b28] hover:bg-[#005b28] hover:text-white">
+                class="grid cursor-pointer size-10 place-items-center rounded-full border border-gray-200 text-[#005b28] hover:bg-[#005b28] bg-white hover:text-white">
             <span class="material-icons text-3xl">chevron_left</span>
             </button><button
                 type="button" (click)="scroll(slider, 1)"
-                class="grid size-10 place-items-center rounded-full border border-gray-200 text-[#005b28] hover:bg-[#005b28] hover:text-white">
+                class="grid cursor-pointer size-10 place-items-center rounded-full border border-gray-200 text-[#005b28] hover:bg-[#005b28] bg-white hover:text-white">
             <span class="material-icons text-3xl">chevron_right</span></button>
         </div>
     </div>
-    <div #slider class="flex snap-x gap-5 overflow-x-auto scroll-smooth pb-3 [scrollbar-width:none]"><a
+
+    <div #slider class="flex snap-x gap-4.5 overflow-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"><a
             *ngFor="let relatedTent of relatedTents; let i = index" [routerLink]="['/', relatedTent.slug]"
-            class="w-[270px] shrink-0 snap-start overflow-hidden rounded-lg border border-gray-200 bg-white no-underline shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:w-[310px]"><img
+            class="w-[270px] shrink-0 snap-start overflow-hidden rounded-lg border border-gray-200 bg-white no-underline shadow-sm transition hover:shadow-lg sm:w-[310px]"><img
                 class="aspect-[1.65] w-full object-cover" [src]="images[i % images.length]" [alt]="relatedTent"
                 loading="lazy" />
             <div class="p-4">

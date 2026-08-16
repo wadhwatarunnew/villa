@@ -4,11 +4,15 @@ import { ActivatedRoute } from '@angular/router';
 import { MenuService } from '../../../../services/menu.service';
 import { ApiService } from '../../../../services/api.service';
 import { SeoService } from '../../../../services/seo.service';
+import { ProjectsHighlightComponent } from '../../components/projects-highlight/projects-highlight.component';
+import { RouterModule } from '@angular/router';
+import { projectCategories } from '../../project-collections.data';
+import { CommonCtaComponent } from '../../../../shared/components/common-cta/common-cta.component';
 
 @Component({
   selector: 'villa-projects-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule, ProjectsHighlightComponent, CommonCtaComponent],
   templateUrl: './projects-page.component.html',
   styleUrls: ['./projects-page.component.scss']
 })
@@ -18,6 +22,7 @@ export class ProjectsPageComponent {
   projectMetaData: any;
   projectGalleryInfo: any;
   injector!: Injector;
+  readonly categories = projectCategories;
 
   constructor(private route: ActivatedRoute, private seoService:SeoService) {}
   private MenuService = inject(MenuService);

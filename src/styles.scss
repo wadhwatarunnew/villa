@@ -1,7 +1,27 @@
 @use "./styles/variables" as *;
-@use "./styles/common" as *;
-
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+body {
+  letter-spacing: 0.03em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-heading;
+}
+
+villa-root {
+  display: block;
+}
+
+.heading {
+  font-family: $font-family-heading;
+}
 
 .material-icons {
   font-size: 22px;

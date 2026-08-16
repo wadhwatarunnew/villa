@@ -1,0 +1,81 @@
+<form class="space-y-5">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <label class="block">
+            <span class="mb-2 block text-xs font-bold text-[#2f4136]">Full Name <span
+                    class="text-red-600">*</span></span>
+            <span class="relative block">
+                <span class="material-icons pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base text-[#6b9880]">person</span>
+                <input type="text" placeholder="Full Name"
+                    class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
+            </span>
+        </label>
+
+        <label class="block">
+            <span class="mb-2 block text-xs font-bold text-[#2f4136]">Email Address <span
+                    class="text-red-600">*</span></span>
+            <span class="relative block">
+                <span class="material-icons pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base text-[#6b9880]">mail</span>
+                <input type="email" placeholder="Email Address"
+                    class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
+            </span>
+        </label>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <label class="block">
+            <span class="mb-2 block text-xs font-bold text-[#2f4136]">Phone Number <span
+                    class="text-red-600">*</span></span>
+            <span class="relative block">
+                <span class="material-icons pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base text-[#6b9880]">call</span>
+                <input type="tel" placeholder="Phone Number"
+                    class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
+            </span>
+        </label>
+
+        <label class="block">
+            <span class="mb-2 block text-xs font-bold text-[#2f4136]">Project Location</span>
+            <span class="relative block">
+                <span class="material-icons pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base text-[#6b9880]">location_on</span>
+                <input type="text" placeholder="Project Location"
+                    class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
+            </span>
+        </label>
+    </div>
+
+    <label class="block">
+        <span class="mb-2 block text-xs font-bold text-[#2f4136]">How did you hear about us?</span>
+        <span class="relative block">
+            <span class="material-icons pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base text-[#6b9880]">language</span>
+            <select
+                class="w-full appearance-none border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 pr-10 py-3 text-sm text-[#8f9b94] focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition">
+                <option value="" disabled selected>Select an option</option>
+                <option value="google">Google Search</option>
+                <option value="social">Social Media</option>
+                <option value="referral">Referral</option>
+                <option value="exhibition">Exhibition / Trade Show</option>
+                <option value="other">Other</option>
+            </select>
+            <span class="material-icons pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-base text-[#3d5546]">expand_more</span>
+        </span>
+    </label>
+
+    <label class="block">
+        <span class="mb-2 block text-xs font-bold text-[#2f4136]">Your Message / Requirements</span>
+        <span class="relative block">
+            <span class="material-icons pointer-events-none absolute left-4 top-4 text-base text-[#6b9880]">edit</span>
+            <textarea rows="4" placeholder="Your Message / Requirements"
+                class="w-full resize-none border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition"></textarea>
+        </span>
+    </label>
+
+    <button type="submit"
+        class="flex w-full cursor-pointer items-center justify-center gap-3 rounded-md bg-[#003d1a] py-3 text-[13px] font-medium uppercase text-white shadow-sm transition hover:bg-[#005b28]">
+        SEND MESSAGE
+        <span class="material-icons text-base">arrow_forward</span>
+    </button>
+
+    <p class="mt-3 flex items-center gap-2 text-xs text-gray-600">
+        <span class="material-icons text-[14px] text-[#006b33]">star</span>
+        We respect your privacy. Your information is safe with us.
+    </p>
+</form>

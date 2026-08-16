@@ -1,17 +1,17 @@
-<section class="mx-auto px-6 lg:px-10 pt-25 pb-16 bg-white">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-    <div class="relative overflow-hidden rounded-xl aspect-[16/9] lg:aspect-[1.72/1]">
+<section class="px-4 md:px-6 lg:px-10 pt-25 pb-16 bg-white max-lg:py-14">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16 items-center">
+    <div class="relative overflow-hidden rounded-xl aspect-[16/9] lg:aspect-[1.72/1] max-lg:order-2">
       <img src="{{aboutSection?.image}}" alt="{{aboutSection?.title}}" class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-black/20"></div>
     </div>
 
-    <div class="max-w-2xl">
+    <div class="max-w-3xl">
       <h2 class="text-3xl md:text-4xl lg:text-[2.5rem] font-serif leading-tight text-[#0e2614] mb-5" [innerHTML]="aboutSection?.title">
       </h2>
-      <p class="  text-gray-600 leading-relaxed mb-5" [innerHTML]="aboutSection?.content">
+      <p class="text-gray-600 leading-relaxed mb-5" [innerHTML]="aboutSection?.content">
       </p>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mb-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-3 mb-8">
         <div class="flex items-center gap-3 text-sm font-semibold text-[#0e2614]">
           <span class="size-5 rounded-full bg-[#003d1a] text-white flex items-center justify-center shrink-0">
             <svg class="size-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -64,14 +64,14 @@
 
       <div class="flex flex-col sm:flex-row gap-4">
         <a routerLink="/resort-tent"
-          class="inline-flex items-center justify-center gap-3 bg-[#003d1a] hover:bg-[#005b28] text-white px-7 py-3.5 rounded-md text-xs font-bold tracking-widest uppercase transition">
+          class="inline-flex items-center justify-center gap-3 bg-[#003d1a] hover:bg-[#005b28] text-white px-7 py-3.5 rounded-md text-xs font-medium uppercase transition">
           Explore Collections
           <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
           </svg>
         </a>
         <a routerLink="/quote"
-          class="inline-flex items-center justify-center gap-3 border border-[#003d1a] text-[#003d1a] hover:bg-[#003d1a] hover:text-white px-7 py-3.5 rounded-md text-xs font-bold tracking-widest uppercase transition">
+          class="inline-flex items-center justify-center gap-3 border border-[#003d1a] text-[#003d1a] hover:bg-[#003d1a] hover:text-white px-7 py-3.5 rounded-md text-xs font-medium uppercase transition">
           Get a Quote
           <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>

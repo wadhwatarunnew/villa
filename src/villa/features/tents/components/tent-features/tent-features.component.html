@@ -1,33 +1,49 @@
-<section class="px-6 lg:px-10 py-16 bg-white">
-  <article class="rounded-xl border border-gray-200 bg-[#faf9f6] p-7 shadow-sm md:p-10" [innerHTML]="tentDetails.content">
-    <!-- <p class="text-xs font-bold uppercase tracking-wider text-[#003d1a]">Designed for exceptional stays</p>
-    <h2 class="mt-2 font-serif text-3xl text-[#0e2614]">{{ name }}: a sanctuary of tranquillity</h2>
-    <p class="mt-5 leading-7 text-gray-600">Seeking respite from the bustle of everyday life? Discover {{ name }}, an
-      epitome of luxury and comfort designed for unforgettable occasions.</p>
-    <h3 class="mt-7 text-xl font-bold text-[#0e2614]">Features and benefits</h3>
-    <div class="mt-5 space-y-5 text-sm leading-7 text-gray-600">
-      <p><b class="text-[#0e2614]">Elegant accommodation:</b> A spacious bedroom, adjoining dressing room and washroom
-        create a private retreat. The covered porch with mosquito netting lets guests enjoy the natural surroundings in
-        comfort.</p>
-      <p><b class="text-[#0e2614]">Superior construction:</b> The roof uses layered materials, real wood pole support
-        and durable coated canvas to bring together long-lasting performance and refined luxury.</p>
-      <ul class="ml-4 list-disc space-y-1">
-        <li>450GSM shade-net top layer for 90% shade</li>
-        <li>650GSM PVC waterproof second layer</li>
-        <li>425GSM waterproof canvas third layer</li>
-        <li>200GSM polyester inner lining</li>
-      </ul>
-      <p><b class="text-[#0e2614]">Storm, water and flame resistance:</b> Built to withstand changing weather, the tent
-        is storm-proof, water-resistant and flame-retardant.</p>
-      <p><b class="text-[#0e2614]">Flexible space:</b> A removable canvas wall between the bedroom and porch allows the
-        living area to open up for enhanced views and more time in nature.</p>
-      <p><b class="text-[#0e2614]">Quality assurance:</b> Every tent is crafted with careful material selection and
-        quality checks for a dependable hospitality experience.</p>
-      <div class="rounded-lg bg-[#f8faf8] p-5"><b class="text-[#0e2614]">Tent specifications</b>
-        <p class="mt-2"><b>Size:</b> Bedroom – 14 × 14 feet; Dressing room – 14 × 7 feet; Porch – 14 × 7 feet.</p>
-        <p><b>Walls:</b> Canvas walls with a uPVC front, sliding door and tempered glass.</p>
-        <p><b>Porch:</b> Covered with mosquito netting.</p>
+<section class="bg-[#faf9f6] px-6 py-14 lg:px-10 lg:py-16">
+    <div class="grid gap-6 lg:grid-cols-2" [innerHTML]="tentDetails.content">
+      <div class="bg-white px-6 py-8 rounded-lg shadow-sm">
+        <p class="mb-6 font-semibold uppercase text-[#0a3d2d] tracking-wider">
+          Features &amp; Benefits
+        </p>
+
+        <div class="grid grid-cols-2 gap-6">
+          <div *ngFor="let item of features" class="flex items-start gap-4">
+            <div class="flex size-10 shrink-0 items-center justify-center rounded-full border-[2px] border-[#0a3d2d]/70 text-[#0a3d2d]">
+              <span class="material-icons text-[2.3rem]">{{ item.icon }}</span>
+            </div>
+
+            <div class="min-w-0">
+              <h3 class="font-serif text-lg font-bold leading-tight text-[#0a3d2d]">
+                {{ item.title }}
+              </h3>
+              <p class="mt-2 text-[15px] text-[#29362e]">
+                {{ item.description }}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div> -->
-  </article>
+
+      <div class="bg-white px-6 py-8 rounded-lg shadow-sm">
+        <p class="mb-6 font-semibold uppercase text-[#0a3d2d] tracking-wider">
+          Materials &amp; Construction
+        </p>
+
+        <div class="relative pl-10 before:absolute before:left-[18px] before:top-2 before:bottom-2 before:w-px before:border-l-2 before:border-dotted before:border-[#0a3d2d]/70">
+          <div *ngFor="let item of materials; let last = last" class="relative pb-7 pl-4 last:pb-0">
+            <div class="absolute -left-10 top-1 flex h-9 w-9 items-center justify-center rounded-full border border-[#0a3d2d]/80 bg-white text-[#0a3d2d]">
+              <span class="material-icons text-[1.1rem]">{{ item.icon }}</span>
+            </div>
+
+            <div class="min-w-0">
+              <p class="font-semibold text-[#0a3d2d]">
+                {{ item.title }}
+              </p>
+              <p class="text-[15px] text-[#29362e]">
+                {{ item.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </section>

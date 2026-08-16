@@ -1,15 +1,15 @@
-<section class="relative h-[400px] md:h-[calc(100vh-146px)] flex items-center bg-cover bg-center overflow-hidden"
+<section class="relative md:min-h-[38rem] min-h-[34rem] flex items-center bg-cover bg-center overflow-hidden"
   style="background-image: url('{{topSection?.image}}');">
   <div class="absolute inset-0 bg-black/45"></div>
 
-  <div class="relative z-10 mx-auto px-6 lg:px-10 w-full">
-    <p class="text-white font-semibold tracking-[0.2em] text-sm uppercase mb-5">CONTACT US</p>
-    <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-serif leading-[1.15] mb-4 max-w-xl" [innerHTML]="topSection?.title">
+  <div class="relative z-10 px-4 md:px-6 lg:px-10 max-w-xl w-full">
+    <p class="text-white font-semibold text-sm uppercase mb-3 tracking-widest">— CONTACT US</p>
+    <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-serif leading-[1.15] mb-4" [innerHTML]="topSection?.title">
     </h1>
-    <p class="text-white md:text-lg mb-10 max-w-[500px] leading-relaxed" [innerHTML]="topSection?.content">
+    <p class="text-white md:text-lg mb-10 leading-relaxed" [innerHTML]="topSection?.content">
     </p>
     <a href="/quote"
-      class="bg-[#003d1a] hover:bg-[#005b28] text-white px-7 py-3 text-[11px] inline-flex font-bold tracking-widest uppercase transition flex items-center gap-3 rounded-sm">
+      class="bg-[#003d1a] hover:bg-[#005b28] text-white px-7 py-3 text-[11px] inline-flex font-bold uppercase transition flex items-center gap-3 rounded-sm">
       GET A QUOTE
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>

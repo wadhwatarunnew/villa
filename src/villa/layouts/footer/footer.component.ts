@@ -5,6 +5,7 @@ import { MenuService } from '../../services/menu.service';
 @Component({
   selector: 'villa-footer',
   standalone: true,
+  imports: [RouterModule],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })

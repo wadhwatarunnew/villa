@@ -1,0 +1,36 @@
+<main class="bg-[#faf9f6]">
+  <section class="relative flex min-h-120 items-center bg-cover bg-center px-4 py-14 lg:px-10"
+    [style.background-image]="'url(' + category.image + ')'">
+    <div class="absolute inset-0 bg-black/45"></div>
+    <div class="max-w-3xl relative">
+      <h1 class="font-serif text-4xl text-white md:text-5xl">{{ category.name }}</h1>
+      <p class="mt-3 text-white md:text-lg leading-relaxed">A selection of our completed luxury resort tent projects.</p>
+    </div>
+  </section>
+  <section class="px-4 md:px-6 lg:px-10 py-16">
+    <div class="mb-8 flex items-center justify-between">
+      <p class="text-gray-500"><b class="text-[#005b28]">{{ category.projects.length }}</b> projects available
+      </p><a routerLink="/projects" class="text-xs font-bold uppercase text-[#005b28]">← All
+        categories</a>
+    </div>
+    <div class="grid grid-cols-1 gap-4.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"><a
+        *ngFor="let project of displayedProjects; let i = index" [routerLink]="['/projects', category.slug, routeSlug(project)]"
+        class="group overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"><img
+          [src]="images[i % images.length].image" [alt]="project" class="aspect-[1.45] w-full object-cover"
+          loading="lazy">
+        <div class="p-4">
+          <h2 class="text-base font-bold leading-snug text-[#1f2937]">{{ project }}</h2>
+          <p class="mt-2 flex items-center gap-2 text-xs font-semibold uppercase text-[#005b28]">View
+            details <span class="material-icons">arrow_forward</span></p>
+        </div>
+      </a></div>
+    <div class="mt-10 flex justify-center" *ngIf="hasMoreProjects">
+      <button type="button" (click)="loadMore()"
+        class="flex items-center uppercase rounded border border-[#003d1a] bg-[#003d1a] px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-transparent hover:text-[#003d1a] cursor-pointer">
+        Load more
+        <span class="material-icons ml-2 flex-shrink-0 text-[18px]">autorenew</span>
+      </button>
+    </div>
+  </section>
+</main>
+<villa-common-cta></villa-common-cta>

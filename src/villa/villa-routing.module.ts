@@ -35,6 +35,14 @@ const routes: Routes = [
         loadComponent: () => import('./features/tents/pages/tent-category-page/tent-category-page.component').then(m => m.TentCategoryPageComponent)
       },
       {
+        path: 'projects/:category/:project',
+        loadComponent: () => import('./features/projects/pages/project-detail-page/project-detail-page.component').then(m => m.ProjectDetailPageComponent)
+      },
+      {
+        path: 'projects/:category',
+        loadComponent: () => import('./features/projects/pages/project-category-page/project-category-page.component').then(m => m.ProjectCategoryPageComponent)
+      },
+      {
         path: 'projects',
         loadComponent: () => import('./features/projects/pages/projects-page/projects-page.component').then(m => m.ProjectsPageComponent)
       },
@@ -61,13 +69,15 @@ const routes: Routes = [
       },
       {
         path: 'quote',
-        loadChildren: () => import('./features/quote/quote.module').then(m => m.QuoteModule)
+        loadComponent: () => import('./features/quote/pages/quote-page/quote-page.component').then(m => m.QuotePageComponent)
       },
       {
-        path: ':slug',
-        loadComponent: () =>
-          import('./dynamic-page/dynamic-page.component')
-          .then(m => m.DynamicPageComponent)
+        path: 'download-brochure',
+        loadComponent: () => import('./features/download-brochure/pages/download-brochure-page/download-brochure-page.component').then(m => m.DownloadBrochurePageComponent)
+      },
+      {
+        path: 'terms',
+        loadComponent: () => import('./features/terms/pages/terms-page/terms-page.component').then(m => m.TermsPageComponent)
       }
       // {
       //   path: ':slug',
@@ -82,7 +92,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' })],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabledBlocking',
+    anchorScrolling: 'enabled',
+    scrollPositionRestoration: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class VillaRoutingModule {}

@@ -6,7 +6,7 @@ import { ApiService } from '../../../../services/api.service';
 import { SeoService } from '../../../../services/seo.service';
 import { ProjectsHighlightComponent } from '../../components/projects-highlight/projects-highlight.component';
 import { RouterModule } from '@angular/router';
-import { projectCategories } from '../../project-collections.data';
+// import { projectCategories } from '../../project-collections.data';
 import { CommonCtaComponent } from '../../../../shared/components/common-cta/common-cta.component';
 
 @Component({
@@ -18,11 +18,13 @@ import { CommonCtaComponent } from '../../../../shared/components/common-cta/com
 })
 export class ProjectsPageComponent {
   pageData: any;
+  topSection: any;
+  categories: any;
   projectData: any;
   projectMetaData: any;
   projectGalleryInfo: any;
   injector!: Injector;
-  readonly categories = projectCategories;
+  // readonly categories = projectCategories;
 
   constructor(private route: ActivatedRoute, private seoService:SeoService) {}
   private MenuService = inject(MenuService);
@@ -31,7 +33,9 @@ export class ProjectsPageComponent {
   ngOnInit() {
     this.ApiService.getPage('Action=GetProjectsPage').subscribe(res => {
       this.pageData = res;
+      this.topSection = this.pageData.Data.TopSection;
       this.projectData = this.pageData.Data.ProjectInfo;
+      this.categories = this.pageData.Data.Categories;
       this.seoService.setSEO(this.pageData.Data.SEOInfo);
     });
   }

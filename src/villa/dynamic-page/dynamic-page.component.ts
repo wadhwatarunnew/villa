@@ -7,7 +7,7 @@ import { SeoService } from '../services/seo.service';
 import { TentDetailPageComponent } from '../features/tents/pages/tent-detail-page/tent-detail-page.component';
 import { TentCategoryPageComponent } from '../features/tents/pages/tent-category-page/tent-category-page.component';
 import { ProjectsPageComponent } from '../features/projects/pages/projects-page/projects-page.component';
-import { ProjectCategoryComponent } from '../features/projects/pages/category/category.component';
+import { ProjectCategoryPageComponent } from '../features/projects/pages/project-category-page/project-category-page.component';
 import { BlogDetailPageComponent } from '../features/blog-detail/pages/blog-detail-page/blog-detail-page.component';
 
 @Component({
@@ -34,7 +34,7 @@ export class DynamicPageComponent {
     resortTent: TentDetailPageComponent,
     resortCategory: TentCategoryPageComponent,
     project: ProjectsPageComponent,
-    projectCategory: ProjectCategoryComponent,
+    projectCategory: ProjectCategoryPageComponent,
     blogDetail: BlogDetailPageComponent
   };
 
@@ -96,6 +96,8 @@ export class DynamicPageComponent {
 
       const compRef = this.vcr.createComponent(component);
       (compRef.instance as any).data = res;
+      compRef.setInput('data', res);
+      this.cdr.detectChanges();
       console.log('selectedComponent:', this.selectedComponent);
     });
   }

@@ -1,11 +1,11 @@
-<section class="bg-[#faf9f6] px-6 py-14 lg:px-10 lg:py-16">
+<section class="bg-[#faf9f6] px-4 md:px-6 lg:px-10 lg:py-16 py-14">
     <div class="grid gap-6 lg:grid-cols-2">
-      <div class="bg-white px-6 py-8 rounded-lg shadow-sm">
+      <div class="bg-white sm:px-6 px-4 py-8 rounded-lg shadow-sm">
         <p class="mb-6 font-semibold uppercase text-[#0a3d2d] tracking-wider">
           Features &amp; Benefits
         </p>
 
-        <div class="grid grid-cols-2 gap-6">
+        <div class="grid xl:grid-cols-2 xl:gap-6 gap-5">
           <div *ngFor="let item of features" class="flex items-start gap-4">
             <div class="flex size-10 shrink-0 items-center justify-center rounded-full border-[2px] border-[#0a3d2d]/70 text-[#0a3d2d]">
               <span class="material-icons text-[2.3rem]">{{ item.icon }}</span>
@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <div class="bg-white px-6 py-8 rounded-lg shadow-sm">
+      <div class="bg-white sm:px-6 px-4 py-8 rounded-lg shadow-sm">
         <p class="mb-6 font-semibold uppercase text-[#0a3d2d] tracking-wider">
           Materials &amp; Construction
         </p>

@@ -1,7 +1,7 @@
 <main>
     <villa-project-detail-hero [project]="project" [category]="category.name"
         [image]="gallery[0] || ''"></villa-project-detail-hero>
-    <section id="project-gallery" class="px-4 md:px-6 lg:px-10 py-16">
+    <section id="project-gallery" class="px-4 md:px-6 lg:px-10 lg:py-16 py-14">
         <div class="grid gap-6 lg:grid-cols-[1fr_.82fr_1.2fr] lg:gap-10">
             <article>
                 <p class="text-[13px] font-bold uppercase tracking-widest text-[#003d1a]">Project overview</p>
@@ -61,7 +61,7 @@
         </div>
     </section>
     <villa-project-challenge-solution></villa-project-challenge-solution>
-    <section *ngIf="related.length" class="bg-white px-4 md:px-6 lg:px-10 py-16">
+    <section *ngIf="related.length" class="bg-white px-4 md:px-6 lg:px-10 lg:py-16 py-14">
         <div class="mb-6 flex items-end justify-between">
             <div>
                 <p class="text-[13px] font-bold uppercase tracking-widest text-[#003d1a]">More to explore</p>

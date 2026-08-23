@@ -2,7 +2,7 @@
   <section class="quote-hero relative flex md:min-h-[38rem] min-h-[34rem] items-center overflow-hidden bg-cover bg-center"
     style="background-image: url('{{topSection.image}}');">
     <div class="absolute inset-0 bg-black/45"></div>
-    <div class="relative z-10 w-full px-10">
+    <div class="relative z-10 w-full px-4 md:px-6 lg:px-10">
       <div class="max-w-md">
         <p class="text-white font-semibold text-sm uppercase mb-3 tracking-widest">{{topSection.subtitle}}</p>
         <h1 class="heading mb-3 text-4xl font-bold capitalize text-white md:text-5xl">{{topSection.title}}</h1>
@@ -12,9 +12,9 @@
     </div>
   </section>
 
-  <section class="px-4 md:px-6 lg:px-10 py-16">
+  <section class="px-4 md:px-6 lg:px-10 lg:py-16 py-14">
     <div class="grid gap-7 lg:grid-cols-[360px_minmax(0,1fr)]">
-      <aside class="rounded bg-white p-8 shadow-[0_6px_24px_rgba(0,0,0,0.05)]">
+      <aside class="rounded bg-white md:p-8 p-5 shadow-[0_6px_24px_rgba(0,0,0,0.05)]">
         <div class="mb-7 flex justify-center">
             <div class="flex size-18 items-center justify-center rounded-full bg-[#eff7f1] text-[#006b33] shadow-inner">
             <img src="{{pageInfo.logo_url}}" alt="{{pageInfo.main_heading}}" class="size-15 rounded-full object-cover" />
@@ -47,8 +47,8 @@
         </div>
       </aside>
 
-      <section class="rounded bg-white p-6 shadow-[0_6px_24px_rgba(0,0,0,0.05)] md:p-9">
-        <h2 class="heading text-3xl font-bold text-[#1d4a30]">Tell Us About Your Project</h2>
+      <section class="rounded bg-white md:p-6 p-5 shadow-[0_6px_24px_rgba(0,0,0,0.05)] md:p-9">
+        <h2 class="heading md:text-3xl text-2xl font-bold text-[#1d4a30]">Tell Us About Your Project</h2>
         <div class="mb-7 mt-3 h-0.5 w-16 bg-[#006b33]"></div>
 
        <form [formGroup]="quoteForm" (ngSubmit)="submitForm()" class="space-y-6">

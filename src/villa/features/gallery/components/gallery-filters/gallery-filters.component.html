@@ -1,13 +1,15 @@
-<div class="flex flex-wrap justify-center gap-3 pt-16 pb-10 px-10">
-  @for (tab of tabs; track tab.value) {
-    <button
-      type="button"
-      (click)="selectTab(tab.value)"
-      class="rounded-md cursor-pointer border border-[#e8e2d6] bg-white px-4 py-2.5 text-[0.72rem] font-bold uppercase text-[#4d4d4d] transition hover:border-[#003d1a] hover:bg-[#003d1a] hover:text-white"
-      [ngClass]="{
-        '!bg-[#003d1a] text-white border-[#003d1a]': activeTab === tab.value
-      }">
-      {{ tab.label }}
-    </button>
-  }
+<div class="pt-16 pb-10 px-4 md:px-6 lg:px-10">
+  <div class="flex gap-3 overflow-x-auto">
+    @for (tab of tabs; track tab.value) {
+      <button
+        type="button"
+        (click)="selectTab(tab.value)"
+        class="rounded-md cursor-pointer text-nowrap border border-[#e8e2d6] bg-white px-4 py-2.5 text-[0.72rem] font-bold uppercase text-[#4d4d4d] transition hover:border-[#003d1a] hover:bg-[#003d1a] hover:text-white"
+        [ngClass]="{
+          '!bg-[#003d1a] text-white border-[#003d1a]': activeTab === tab.value
+        }">
+        {{ tab.label }}
+      </button>
+    }
+  </div>
 </div>

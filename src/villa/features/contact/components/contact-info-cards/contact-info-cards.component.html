@@ -1,7 +1,8 @@
 <section class="bg-[#f7f7f5] border-b border-gray-100">
-<div class="px-4 md:px-6 lg:px-10 py-16">
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4.5">
-      <div *ngFor="let card of contactInfoCards" class="flex min-h-[200px] flex-col items-center text-center rounded-lg border border-gray-100 bg-white px-4 py-5 shadow-[0_1px_6px_rgba(0,0,0,0.04)] transition hover:border-gray-200">
+  <div class="px-4 md:px-6 lg:px-10 lg:py-16 py-14">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 justify-center gap-4.5">
+      <div *ngFor="let card of contactInfoCards"
+        class="flex min-h-[200px] flex-col items-center text-center rounded-lg border border-gray-100 bg-white px-4 py-5 shadow-[0_1px_6px_rgba(0,0,0,0.04)] transition hover:border-gray-200">
         <div class="mb-3 flex size-12 p-3 items-center justify-center rounded-full bg-[#edf5ee]">
           <span class="material-icons text-[#003d1a]" aria-hidden="true">{{ card.icon }}</span>
         </div>

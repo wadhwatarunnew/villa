@@ -46,7 +46,7 @@ export class SharedContactFormComponent {
     params.set('referredby', this.contactForm.get('referredby')?.value || '')
     params.set('message', this.contactForm.get('message')?.value || '');
 
-    const BaseUrl = `${environment.apiBaseUrl}/AjaxCall.php`;
+    const BaseUrl = `${environment.apiBaseUrl}`;
     this.http.post(BaseUrl, params.toString(), {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'

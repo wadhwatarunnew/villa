@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NgIcon } from '@ng-icons/core';
 import { heroArrowDownTray, heroArrowRight, heroBars3, heroChevronDown } from '@ng-icons/heroicons/outline';
@@ -9,7 +10,7 @@ import { MenuItem } from '../../models/menu-item.interface';
 @Component({
   selector: 'villa-header',
   standalone: true,
-  imports: [RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
@@ -24,6 +25,9 @@ export class HeaderComponent implements OnInit {
   menuItems: any;
   resortTents: any;
   projects: any;
+  socialMedia: any;
+  contactInfo: any;
+  headerInfo: any;
 
   isScrolled = false;
   isMobileMenuOpen = false;
@@ -53,6 +57,9 @@ export class HeaderComponent implements OnInit {
       next: (response) => {
         const menuData = response.data; // ✅ ONLY ONE data
         this.menuItems = menuData;
+        this.socialMedia = menuData.SocialMedia;
+        this.contactInfo = menuData.ContactInfo;
+        this.headerInfo = menuData.HeaderInfo;
         this.resortTents = this.transformMenu(menuData.ResortTents);
         this.projects = this.transformMenu(menuData.Projects);
 

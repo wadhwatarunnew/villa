@@ -13,10 +13,10 @@ export class ApiService {
     readonly BaseUrl = `${environment.apiBaseUrl}`;
 
     getBySlug(slug: string) {
-      return this.http.get<any>(`${this.BaseUrl}/AjaxCall.php}?Action=GetTents/slug=${slug}`);
+      return this.http.get<any>(`${this.BaseUrl}}?Action=GetTents/slug=${slug}`);
     }
 
     getPage(api: string) {
-      return this.http.get(`${this.BaseUrl}/AjaxCall.php?${api}`);
+      return this.http.get(`${this.BaseUrl}?${api}`);
     }
 }

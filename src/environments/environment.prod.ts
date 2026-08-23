@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://www.thevillatent.com'
+  apiBaseUrl: 'http://app.thevillatent.com/api/AjaxCall.php'
 };

@@ -89,7 +89,7 @@ export class QuotePageComponent {
     params.set('timeline', this.quoteForm.get('timeline')?.value || '');
     params.set('message', this.quoteForm.get('message')?.value || '');
 
-    const BaseUrl = `${environment.apiBaseUrl}/AjaxCall.php`;
+    const BaseUrl = `${environment.apiBaseUrl}`;
     this.http.post<QuoteResponse>(
       BaseUrl,
       params.toString(),

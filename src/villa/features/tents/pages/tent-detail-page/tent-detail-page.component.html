@@ -1,8 +1,8 @@
 <main>
-    <villa-tent-detail-banner [tentDetails]="data.Data.Data"
-        [images]="data.Data.GalleryInfo.images" [name]="tent" [category]="category.name" [image]="image"></villa-tent-detail-banner>
-    <villa-tent-features [name]="tent" [tentDetails]="data.Data.TentDetails"></villa-tent-features>
-    <villa-tent-overview [name]="tent" [tentDetails]="data.Data.TentDetails"></villa-tent-overview>
-    <villa-related-tents-slider [category]="data.Data.Data.category" [slug]="category.slug" [currentTent]="tent" [tents]="data.Data.OtherTents" [images]="images"></villa-related-tents-slider>
+    <villa-tent-detail-banner [tentDetails]="data.Data.Data"  [quickInfo]="data?.Data?.TentDetails?.QuickInfo"
+        [images]="data.Data.GalleryInfo.images" [name]="data.Data.Data.title" [image]="data.Data.Data.image" [category]="data.Data.Data.category"></villa-tent-detail-banner>
+    <villa-tent-features [name]="data.Data.Data.title" [tentDetails]="data.Data.TentDetails"></villa-tent-features>
+    <villa-tent-overview [name]="data.Data.Data.title" [floorImage]="data.Data.Data.floor_image" [tentDetails]="data.Data.TentDetails"></villa-tent-overview>
+    <villa-related-tents-slider [category]="data.Data.Data.category" [currentTent]="data.Data.Data.title" [tents]="data.Data.OtherTents" [images]="data.Data.Data.GalleryInfo"></villa-related-tents-slider>
 </main>
 <villa-common-cta></villa-common-cta>

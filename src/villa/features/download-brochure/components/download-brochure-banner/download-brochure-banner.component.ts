@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -9,4 +9,6 @@ import { RouterModule } from '@angular/router';
 })
 export class DownloadBrochureBannerComponent {
   readonly brochureUrl = 'assets/files/villa-brochure.pdf';
+
+  @Input() topSection: any = {};
 }

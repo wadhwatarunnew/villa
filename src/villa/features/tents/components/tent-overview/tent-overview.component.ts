@@ -5,8 +5,11 @@ import { Component, Input } from '@angular/core';
             selector: 'villa-tent-overview',
             standalone: true,
             imports: [CommonModule],
-            templateUrl: './tent-overview.component.html' })
+            templateUrl: './tent-overview.component.html' 
+        })
+
 export class TentOverviewComponent {
     @Input({ required: true }) name = '';
-     @Input() tentDetails: any = {};
+    @Input({ required: true }) floorImage = '';
+    @Input() tentDetails: any = {};
 }

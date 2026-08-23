@@ -2,13 +2,13 @@
   <div class="px-4 md:px-6 lg:px-10">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 items-stretch">
       <div class="relative rounded-sm overflow-hidden min-h-[420px]">
-        <img src="{{topSection?.image}}" alt="{{topSection?.title}}" class="w-full h-full object-cover" />
+        <img src="{{formInfo?.image}}" alt="{{formInfo?.title}}" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-black/20"></div>
       </div>
       <div class="bg-[#f7f7f5] border border-gray-200 rounded-sm py-8 px-4">
         <h2 class="text-2xl font-serif text-gray-900 mb-4">Send Us a Message</h2>
         <div class="mb-7 h-0.5 w-16 bg-[#006b33]"></div>
-        <villa-shared-contact-form></villa-shared-contact-form>
+        <villa-shared-contact-form type="lead"></villa-shared-contact-form>
       </div>
     </div>
   </div>

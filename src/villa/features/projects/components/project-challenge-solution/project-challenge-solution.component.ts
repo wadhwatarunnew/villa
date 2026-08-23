@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,15 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './project-challenge-solution.component.html'
 })
 export class ProjectChallengeSolutionComponent {
-  readonly challenges = [
-    'Extreme weather conditions ranging from hot summers to cool winters.',
-    'Maintaining the royal aesthetic while ensuring modern comfort.',
-    'Delivering a premium experience with eco-friendly and sustainable materials.'
-  ];
-
-  readonly solutions = [
-    'Used high-quality, all-weather fabrics and insulated roofing for maximum comfort.',
-    'Custom interiors with royal Rajasthani elements blended with luxury furnishings.',
-    'Sustainable practices and locally sourced materials were incorporated in the project.'
-  ];
+  @Input() challenges: any;
+  @Input() solutions: any;
+  @Input() projectDetails: any;
 }

@@ -3,13 +3,7 @@
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4.5">
       <div *ngFor="let card of contactInfoCards" class="flex min-h-[200px] flex-col items-center text-center rounded-lg border border-gray-100 bg-white px-4 py-5 shadow-[0_1px_6px_rgba(0,0,0,0.04)] transition hover:border-gray-200">
         <div class="mb-3 flex size-12 p-3 items-center justify-center rounded-full bg-[#edf5ee]">
-          <svg class="text-[#003d1a] flex-shrink-0" [attr.fill]="card.fill"
-            [attr.stroke]="card.fill === 'none' ? 'currentColor' : null" viewBox="0 0 24 24">
-            <path *ngFor="let path of card.paths" [attr.stroke-linecap]="card.fill === 'none' ? 'round' : null"
-              [attr.stroke-linejoin]="card.fill === 'none' ? 'round' : null"
-              [attr.stroke-width]="card.fill === 'none' ? '1.5' : null" [attr.d]="path">
-            </path>
-          </svg>
+          <span class="material-icons text-[#003d1a]" aria-hidden="true">{{ card.icon }}</span>
         </div>
         <p class="mb-1 text-sm font-bold uppercase text-[#003d1a]">{{ card.label }}</p>
         <div *ngIf="card.links; else singleValue" class="mb-1 flex flex-col gap-0.5">
@@ -27,10 +21,7 @@
         <ng-template #plainValue>
           <p class="mb-1 text-sm font-semibold text-gray-950">{{ card.value }}</p>
         </ng-template>
-        <p class="text-[13px] leading-snug text-gray-600">
-          <ng-container *ngFor="let detail of card.details; let last = last">
-            {{ detail }}<br *ngIf="!last" />
-          </ng-container>
+        <p class="text-[13px] leading-snug text-gray-600" [innerHTML]="card.note">
         </p>
       </div>
     </div>

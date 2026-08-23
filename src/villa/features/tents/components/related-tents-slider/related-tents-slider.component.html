@@ -18,7 +18,7 @@
     <div #slider class="flex snap-x gap-4.5 overflow-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"><a
             *ngFor="let relatedTent of relatedTents; let i = index" [routerLink]="['/', relatedTent.slug]"
             class="w-[270px] shrink-0 snap-start overflow-hidden rounded-lg border border-gray-200 bg-white no-underline shadow-sm transition hover:shadow-lg sm:w-[310px]"><img
-                class="aspect-[1.65] w-full object-cover" [src]="images[i % images.length]" [alt]="relatedTent"
+                class="aspect-[1.65] w-full object-cover" [src]="relatedTent.image" [alt]="relatedTent.title"
                 loading="lazy" />
             <div class="p-4">
                 <h3 class="font-bold text-[#1f2937]">{{ relatedTent.title }}</h3>

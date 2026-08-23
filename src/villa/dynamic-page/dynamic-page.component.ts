@@ -8,6 +8,7 @@ import { TentDetailPageComponent } from '../features/tents/pages/tent-detail-pag
 import { TentCategoryPageComponent } from '../features/tents/pages/tent-category-page/tent-category-page.component';
 import { ProjectsPageComponent } from '../features/projects/pages/projects-page/projects-page.component';
 import { ProjectCategoryPageComponent } from '../features/projects/pages/project-category-page/project-category-page.component';
+import { ProjectDetailPageComponent } from '../features/projects/pages/project-detail-page/project-detail-page.component';
 import { BlogDetailPageComponent } from '../features/blog-detail/pages/blog-detail-page/blog-detail-page.component';
 
 @Component({
@@ -33,8 +34,8 @@ export class DynamicPageComponent {
   componentMap: Record<string, any> = {
     resortTent: TentDetailPageComponent,
     resortCategory: TentCategoryPageComponent,
-    project: ProjectsPageComponent,
     projectCategory: ProjectCategoryPageComponent,
+    project: ProjectDetailPageComponent,
     blogDetail: BlogDetailPageComponent
   };
 

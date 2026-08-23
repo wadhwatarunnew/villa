@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BlogPost } from '../../../blogs/components/blog-post-list/blog-post-list.component';
 
@@ -10,16 +11,25 @@ function slugify(title: string): string {
 @Component({
   selector: 'villa-blog-detail-sidebar',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './blog-detail-sidebar.component.html'
 })
 export class BlogDetailSidebarComponent {
   @Input() posts: BlogPost[] = [];
-  // console.log(posts);
+  searchTerm = '';
   categories = ['All', 'Glamping Guide', 'Project Stories', 'Industry Trends', 'Tent Care', 'Sustainability'];
   
   get recentPosts(): BlogPost[] {
-    return this.posts.slice(0, 5);
+    const search = this.searchTerm.trim().toLowerCase();
+    if (!search) {
+      return this.posts.slice(0, 5);
+    }
+
+    return this.posts
+      .filter(post =>
+        post.title.toLowerCase().includes(search)
+      )
+      .slice(0, 5);
   }
 
   getSlug(post: BlogPost): string {

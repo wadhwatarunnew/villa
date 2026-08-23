@@ -1,13 +1,13 @@
-<form class="space-y-5">
+<form [formGroup]="contactForm" (ngSubmit)="submitForm()" class="space-y-5">
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
         <label class="block">
             <span class="mb-2 block text-xs font-bold text-[#2f4136]">Full Name <span
                     class="text-red-600">*</span></span>
             <span class="relative block">
                 <span class="material-icons pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base text-[#6b9880]">person</span>
-                <input type="text" placeholder="Full Name"
-                    class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
+                <input type="text" placeholder="Full Name" formControlName="name" class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
             </span>
+            <p *ngIf="contactForm.get('name')?.hasError('required') && contactForm.get('name')?.touched" class="mt-1 text-xs text-red-600">Full Name is required.</p>
         </label>
 
         <label class="block">
@@ -15,9 +15,9 @@
                     class="text-red-600">*</span></span>
             <span class="relative block">
                 <span class="material-icons pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base text-[#6b9880]">mail</span>
-                <input type="email" placeholder="Email Address"
-                    class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
+                <input type="email" placeholder="Email Address" formControlName="email" class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
             </span>
+            <p *ngIf="contactForm.get('email')?.hasError('required') && contactForm.get('email')?.touched" class="mt-1 text-xs text-red-600">Email Address is required.</p>
         </label>
     </div>
 
@@ -27,18 +27,18 @@
                     class="text-red-600">*</span></span>
             <span class="relative block">
                 <span class="material-icons pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base text-[#6b9880]">call</span>
-                <input type="tel" placeholder="Phone Number"
-                    class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
+                <input type="tel" placeholder="Phone Number" formControlName="phonenumber" class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
             </span>
+            <p *ngIf="contactForm.get('phonenumber')?.hasError('required') && contactForm.get('phonenumber')?.touched" class="mt-1 text-xs text-red-600">Phone Number is required.</p>
         </label>
 
         <label class="block">
             <span class="mb-2 block text-xs font-bold text-[#2f4136]">Project Location</span>
             <span class="relative block">
                 <span class="material-icons pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base text-[#6b9880]">location_on</span>
-                <input type="text" placeholder="Project Location"
-                    class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
+                <input type="text" placeholder="Project Location" formControlName="location" class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
             </span>
+            <p *ngIf="contactForm.get('location')?.hasError('required') && contactForm.get('location')?.touched" class="mt-1 text-xs text-red-600">Location is required.</p>
         </label>
     </div>
 
@@ -46,8 +46,7 @@
         <span class="mb-2 block text-xs font-bold text-[#2f4136]">How did you hear about us?</span>
         <span class="relative block">
             <span class="material-icons pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base text-[#6b9880]">language</span>
-            <select
-                class="w-full appearance-none border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 pr-10 py-3 text-sm text-[#8f9b94] focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition">
+            <select formControlName="referredby" class="w-full appearance-none border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 pr-10 py-3 text-sm text-[#8f9b94] focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition">
                 <option value="" disabled selected>Select an option</option>
                 <option value="google">Google Search</option>
                 <option value="social">Social Media</option>
@@ -57,22 +56,25 @@
             </select>
             <span class="material-icons pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-base text-[#3d5546]">expand_more</span>
         </span>
+        <p *ngIf="contactForm.get('referredby')?.hasError('required') && contactForm.get('referredby')?.touched" class="mt-1 text-xs text-red-600">Referredby is required.</p>
     </label>
 
     <label class="block">
         <span class="mb-2 block text-xs font-bold text-[#2f4136]">Your Message / Requirements</span>
         <span class="relative block">
             <span class="material-icons pointer-events-none absolute left-4 top-4 text-base text-[#6b9880]">edit</span>
-            <textarea rows="4" placeholder="Your Message / Requirements"
-                class="w-full resize-none border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition"></textarea>
+            <textarea rows="4" placeholder="Your Message / Requirements" formControlName="message" class="w-full resize-none border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition"></textarea>
         </span>
+        <p *ngIf="contactForm.get('message')?.hasError('required') && contactForm.get('message')?.touched" class="mt-1 text-xs text-red-600">Message is required.</p>
     </label>
 
-    <button type="submit"
-        class="flex w-full cursor-pointer items-center justify-center gap-3 rounded-md bg-[#003d1a] py-3 text-[13px] font-medium uppercase text-white shadow-sm transition hover:bg-[#005b28]">
+    <button type="submit" class="flex w-full cursor-pointer items-center justify-center gap-3 rounded-md bg-[#003d1a] py-3 text-[13px] font-medium uppercase text-white shadow-sm transition hover:bg-[#005b28]">
         SEND MESSAGE
         <span class="material-icons text-base">arrow_forward</span>
     </button>
+
+    <div *ngIf="ErrorMessage" class="rounded-md px-4 py-3 text-sm" [ngClass]="{ 'bg-green-50 text-green-700 border border-green-200': messageType === 'success', 'bg-red-50 text-red-700 border border-red-200': messageType === 'error'}" [innerHTML]="ErrorMessage">
+    </div>
 
     <p class="mt-3 flex items-center gap-2 text-xs text-gray-600">
         <span class="material-icons text-[14px] text-[#006b33]">star</span>

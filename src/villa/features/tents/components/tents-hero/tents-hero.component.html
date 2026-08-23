@@ -1,15 +1,15 @@
 <section class="relative flex min-h-[34rem] flex-col justify-center overflow-hidden bg-cover bg-center bg-no-repeat md:min-h-[38rem]"
-  style="background-image: url('{{topSection.image}}');" aria-labelledby="tents-hero-title">
+  style="background-image: url('{{topSection?.image}}');" aria-labelledby="tents-hero-title">
   <div class="absolute inset-0 bg-black/45"></div>
   <div class="relative z-10 mx-auto w-full px-4 md:px-6 lg:px-10">
     <div class="max-w-3xl">
-      <p class="text-white font-semibold text-sm uppercase mb-3 tracking-widest">{{topSection.subtitle}}</p>
+      <p class="text-white font-semibold text-sm uppercase mb-3 tracking-widest">{{topSection?.subtitle}}</p>
       <h1 id="tents-hero-title" class="text-white text-4xl md:text-5xl lg:text-6xl font-serif leading-tight mb-5" [innerHTML]="topSection?.title">
       </h1>
       <p class="mb-8 max-w-125 text-white md:text-lg leading-relaxed" [innerHTML]="topSection?.content">
       </p>
 
-      @if (topSection.btn_url) {
+      @if (topSection?.btn_url) {
         <div class="flex items-center gap-6">
           <a href="/{{topSection?.btn_url}}"
             class="bg-[#003d1a] hover:bg-[#005b28] text-white px-8 py-3 rounded-md text-[13px] font-medium uppercase transition flex items-center group max-w-max cursor-pointer" href="/{{topSection?.btn_url}}">

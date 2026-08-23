@@ -1,16 +1,16 @@
 <section class="relative md:min-h-[38rem] min-h-[34rem] flex items-center bg-cover bg-center overflow-hidden"
-  style="background-image: url('{{topSection.image}}');">
+  style="background-image: url('{{topSection?.image}}');">
   <div class="absolute inset-0 bg-black/45"></div>
 
   <div class="relative z-10 w-full max-w-xl px-4 md:px-6 lg:px-10">
-    <p class="text-white font-semibold text-sm uppercase mb-3 tracking-widest">{{topSection.subtitle}}</p>
+    <p class="text-white font-semibold text-sm uppercase mb-3 tracking-widest">{{topSection?.subtitle}}</p>
     <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-serif leading-[1.15] mb-4">
-      {{topSection.title}}
+      {{topSection?.title}}
     </h1>
-    <p class="text-white md:text-lg leading-relaxed" [innerHTML]="topSection.description">
+    <p class="text-white md:text-lg leading-relaxed" [innerHTML]="topSection?.description">
     </p><br>
 
-    @if (topSection.btn_url) {
+    @if (topSection?.btn_url) {
       <a
         class="bg-[#003d1a] hover:bg-[#005b28] text-white px-8 py-3 rounded-md text-[13px] font-medium uppercase transition flex items-center group max-w-max cursor-pointer" href="/{{topSection?.btn_url}}">
         {{topSection?.btn_txt}}

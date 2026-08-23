@@ -9,10 +9,10 @@
               class="size-12 object-cover border border-[#003d1a] flex-shrink-0 rounded-full" />
           <div class="flex flex-col gap-0.5">
             <span class="text-xl heading font-bold text-[#003d1a] uppercase">the villa tent</span>
-            <span class="text-xs uppercase text-[#003d1a] italic" [innerHTML]="aboutInfo.title"></span>
+            <span class="text-xs uppercase text-[#003d1a] italic" [innerHTML]="aboutInfo?.title"></span>
           </div>
         </a>
-        <p class="text-sm text-black leading-relaxed mt-3 mb-4" [innerHTML]="aboutInfo.content">
+        <p class="text-sm text-black leading-relaxed mt-3 mb-4" [innerHTML]="aboutInfo?.content">
         </p>
         <!-- Social Icons -->
         <div class="flex items-center gap-5 text-black/90">
@@ -70,17 +70,17 @@
           <div class="flex items-start gap-2">
             <span class="material-icons flex-shrink-0" aria-hidden="true">email</span>
             <a href="mailto:info@thevillatent.com"
-              class="text-sm text-black hover:text-[#003d1a] transition-colors">{{contactInfo.email}}</a>
+              class="text-sm text-black hover:text-[#003d1a] transition-colors">{{contactInfo?.email}}</a>
           </div>
           <div class="flex items-start gap-2">
             <span class="material-icons flex-shrink-0" aria-hidden="true">call</span>
             <a href="tel:+919813627021"
-              class="text-sm text-black hover:text-[#003d1a] transition-colors">{{contactInfo.mobile}}</a>
+              class="text-sm text-black hover:text-[#003d1a] transition-colors">{{contactInfo?.mobile}}</a>
           </div>
           <div class="flex items-start gap-2">
             <span class="material-icons flex-shrink-0" aria-hidden="true">place</span>
             <a href="https://maps.app.goo.gl/dezHUeS5BxspzXge8" target="_blank"
-              class="text-sm text-black hover:text-[#003d1a] transition-colors">{{contactInfo.address}}</a>
+              class="text-sm text-black hover:text-[#003d1a] transition-colors">{{contactInfo?.address}}</a>
           </div>
         </div>
       </div>
@@ -91,7 +91,7 @@
   <div class="bg-[#003d1a] !text-white px-4 py-5 lg:px-10">
     <div class="flex max-sm:flex-col items-center max-sm:justify-center justify-between sm:gap-4 gap-2">
       <p class="text-xs text-white">© {{ year }} The Villa Tent. All Rights Reserved.</p>
-      <a routerLink="/{{terms.link}}" class="text-xs text-white hover:text-white/75 transition-colors cursor-pointer">{{terms.name}}</a>
+      <a routerLink="/{{terms?.link}}" class="text-xs text-white hover:text-white/75 transition-colors cursor-pointer">{{terms?.name}}</a>
     </div>
   </div>
 </footer>

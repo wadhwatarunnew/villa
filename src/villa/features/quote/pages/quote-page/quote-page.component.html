@@ -1,12 +1,12 @@
 <main class="bg-[#f7f8f5] text-[#153221]">
   <section class="quote-hero relative flex md:min-h-[38rem] min-h-[34rem] items-center overflow-hidden bg-cover bg-center"
-    style="background-image: url('{{topSection.image}}');">
+    style="background-image: url('{{topSection?.image}}');">
     <div class="absolute inset-0 bg-black/45"></div>
     <div class="relative z-10 w-full px-4 md:px-6 lg:px-10">
       <div class="max-w-md">
-        <p class="text-white font-semibold text-sm uppercase mb-3 tracking-widest">{{topSection.subtitle}}</p>
-        <h1 class="heading mb-3 text-4xl font-bold capitalize text-white md:text-5xl">{{topSection.title}}</h1>
-        <p class="text-white md:text-lg leading-relaxed" [innerHTML]="topSection.description">
+        <p class="text-white font-semibold text-sm uppercase mb-3 tracking-widest">{{topSection?.subtitle}}</p>
+        <h1 class="heading mb-3 text-4xl font-bold capitalize text-white md:text-5xl">{{topSection?.title}}</h1>
+        <p class="text-white md:text-lg leading-relaxed" [innerHTML]="topSection?.description">
         </p>
       </div>
     </div>
@@ -17,15 +17,15 @@
       <aside class="rounded bg-white md:p-8 p-5 shadow-[0_6px_24px_rgba(0,0,0,0.05)]">
         <div class="mb-7 flex justify-center">
             <div class="flex size-18 items-center justify-center rounded-full bg-[#eff7f1] text-[#006b33] shadow-inner">
-            <img src="{{pageInfo.logo_url}}" alt="{{pageInfo.main_heading}}" class="size-15 rounded-full object-cover" />
+            <img src="{{pageInfo?.logo_url}}" alt="{{pageInfo?.main_heading}}" class="size-15 rounded-full object-cover" />
           </div>
         </div>
 
         <h2 class="heading mx-auto max-w-52 text-center text-2xl font-bold leading-tight text-[#1d4a30]">
-          {{pageInfo.main_heading}}
+          {{pageInfo?.main_heading}}
         </h2>
         <div class="mx-auto my-5 h-0.5 w-12 bg-[#006b33]"></div>
-        <p class="mb-7 text-center text-sm leading-relaxed text-[#33483b]" [innerHTML]="pageInfo.description">
+        <p class="mb-7 text-center text-sm leading-relaxed text-[#33483b]" [innerHTML]="pageInfo?.description">
         </p>
 
         <div class="space-y-5">

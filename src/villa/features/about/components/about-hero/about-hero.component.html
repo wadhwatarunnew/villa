@@ -9,7 +9,7 @@
       <p class="text-white text-lg max-sm:text-base mb-8 max-w-lg" [innerHTML]="topSection?.content">
       </p>
 
-      @if (topSection.btn_url) {
+      @if (topSection?.btn_url) {
         <a
           class="bg-[#003d1a] hover:bg-[#005b28] text-white px-8 py-3 rounded-md text-[13px] font-medium uppercase transition flex items-center group max-w-max cursor-pointer" href="/{{topSection?.btn_url}}">
           {{topSection?.btn_txt}}

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { VillaRoutingModule } from './villa-routing.module';
 import { CoreModule } from './core/core.module';
@@ -11,6 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [VillaComponent],
   imports: [BrowserModule, RouterModule, CoreModule, SharedModule, LayoutsModule, VillaRoutingModule, HttpClientModule],
-  bootstrap: [VillaComponent]
+  bootstrap: [VillaComponent],
+  providers: [
+    provideClientHydration(withEventReplay())
+  ]
 })
 export class VillaModule {}

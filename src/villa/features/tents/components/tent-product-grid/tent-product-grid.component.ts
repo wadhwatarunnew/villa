@@ -10,11 +10,17 @@ export interface TentCats {
   content: string;
 }
 
+export interface TentTopSection {
+  content: string;
+}
+
 @Component({ selector: 'villa-tent-product-grid', standalone: true, imports: [CommonModule, RouterModule, JsonPipe], templateUrl: './tent-product-grid.component.html' })
 export class TentProductGridComponent implements OnChanges {
+
   showAll = false;
   itemsPerLoad = 8;
   @Input() tents: TentCats[] | null = [];
+  @Input() topSection: TentTopSection | null = null;
   visiblePosts: TentCats[] = [];
 
   ngOnChanges(): void {

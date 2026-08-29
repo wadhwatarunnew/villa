@@ -1,110 +1,87 @@
 <footer class="villa-footer">
-  <!-- Main Footer Content -->
-  <div class="px-4 md:px-6 lg:px-10 pt-14 pb-8 max-md:py-10">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-5 lg:gap-6 gap-4">
-      <!-- Brand Section -->
-      <div class="xl:col-span-1 md:col-span-4 sm:col-span-2 max-sm:pb-3 max-sm:border-b md:border-[#005b2866]">
-        <a routerLink="/" class="flex items-center gap-2 flex-shrink-0">
-            <img src="{{headerInfo?.logo}}" alt="The Villa Tent Logo"
-              class="size-12 object-cover border border-[#003d1a] flex-shrink-0 rounded-full" />
-          <div class="flex flex-col gap-0.5">
-            <span class="text-xl heading font-bold text-[#003d1a] uppercase">the villa tent</span>
-            <span class="text-xs uppercase text-[#003d1a] italic" [innerHTML]="aboutInfo?.title"></span>
-          </div>
-        </a>
-        <p class="text-sm text-black leading-relaxed mt-3 mb-4" [innerHTML]="aboutInfo?.content">
-        </p>
-        <!-- Social Icons -->
-        <div class="flex items-center gap-5 text-black/90">
-          <a *ngFor="let item of socialMedia" target="_blank" href="{{item.link}}" aria-label="{{item.name}}"
-            class="hover:text-[#003d1a] transition-colors">
-            <i class="icofont {{item.icon}}"></i>
-          </a>
+    <!-- Main Footer Content -->
+    <div class="px-4 md:px-6 lg:px-10 pt-14 pb-8 max-md:py-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-6 gap-4">
+            <!-- Brand Section -->
+            <div class="lg:col-span-1 md:col-span-3 sm:col-span-2 max-sm:pb-3 max-sm:border-b md:border-[#005b2866]">
+                <a routerLink="/" class="flex items-center gap-2 flex-shrink-0">
+                    <img src="{{headerInfo?.logo}}" alt="The Villa Tent Logo" class="size-12 object-cover border border-[#003d1a] flex-shrink-0 rounded-full" />
+                    <div class="flex flex-col gap-0.5">
+                        <span class="text-xl heading font-bold text-[#003d1a] uppercase">the villa tent</span>
+                        <span class="text-xs uppercase text-[#003d1a] italic" [innerHTML]="aboutInfo?.title"></span>
+                    </div>
+                </a>
+                <p class="text-sm text-black leading-relaxed mt-3 mb-4" [innerHTML]="aboutInfo?.content">
+                </p>
+                <!-- Social Icons -->
+                <div class="flex items-center gap-5 text-black/90">
+                    <a *ngFor="let item of socialMedia" target="_blank" href="{{item.link}}" aria-label="{{item.name}}" class="footer-social-link transition-colors">
+                        <i class="icofont {{item.icon}}"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links Column -->
+            <div class="col-span-1 max-lg:pr-3 max-sm:pb-3 max-sm:border-b">
+                <h3 class="font-bold text-base mb-4 text-[#003d1a] uppercase">quick links</h3>
+                <ul class="space-y-2 footer-arrow-list">
+                    <li><a href="/" class="text-sm text-black hover:text-[#003d1a] transition-colors">Home</a></li>
+                    <li><a href="/about-us" class="text-sm text-black hover:text-[#003d1a] transition-colors">About Us</a></li>
+                    <li><a href="/projects" class="text-sm text-black hover:text-[#003d1a] transition-colors">Projects</a></li>
+                    <li><a href="/gallery" class="text-sm text-black hover:text-[#003d1a] transition-colors">Gallery</a></li>
+                    <li><a href="/blogs" class="text-sm text-black hover:text-[#003d1a] transition-colors">Blogs</a></li>
+                    <li><a href="/contact-us" class="text-sm text-black hover:text-[#003d1a] transition-colors">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Tent Collections Column -->
+            <div class="col-span-1 max-lg:pr-3 max-sm:pb-3 max-sm:border-b">
+                <h3 class="font-bold text-base mb-4 text-[#003d1a] uppercase">Tent collections</h3>
+                <ul class="space-y-2 footer-arrow-list">
+                    @for (item of tentsMenu; track item.slug) {
+                    <li><a href="/{{item.slug}}" class="text-sm text-black hover:text-[#003d1a] transition-colors">{{ item.name }}</a></li>
+                    }
+                </ul>
+            </div>
+
+            <!-- Contact Us Column -->
+            <div class="col-span-1">
+                <h3 class="font-bold text-base mb-4 text-[#003d1a] uppercase">Contact Us</h3>
+                <ul class="footer-contact-list">
+                    <li class="flex items-start gap-2">
+                        <span class="material-icons flex-shrink-0" aria-hidden="true">email</span>
+                        <a href="mailto:info@thevillatent.com" class="text-sm text-black hover:text-[#003d1a] transition-colors">{{contactInfo?.email}}</a>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="material-icons flex-shrink-0" aria-hidden="true">call</span>
+                        <a href="tel:+919813627021" class="text-sm text-black hover:text-[#003d1a] transition-colors">{{contactInfo?.mobile}}</a>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="material-icons flex-shrink-0" aria-hidden="true">place</span>
+                        <a href="https://maps.app.goo.gl/dezHUeS5BxspzXge8" target="_blank" class="text-sm text-black hover:text-[#003d1a] transition-colors">{{contactInfo?.address}}</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
+    </div>
 
-      <!-- Quick Links Column -->
-      <div class="col-span-1 sm:border-r md:border-[#005b2866] max-lg:pr-3 max-sm:pb-3 max-sm:border-b md:border-[#005b2866]">
-        <h3 class="font-bold text-base mb-4 text-[#003d1a] uppercase">quick links</h3>
-        <ul class="space-y-2">
-          <li><a href="/" class="text-sm text-black hover:text-[#003d1a] transition-colors">Home</a></li>
-          <li><a href="/about-us" class="text-sm text-black hover:text-[#003d1a] transition-colors">About Us</a></li>
-          <li><a href="/projects" class="text-sm text-black hover:text-[#003d1a] transition-colors">Projects</a></li>
-          <li><a href="/gallery" class="text-sm text-black hover:text-[#003d1a] transition-colors">Gallery</a></li>
-          <li><a href="/blogs" class="text-sm text-black hover:text-[#003d1a] transition-colors">Blogs</a></li>
-          <li><a href="/contact-us" class="text-sm text-black hover:text-[#003d1a] transition-colors">Contact Us</a></li>
-        </ul>
-      </div>
-
-      <!-- Tent Collections Column -->
-      <div class="col-span-1 md:border-r md:border-[#005b2866] max-lg:pr-3 max-sm:pb-3 max-sm:border-b md:border-[#005b2866]">
-        <h3 class="font-bold text-base mb-4 text-[#003d1a] uppercase">Tent collections</h3>
-        <ul class="space-y-2">
-          @for (item of tentsMenu; track item.slug) {
-            <li><a href="/{{item.slug}}" class="text-sm text-black hover:text-[#003d1a] transition-colors">{{ item.name }}</a></li>
-          }
-        </ul>
-      </div>
-
-      <!-- Solutions Column -->
-      <div class="col-span-1 sm:border-r md:border-[#005b2866] max-lg:pr-3 max-sm:pb-3 max-sm:border-b md:border-[#005b2866]">
-        <h3 class="font-bold text-base mb-4 text-[#003d1a] uppercase">Services</h3>
-        <ul class="space-y-2">
-          <li><a href="#" class="text-sm text-black hover:text-[#003d1a] transition-colors">Resort Tent
-              Manufacturing</a></li>
-          <li><a href="#" class="text-sm text-black hover:text-[#003d1a] transition-colors">Eco Resort Setup</a>
-          </li>
-          <li><a href="#" class="text-sm text-black hover:text-[#003d1a] transition-colors">Glamping Solutions</a></li>
-          <li><a href="#" class="text-sm text-black hover:text-[#003d1a] transition-colors">Luxury Camps & Retreats</a>
-          </li>
-          <li><a href="#" class="text-sm text-black hover:text-[#003d1a] transition-colors">Corporate Tent Solutions</a>
-          </li>
-          <li><a href="#" class="text-sm text-black hover:text-[#003d1a] transition-colors">Adventure Projects</a></li>
-        </ul>
-      </div>
-
-      <!-- Contact Us Column -->
-      <div class="col-span-1">
-        <h3 class="font-bold text-base mb-4 text-[#003d1a] uppercase">Contact Us</h3>
-        <div class="space-y-3">
-          <div class="flex items-start gap-2">
-            <span class="material-icons flex-shrink-0" aria-hidden="true">email</span>
-            <a href="mailto:info@thevillatent.com"
-              class="text-sm text-black hover:text-[#003d1a] transition-colors">{{contactInfo?.email}}</a>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="material-icons flex-shrink-0" aria-hidden="true">call</span>
-            <a href="tel:+919813627021"
-              class="text-sm text-black hover:text-[#003d1a] transition-colors">{{contactInfo?.mobile}}</a>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="material-icons flex-shrink-0" aria-hidden="true">place</span>
-            <a href="https://maps.app.goo.gl/dezHUeS5BxspzXge8" target="_blank"
-              class="text-sm text-black hover:text-[#003d1a] transition-colors">{{contactInfo?.address}}</a>
-          </div>
+    <!-- Bottom Footer -->
+    <div class="bg-[#003d1a] !text-white px-4 py-5 lg:px-10">
+        <div class="flex max-sm:flex-col items-center max-sm:justify-center justify-between sm:gap-4 gap-2">
+            <p class="text-xs text-white">© {{ year }} The Villa Tent. All Rights Reserved.</p>
+            <a routerLink="/{{terms?.link}}" class="text-xs text-white hover:text-white/75 transition-colors cursor-pointer">{{terms?.name}}</a>
         </div>
-      </div>
     </div>
-  </div>
-
-  <!-- Bottom Footer -->
-  <div class="bg-[#003d1a] !text-white px-4 py-5 lg:px-10">
-    <div class="flex max-sm:flex-col items-center max-sm:justify-center justify-between sm:gap-4 gap-2">
-      <p class="text-xs text-white">© {{ year }} The Villa Tent. All Rights Reserved.</p>
-      <a routerLink="/{{terms?.link}}" class="text-xs text-white hover:text-white/75 transition-colors cursor-pointer">{{terms?.name}}</a>
-    </div>
-  </div>
 </footer>
 
 <div class="floating-contact-widget fixed right-0 bottom-20 z-50 flex flex-col gap-3 pr-2">
-  <a href="tel:+919813627021" aria-label="Call Us" class="contact-float-item group">
-    <span class="material-icons flex-shrink-0" aria-hidden="true">call</span>
-    <span class="hidden group-hover:inline-block ml-2 text-sm font-medium">Call Us</span>
-  </a>
-  <a href="https://wa.me/9813627021" target="_blank" rel="noreferrer" aria-label="WhatsApp"
-    class="contact-float-item group">
-    <!-- WhatsApp Icon -->
-    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <a href="tel:+919813627021" aria-label="Call Us" class="contact-float-item group">
+        <span class="material-icons flex-shrink-0" aria-hidden="true">call</span>
+        <span class="hidden group-hover:inline-block ml-2 text-sm font-medium">Call Us</span>
+    </a>
+    <a href="https://wa.me/9813627021" target="_blank" rel="noreferrer" aria-label="WhatsApp" class="contact-float-item group">
+        <!-- WhatsApp Icon -->
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" clip-rule="evenodd"
         d="M16 31C23.732 31 30 24.732 30 17C30 9.26801 23.732 3 16 3C8.26801 3 2 9.26801 2 17C2 19.5109 2.661 21.8674 3.81847 23.905L2 31L9.31486 29.3038C11.3014 30.3854 13.5789 31 16 31ZM16 28.8462C22.5425 28.8462 27.8462 23.5425 27.8462 17C27.8462 10.4576 22.5425 5.15385 16 5.15385C9.45755 5.15385 4.15385 10.4576 4.15385 17C4.15385 19.5261 4.9445 21.8675 6.29184 23.7902L5.23077 27.7692L9.27993 26.7569C11.1894 28.0746 13.5046 28.8462 16 28.8462Z"
         fill="#BFC8D0" />
@@ -124,6 +101,10 @@
         </linearGradient>
       </defs>
     </svg>
-    <span class="hidden group-hover:inline-block ml-2 text-sm font-medium">WhatsApp</span>
-  </a>
+        <span class="hidden group-hover:inline-block ml-2 text-sm font-medium">WhatsApp</span>
+    </a>
+    <button *ngIf="showScrollTop" type="button" aria-label="Back to top" class="contact-float-item scroll-top-btn group" (click)="scrollToTop()">
+        <span class="material-icons flex-shrink-0" aria-hidden="true">keyboard_arrow_up</span>
+        <span class="hidden group-hover:inline-block ml-2 text-sm font-medium">Top</span>
+    </button>
 </div>

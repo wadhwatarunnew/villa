@@ -1,43 +1,31 @@
 <section class="px-4 md:px-6 lg:px-10 lg:py-16 py-14 relative">
-  <div class="flex justify-between items-center mb-8">
-    <div>
-      <p class="text-[#003d1a] font-bold text-sm uppercase mb-2 tracking-widest mb-2">Featured Projects</p>
-      <h2 class="text-3xl md:text-4xl lg:text-[2.5rem] font-serif text-[#0e2614]">Iconic Projects, Timeless Experiences
-      </h2>
-    </div>
+    <div class="flex justify-between items-center mb-8">
+        <div>
+            <p class="text-[#003d1a] font-bold text-sm uppercase mb-2 tracking-widest mb-2">Featured Projects</p>
+            <h2 class="text-3xl md:text-4xl lg:text-[2.5rem] font-serif text-[#0e2614]">Iconic Projects, Timeless Experiences
+            </h2>
+        </div>
 
-    <a href="/projects"
-      class="hidden lg:flex items-center text-xs font-bold text-gray-500 hover:text-[#0e2614] transition uppercase">
+        <a href="/projects" class="hidden lg:flex items-center text-xs font-bold text-gray-500 hover:text-[#0e2614] transition uppercase">
       View All Projects
       <span class="material-icons ml-1 flex-shrink-0 text-[14px]">arrow_forward</span>
     </a>
-  </div>
-
-  <div class="relative">
-    <div #projectsSlider
-      class="flex space-x-5 overflow-x-auto snap-x [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-      <ng-container *ngFor="let project of projects">
-        <div class="min-w-[240px] w-[240px] md:min-w-[260px] md:w-[260px] snap-start group cursor-pointer">
-          <div class="rounded-t-lg overflow-hidden h-44 relative bg-gray-100">
-            <img [src]="project.image" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
-              [alt]="project.title" />
-            <div class="absolute inset-0 bg-black/20"></div>
-          </div>
-          <div class="bg-white px-3 py-4 rounded-b-lg border border-t-0 border-gray-200">
-            <h3 class="font-bold text-[#0e2614] text-lg">{{ project.title }}</h3>
-            <p class="text-sm text-gray-500 mt-1">{{ project.location }}</p>
-          </div>
-        </div>
-      </ng-container>
     </div>
 
-    <button (click)="scrollSlider(projectsSlider, 'left')"
-      class="absolute -left-4 top-1/2 -translate-y-1/2 size-10 cursor-pointer rounded-full bg-[#0e2614] text-white flex items-center justify-center shadow-lg hover:bg-[#091a0e] transition z-10 hidden lg:flex">
-      <span class="material-icons flex-shrink-0 text-[18px]">keyboard_arrow_left</span>
-    </button>
-    <button (click)="scrollSlider(projectsSlider, 'right')"
-      class="absolute -right-4 top-1/2 -translate-y-1/2 size-10 cursor-pointer rounded-full bg-[#0e2614] text-white flex items-center justify-center shadow-lg hover:bg-[#091a0e] transition z-10 hidden lg:flex">
-      <span class="material-icons flex-shrink-0 text-[18px]">keyboard_arrow_right</span>
-    </button>
-  </div>
+    <div class="relative">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <ng-container *ngFor="let project of projects | slice:0:4">
+                <div class="group cursor-pointer">
+                    <div class="rounded-t-lg overflow-hidden h-44 relative bg-gray-100">
+                        <img [src]="project.image" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" [alt]="project.title" />
+                        <div class="absolute inset-0 bg-black/20"></div>
+                    </div>
+                    <div class="bg-white px-3 py-4 rounded-b-lg border border-t-0 border-gray-200">
+                        <h3 class="font-bold text-[#0e2614] text-lg">{{ project.location }}</h3>
+                        <p class="text-sm text-gray-500 mt-1">{{ project.title }}</p>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
 </section>

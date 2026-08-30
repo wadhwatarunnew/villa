@@ -16,8 +16,6 @@ import { BlogDetailSidebarComponent } from '../blog-detail-sidebar/blog-detail-s
     RouterModule,
     BlogDetailHeroComponent,
     BlogDetailPostNavComponent,
-    BlogDetailSectionsComponent,
-    BlogDetailShareComponent,
     BlogDetailSidebarComponent
   ],
   templateUrl: './blog-detail-content.component.html',

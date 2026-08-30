@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MenuService } from '../../services/menu.service';
@@ -12,6 +12,7 @@ import { MenuService } from '../../services/menu.service';
 })
 export class FooterComponent {
   year = new Date().getFullYear();
+  showScrollTop = false;
 
   constructor(private menuService: MenuService) {}
   footerMenu: any;
@@ -34,5 +35,20 @@ export class FooterComponent {
         this.headerInfo = footerMenu.HeaderInfo;
       }
     });
+
+    this.toggleScrollTopButton();
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    this.toggleScrollTopButton();
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  private toggleScrollTopButton(): void {
+    this.showScrollTop = window.scrollY > 280;
   }
 }

@@ -13,7 +13,6 @@ import { BlogDetailPageComponent } from '../features/blog-detail/pages/blog-deta
 
 @Component({
   selector: 'villa-dynamic-page',
-  imports: [NgComponentOutlet, JsonPipe],
   templateUrl: './dynamic-page.component.html',
   styleUrl: './dynamic-page.component.css',
 })

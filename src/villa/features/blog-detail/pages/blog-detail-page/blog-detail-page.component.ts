@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CommonModule, JsonPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { BlogPost } from '../../../blogs/components/blog-post-list/blog-post-list.component';
 import { BlogDetailContentComponent } from '../../components/blog-detail-content/blog-detail-content.component';
 import { BrandsComponent } from '../../../../shared/components/brands/brands.component';
@@ -17,7 +17,7 @@ function slugify(title: string): string {
 @Component({
   selector: 'villa-blog-detail-page',
   standalone: true,
-  imports: [BlogDetailContentComponent, BrandsComponent, CommonCtaComponent, CommonModule, JsonPipe],
+  imports: [BlogDetailContentComponent, BrandsComponent, CommonCtaComponent, CommonModule],
   templateUrl: './blog-detail-page.component.html',
   styleUrls: ['./blog-detail-page.component.scss']
 })

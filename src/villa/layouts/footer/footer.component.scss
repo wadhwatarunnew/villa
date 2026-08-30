@@ -1,26 +1,100 @@
 .contact-float-item {
-  padding: 12px 15px;
-  background-color: #005b28b5;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  border-radius: 7px 0 0 7px;
-  position: relative;
-  right: -75%;
-  transition:
-    right 0.4s ease,
-    opacity 0.4s ease,
-    transform 0.4s ease;
-  width: auto;
-  min-width: 170px;
+    padding: 12px 15px;
+    background-color: #005b28b5;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    border-radius: 7px 0 0 7px;
+    position: relative;
+    right: -75%;
+    transition: right 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+    width: auto;
+    min-width: 170px;
 }
 
 .contact-float-item:hover {
-  right: -10px;
+    right: -10px;
 }
 
 .contact-float-item svg {
-  width: 25px;
-  height: 25px;
+    width: 25px;
+    height: 25px;
+}
+
+.footer-arrow-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-arrow-list li {
+    border-bottom: 1px solid rgba(0, 91, 40, 0.16);
+    padding: 11px 0;
+}
+
+.footer-arrow-list li:last-child {
+    border-bottom: 0;
+}
+
+.footer-arrow-list a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #1f2937;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-arrow-list a::before {
+    content: "\2192";
+    color: #005b28;
+    font-size: 0.75rem;
+    line-height: 1;
+    font-weight: 700;
+}
+
+.footer-arrow-list a:hover {
+    color: #005b28;
+    transform: translateX(2px);
+}
+
+.footer-contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-contact-list li {
+    padding: 11px 0;
+}
+
+.footer-contact-list li:first-child {
+    padding-top: 0;
+}
+
+.footer-social-link {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #003d1a;
+    border-radius: 9999px;
+    color: #003d1a;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.footer-social-link:hover {
+    border-color: #003d1a;
+    background-color: #003d1a;
+    color: #ffffff;
+}
+
+.scroll-top-btn {
+    cursor: pointer;
+    border: 0;
+    font: inherit;
 }

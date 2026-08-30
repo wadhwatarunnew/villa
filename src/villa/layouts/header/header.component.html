@@ -1,26 +1,23 @@
 <header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
-  <div class="bg-[#003d1a] text-white">
-    <div class="px-4 md:px-6 lg:px-10 py-3 flex items-center sm:justify-between justify-center gap-8 text-xs font-medium">
-      <div class="flex items-center sm:gap-6 gap-3 text-white/90">
-        <a href="tel:{{contactInfo?.mobile}}"
-          class="flex items-center gap-2 whitespace-nowrap hover:text-white transition-colors">
-          <span class="material-icons flex-shrink-0" aria-hidden="true">call</span>
-          <a href="tel:+919813627021" class="text-white hover:text-white transition-colors">{{contactInfo?.mobile}}</a>
-        </a>
-        <a href="mailto:{{contactInfo?.email}}"
-          class="flex items-center gap-2 whitespace-nowrap hover:text-white transition-colors">
-          <span class="material-icons flex-shrink-0" aria-hidden="true">email</span>
-          <span>{{contactInfo?.email}}</span>
-        </a>
-      </div>
-      <div class="max-sm:hidden flex items-center gap-5 text-white/90">
-        <a *ngFor="let item of socialMedia" target="_blank" href="{{item.link}}" aria-label="{{item.name}}"
-          class="hover:text-[#003d1a] transition-colors">
-          <i class="icofont {{item.icon}}"></i>
-        </a>
-      </div>
+    <div class="bg-[#003d1a] text-white">
+        <div class="px-4 md:px-6 lg:px-10 py-3 flex items-center sm:justify-between justify-center gap-8 text-xs font-medium">
+            <div class="flex items-center sm:gap-6 gap-3 text-white/90">
+                <a href="tel:{{contactInfo?.mobile}}" class="flex items-center gap-2 whitespace-nowrap hover:text-white transition-colors">
+                    <span class="material-icons flex-shrink-0" aria-hidden="true">call</span>
+                    <a href="tel:+919813627021" class="text-white hover:text-white transition-colors">{{contactInfo?.mobile}}</a>
+                </a>
+                <a href="mailto:{{contactInfo?.email}}" class="flex items-center gap-2 whitespace-nowrap hover:text-white transition-colors">
+                    <span class="material-icons flex-shrink-0" aria-hidden="true">email</span>
+                    <span>{{contactInfo?.email}}</span>
+                </a>
+            </div>
+            <div class="max-sm:hidden flex items-center gap-5 text-white/90">
+                <a *ngFor="let item of socialMedia" target="_blank" href="{{item.link}}" aria-label="{{item.name}}" class="hover:text-[#003d1a] transition-colors">
+                    <i class="icofont {{item.icon}}"></i>
+                </a>
+            </div>
+        </div>
     </div>
-  </div>
 
   <div class="px-4 md:px-6 lg:px-10 py-4">
     <div class="flex items-center justify-between gap-4">
@@ -39,190 +36,45 @@
             class="text-sm font-semibold text-black hover:text-[#003d1a] uppercase transition-colors duration-200">
             home
           </a>
-          <a routerLink="/about-us" routerLinkActive="!text-[#005b28] underline underline-offset-[8px] decoration-2"
-            class="text-sm font-semibold text-black hover:text-[#005b28] uppercase transition-colors duration-200">
+          
+          <a routerLink="/about-us" routerLinkActive="!text-[#005b28] underline underline-offset-[8px] decoration-2" class="text-sm font-semibold text-black hover:text-[#005b28] uppercase transition-colors duration-200">
             about us
           </a>
 
-          <div class="relative group">
-              <!-- <a
-                  [routerLink]="resortTents?.slug"
-                  class="flex items-center gap-1 text-sm font-semibold uppercase hover:text-[#005b28]">
-
-                  {{ resortTents?.name }}
-
-                  <svg class="w-4 h-4 transition group-hover:rotate-90">
-                      ...
-                  </svg>
-              </a>
-
-              @if (resortTents?.children?.length) {
-
-                  <ul class="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl border min-w-[300px] z-50">
-
-                  @for (child of resortTents.children; track child.id) {
-
-                      <li class="relative group/sub">
-
-                          <a
-                              [routerLink]="['/', child.slug]"
-                              class="flex justify-between items-center px-5 py-3 hover:bg-[#005b28] hover:text-white">
-
-                              {{ child.name }}
-
-                              @if(child.children?.length){
-                                  <svg class="w-4 h-4">
-                                      ...
-                                  </svg>
-                              }
-
-                          </a>
-
-                          @if (child.children?.length) {
-
-                              <ul
-                                  class="absolute left-full top-0 hidden group-hover/sub:block bg-white shadow-xl border min-w-[280px]">
-
-                                  @for (sub of child.children; track sub.id) {
-
-                                      <li>
-
-                                          <a
-                                              [routerLink]="['/', sub.slug]"
-                                              class="block px-5 py-3 hover:bg-[#005b28] hover:text-white">
-
-                                              {{ sub.name }}
-
-                                          </a>
-
-                                      </li>
-
-                                  }
-
-                              </ul>
-
-                          }
-
-                      </li>
-
-                  }
-
-                  </ul>
-
-              } -->
-
-            <a routerLink="/resort-tent" routerLinkActive="!text-[#003d1a] underline underline-offset-[8px] decoration-2"
-              class="text-sm font-semibold text-black hover:text-[#003d1a] transition-colors duration-200 flex items-center gap-1 whitespace-nowrap uppercase">
+          <a routerLink="/resort-tent" routerLinkActive="!text-[#003d1a] underline underline-offset-[8px] decoration-2" class="text-sm font-semibold text-black hover:text-[#003d1a] transition-colors duration-200 flex items-center gap-1 whitespace-nowrap uppercase">
               tents
-            </a>
-          </div>
-          
-          <div class="relative group">
-            <a routerLink="/projects" routerLinkActive="!text-[#003d1a] underline underline-offset-[8px] decoration-2"
-              class="text-sm font-semibold text-black hover:text-[#003d1a] transition-colors duration-200 flex items-center gap-1 whitespace-nowrap uppercase">
-              projects
-            </a>
+          </a>
 
-              <!-- <a
-              [routerLink]="projects?.slug"
-              class="flex items-center gap-1 text-sm font-semibold uppercase hover:text-[#005b28]">
+          <a routerLink="/projects" routerLinkActive="!text-[#003d1a] underline underline-offset-[8px] decoration-2" class="text-sm font-semibold text-black hover:text-[#003d1a] transition-colors duration-200 flex items-center gap-1 whitespace-nowrap uppercase">
+            projects
+          </a>
 
-              {{ projects?.name }}
-
-              <svg class="w-4 h-4 transition group-hover:rotate-90">
-                  ...
-              </svg>
-
-              </a>
-
-              @if (projects?.children?.length) {
-
-                  <ul class="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl border min-w-[300px] z-50">
-
-                  @for (child of projects.children; track child.id) {
-
-                      <li class="relative group/sub">
-
-                          <a
-                              [routerLink]="child.slug"
-                              class="flex justify-between items-center px-5 py-3 hover:bg-[#005b28] hover:text-white">
-
-                              {{ child.name }}
-
-                              @if(child.children?.length){
-                                  <svg class="w-4 h-4">
-                                      ...
-                                  </svg>
-                              }
-
-                          </a>
-
-                          @if (child.children?.length) {
-
-                              <ul
-                                  class="absolute left-full top-0 hidden group-hover/sub:block bg-white shadow-xl border min-w-[280px]">
-
-                                  @for (sub of child.children; track sub.id) {
-
-                                      <li>
-
-                                          <a
-                                              [routerLink]="sub.slug"
-                                              class="block px-5 py-3 hover:bg-[#005b28] hover:text-white">
-
-                                              {{ sub.name }}
-
-                                          </a>
-
-                                      </li>
-
-                                  }
-
-                              </ul>
-
-                          }
-
-                      </li>
-
-                  }
-
-                  </ul>
-
-              } -->
-
-          </div>
-
-          <a routerLink="/gallery" routerLinkActive="!text-[#005b28] underline underline-offset-[8px] decoration-2"
-            class="text-sm font-semibold text-black hover:text-[#005b28] transition-colors duration-200 whitespace-nowrap uppercase">
+          <a routerLink="/gallery" routerLinkActive="!text-[#005b28] underline underline-offset-[8px] decoration-2" class="text-sm font-semibold text-black hover:text-[#005b28] transition-colors duration-200 whitespace-nowrap uppercase">
             gallery
           </a>
-          <a routerLink="/blogs" routerLinkActive="!text-[#003d1a] underline underline-offset-[8px] decoration-2"
-            class="text-sm font-semibold text-black hover:text-[#003d1a] transition-colors duration-200 whitespace-nowrap uppercase">
+                    <a routerLink="/blogs" routerLinkActive="!text-[#003d1a] underline underline-offset-[8px] decoration-2" class="text-sm font-semibold text-black hover:text-[#003d1a] transition-colors duration-200 whitespace-nowrap uppercase">
             blogs
           </a>
-          <a routerLink="/contact-us" routerLinkActive="!text-[#005b28] underline underline-offset-[8px] decoration-2"
-            class="text-sm font-semibold text-black hover:text-[#005b28] transition-colors duration-200 whitespace-nowrap uppercase">
+          
+          <a routerLink="/contact-us" routerLinkActive="!text-[#005b28] underline underline-offset-[8px] decoration-2" class="text-sm font-semibold text-black hover:text-[#005b28] transition-colors duration-200 whitespace-nowrap uppercase">
             contact us
           </a>
         </nav>
+
         <div class="flex items-center gap-3">
-          <a routerLink="/download-brochure"
-            class="hidden 2xl:flex px-4 py-2.5 text-[13px] font-medium cursor-pointer border border-[#003d1a] text-black hover:text-white hover:bg-[#003d1a] rounded-md transition-all duration-200 shadow-lg items-center gap-2 uppercase">
+          <a routerLink="/download-brochure" class="hidden 2xl:flex px-4 py-2.5 text-[13px] font-medium cursor-pointer border border-[#003d1a] text-black hover:text-white hover:bg-[#003d1a] rounded-md transition-all duration-200 shadow-lg items-center gap-2 uppercase">
             download brochure
             <span class="material-icons flex-shrink-0" aria-hidden="true">file_download</span>
           </a>
 
-          <a routerLink="/quote"
-            class="hidden 2xl:flex px-4 py-2.5 text-[13px] font-medium text-white bg-[#003d1a] border border-[#003d1a] hover:bg-[#005b28] rounded-lg transition-all duration-200 shadow-lg items-center gap-2 uppercase">
+          <a routerLink="/quote" class="hidden 2xl:flex px-4 py-2.5 text-[13px] font-medium text-white bg-[#003d1a] border border-[#003d1a] hover:bg-[#005b28] rounded-lg transition-all duration-200 shadow-lg items-center gap-2 uppercase">
             get a quote
             <span class="material-icons flex-shrink-0" aria-hidden="true">arrow_forward</span>
           </a>
         </div>
 
         <!-- Mobile Menu Button -->
-        <button (click)="toggleMobileMenu()"
-          class="2xl:hidden p-2.5 text-white cursor-pointer bg-[#003d1a] hover:bg-[#005b28] rounded-lg transition-colors flex items-center justify-center"
-          aria-label="Toggle mobile menu">
+        <button (click)="toggleMobileMenu()" class="2xl:hidden p-2.5 text-white cursor-pointer bg-[#003d1a] hover:bg-[#005b28] rounded-lg transition-colors flex items-center justify-center" aria-label="Toggle mobile menu">
           @if (!isMobileMenuOpen) {
           <span class="material-icons flex-shrink-0" aria-hidden="true">menu</span>
           } @else {
@@ -232,108 +84,95 @@
       </div>
     </div>
 
-    <!-- Mobile Menu Overlay -->
-    @if (isMobileMenuOpen) {
-    <div class="2xl:hidden fixed inset-0 z-60 bg-black/45" (click)="toggleMobileMenu()">
-      <aside class="mobile-menu-drawer ml-auto flex h-full w-[min(22rem,88vw)] flex-col overflow-y-auto bg-white shadow-2xl"
-        role="dialog" aria-modal="true" aria-label="Mobile navigation" (click)="$event.stopPropagation()">
-        <div class="flex items-center justify-between border-b border-gray-100 px-4 py-5">
-          <span class="text-base font-semibold uppercase text-[#003d1a]">Menu</span>
-          <button (click)="toggleMobileMenu()"
-            class="flex size-10 items-center justify-center rounded-lg bg-[#003d1a] text-white transition-colors hover:bg-[#005b28] cursor-pointer"
-            aria-label="Close mobile menu">
+        <!-- Mobile Menu Overlay -->
+        @if (isMobileMenuOpen) {
+        <div class="2xl:hidden fixed inset-0 z-60 bg-black/45" (click)="toggleMobileMenu()">
+            <aside class="mobile-menu-drawer ml-auto flex h-full w-[min(22rem,88vw)] flex-col overflow-y-auto bg-white shadow-2xl" role="dialog" aria-modal="true" aria-label="Mobile navigation" (click)="$event.stopPropagation()">
+                <div class="flex items-center justify-between border-b border-gray-100 px-4 py-5">
+                    <span class="text-base font-semibold uppercase text-[#003d1a]">Menu</span>
+                    <button (click)="toggleMobileMenu()" class="flex size-10 items-center justify-center rounded-lg bg-[#003d1a] text-white transition-colors hover:bg-[#005b28] cursor-pointer" aria-label="Close mobile menu">
             <span class="material-icons" aria-hidden="true">close</span>
           </button>
-        </div>
-
-        <nav class="flex flex-1 flex-col px-4 pt-3 pb-5">
-          <ul class="flex flex-1 flex-col gap-2">
-            <li>
-              <a routerLink="/" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}"
-                (click)="toggleMobileMenu()"
-                class="flex items-center gap-4 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
-                <div class="flex items-center justify-center">
-                  <span class="material-icons flex-shrink-0" aria-hidden="true">home</span>
                 </div>
-                <span class="text-sm font-medium uppercase">home</span>
-              </a>
-            </li>
 
-            <li>
-              <a routerLink="/about-us" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()"
-            class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
-            <div class="flex items-center justify-center">
-              <span class="material-icons flex-shrink-0" aria-hidden="true">person</span>
-            </div>
-            <span class="text-sm font-medium uppercase">about us</span>
-          </a>
-            </li>
+                <nav class="flex flex-1 flex-col px-4 pt-3 pb-5">
+                    <ul class="flex flex-1 flex-col gap-2">
+                        <li>
+                            <a routerLink="/" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center gap-4 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
+                                <div class="flex items-center justify-center">
+                                    <span class="material-icons flex-shrink-0" aria-hidden="true">home</span>
+                                </div>
+                                <span class="text-sm font-medium uppercase">home</span>
+                            </a>
+                        </li>
 
-            <li>
-              <a routerLink="/tents" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()"
-            class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
-            <div class="flex items-center justify-center">
-              <span class="material-icons flex-shrink-0" aria-hidden="true">park</span>
-            </div>
-            <span class="text-sm font-medium uppercase">tents</span>
-          </a>
-            </li>
+                        <li>
+                            <a routerLink="/about-us" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
+                                <div class="flex items-center justify-center">
+                                    <span class="material-icons flex-shrink-0" aria-hidden="true">person</span>
+                                </div>
+                                <span class="text-sm font-medium uppercase">about us</span>
+                            </a>
+                        </li>
 
-            <li>
-              <a routerLink="/projects" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()"
-            class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
-            <div class="flex items-center justify-center">
-              <span class="material-icons flex-shrink-0" aria-hidden="true">folder</span>
-            </div>
-            <span class="text-sm font-medium uppercase">projects</span>
-          </a>
-            </li>
+                        <li>
+                            <a routerLink="/resort-tent" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
+                                <div class="flex items-center justify-center">
+                                    <span class="material-icons flex-shrink-0" aria-hidden="true">park</span>
+                                </div>
+                                <span class="text-sm font-medium uppercase">tents</span>
+                            </a>
+                        </li>
 
-            <li>
-              <a routerLink="/gallery" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()"
-            class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
-            <div class="flex items-center justify-center">
-              <span class="material-icons flex-shrink-0" aria-hidden="true">photo_library</span>
-            </div>
-            <span class="text-sm font-medium uppercase">gallery</span>
-          </a>
-            </li>
+                        <li>
+                            <a routerLink="/projects" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
+                                <div class="flex items-center justify-center">
+                                    <span class="material-icons flex-shrink-0" aria-hidden="true">folder</span>
+                                </div>
+                                <span class="text-sm font-medium uppercase">projects</span>
+                            </a>
+                        </li>
 
-            <li>
-              <a routerLink="/blogs" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()"
-            class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
-            <div class="flex items-center justify-center">
-              <span class="material-icons flex-shrink-0" aria-hidden="true">article</span>
-            </div>
-            <span class="text-sm font-medium uppercase">blogs</span>
-          </a>
-            </li>
+                        <li>
+                            <a routerLink="/gallery" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
+                                <div class="flex items-center justify-center">
+                                    <span class="material-icons flex-shrink-0" aria-hidden="true">photo_library</span>
+                                </div>
+                                <span class="text-sm font-medium uppercase">gallery</span>
+                            </a>
+                        </li>
 
-            <li>
-              <a routerLink="/contact" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()"
-            class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
-            <div class="flex items-center justify-center">
-              <span class="material-icons flex-shrink-0" aria-hidden="true">mail</span>
-            </div>
-            <span class="text-sm font-medium uppercase">contact</span>
-          </a>
-            </li>
-          </ul>
-        </nav>
-        <div class="space-y-3 p-6 pt-2">
-          <a routerLink="/download-brochure" (click)="toggleMobileMenu()"
-            class="flex w-full cursor-pointer items-center justify-center gap-2 rounded border border-[#003d1a] py-3 text-xs font-medium text-black uppercase transition hover:bg-[#003d1a] hover:text-white">
+                        <li>
+                            <a routerLink="/blogs" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
+                                <div class="flex items-center justify-center">
+                                    <span class="material-icons flex-shrink-0" aria-hidden="true">article</span>
+                                </div>
+                                <span class="text-sm font-medium uppercase">blogs</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a routerLink="/contact-us" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
+                                <div class="flex items-center justify-center">
+                                    <span class="material-icons flex-shrink-0" aria-hidden="true">mail</span>
+                                </div>
+                                <span class="text-sm font-medium uppercase">contact</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="space-y-3 p-6 pt-2">
+                    <a routerLink="/download-brochure" (click)="toggleMobileMenu()" class="flex w-full cursor-pointer items-center justify-center gap-2 rounded border border-[#003d1a] py-3 text-xs font-medium text-black uppercase transition hover:bg-[#003d1a] hover:text-white">
             download brochure
             <span class="material-icons flex-shrink-0" aria-hidden="true">file_download</span>
           </a>
-          <a routerLink="/quote" (click)="toggleMobileMenu()"
-            class="flex w-full cursor-pointer items-center justify-center gap-2 rounded bg-[#003d1a] py-3 text-xs font-medium text-white uppercase transition hover:bg-[#005b28]">
+                    <a routerLink="/quote" (click)="toggleMobileMenu()" class="flex w-full cursor-pointer items-center justify-center gap-2 rounded bg-[#003d1a] py-3 text-xs font-medium text-white uppercase transition hover:bg-[#005b28]">
             get a quote
             <span class="material-icons flex-shrink-0" aria-hidden="true">arrow_forward</span>
           </a>
+                </div>
+            </aside>
         </div>
-      </aside>
+        }
     </div>
-    }
-  </div>
 </header>

@@ -1,41 +1,116 @@
+@use "../styles/variables" as *;
+$villa-shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.15);
+$villa-shadow-logo: 0 14px 28px rgba(0, 61, 26, 0.18);
+$villa-menu-min-width: 15.625rem;
+$villa-logo-size: 5.5rem;
+$villa-progress-height: 0.5rem;
+$villa-title-size: clamp(#{$font-size-sm}, 1.1vw, #{$font-size-base});
+$villa-progress-size: 0.8125rem;
 .menu-item {
-  position: relative;
+    position: relative;
 }
 
 .app-body {
-  padding-top: 80px; /* header height */
+    padding-top: 80px;
+    /* header height */
 }
 
 .sub-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  min-width: 250px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  padding: 10px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: $color-surface;
+    min-width: $villa-menu-min-width;
+    box-shadow: $villa-shadow-soft;
+    padding: 0.625rem;
 }
 
 .menu-item:hover .sub-menu {
-  display: block;
+    display: block;
 }
 
 .sub-item {
-  position: relative;
+    position: relative;
 }
 
 .sub-sub-menu {
-  display: none;
-  position: absolute;
-  left: 100%;
-  top: 0;
-  background: white;
-  min-width: 250px;
-  padding: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background: $color-surface;
+    min-width: $villa-menu-min-width;
+    padding: 0.625rem;
+    box-shadow: $villa-shadow-soft;
 }
 
 .sub-item:hover .sub-sub-menu {
-  display: block;
+    display: block;
+}
+
+.splash-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(circle at 15% 20%, rgba(0, 119, 53, 0.14), transparent 45%), radial-gradient(circle at 85% 80%, rgba(0, 91, 40, 0.12), transparent 45%), $color-surface-soft;
+    .splash-content {
+        width: min(88vw, 420px);
+        text-align: center;
+        animation: splash-rise 320ms ease-out;
+        .splash-logo {
+            width: $villa-logo-size;
+            height: $villa-logo-size;
+            border-radius: 9999px;
+            border: 2px solid $color-text;
+            object-fit: cover;
+            margin: 0 auto 14px;
+            box-shadow: $villa-shadow-logo;
+        }
+        .splash-title {
+            margin: 0 0 16px;
+            color: $color-text;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-size: $villa-title-size;
+        }
+        .splash-progress-track {
+            width: 100%;
+            height: $villa-progress-height;
+            border-radius: 9999px;
+            overflow: hidden;
+            background: rgba(14, 38, 20, 0.16);
+            .splash-progress-fill {
+                height: 100%;
+                width: 0;
+                border-radius: inherit;
+                background: linear-gradient(90deg, $color-primary-dark, $color-primary);
+                transition: width 80ms linear;
+            }
+        }
+        .splash-progress-text {
+            margin-top: 10px;
+            color: $color-primary-dark;
+            font-size: $villa-progress-size;
+            font-weight: 600;
+        }
+    }
+}
+
+.app-hidden {
+    visibility: hidden;
+}
+
+@keyframes splash-rise {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

@@ -1,1 +1,14 @@
-<router-outlet></router-outlet>
+<div *ngIf="showSplash" class="splash-screen" role="status" aria-live="polite" aria-label="Loading site">
+    <div class="splash-content">
+        <img [src]="splashLogo" alt="The Villa Tent logo" class="splash-logo" />
+        <p class="splash-title">the villa tent</p>
+        <div class="splash-progress-track" aria-hidden="true">
+            <div class="splash-progress-fill" [style.width.%]="loadingProgress"></div>
+        </div>
+        <p class="splash-progress-text">{{ loadingProgress }}%</p>
+    </div>
+</div>
+
+<div [class.app-hidden]="showSplash">
+    <router-outlet></router-outlet>
+</div>

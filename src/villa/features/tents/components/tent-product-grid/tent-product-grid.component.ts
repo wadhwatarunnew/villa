@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { CommonModule, JsonPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 export interface TentCats {
@@ -10,11 +10,17 @@ export interface TentCats {
   content: string;
 }
 
-@Component({ selector: 'villa-tent-product-grid', standalone: true, imports: [CommonModule, RouterModule, JsonPipe], templateUrl: './tent-product-grid.component.html' })
+export interface TentTopSection {
+  content: string;
+}
+
+@Component({ selector: 'villa-tent-product-grid', standalone: true, imports: [CommonModule, RouterModule], templateUrl: './tent-product-grid.component.html' })
 export class TentProductGridComponent implements OnChanges {
+
   showAll = false;
   itemsPerLoad = 8;
   @Input() tents: TentCats[] | null = [];
+  @Input() topSection: TentTopSection | null = null;
   visiblePosts: TentCats[] = [];
 
   ngOnChanges(): void {

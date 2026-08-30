@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { CommonModule, JsonPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
-@Component({ selector: 'villa-tent-image-gallery', standalone: true, imports: [CommonModule, JsonPipe], templateUrl: './tent-image-gallery.component.html' })
+@Component({ selector: 'villa-tent-image-gallery', standalone: true, imports: [CommonModule], templateUrl: './tent-image-gallery.component.html' })
 export class TentImageGalleryComponent implements OnInit, OnDestroy {
   // @Input({ required: true }) images: string[] = [];
   @Input({ required: true }) name = '';

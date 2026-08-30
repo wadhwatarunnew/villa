@@ -9,7 +9,7 @@ import { RewardsStatsComponent } from '../../../../shared/components/rewards-sta
 import { HomeFeaturedProjectsComponent } from '../../components/home-featured-projects/home-featured-projects.component';
 import { HomeTestimonialsComponent } from '../../components/home-testimonials/home-testimonials.component';
 import { BrandsComponent } from '../../../../shared/components/brands/brands.component';
-import { HomeContactComponent } from '../../components/home-contact/home-contact.component';
+// import { HomeContactComponent } from '../../components/home-contact/home-contact.component';
 import { ApiService } from '../../../../services/api.service';
 import { SeoService } from '../../../../services/seo.service';
 import { CommonCtaComponent } from '../../../../shared/components/common-cta/common-cta.component';
@@ -28,7 +28,6 @@ import { CommonCtaComponent } from '../../../../shared/components/common-cta/com
     HomeFeaturedProjectsComponent,
     HomeTestimonialsComponent,
     BrandsComponent,
-    HomeContactComponent,
     CommonCtaComponent,
   ],
   templateUrl: './home-page.component.html'

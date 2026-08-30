@@ -31,13 +31,4 @@ export class HomeFeaturedProjectsComponent {
   get projects(): any[] {
     return this._defaultProjects;
   }
-  
-  scrollSlider(container: HTMLElement, direction: 'left' | 'right') {
-    const scrollAmount = 300;
-    if (direction === 'left') {
-      container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    } else {
-      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  }
 }

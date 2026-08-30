@@ -48,7 +48,12 @@ export class HomeTestimonialsComponent {
   ];
 
   scrollSlider(container: HTMLElement, direction: 'left' | 'right') {
-    const scrollAmount = 300;
+    const firstCard = container.firstElementChild as HTMLElement | null;
+    const gap = 16;
+    const scrollAmount = firstCard
+      ? firstCard.clientWidth + gap
+      : Math.max(260, Math.floor(container.clientWidth * 0.85));
+
     if (direction === 'left') {
       container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
     } else {

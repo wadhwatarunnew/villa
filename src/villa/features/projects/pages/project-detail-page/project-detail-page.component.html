@@ -44,7 +44,7 @@
     </section>
 
     <villa-project-challenge-solution [challenges]="Challenges" [solutions]="Solutions" [projectDetails]="ProjectDetails"></villa-project-challenge-solution>
-    <section *ngIf="OtherProjects?.length" class="bg-white px-4 md:px-6 lg:px-10 lg:py-16 py-14">
+    <section *ngIf="OtherProjects?.length > 1" class="bg-white px-4 md:px-6 lg:px-10 lg:py-16 py-14">
         <div class="mb-6 flex items-end justify-between">
             <div>
                 <p class="text-[13px] font-bold uppercase tracking-widest text-[#003d1a]">More to explore</p>

@@ -4,9 +4,15 @@
     <div class="absolute inset-0 bg-black/45"></div>
     <div class="max-w-3xl relative">
       <h1 class="font-serif text-4xl text-white md:text-5xl" [innerHTML]="categoryData.title"></h1>
-      <p class="mt-3 text-white md:text-lg leading-relaxed" [innerHTML]="categoryData.content"></p>
+      <p class="mt-3 text-white md:text-lg leading-relaxed" [innerHTML]="categoryData.short_desc"></p>
     </div>
   </section>
+  <section id="tent-collections" class="px-4 md:px-6 lg:px-10 lg:py-16 py-14" aria-labelledby="collections-title">
+    <div class="mx-auto text-center max-w-6xl">
+        <p class="mb-3 text-sm font-bold uppercase tracking-widest text-[#007735]">Our collection</p>
+        <p class="leading-relaxed text-gray-500" [innerHTML]="categoryData.content || ''"></p>
+    </div>
+</section>
   <section class="px-4 md:px-6 lg:px-10 lg:py-16 py-14">
     <div class="mb-8 flex items-center justify-between">
       <p class="text-gray-500"><b class="text-[#005b28]">{{ displayedProjects.length }}</b> projects available

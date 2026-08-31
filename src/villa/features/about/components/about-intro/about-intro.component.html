@@ -17,7 +17,7 @@
 
 <section class="px-4 md:px-6 lg:px-10 lg:py-16 py-14 bg-white">
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-    <div>
+    <div class="order-2 lg:order-1">
       <p class="text-[#003d1a] font-semibold text-sm uppercase tracking-widest mb-3">About The Villa Tent</p>
       <h2 class="text-4xl md:text-5xl font-serif text-[#112a1e] leading-tight mb-6" [innerHTML]="about?.title">
       </h2>
@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <div class="relative h-[450px] rounded-xl overflow-hidden shadow-2xl">
+    <div class="order-1 lg:order-2 relative h-[450px] rounded-xl overflow-hidden shadow-2xl">
       <img src="{{about?.image}}" alt="Luxury Glamping Tent" class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-black/10"></div>
     </div>

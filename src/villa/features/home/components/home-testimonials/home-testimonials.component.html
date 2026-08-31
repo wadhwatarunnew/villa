@@ -1,32 +1,41 @@
 <section class="px-4 md:px-6 lg:px-10 lg:py-16 py-14 bg-[#faf9f6]">
-  <div class="flex items-center flex-col lg:flex-row gap-10">
-    <div class="xl:w-1/4 max-lg:text-center">
-      <p class="text-[#003d1a] font-bold text-sm uppercase mb-2 tracking-widest mb-2">What Our Clients Say</p>
-      <h2 class="text-3xl lg:text-4xl font-serif text-[#0e2614] leading-tight">Trusted by Leading Hospitality Brands
-      </h2>
-    </div>
-
-    <div class="xl:w-3/4 grid grid-cols-1 md:grid-cols-3 gap-4">
-      <ng-container *ngFor="let testimonial of testimonials">
-        <div
-          class="bg-white lg:p-6 p-4 rounded-sm border border-gray-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.03)] relative flex flex-col h-full">
-          <div class="text-[#003d1a] opacity-30">
-            <span class="material-icons !text-6xl flex-shrink-0">format_quote</span>
-          </div>
-
-          <p class="text-sm text-[#005b28] leading-relaxed mb-8 flex-grow" [innerHTML]="testimonial.quote"></p>
-
-          <div class="flex items-center gap-3 justify-between border-t border-gray-100 pt-5 mt-auto">
-            <div>
-              <p class="font-bold text-[#0e2614] text-sm">{{ testimonial.name }}</p>
-              <p class="text-[13px] text-gray-500 mt-0.5">{{ testimonial.role }}</p>
-            </div>
-            <div class="text-[13px] text-nowrap font-serif text-gray-400 italic">{{ testimonial.brand }}</div>
-          </div>
+    <div class="flex items-center flex-col lg:flex-row gap-10">
+        <div class="xl:w-1/4 max-lg:text-center">
+            <p class="text-[#003d1a] font-bold text-sm uppercase mb-2 tracking-widest mb-2">What Our Clients Say</p>
+            <h2 class="text-3xl lg:text-4xl font-serif text-[#0e2614] leading-tight">Trusted by Leading Hospitality Brands
+            </h2>
         </div>
-      </ng-container>
+
+        <div class="xl:w-3/4 w-full">
+            <div class="relative">
+                <div #testimonialsSlider class="flex gap-4 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth touch-pan-x px-1 md:px-12 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                    <ng-container *ngFor="let testimonial of testimonials">
+                        <div class="w-[86vw] sm:w-[72vw] md:w-[56vw] lg:w-[44vw] xl:w-[38vw] max-w-[520px] shrink-0 snap-start bg-white lg:p-6 p-4 rounded-sm border border-gray-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.03)] relative flex flex-col">
+                            <div class="text-[#003d1a] opacity-30">
+                                <span class="material-icons !text-6xl flex-shrink-0">format_quote</span>
+                            </div>
+
+                            <p class="text-sm text-[#005b28] leading-relaxed mb-8 flex-grow" [innerHTML]="testimonial.quote"></p>
+
+                            <div class="flex items-center gap-3 justify-between border-t border-gray-100 pt-5 mt-auto">
+                                <div>
+                                    <p class="font-bold text-[#0e2614] text-sm">{{ testimonial.name }}</p>
+                                    <p class="text-[13px] text-gray-500 mt-0.5">{{ testimonial.role }}</p>
+                                </div>
+                                <div class="text-[13px] text-nowrap font-serif text-gray-400 italic">{{ testimonial.brand }}</div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+
+                <button (click)="scrollSlider(testimonialsSlider, 'left')" class="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 cursor-pointer rounded-full bg-white text-[#003d1a] shadow-sm flex items-center justify-center hover:bg-gray-50 transition hidden lg:flex">
+          <span class="material-icons text-[22px]">keyboard_arrow_left</span>
+        </button>
+                <button (click)="scrollSlider(testimonialsSlider, 'right')" class="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 cursor-pointer rounded-full bg-white text-[#003d1a] shadow-sm flex items-center justify-center hover:bg-gray-50 transition hidden lg:flex">
+          <span class="material-icons text-[22px]">keyboard_arrow_right</span>
+        </button>
+            </div>
+        </div>
     </div>
-  </div>
 
 </section>
- 

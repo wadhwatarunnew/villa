@@ -31,53 +31,56 @@
             <div class="flex items-center gap-8">
                 <nav class="hidden 2xl:flex items-center gap-7">
                     <a routerLink="/" routerLinkActive="!text-[#003d1a] underline underline-offset-[8px] decoration-2" [routerLinkActiveOptions]="{exact: true}" class="text-sm font-semibold text-black hover:text-[#003d1a] uppercase transition-colors duration-200">
-            home
-          </a>
+                        home
+                    </a>
 
                     <a routerLink="/about-us" routerLinkActive="!text-[#005b28] underline underline-offset-[8px] decoration-2" class="text-sm font-semibold text-black hover:text-[#005b28] uppercase transition-colors duration-200">
-            about us
-          </a>
+                        about us
+                    </a>
 
                     <a routerLink="/resort-tent" routerLinkActive="!text-[#003d1a] underline underline-offset-[8px] decoration-2" class="text-sm font-semibold text-black hover:text-[#003d1a] transition-colors duration-200 flex items-center gap-1 whitespace-nowrap uppercase">
-              tents
-          </a>
+                        tents
+                    </a>
 
                     <a routerLink="/projects" routerLinkActive="!text-[#003d1a] underline underline-offset-[8px] decoration-2" class="text-sm font-semibold text-black hover:text-[#003d1a] transition-colors duration-200 flex items-center gap-1 whitespace-nowrap uppercase">
-            projects
-          </a>
+                        projects
+                    </a>
 
                     <a routerLink="/gallery" routerLinkActive="!text-[#005b28] underline underline-offset-[8px] decoration-2" class="text-sm font-semibold text-black hover:text-[#005b28] transition-colors duration-200 whitespace-nowrap uppercase">
-            gallery
-          </a>
+                        gallery
+                    </a>
+                    
                     <a routerLink="/blogs" routerLinkActive="!text-[#003d1a] underline underline-offset-[8px] decoration-2" class="text-sm font-semibold text-black hover:text-[#003d1a] transition-colors duration-200 whitespace-nowrap uppercase">
-            blogs
-          </a>
+                        blogs
+                    </a>
 
                     <a routerLink="/contact-us" routerLinkActive="!text-[#005b28] underline underline-offset-[8px] decoration-2" class="text-sm font-semibold text-black hover:text-[#005b28] transition-colors duration-200 whitespace-nowrap uppercase">
-            contact us
-          </a>
+                        contact us
+                    </a>
                 </nav>
 
                 <div class="flex items-center gap-3">
-                    <a routerLink="/download-brochure" class="hidden 2xl:flex px-4 py-2.5 text-[13px] font-medium cursor-pointer border border-[#003d1a] text-black hover:text-white hover:bg-[#003d1a] rounded-md transition-all duration-200 items-center gap-2 uppercase">
-            download brochure
-            <span class="material-icons flex-shrink-0" aria-hidden="true">file_download</span>
-          </a>
+                    @if (headerInfo?.brochureStatus == 1) {
+                        <a routerLink="/download-brochure" class="hidden 2xl:flex px-4 py-2.5 text-[13px] font-medium cursor-pointer border border-[#003d1a] text-black hover:text-white hover:bg-[#003d1a] rounded-md transition-all duration-200 items-center gap-2 uppercase">
+                            download brochure
+                            <span class="material-icons flex-shrink-0" aria-hidden="true">file_download</span>
+                        </a>
+                    }
 
                     <a routerLink="/quote" class="hidden 2xl:flex px-4 py-2.5 text-[13px] font-medium text-white bg-[#003d1a] border border-[#003d1a] hover:bg-[#005b28] rounded-lg transition-all duration-200 items-center gap-2 uppercase">
-            get a quote
-            <span class="material-icons flex-shrink-0" aria-hidden="true">arrow_forward</span>
-          </a>
+                        get a quote
+                        <span class="material-icons flex-shrink-0" aria-hidden="true">arrow_forward</span>
+                    </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <button (click)="toggleMobileMenu()" class="2xl:hidden p-2.5 text-white cursor-pointer bg-[#003d1a] hover:bg-[#005b28] rounded-lg transition-colors flex items-center justify-center" aria-label="Toggle mobile menu">
-          @if (!isMobileMenuOpen) {
-          <span class="material-icons flex-shrink-0" aria-hidden="true">menu</span>
-          } @else {
-          <span class="material-icons flex-shrink-0" aria-hidden="true">close</span>
-          }
-        </button>
+                    @if (!isMobileMenuOpen) {
+                    <span class="material-icons flex-shrink-0" aria-hidden="true">menu</span>
+                    } @else {
+                    <span class="material-icons flex-shrink-0" aria-hidden="true">close</span>
+                    }
+                </button>
             </div>
         </div>
 
@@ -88,8 +91,8 @@
                 <div class="flex items-center justify-between border-b border-gray-100 px-4 py-5">
                     <span class="text-base font-semibold uppercase text-[#003d1a]">Menu</span>
                     <button (click)="toggleMobileMenu()" class="flex size-10 items-center justify-center rounded-lg bg-[#003d1a] text-white transition-colors hover:bg-[#005b28] cursor-pointer" aria-label="Close mobile menu">
-            <span class="material-icons" aria-hidden="true">close</span>
-          </button>
+                        <span class="material-icons" aria-hidden="true">close</span>
+                    </button>
                 </div>
 
                 <nav class="flex flex-1 flex-col px-4 pt-3 pb-5">
@@ -158,15 +161,18 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="space-y-3 p-6 pt-2">
-                    <a routerLink="/download-brochure" (click)="toggleMobileMenu()" class="flex w-full cursor-pointer items-center justify-center gap-2 rounded border border-[#003d1a] py-3 text-xs font-medium text-black uppercase transition hover:bg-[#003d1a] hover:text-white">
-            download brochure
-            <span class="material-icons flex-shrink-0" aria-hidden="true">file_download</span>
-          </a>
+                <div class="space-y-3 p-6 pt-2">{{headerInfo?.brochureStatus}}
+                    @if (headerInfo?.brochureStatus == 1) {
+                        <a routerLink="/download-brochure" (click)="toggleMobileMenu()" class="flex w-full cursor-pointer items-center justify-center gap-2 rounded border border-[#003d1a] py-3 text-xs font-medium text-black uppercase transition hover:bg-[#003d1a] hover:text-white">
+                            download brochure
+                            <span class="material-icons flex-shrink-0" aria-hidden="true">file_download</span>
+                        </a>
+                    }
+
                     <a routerLink="/quote" (click)="toggleMobileMenu()" class="flex w-full cursor-pointer items-center justify-center gap-2 rounded bg-[#003d1a] py-3 text-xs font-medium text-white uppercase transition hover:bg-[#005b28]">
-            get a quote
-            <span class="material-icons flex-shrink-0" aria-hidden="true">arrow_forward</span>
-          </a>
+                        get a quote
+                        <span class="material-icons flex-shrink-0" aria-hidden="true">arrow_forward</span>
+                    </a>
                 </div>
             </aside>
         </div>

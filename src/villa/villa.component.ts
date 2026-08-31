@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MenuService } from './services/menu.service';
 
 @Component({
   selector: 'villa-root',
@@ -9,14 +10,62 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 export class VillaComponent implements OnInit, OnDestroy {
   showSplash = true;
   loadingProgress = 0;
-  splashLogo = 'assets/images/logo.webp';
+  splashLogo = '';
+
+  menuItems: any;
+  resortTents: any;
+  projects: any;
+  socialMedia: any;
+  contactInfo: any;
+  headerInfo: any;
 
   private progressTimer?: ReturnType<typeof setInterval>;
   private completeTimer?: ReturnType<typeof setTimeout>;
   private hideTimer?: ReturnType<typeof setTimeout>;
 
+  constructor(private menuService: MenuService) {}
   ngOnInit(): void {
+    // Load global data
+    this.loadSiteData();
+
     this.startSplashSequence();
+  }
+
+  private loadSiteData(): void {
+    this.menuService.getMenus().subscribe({
+      next: (response) => {
+        const menuData = response.data; // ✅ ONLY ONE data
+        this.menuItems = menuData;
+        this.socialMedia = menuData.SocialMedia;
+        this.contactInfo = menuData.ContactInfo;
+        this.headerInfo = menuData.HeaderInfo;
+        this.resortTents = this.transformMenu(menuData.ResortTents);
+        this.projects = this.transformMenu(menuData.Projects);
+
+        this.menuService.setSocialMedia(menuData.SocialMedia);
+        this.menuService.setContactInfo(menuData.ContactInfo);
+        this.menuService.setHeaderInfo(menuData.HeaderInfo);
+
+        const transformed = {
+                              ...menuData,
+                              ResortTents: this.transformMenu(menuData.ResortTents),
+                              Projects: this.transformMenu(menuData.Projects)
+                            };
+
+        this.menuService.setMenu(transformed);
+
+        // Dynamic splash logo
+        if (menuData?.HeaderInfo?.logo) {
+          this.splashLogo = menuData.HeaderInfo.logo;
+        }
+
+        // Dynamic favicon
+        if (menuData?.HeaderInfo?.favicon) {
+          this.setFavicon(menuData.HeaderInfo.favicon);
+        }
+      },
+      error: (err) => console.error(err)
+    });
   }
 
   ngOnDestroy(): void {
@@ -57,5 +106,41 @@ export class VillaComponent implements OnInit, OnDestroy {
       clearTimeout(this.hideTimer);
       this.hideTimer = undefined;
     }
+  }
+
+  private setFavicon(url: string): void {
+
+    let favicon = document.querySelector(
+      "link[rel~='icon']"
+    ) as HTMLLinkElement;
+
+    if (!favicon) {
+      favicon = document.createElement('link');
+
+      favicon.rel = 'icon';
+      favicon.type = 'image/webp';
+
+      document.head.appendChild(favicon);
+    }
+
+    favicon.href = url;
+  }
+
+  private transformMenu(node: any, level = 0): any {
+
+    return {
+            ...node,
+
+            level,
+
+            // MUST preserve API type
+            type: node.type,
+
+            children: node.children
+              ? node.children.map((child: any) =>
+                  this.transformMenu(child, level + 1)
+                )
+              : []
+          };
   }
 }

@@ -22,9 +22,7 @@ export class HeaderComponent implements OnInit {
   readonly heroArrowRightIcon = heroArrowRight;
   readonly heroArrowDownTrayIcon = heroArrowDownTray;
   readonly heroBars3Icon = heroBars3;
-  menuItems: any;
-  resortTents: any;
-  projects: any;
+  
   socialMedia: any;
   contactInfo: any;
   headerInfo: any;
@@ -53,25 +51,16 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.updateScrollState();
 
-    this.menuService.getMenus().subscribe({
-      next: (response) => {
-        const menuData = response.data; // ✅ ONLY ONE data
-        this.menuItems = menuData;
-        this.socialMedia = menuData.SocialMedia;
-        this.contactInfo = menuData.ContactInfo;
-        this.headerInfo = menuData.HeaderInfo;
-        this.resortTents = this.transformMenu(menuData.ResortTents);
-        this.projects = this.transformMenu(menuData.Projects);
+    this.menuService.socialMedia$.subscribe(data => {
+      this.socialMedia = data;
+    });
 
-        const transformed = {
-                              ...menuData,
-                              ResortTents: this.transformMenu(menuData.ResortTents),
-                              Projects: this.transformMenu(menuData.Projects)
-                            };
+    this.menuService.contactInfo$.subscribe(data => {
+      this.contactInfo = data;
+    });
 
-        this.menuService.setMenu(transformed)
-      },
-      error: (err) => console.error(err)
+    this.menuService.headerInfo$.subscribe(data => {
+      this.headerInfo = data;
     });
   }
 
@@ -86,23 +75,5 @@ export class HeaderComponent implements OnInit {
 
   toggleMobileMenu(): void {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
-  }
-
-  private transformMenu(node: any, level = 0): any {
-
-    return {
-            ...node,
-
-            level,
-
-            // MUST preserve API type
-            type: node.type,
-
-            children: node.children
-              ? node.children.map((child: any) =>
-                  this.transformMenu(child, level + 1)
-                )
-              : []
-          };
   }
 }

@@ -31,14 +31,11 @@
                         <span class="material-icons text-lg">fullscreen</span>
                     </button>
                 </div>
-                <div class="mt-3 grid grid-cols-4 gap-2">
-                    <button
-                        *ngFor="let image of GalleryInfo; let i = index" (click)="select(i)"
-                        class="overflow-hidden rounded border-2" [class.border-green-700]="activeIndex === i"
-                        [class.border-transparent]="activeIndex !== i">{{image.content}}
-                        <img [src]="image.content" [alt]="image.title + ' view'" class="aspect-[1.5] w-full object-cover">
-                    </button>
-                </div>
+                
+                <div class="flex gap-3 overflow-x-auto pt-3"><button type="button" *ngFor="let image of gallery; let i = index"
+                (click)="select(i)" class="shrink-0 overflow-hidden rounded-md border-2"
+                [class.border-green-500]="activeIndex === i" [class.border-transparent]="activeIndex !== i"><img
+                    class="h-20 w-32 object-cover" [src]="image" [alt]="name + ' thumbnail'" /></button></div>
             </article>
         </div>
     </section>

@@ -4,12 +4,18 @@ import { Title, Meta } from '@angular/platform-browser';
 @Injectable({
   providedIn: 'root'
 })
+
 export class SeoService {
 
   constructor(
     private title: Title,
     private meta: Meta
   ) {}
+
+
+ngOnInit(): void {
+  this.title.setTitle('SSR TEST 123');
+}
 
 
   setSEO(seo: any) {

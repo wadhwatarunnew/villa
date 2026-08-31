@@ -22,6 +22,38 @@ export class MenuService {
 
   private menuSubject = new BehaviorSubject<any>(null);
   menu$ = this.menuSubject.asObservable();
+
+  private socialMediaSubject = new BehaviorSubject<any>(null);
+  private contactInfoSubject = new BehaviorSubject<any>(null);
+  private headerInfoSubject = new BehaviorSubject<any>(null);
+
+  socialMedia$ = this.socialMediaSubject.asObservable();
+  contactInfo$ = this.contactInfoSubject.asObservable();
+  headerInfo$ = this.headerInfoSubject.asObservable();
+
+  setSocialMedia(data: any): void {
+    this.socialMediaSubject.next(data);
+  }
+
+  setContactInfo(data: any): void {
+    this.contactInfoSubject.next(data);
+  }
+
+  setHeaderInfo(data: any): void {
+    this.headerInfoSubject.next(data);
+  }
+
+  getSocialMedia(): any {
+    return this.socialMediaSubject.value;
+  }
+
+  getContactInfo(): any {
+    return this.contactInfoSubject.value;
+  }
+
+  getHeaderInfo(): any {
+    return this.headerInfoSubject.value;
+  }
   
   getMenus(): Observable<any> {
     const cacheBuster = `_=${Date.now()}`;

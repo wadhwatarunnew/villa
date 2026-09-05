@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, inject, Injector } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ApiService } from '../../../../services/api.service';
@@ -6,10 +6,8 @@ import { SeoService } from '../../../../services/seo.service';
 import {
   AboutHeroComponent,
   AboutIntroComponent,
-  AboutStatsBannerComponent,
   AboutValuesComponent,
   AboutMissionVisionComponent,
-  AboutContactComponent,
 } from '../../components';
 import { CommonCtaComponent } from '../../../../shared/components/common-cta/common-cta.component';
 
@@ -27,6 +25,7 @@ import { CommonCtaComponent } from '../../../../shared/components/common-cta/com
   templateUrl: './about-page.component.html',
   styleUrls: ['./about-page.component.scss']
 })
+
 export class AboutPageComponent {
   pageData: any;
     

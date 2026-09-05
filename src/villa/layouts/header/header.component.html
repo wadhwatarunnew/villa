@@ -2,10 +2,16 @@
     <div class="bg-[#003d1a] text-white">
         <div class="px-4 md:px-6 lg:px-10 py-3 flex items-center sm:justify-between justify-center gap-8 text-xs font-medium">
             <div class="flex items-center sm:gap-6 gap-3 text-white/90">
-                <a href="tel:{{contactInfo?.mobile}}" class="flex items-center gap-2 whitespace-nowrap hover:text-white transition-colors">
-                    <span class="material-icons flex-shrink-0" aria-hidden="true">call</span>
-                    <a href="tel:+919813627021" class="text-white hover:text-white transition-colors">{{contactInfo?.mobile}}</a>
+                <a [href]="'tel:' + contactInfo?.mobile" class="flex items-center gap-2 whitespace-nowrap text-white hover:text-white transition-colors">
+                    <span class="material-icons flex-shrink-0" aria-hidden="true">
+                        call
+                    </span>
+
+                    <span>
+                        {{ contactInfo?.mobile }}
+                    </span>
                 </a>
+
                 <a href="mailto:{{contactInfo?.email}}" class="flex items-center gap-2 whitespace-nowrap hover:text-white transition-colors">
                     <span class="material-icons flex-shrink-0" aria-hidden="true">email</span>
                     <span>{{contactInfo?.email}}</span>

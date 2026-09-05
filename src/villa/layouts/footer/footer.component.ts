@@ -1,5 +1,5 @@
-import { Component, HostListener } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, HostListener, PLATFORM_ID, Inject } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MenuService } from '../../services/menu.service';
 
@@ -14,7 +14,7 @@ export class FooterComponent {
   year = new Date().getFullYear();
   showScrollTop = false;
 
-  constructor(private menuService: MenuService) {}
+  constructor(private menuService: MenuService, @Inject(PLATFORM_ID) private platformId: object) {}
   footerMenu: any;
   tentsMenu: any;
   socialMedia: any;
@@ -24,6 +24,16 @@ export class FooterComponent {
   headerInfo: any;
 
   ngOnInit() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    this.toggleScrollTopButton();
+
+    window.addEventListener('scroll', () => {
+      this.toggleScrollTopButton();
+    });
+    
     this.menuService.menu$.subscribe(footerMenu => {
       if (footerMenu) {
         this.footerMenu = footerMenu;
@@ -48,7 +58,11 @@ export class FooterComponent {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  private toggleScrollTopButton(): void {
-    this.showScrollTop = window.scrollY > 280;
+  toggleScrollTopButton(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    this.showScrollTop = window.scrollY > 300;
   }
 }

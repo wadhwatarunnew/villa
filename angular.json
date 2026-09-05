@@ -23,6 +23,11 @@
             "scripts": []
           },
           "configurations": {
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -66,6 +71,10 @@
             "tsConfig": "tsconfig.server.json"
           },
           "configurations": {
+            "development": {
+              "optimization": false,
+              "sourceMap": true
+            },
             "production": {
               "buildOptimizer": true,
               "outputHashing": "media",

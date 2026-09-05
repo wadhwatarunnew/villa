@@ -90,7 +90,7 @@ export class DynamicPageComponent {
       const component = this.componentMap[page.type] as any;
 
       if (!component) {
-        console.error('Component not found:', page.type);
+        // console.error('Component not found:', page.type);
         return;
       }
 
@@ -98,7 +98,7 @@ export class DynamicPageComponent {
       (compRef.instance as any).data = res;
       compRef.setInput('data', res);
       this.cdr.detectChanges();
-      console.log('selectedComponent:', this.selectedComponent);
+      // console.log('selectedComponent:', this.selectedComponent);
     });
   }
 }

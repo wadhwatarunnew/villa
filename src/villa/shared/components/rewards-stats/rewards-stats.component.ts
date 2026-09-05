@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, AfterViewInit, OnDestroy, Input } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, AfterViewInit, OnDestroy, Input, Inject, PLATFORM_ID } from '@angular/core';
 
 @Component({
   selector: 'villa-rewards-stats',
@@ -9,6 +9,9 @@ import { Component, AfterViewInit, OnDestroy, Input } from '@angular/core';
   styleUrls: ['./rewards-stats.component.scss']
 })
 export class RewardsStatsComponent implements AfterViewInit, OnDestroy {
+  
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
+
   // stats contain numeric targets and optional suffix so we can animate counts on load
   defaultStats: Array<{ target: number; suffix?: string; label: string; iconName: string; display: string }> = [
     {
@@ -56,6 +59,10 @@ export class RewardsStatsComponent implements AfterViewInit, OnDestroy {
   private _observer: IntersectionObserver | null = null;
 
   ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    
     // Trigger animation when stats section appears in viewport for a smoother UX
     const host = document.querySelector('villa-rewards-stats');
     if (host && 'IntersectionObserver' in window) {

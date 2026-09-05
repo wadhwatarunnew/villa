@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild, Input, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'villa-brands',
@@ -9,6 +9,8 @@ import { CommonModule } from '@angular/common';
 })
 export class BrandsComponent implements AfterViewInit, OnDestroy {
   @ViewChild('brandCarousel', { static: true }) brandCarousel!: ElementRef<HTMLDivElement>;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
 
   defaultBrands: Array<{ name: string; logo?: string }> = [
     { name: 'ITC Hotels', logo: 'assets/images/logos/itc-hotels.webp' },
@@ -37,22 +39,30 @@ export class BrandsComponent implements AfterViewInit, OnDestroy {
   }
 
 
-  private slideInterval?: number;
+  slideInterval: number | undefined;
   private readonly scrollSpeed = 1;
   private readonly scrollAmount = 300;
 
   private autoScrollPaused = false;
 
   ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     const element = this.brandCarousel.nativeElement;
+
     this.slideInterval = window.setInterval(() => {
       if (this.autoScrollPaused) {
         return;
       }
+
       const segmentWidth = element.scrollWidth / 3;
+
       if (element.scrollLeft >= segmentWidth) {
         element.scrollLeft -= segmentWidth;
       }
+
       element.scrollLeft += this.scrollSpeed;
     }, 16);
   }
@@ -70,7 +80,7 @@ export class BrandsComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.slideInterval) {
+    if (this.slideInterval !== undefined) {
       window.clearInterval(this.slideInterval);
     }
   }

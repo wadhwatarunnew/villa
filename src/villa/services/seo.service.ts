@@ -12,12 +12,6 @@ export class SeoService {
     private meta: Meta
   ) {}
 
-
-ngOnInit(): void {
-  this.title.setTitle('SSR TEST 123');
-}
-
-
   setSEO(seo: any) {
     if (!seo) {
       return;

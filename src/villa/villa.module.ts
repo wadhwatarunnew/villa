@@ -6,14 +6,15 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { LayoutsModule } from './layouts/layouts.module';
 import { VillaComponent } from './villa.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [VillaComponent],
-  imports: [BrowserModule, RouterModule, CoreModule, SharedModule, LayoutsModule, VillaRoutingModule, HttpClientModule],
+  imports: [BrowserModule, RouterModule, CoreModule, SharedModule, LayoutsModule, VillaRoutingModule],
   bootstrap: [VillaComponent],
   providers: [
-    provideClientHydration(withEventReplay())
+    provideClientHydration(withEventReplay()),
+    provideHttpClient(withFetch())
   ]
 })
 export class VillaModule {}

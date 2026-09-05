@@ -1,5 +1,5 @@
-import { Component, HostListener, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, HostListener, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NgIcon } from '@ng-icons/core';
 import { heroArrowDownTray, heroArrowRight, heroBars3, heroChevronDown } from '@ng-icons/heroicons/outline';
@@ -14,6 +14,7 @@ import { MenuItem } from '../../models/menu-item.interface';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
+
 export class HeaderComponent implements OnInit {
 
   readonly heroPhoneIcon = heroPhoneSolid;
@@ -46,10 +47,18 @@ export class HeaderComponent implements OnInit {
     { label: 'Contact', link: '/contact' }
   ];
 
-  constructor(private menuService: MenuService) {}
+  constructor(private menuService: MenuService, @Inject(PLATFORM_ID) private platformId: object) {}
 
   ngOnInit(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     this.updateScrollState();
+
+    window.addEventListener('scroll', () => {
+      this.updateScrollState();
+    });
 
     this.menuService.socialMedia$.subscribe(data => {
       this.socialMedia = data;
@@ -69,8 +78,12 @@ export class HeaderComponent implements OnInit {
     this.updateScrollState();
   }
 
-  private updateScrollState(): void {
-    this.isScrolled = window.scrollY > 10;
+  updateScrollState(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    this.isScrolled = window.scrollY > 50;
   }
 
   toggleMobileMenu(): void {

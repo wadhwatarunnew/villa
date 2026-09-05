@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, OnDestroy, OnInit, Inject, Injectable } from '@angular/core';
 import { MenuService } from './services/menu.service';
 
 @Component({
@@ -23,7 +24,7 @@ export class VillaComponent implements OnInit, OnDestroy {
   private completeTimer?: ReturnType<typeof setTimeout>;
   private hideTimer?: ReturnType<typeof setTimeout>;
 
-  constructor(private menuService: MenuService) {}
+  constructor(private menuService: MenuService, @Inject(DOCUMENT) private document: Document) {}
   ngOnInit(): void {
     // Load global data
     this.loadSiteData();
@@ -109,18 +110,16 @@ export class VillaComponent implements OnInit, OnDestroy {
   }
 
   private setFavicon(url: string): void {
-
-    let favicon = document.querySelector(
+    let favicon = this.document.querySelector(
       "link[rel~='icon']"
-    ) as HTMLLinkElement;
+    ) as HTMLLinkElement | null;
 
     if (!favicon) {
-      favicon = document.createElement('link');
-
+      favicon = this.document.createElement('link');
       favicon.rel = 'icon';
       favicon.type = 'image/webp';
 
-      document.head.appendChild(favicon);
+      this.document.head.appendChild(favicon);
     }
 
     favicon.href = url;

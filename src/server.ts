@@ -16,7 +16,7 @@ export function app(): express.Express {
     : join(distFolder, 'index.html');
 
   const commonEngine = new CommonEngine({
-    allowedHosts: [/* Configure your hosts here */]
+    allowedHosts: ['app.thevillatent.com', 'localhost', '127.0.0.1']
   });
 
   server.set('view engine', 'html');

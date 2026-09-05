@@ -57,7 +57,7 @@ export class VillaComponent implements OnInit, OnDestroy {
 
         // Dynamic splash logo
         if (menuData?.HeaderInfo?.logo) {
-          this.splashLogo = menuData.HeaderInfo.logo;
+          this.splashLogo = "/villadashboard/uploads/logo/splash-logo.png";
         }
 
         // Dynamic favicon

@@ -15,16 +15,18 @@
     <div class="relative">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             <ng-container *ngFor="let project of projects | slice:0:4">
-                <div class="group cursor-pointer">
-                    <div class="rounded-t-lg overflow-hidden h-44 relative bg-gray-100">
-                        <img [src]="project.image" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" [alt]="project.title" />
-                        <div class="absolute inset-0 bg-black/20"></div>
+                <a href="/{{project.slug}}">
+                    <div class="group cursor-pointer">
+                        <div class="rounded-t-lg overflow-hidden h-44 relative bg-gray-100">
+                            <img [src]="project.image" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" [alt]="project.title" />
+                            <div class="absolute inset-0 bg-black/20"></div>
+                        </div>
+                        <div class="bg-white px-3 py-4 rounded-b-lg border border-t-0 border-gray-200">
+                            <h3 class="font-bold text-[#0e2614] text-lg">{{ project.location }}</h3>
+                            <p class="text-sm text-gray-500 mt-1">{{ project.title }}</p>
+                        </div>
                     </div>
-                    <div class="bg-white px-3 py-4 rounded-b-lg border border-t-0 border-gray-200">
-                        <h3 class="font-bold text-[#0e2614] text-lg">{{ project.location }}</h3>
-                        <p class="text-sm text-gray-500 mt-1">{{ project.title }}</p>
-                    </div>
-                </div>
+                </a>
             </ng-container>
         </div>
     </div>

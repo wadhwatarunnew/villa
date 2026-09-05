@@ -15,7 +15,7 @@
     <div class="relative">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             <ng-container *ngFor="let project of projects | slice:0:4">
-                <a href="/{{project.slug}}">
+                <a [routerLink]="['/', project.slug]">
                     <div class="group cursor-pointer">
                         <div class="rounded-t-lg overflow-hidden h-44 relative bg-gray-100">
                             <img [src]="project.image" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" [alt]="project.title" />

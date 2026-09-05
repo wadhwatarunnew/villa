@@ -33,7 +33,7 @@ const routes: Routes = [
         loadChildren: () => import('./features/contact/contact.module').then(m => m.ContactModule)
       },
       {
-        path: 'quote',
+        path: 'get-a-quote',
         loadComponent: () => import('./features/quote/pages/quote-page/quote-page.component').then(m => m.QuotePageComponent)
       },
       {

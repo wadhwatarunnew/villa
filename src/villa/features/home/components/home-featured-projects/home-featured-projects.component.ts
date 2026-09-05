@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'villa-home-featured-projects',
   standalone: true,
-  imports: [CommonModule],
+  imports: [RouterLink, CommonModule],
   templateUrl: './home-featured-projects.component.html',
 })
 export class HomeFeaturedProjectsComponent {

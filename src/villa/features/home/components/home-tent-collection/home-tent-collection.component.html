@@ -14,7 +14,7 @@
 
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4.5">
     <ng-container *ngFor="let tent of tents">
-      <a href="/{{tent.slug}}">
+      <a [routerLink]="['/', tent.slug]">
         <div class="group cursor-pointer flex flex-col h-full">
           <div class="overflow-hidden rounded-t-lg relative aspect-[4/3] bg-gray-100">
             <img [src]="tent.image"

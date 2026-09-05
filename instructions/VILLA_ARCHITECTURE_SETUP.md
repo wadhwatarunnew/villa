@@ -60,7 +60,7 @@ src/
   - `/gallery` -> Gallery
   - `/blogs` -> Blogs
   - `/contact` -> Contact
-  - `/quote` -> Quote
+  - `/get-a-quote` -> Quote
 - Use route guards for restricted pages when needed
 
 ### Modules

@@ -56,9 +56,7 @@ export class VillaComponent implements OnInit, OnDestroy {
         this.menuService.setMenu(transformed);
 
         // Dynamic splash logo
-        if (menuData?.HeaderInfo?.logo) {
-          this.splashLogo = "/villadashboard/uploads/logo/splash-logo.png";
-        }
+        this.splashLogo = "/villadashboard/uploads/logo/splash-logo.png";
 
         // Dynamic favicon
         if (menuData?.HeaderInfo?.favicon) {

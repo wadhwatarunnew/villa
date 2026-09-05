@@ -1,10 +1,8 @@
-<section id="tent-collections" class="px-4 md:px-6 lg:px-10 lg:py-16 py-14" aria-labelledby="collections-title">
-    <div class="mx-auto text-center max-w-6xl">
+<section id="tent-collections" class="px-4 py-14 md:px-6 lg:px-10 lg:py-16" aria-labelledby="collections-title">
+    <div class="mx-auto mb-10 text-left">
         <p class="mb-3 text-sm font-bold uppercase tracking-widest text-[#007735]">Our collection</p>
-        <p class="leading-relaxed text-gray-500" [innerHTML]="topSection?.content || ''"></p>
+        <div class="leading-relaxed text-gray-500" [innerHTML]="topSection?.content"></div>
     </div>
-</section>
-<section class="px-4 md:px-6 lg:px-10 lg:py-16 py-14">
     <div class="mb-7 flex items-center justify-between">
         <p class="text-gray-500 capitalize"><b class="text-[#005b28]">{{ tents.length }}</b> tents available</p><a routerLink="/resort-tent" class="text-xs font-bold uppercase text-[#005b28]">← All collections</a>
     </div>

@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'villa-home-tent-collection',
   standalone: true,
-  imports: [CommonModule],
+  imports: [RouterLink, CommonModule],
   templateUrl: './home-tent-collection.component.html',
 })
 export class HomeTentCollectionComponent {

@@ -25,10 +25,10 @@
             <div class="col-span-1 max-lg:pr-3 max-sm:pb-3 max-sm:border-b">
                 <h3 class="font-bold text-base mb-4 text-[#003d1a] uppercase">quick links</h3>
                 <ul class="space-y-2 footer-arrow-list">
-                    <li><a href="/about-us" class="text-sm text-black hover:text-[#003d1a] transition-colors">About Us</a></li>
-                    <li><a href="/gallery" class="text-sm text-black hover:text-[#003d1a] transition-colors">Gallery</a></li>
-                    <li><a href="/blogs" class="text-sm text-black hover:text-[#003d1a] transition-colors">Blogs</a></li>
-                    <li><a href="/contact-us" class="text-sm text-black hover:text-[#003d1a] transition-colors">Contact Us</a></li>
+                    <li><a href="/about-us">About Us</a></li>
+                    <li><a href="/gallery">Gallery</a></li>
+                    <li><a href="/blogs">Blogs</a></li>
+                    <li><a href="/contact-us">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -37,7 +37,7 @@
                 <h3 class="font-bold text-base mb-4 text-[#003d1a] uppercase">Tent collections</h3>
                 <ul class="space-y-2 footer-arrow-list">
                     @for (item of tentsMenu; track item.slug) {
-                    <li><a href="/{{item.slug}}" class="text-sm text-black hover:text-[#003d1a] transition-colors">{{ item.name }}</a></li>
+                    <li><a href="/{{item.slug}}">{{ item.name }}</a></li>
                     }
                 </ul>
             </div>
@@ -48,15 +48,15 @@
                 <ul class="footer-contact-list">
                     <li class="flex items-start gap-2">
                         <span class="material-icons flex-shrink-0" aria-hidden="true">email</span>
-                        <a href="mailto:info@thevillatent.com" class="text-sm text-black hover:text-[#003d1a] transition-colors">{{contactInfo?.email}}</a>
+                        <a href="mailto:info@thevillatent.com">{{contactInfo?.email}}</a>
                     </li>
                     <li class="flex items-start gap-2">
                         <span class="material-icons flex-shrink-0" aria-hidden="true">call</span>
-                        <a href="tel:+919813627021" class="text-sm text-black hover:text-[#003d1a] transition-colors">{{contactInfo?.mobile}}</a>
+                        <a href="tel:+919813627021">{{contactInfo?.mobile}}</a>
                     </li>
                     <li class="flex items-start gap-2">
                         <span class="material-icons flex-shrink-0" aria-hidden="true">place</span>
-                        <a href="https://maps.app.goo.gl/dezHUeS5BxspzXge8" target="_blank" class="text-sm text-black hover:text-[#003d1a] transition-colors">{{contactInfo?.address}}</a>
+                        <a href="https://maps.app.goo.gl/dezHUeS5BxspzXge8" target="_blank">{{contactInfo?.address}}</a>
                     </li>
                 </ul>
             </div>
@@ -101,8 +101,7 @@
     </svg>
         <span class="hidden group-hover:inline-block ml-2 text-sm font-medium">WhatsApp</span>
     </a>
-    <button *ngIf="showScrollTop" type="button" aria-label="Back to top" class="contact-float-item scroll-top-btn group" (click)="scrollToTop()">
-        <span class="material-icons flex-shrink-0" aria-hidden="true">keyboard_arrow_up</span>
-        <span class="hidden group-hover:inline-block ml-2 text-sm font-medium">Top</span>
-    </button>
 </div>
+<button *ngIf="showScrollTop" type="button" aria-label="Back to top" title="Back to top" class="fixed size-10.5 shrink-0 right-2.5 bottom-6 hover:bg-[#003d1a] flex items-center justify-center rounded-full cursor-pointer transition duration-300 ease-in-out bg-[#005b28] text-white hover:shadow-lg" (click)="scrollToTop()">
+    <span class="material-icons flex-shrink-0" aria-hidden="true">keyboard_arrow_up</span>
+</button>

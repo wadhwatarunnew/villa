@@ -1,7 +1,7 @@
 <form [formGroup]="contactForm" (ngSubmit)="submitForm()" class="space-y-5">
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
         <label class="block">
-            <span class="mb-2 block text-xs font-bold text-[#2f4136]">Full Name <span
+            <span class="mb-1 block text-xs font-bold text-[#2f4136]">Full Name <span
                     class="text-red-600">*</span></span>
             <span class="relative block">
                 <span class="material-icons pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base text-[#6b9880]">person</span>
@@ -11,7 +11,7 @@
         </label>
 
         <label class="block">
-            <span class="mb-2 block text-xs font-bold text-[#2f4136]">Email Address <span
+            <span class="mb-1 block text-xs font-bold text-[#2f4136]">Email Address <span
                     class="text-red-600">*</span></span>
             <span class="relative block">
                 <span class="material-icons pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base text-[#6b9880]">mail</span>
@@ -23,7 +23,7 @@
 
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
         <label class="block">
-            <span class="mb-2 block text-xs font-bold text-[#2f4136]">Phone Number <span
+            <span class="mb-1 block text-xs font-bold text-[#2f4136]">Phone Number <span
                     class="text-red-600">*</span></span>
             <span class="relative block">
                 <span class="material-icons pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base text-[#6b9880]">call</span>
@@ -33,7 +33,7 @@
         </label>
 
         <label class="block">
-            <span class="mb-2 block text-xs font-bold text-[#2f4136]">Project Location</span>
+            <span class="mb-1 block text-xs font-bold text-[#2f4136]">Project Location</span>
             <span class="relative block">
                 <span class="material-icons pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base text-[#6b9880]">location_on</span>
                 <input type="text" placeholder="Project Location" formControlName="location" class="w-full border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition" />
@@ -43,7 +43,7 @@
     </div>
 
     <label class="block">
-        <span class="mb-2 block text-xs font-bold text-[#2f4136]">How did you hear about us?</span>
+        <span class="mb-1 block text-xs font-bold text-[#2f4136]">How did you hear about us?</span>
         <span class="relative block">
             <span class="material-icons pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base text-[#6b9880]">language</span>
             <select formControlName="referredby" class="w-full appearance-none border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 pr-10 py-3 text-sm text-[#8f9b94] focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition">
@@ -60,12 +60,12 @@
     </label>
 
     <label class="block">
-        <span class="mb-2 block text-xs font-bold text-[#2f4136]">Your Message / Requirements</span>
+        <span class="mb-1 block text-xs font-bold text-[#2f4136]">Your Message / Requirements</span>
         <span class="relative block">
             <span class="material-icons pointer-events-none absolute left-4 top-4 text-base text-[#6b9880]">edit</span>
             <textarea rows="4" placeholder="Your Message / Requirements" formControlName="message" class="w-full resize-none border border-[#d9e1dc] bg-white rounded-sm px-4 pl-11 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#006b33] focus:ring-2 focus:ring-[#006b33]/10 transition"></textarea>
         </span>
-        <p *ngIf="contactForm.get('message')?.hasError('required') && contactForm.get('message')?.touched" class="mt-1 text-xs text-red-600">Message is required.</p>
+        <p *ngIf="contactForm.get('message')?.hasError('required') && contactForm.get('message')?.touched" class="text-xs text-red-600">Message is required.</p>
     </label>
 
     <button type="submit" class="flex w-full cursor-pointer items-center justify-center gap-3 rounded-md bg-[#003d1a] py-3 text-[13px] font-medium uppercase text-white shadow-sm transition hover:bg-[#005b28]">

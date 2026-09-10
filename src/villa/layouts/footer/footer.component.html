@@ -32,10 +32,10 @@
             <div class="col-span-1 max-lg:pr-3 max-sm:pb-3 max-sm:border-b">
                 <h3 class="font-bold text-base mb-4 text-[#003d1a] uppercase">quick links</h3>
                 <ul class="space-y-2 footer-arrow-list">
-                    <li><a href="/about-us" class="text-sm text-black hover:text-[#003d1a] transition-colors">About Us</a></li>
-                    <li><a href="/gallery" class="text-sm text-black hover:text-[#003d1a] transition-colors">Gallery</a></li>
-                    <li><a href="/blogs" class="text-sm text-black hover:text-[#003d1a] transition-colors">Blogs</a></li>
-                    <li><a href="/contact-us" class="text-sm text-black hover:text-[#003d1a] transition-colors">Contact Us</a></li>
+                    <li><a routerLink="/about-us" class="text-sm text-black hover:text-[#003d1a] transition-colors">About Us</a></li>
+                    <li><a routerLink="/gallery" class="text-sm text-black hover:text-[#003d1a] transition-colors">Gallery</a></li>
+                    <li><a routerLink="/blogs" class="text-sm text-black hover:text-[#003d1a] transition-colors">Blogs</a></li>
+                    <li><a routerLink="/contact-us" class="text-sm text-black hover:text-[#003d1a] transition-colors">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -44,7 +44,7 @@
                 <h3 class="font-bold text-base mb-4 text-[#003d1a] uppercase">Tent collections</h3>
                 <ul class="space-y-2 footer-arrow-list">
                     @for (item of tentsMenu; track item.slug) {
-                    <li><a href="/{{item.slug}}" class="text-sm text-black hover:text-[#003d1a] transition-colors">{{ item.name }}</a></li>
+                    <li><a routerLink="/{{item.slug}}" class="text-sm text-black hover:text-[#003d1a] transition-colors">{{ item.name }}</a></li>
                     }
                 </ul>
             </div>

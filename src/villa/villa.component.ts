@@ -1,6 +1,7 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, OnDestroy, OnInit, Inject, Injectable } from '@angular/core';
+import { Component, OnDestroy, OnInit, Inject, inject, Injectable } from '@angular/core';
 import { MenuService } from './services/menu.service';
+import { CanonicalService } from './services/canonical.service';
 
 @Component({
   selector: 'villa-root',
@@ -23,8 +24,12 @@ export class VillaComponent implements OnInit, OnDestroy {
   private progressTimer?: ReturnType<typeof setInterval>;
   private completeTimer?: ReturnType<typeof setTimeout>;
   private hideTimer?: ReturnType<typeof setTimeout>;
+  private canonicalService = inject(CanonicalService);
 
-  constructor(private menuService: MenuService, @Inject(DOCUMENT) private document: Document) {}
+  constructor(private menuService: MenuService, @Inject(DOCUMENT) private document: Document) {
+    this.canonicalService.init();
+  }
+  
   ngOnInit(): void {
     // Load global data
     this.loadSiteData();

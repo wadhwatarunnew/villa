@@ -11,8 +11,8 @@
 
       @if (topSection?.btn_url) {
         <div class="flex items-center gap-6">
-          <a href="/{{topSection?.btn_url}}"
-            class="bg-[#003d1a] hover:bg-[#005b28] text-white px-8 py-3 rounded-md text-[13px] font-medium uppercase transition flex items-center group max-w-max cursor-pointer" href="/{{topSection?.btn_url}}">
+          <a routerLink="/{{topSection?.btn_url}}"
+            class="bg-[#003d1a] hover:bg-[#005b28] text-white px-8 py-3 rounded-md text-[13px] font-medium uppercase transition flex items-center group max-w-max cursor-pointer" routerLink="/{{topSection?.btn_url}}">
             {{topSection?.btn_txt}}
             <span class="material-icons ml-3 group-hover:translate-x-1 transition-transform flex-shrink-0" aria-hidden="true">arrow_forward</span>
           </a>

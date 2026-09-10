@@ -28,7 +28,7 @@
             class="absolute right-0 grid size-12 place-items-center rounded bg-white/15 hover:bg-white/25 cursor-pointer"><span
                 class="material-icons text-3xl">chevron_right</span></button>
     </div>
-    <div class="flex gap-3 overflow-x-auto pt-3"><button type="button" *ngFor="let image of images; let i = index"
+    <div class="flex gap-3 overflow-hidden pt-3"><button type="button" *ngFor="let image of images; let i = index"
             (click)="select(i)" class="shrink-0 overflow-hidden rounded-md border-2"
             [class.border-green-500]="activeIndex === i" [class.border-transparent]="activeIndex !== i"><img
                 class="h-20 w-32 object-cover" [src]="image" [alt]="name + ' thumbnail'" /></button></div>

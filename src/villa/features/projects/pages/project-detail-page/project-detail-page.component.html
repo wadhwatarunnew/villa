@@ -91,7 +91,7 @@
         </button>
     </div>
 
-    <div class="flex gap-3 overflow-x-auto pt-3">
+    <div class="flex gap-3 overflow-hidden pt-3">
         <button type="button" *ngFor="let image of gallery; let i = index"
         (click)="select(i)" class="shrink-0 overflow-hidden rounded-md border-2"
         [class.border-green-500]="activeIndex === i" [class.border-transparent]="activeIndex !== i">

@@ -1,13 +1,13 @@
 <section class="px-4 md:px-6 lg:px-10 lg:py-16 py-14">
   <div class="text-center text-sm text-[#003d1a] font-semibold uppercase tracking-widest mb-2">Meet The Founders</div>
-  <h2 class="text-center text-4xl md:text-5xl font-serif text-[#112a1e] leading-tight mb-8">The Vision Behind The Villa
+  <h2 class="text-center text-4xl md:text-5xl text-[#112a1e] leading-tight mb-8">The Vision Behind The Villa
     Tent</h2>
 
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
     <div class="flex max-sm:flex-col gap-5 items-center bg-white rounded-xl shadow-lg p-5 h-full" *ngFor="let founder of founders">
       <img src="{{founder?.image}}" alt="{{founder?.name}}" title="{{founder?.name}}" class="w-1/3 max-sm:w-full h-60 max-lg:h-80 rounded-lg object-cover shadow-md" />
       <div class="flex-1">
-        <h4 class="text-3xl font-serif text-[#112a1e]">{{founder?.name}}</h4>
+        <h4 class="text-3xl text-[#112a1e]">{{founder?.name}}</h4>
         <p class="text-lg pt-1 text-[#003d1a] font-medium mb-3" [innerHTML]="founder?.designation"></p>
         <p class="text-gray-600 leading-relaxed" [innerHTML]="founder?.bio"></p>
       </div>
@@ -19,7 +19,7 @@
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
     <div class="order-2 lg:order-1">
       <p class="text-[#003d1a] font-semibold text-sm uppercase tracking-widest mb-3">About The Villa Tent</p>
-      <h2 class="text-4xl md:text-5xl font-serif text-[#112a1e] leading-tight mb-6" [innerHTML]="about?.title">
+      <h2 class="text-4xl md:text-5xl text-[#112a1e] leading-tight mb-6" [innerHTML]="about?.title">
       </h2>
       <div class="text-gray-600 space-y-4 mb-10 text-base leading-relaxed" [innerHTML]="about?.content">
       </div>
@@ -27,12 +27,12 @@
         <!-- Years of Experience -->
         <div class="flex flex-col max-sm:items-center gap-2" *ngFor="let stat of stats">
           <div class="flex items-center gap-3">
-            <span class="material-icons shrink-0 !text-3xl" aria-hidden="true">{{ stat.iconName }}</span>
+            <span class="material-icons shrink-0 !text-2xl" aria-hidden="true">{{ stat.iconName }}</span>
             <div>
-              <span class="block text-xl font-bold text-[#112a1e]">{{stat?.display}}</span>
+              <span class="block text-3xl font-bold text-[#112a1e]">{{stat?.display}}</span>
             </div>
           </div>
-          <span class="text-xs text-gray-500 font-medium">{{stat?.label}}</span>
+          <span class="text-sm text-gray-500 font-medium">{{stat?.label}}</span>
         </div>
       </div>
     </div>

@@ -4,21 +4,21 @@
 
   <div class="relative z-10 w-full max-w-xl px-4 md:px-6 lg:px-10">
     <p class="text-white font-semibold text-sm uppercase mb-3 tracking-widest">{{topSection?.subtitle}}</p>
-    <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-serif leading-[1.15] mb-4">
+    <h1 class="text-white text-3xl md:text-4xl lg:text-5xl  leading-[1.15] mb-4">
       {{topSection?.title}}
     </h1>
     <p class="text-white md:text-lg leading-relaxed" [innerHTML]="topSection?.description">
     </p><br>
 
     @if (topSection?.btn_url) {
-      <a
-        class="bg-[#003d1a] hover:bg-[#005b28] text-white px-8 py-3 rounded-md text-[13px] font-medium uppercase transition flex items-center group max-w-max cursor-pointer" href="/{{topSection?.btn_url}}">
-        {{topSection?.btn_txt}}
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform"
-          fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </a>
+    <a class="bg-[#003d1a] hover:bg-[#005b28] text-white px-8 py-3 rounded-md text-[13px] font-medium uppercase transition flex items-center group max-w-max cursor-pointer"
+      href="/{{topSection?.btn_url}}">
+      {{topSection?.btn_txt}}
+      <svg xmlns="http://www.w3.org/2000/svg" class="size-4 ml-2 group-hover:translate-x-1 transition-transform"
+        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </a>
     }
   </div>
 </section>

@@ -6,7 +6,7 @@
         <div class="mb-3 flex size-12 p-3 items-center justify-center rounded-full bg-[#edf5ee]">
           <span class="material-icons text-[#003d1a]" aria-hidden="true">{{ card.icon }}</span>
         </div>
-        <p class="mb-1 text-sm font-bold uppercase text-[#003d1a]">{{ card.label }}</p>
+        <p class="mb-1 text-base heading font-bold uppercase text-[#003d1a]">{{ card.label }}</p>
         <div *ngIf="card.links; else singleValue" class="mb-1 flex flex-col gap-0.5">
           <a *ngFor="let link of card.links" [href]="link.href"
             class="text-sm font-semibold text-gray-950 transition hover:text-[#003d1a]">

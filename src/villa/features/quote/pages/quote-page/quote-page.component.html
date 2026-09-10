@@ -97,12 +97,12 @@
                     </option>
                   </ng-container>
                 </select>
-                <p *ngIf="isInvalid(field.name)" class="mt-1 text-xs text-red-600">
-                  {{ field.label }} is required.
-                </p>
 
                 <span *ngIf="field.type === 'select'" class="material-icons pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#3d5546] flex-shrink-0" aria-hidden="true">expand_more</span>
               </span>
+              <p *ngIf="isInvalid(field.name)" class="mt-1 text-xs text-red-600">
+                {{ field.label }} is required.
+              </p>
             </label>
           </div>
 

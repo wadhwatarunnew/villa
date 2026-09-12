@@ -1,11 +1,12 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { BlogPost } from '../../../blogs/components/blog-post-list/blog-post-list.component';
 
 @Component({
   selector: 'villa-blogs-highlight',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './blogs-highlight.component.html',
   styleUrls: ['./blogs-highlight.component.scss']
 })

@@ -13,32 +13,32 @@ export class HomeServicesComponent {
   services = [
     {
       title: 'Luxury Tent Manufacturing',
-      description: 'Design and manufacture premium luxury resort tents, safari tents, glamping accommodations, and customized hospitality structures built for every climate.',
+      description: 'Crafting <strong>premium luxury resort tents, safari tents, glamping accommodations, and bespoke hospitality structures,</strong> combining refined design, superior materials, and all-weather performance.',
       iconName: 'festival',
     },
     {
-      title: 'ECustom Design & Engineering',
-      description: 'Every tent is tailored to your project with customized layouts, elevations, interiors, dimensions, and structural engineering for a unique guest experience.',
+      title: 'Custom Design & Engineering',
+      description: 'Every tent is <strong>precision-designed to your project,</strong> with bespoke layouts, elevations, interiors, dimensions, and structural engineering tailored to deliver a distinctive guest experience.',
       iconName: 'architecture',
     },
     {
-      title: 'Premium Quality Materials',
-      description: 'Manufactured using waterproof fabrics, UV-resistant roofing, galvanized steel structures, insulated wall systems, and premium wooden flooring for long-lasting performance.',
+      title: 'Exceptional Materials & Craftsmanship',
+      description: 'Built with <strong>high-performance waterproof fabrics, UV-resistant roofing, galvanized steel structures, insulated wall systems, and premium flooring </strong>for lasting durability and all-weather performance.',
       iconName: 'gpp_good',
     },
     {
-      title: 'Turnkey Project Execution',
-      description: 'From planning and manufacturing to logistics, installation, and commissioning, we manage every stage of your luxury hospitality project.',
+      title: 'Turnkey Project Delivery',
+      description: 'From <strong>planning and manufacturing to logistics, installation, and commissioning, </strong>we manage every stage of your luxury hospitality project with precision and expertise.',
       iconName: 'settings',
     },
     {
-      title: 'Worldwide Installation',
-      description: 'Successfully delivering and installing luxury tents for resorts, safari lodges, eco-retreats, wellness destinations, and tourism projects across India and international markets.',
+      title: 'Global Project Delivery',
+      description: 'Delivering and installing <strong>bespoke luxury tented experiences </strong>for resorts, safari lodges, eco-retreats, and wellness destinations across <strong>India and international markets.</strong>',
       iconName: 'public',
     },
     {
-      title: 'After-Sales Support',
-      description: 'Dedicated technical assistance, maintenance guidance, spare parts support, and long-term customer service ensure maximum performance throughout your tents lifecycle.',
+      title: 'Dedicated After-Sales Support',
+      description: 'Providing <strong>technical assistance, maintenance guidance, spare parts, and long-term service </strong>to ensure lasting performance throughout your tent’s lifecycle.',
       iconName: 'handshake',
     },
   ];

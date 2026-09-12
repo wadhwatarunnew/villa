@@ -3,26 +3,21 @@
         <div>
 
             <p class="text-[13px] font-bold uppercase tracking-widest text-[#003d1a]">More to explore</p>
-            <h2 class="mt-1 font-serif text-3xl text-[#0e2614]">Explore more {{ category }}</h2>
+            <h2 class="mt-1 text-3xl text-[#0e2614]">Explore more {{ category }}</h2>
         </div>
-        <div class="flex gap-2"><button type="button" (click)="scroll(slider, -1)"
-                class="grid cursor-pointer size-10 place-items-center rounded-full border border-gray-200 text-[#005b28] hover:bg-[#005b28] bg-white hover:text-white">
+        <div class="flex gap-2"><button type="button" (click)="scroll(slider, -1)" class="grid cursor-pointer size-10 place-items-center rounded-full border border-gray-200 text-[#005b28] hover:bg-[#005b28] bg-white hover:text-white">
             <span class="material-icons text-3xl">chevron_left</span>
-            </button><button
-                type="button" (click)="scroll(slider, 1)"
-                class="grid cursor-pointer size-10 place-items-center rounded-full border border-gray-200 text-[#005b28] hover:bg-[#005b28] bg-white hover:text-white">
+            </button><button type="button" (click)="scroll(slider, 1)" class="grid cursor-pointer size-10 place-items-center rounded-full border border-gray-200 text-[#005b28] hover:bg-[#005b28] bg-white hover:text-white">
             <span class="material-icons text-3xl">chevron_right</span></button>
         </div>
     </div>
 
-    <div #slider class="flex snap-x gap-4.5 overflow-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"><a
-            *ngFor="let relatedTent of relatedTents; let i = index" [routerLink]="['/', relatedTent.slug]"
-            class="w-[270px] shrink-0 snap-start overflow-hidden rounded-lg border border-gray-200 bg-white no-underline shadow-sm transition hover:shadow-lg sm:w-[310px]"><img
-                class="aspect-[1.65] w-full object-cover" [src]="relatedTent.image" [alt]="relatedTent.title"
-                loading="lazy" />
+    <div #slider class="flex snap-x gap-4.5 overflow-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <a *ngFor="let relatedTent of relatedTents; let i = index" [routerLink]="['/', relatedTent.slug]" class="w-[270px] shrink-0 snap-start overflow-hidden rounded-lg border border-gray-200 bg-white no-underline shadow-sm transition hover:shadow-lg sm:w-[310px]"><img class="aspect-[1.65] w-full object-cover" [src]="relatedTent.image" [alt]="relatedTent.title" loading="lazy" />
             <div class="p-4">
-                <h3 class="font-bold text-[#1f2937]">{{ relatedTent.title }}</h3>
+                <h3 class="font-bold text-[#1f2937] capitalize">{{ relatedTent.title }}</h3>
                 <p class="mt-1 text-sm text-gray-500">{{ relatedTent.category }}</p>
             </div>
-        </a></div>
+        </a>
+    </div>
 </section>

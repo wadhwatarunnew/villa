@@ -1,1 +1,11 @@
-// About Mission & Vision Component Styles
+.mission-copy {
+    :where(p, ul, ol) {
+        color: inherit;
+    }
+    :where(p, ul, ol):first-child {
+        margin-top: 0;
+    }
+    :where(p, ul, ol):last-child {
+        margin-bottom: 0;
+    }
+}

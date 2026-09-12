@@ -1,17 +1,17 @@
 <section class="px-4 md:px-6 lg:px-10 lg:py-16 py-14 text-center">
-  <p class="text-[#003d1a] font-semibold text-sm uppercase tracking-widest mb-3">Our Values</p>
-  <h2 class="text-3xl md:text-4xl font-serif text-[#112a1e] mb-4">Built on Trust. Driven by Excellence.</h2>
-  <div class="w-16 h-[2px] bg-[#003d1a] mx-auto mb-16"></div>
+    <p class="text-[#003d1a] font-semibold text-sm uppercase tracking-widest mb-3">Our Values</p>
+    <h2 class="text-3xl md:text-4xl text-[#112a1e] mb-4">Built on Trust. Driven by Excellence.</h2>
+    <div class="w-16 h-[2px] bg-[#003d1a] mx-auto mb-16"></div>
 
-  <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 md:gap-8 gap-4.5">
-    <ng-container *ngFor="let value of values">
-      <div class="flex flex-col items-center">
-        <div class="size-14 rounded-full border border-gray-200 bg-[#edf5ee] flex items-center justify-center mb-4 text-[#003d1a]">
-          <span class="material-icons shrink-0 !text-3xl" aria-hidden="true">{{ value.icon }}</span>
-        </div>
-        <h3 class="font-bold text-[#112a1e] mb-2">{{ value.title }}</h3>
-        <p class="text-sm text-gray-500">{{ value.description }}</p>
-      </div>
-    </ng-container>
-  </div>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 md:gap-8 gap-4.5">
+        <ng-container *ngFor="let value of values">
+            <div class="flex flex-col items-center">
+                <div class="size-14 rounded-full border border-gray-200 bg-[#edf5ee] flex items-center justify-center mb-4 text-[#003d1a]">
+                    <span class="material-icons shrink-0 !text-3xl" aria-hidden="true">{{ value.icon }}</span>
+                </div>
+                <h3 class="font-bold text-lg text-[#112a1e] mb-2">{{ value.title }}</h3>
+                <p class="text-sm text-gray-500">{{ value.description }}</p>
+            </div>
+        </ng-container>
+    </div>
 </section>

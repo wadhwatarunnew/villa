@@ -1,71 +1,63 @@
 <main class="bg-[#f7f8f5] text-[#153221]">
-  <section class="quote-hero relative flex md:min-h-[38rem] min-h-[34rem] items-center overflow-hidden bg-cover bg-center"
-    style="background-image: url('{{topSection?.image}}');">
-    <div class="absolute inset-0 bg-black/45"></div>
-    <div class="relative z-10 w-full px-4 md:px-6 lg:px-10">
-      <div class="max-w-md">
-        <p class="text-white font-semibold text-sm uppercase mb-3 tracking-widest">{{topSection?.subtitle}}</p>
-        <h1 class="heading mb-3 text-4xl font-bold capitalize text-white md:text-5xl">{{topSection?.title}}</h1>
-        <p class="text-white md:text-lg leading-relaxed" [innerHTML]="topSection?.description">
-        </p><br>
-
-        @if (topSection?.btn_url) {
-          <a
-            class="bg-[#003d1a] hover:bg-[#005b28] text-white px-8 py-3 rounded-md text-[13px] font-medium uppercase transition flex items-center group max-w-max cursor-pointer" routerLink="/{{topSection?.btn_url}}">
+    <section class="quote-hero relative flex md:min-h-[38rem] min-h-[34rem] items-center overflow-hidden bg-cover bg-center" style="background-image: url('{{topSection?.image}}');">
+        <div class="absolute inset-0 bg-black/45"></div>
+        <div class="relative z-10 w-full px-4 md:px-6 lg:px-10">
+            <div class="max-w-md">
+                <p class="text-white font-semibold text-sm uppercase mb-3 tracking-widest">{{topSection?.subtitle}}</p>
+                <h1 class="heading mb-3 text-4xl font-bold capitalize text-white md:text-5xl">{{topSection?.title}}</h1>
+                <p class="text-white md:text-lg leading-relaxed" [innerHTML]="topSection?.description">
+                </p><br> @if (topSection?.btn_url) {
+                <a class="bg-[#003d1a] hover:bg-[#005b28] text-white px-8 py-3 rounded-md text-[13px] font-medium uppercase transition flex items-center group max-w-max cursor-pointer" routerLink="/{{topSection?.btn_url}}">
             {{topSection?.btn_txt}}
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform"
               fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
-          </a>
-        }
-      </div>
-    </div>
-  </section>
-
-  <section class="px-4 md:px-6 lg:px-10 lg:py-16 py-14">
-    <div class="grid gap-7 lg:grid-cols-[360px_minmax(0,1fr)]">
-      <aside class="rounded bg-white md:p-8 p-5 shadow-[0_6px_24px_rgba(0,0,0,0.05)]">
-        <div class="mb-7 flex justify-center">
-            <div class="flex size-18 items-center justify-center rounded-full bg-[#eff7f1] text-[#006b33] shadow-inner">
-            <img src="{{pageInfo?.logo_url}}" alt="{{pageInfo?.main_heading}}" class="size-15 rounded-full object-cover" />
-          </div>
-        </div>
-
-        <h2 class="heading mx-auto max-w-52 text-center text-2xl font-bold leading-tight text-[#1d4a30]">
-          {{pageInfo?.main_heading}}
-        </h2>
-        <div class="mx-auto my-5 h-0.5 w-12 bg-[#006b33]"></div>
-        <p class="mb-7 text-center text-sm leading-relaxed text-[#33483b]" [innerHTML]="pageInfo?.description">
-        </p>
-
-        <div class="space-y-5">
-          <article *ngFor="let item of whyChooseItems; let last = last"
-            class="flex gap-4 border-[#dfe8df] pb-5 last:pb-0" [class.border-b]="!last">
-            <div class="flex shrink-0 size-12 p-3 items-center justify-center rounded-full bg-[#00743a] text-white">
-              <span class="material-icons flex-shrink-0" aria-hidden="true">{{ item.iconName }}</span>
+          </a> }
             </div>
-            <div>
-              <h3 class="mb-1 text-sm font-bold text-[#1d4a30]">{{ item.title }}</h3>
-              <a *ngIf="item.link" [href]="item.link" [target]="item.link.startsWith('http') ? '_blank' : '_self'"
-                rel="noopener noreferrer"
-                class="text-xs leading-relaxed text-[#4b5f52] hover:text-[#006b33] hover:underline transition-colors">
+        </div>
+    </section>
+
+    <section class="px-4 md:px-6 lg:px-10 lg:py-16 py-14">
+        <div class="grid gap-7 lg:grid-cols-[360px_minmax(0,1fr)]">
+            <aside class="rounded bg-white md:p-8 p-5 shadow-[0_6px_24px_rgba(0,0,0,0.05)]">
+                <div class="mb-7 flex justify-center">
+                    <div class="flex size-18 items-center justify-center rounded-full bg-[#eff7f1] text-[#006b33] shadow-inner">
+                        <img src="{{pageInfo?.logo_url}}" alt="{{pageInfo?.main_heading}}" class="size-15 rounded-full object-cover" />
+                    </div>
+                </div>
+
+                <h2 class="heading mx-auto max-w-52 text-center text-2xl font-bold leading-tight text-[#1d4a30]">
+                    {{pageInfo?.main_heading}}
+                </h2>
+                <div class="mx-auto my-5 h-0.5 w-12 bg-[#006b33]"></div>
+                <p class="mb-7 text-center text-sm leading-relaxed text-[#33483b]" [innerHTML]="pageInfo?.description">
+                </p>
+
+                <div class="space-y-5">
+                    <article *ngFor="let item of whyChooseItems; let last = last" class="flex gap-4 border-[#dfe8df] pb-5 last:pb-0" [class.border-b]="!last">
+                        <div class="flex shrink-0 size-12 p-3 items-center justify-center rounded-full bg-[#00743a] text-white">
+                            <span class="material-icons flex-shrink-0" aria-hidden="true">{{ item.iconName }}</span>
+                        </div>
+                        <div>
+                            <h3 class="mb-1 text-sm font-bold text-[#1d4a30]">{{ item.title }}</h3>
+                            <a *ngIf="item.link" [href]="item.link" [target]="item.link.startsWith('http') ? '_blank' : '_self'" rel="noopener noreferrer" class="text-xs leading-relaxed text-[#4b5f52] hover:text-[#006b33] hover:underline transition-colors">
                 {{ item.text }}
               </a>
-              <p *ngIf="!item.link" class="text-xs leading-relaxed text-[#4b5f52]">{{ item.text }}</p>
-            </div>
-          </article>
-        </div>
-      </aside>
+                            <p *ngIf="!item.link" class="text-xs leading-relaxed text-[#4b5f52]">{{ item.text }}</p>
+                        </div>
+                    </article>
+                </div>
+            </aside>
 
-      <section class="rounded bg-white md:p-6 p-5 shadow-[0_6px_24px_rgba(0,0,0,0.05)] md:p-9">
-        <h2 class="heading md:text-3xl text-2xl font-bold text-[#1d4a30]">Tell Us About Your Project</h2>
-        <div class="mb-7 mt-3 h-0.5 w-16 bg-[#006b33]"></div>
+            <section class="rounded bg-white md:p-6 p-5 shadow-[0_6px_24px_rgba(0,0,0,0.05)] md:p-9">
+                <h2 class="heading md:text-3xl text-2xl font-bold text-[#1d4a30]">Tell Us About Your Project</h2>
+                <div class="mb-7 mt-3 h-0.5 w-16 bg-[#006b33]"></div>
 
-       <form [formGroup]="quoteForm" (ngSubmit)="submitForm()" class="space-y-6">
-          <div class="grid gap-x-8 gap-y-5 md:grid-cols-2">
-            <label *ngFor="let field of projectFields" class="block">
-              <span class="mb-2 block text-xs font-bold text-[#2f4136]">
+                <form [formGroup]="quoteForm" (ngSubmit)="submitForm()" class="space-y-6">
+                    <div class="grid gap-x-8 gap-y-5 md:grid-cols-2">
+                        <label *ngFor="let field of projectFields" class="block">
+              <span class="mb-1 block text-xs font-bold text-[#2f4136]">
                 {{ field.label }}
                 <span *ngIf="['Full Name','Phone Number','Email Address'].includes(field.label)" class="text-red-600">*</span>
               </span>
@@ -104,10 +96,10 @@
                 {{ field.label }} is required.
               </p>
             </label>
-          </div>
+                    </div>
 
-          <label class="block">
-            <span class="mb-2 block text-xs font-bold text-[#2f4136]">
+                    <label class="block">
+            <span class="mb-1 block text-xs font-bold text-[#2f4136]">
               Project Details / Message
             </span>
             <span class="relative block">
@@ -121,38 +113,33 @@
             </span>
           </label>
 
-          <label class="inline-flex items-center gap-3 text-xs text-[#53665a]">
+                    <label class="inline-flex items-center gap-3 text-xs text-[#53665a]">
             <input type="checkbox" formControlName="privacy" class="mt-0.5 size-4 rounded border-[#b8c9bd] accent-[#006b33]" />
             <span>I agree to the <a routerLink="/contact" class="font-bold text-[#006b33]">Privacy Policy</a> and
             <a routerLink="/contact" class="font-bold text-[#006b33]">Terms & Conditions</a></span>            
           </label>
-          <p *ngIf="isInvalid('privacy')" class="mt-1 text-xs text-red-600">
-            You must agree to the Privacy Policy and Terms & Conditions.
-          </p>
+                    <p *ngIf="isInvalid('privacy')" class="mt-1 text-xs text-red-600">
+                        You must agree to the Privacy Policy and Terms & Conditions.
+                    </p>
 
-            <button type="submit"
-            class="flex w-full items-center justify-center gap-3 rounded bg-[#003d1a] text-[13px] font-medium uppercase text-white shadow-sm transition hover:bg-[#005b28] py-3 cursor-pointer">
+                    <button type="submit" class="flex w-full items-center justify-center gap-3 rounded bg-[#003d1a] text-[13px] font-medium uppercase text-white shadow-sm transition hover:bg-[#005b28] py-3 cursor-pointer">
             Submit Quote Request
             <span class="material-icons flex-shrink-0" aria-hidden="true">send</span>
           </button>
 
-          <div *ngIf="ErrorMessage" class="rounded-md border px-4 py-3 text-sm"
-              [ngClass]="{
+                    <div *ngIf="ErrorMessage" class="rounded-md border px-4 py-3 text-sm" [ngClass]="{
                 'border-green-200 bg-green-50 text-green-700':
                   messageType === 'success',
 
                 'border-red-200 bg-red-50 text-red-700':
                   messageType !== 'success'
-              }"
-              [innerHTML]="ErrorMessage"
-            ></div>
+              }" [innerHTML]="ErrorMessage"></div>
 
-          <p class="flex items-center justify-center gap-2 text-center text-xs text-[#78877d]">
-            <span class="material-icons flex-shrink-0" aria-hidden="true">lock</span>
-            We respect your privacy. Your information is safe with us.
-          </p>
-        </form>
-      </section>
-    </div>
-  </section>
+                    <p class="flex items-center justify-center gap-2 text-center text-xs text-[#78877d]">
+                        <span class="material-icons flex-shrink-0" aria-hidden="true">lock</span> We respect your privacy. Your information is safe with us.
+                    </p>
+                </form>
+            </section>
+        </div>
+    </section>
 </main>

@@ -19,7 +19,7 @@
             </div>
             <div class="max-sm:hidden flex items-center gap-5 text-white/90">
                 <a *ngFor="let item of socialMedia" target="_blank" href="{{item.link}}" aria-label="{{item.name}}" class="hover:text-[#003d1a] transition-colors">
-                    <i class="icofont {{item.icon}}"></i>
+                    <i class="icofont text-sm {{item.icon}}"></i>
                 </a>
             </div>
         </div>
@@ -28,10 +28,10 @@
     <div class="px-4 md:px-6 lg:px-10 py-4">
         <div class="flex items-center justify-between gap-4">
             <a routerLink="/" class="flex items-center gap-2 flex-shrink-0">
-                <img src="{{headerInfo?.logo}}" alt="The Vila Tent Logo" class="size-12 object-cover border border-[#003d1a] flex-shrink-0 rounded-full" />
+                <img src="{{headerInfo?.logo}}" alt="The Vila Tent Logo" class="size-12 object-cover flex-shrink-0 " />
                 <div class="flex flex-col gap-0.5">
                     <span class="sm:text-xl text-lg heading font-bold text-[#003d1a] uppercase">{{headerInfo?.title}}</span>
-                    <span class="sm:text-xs text-[10px] text-[#003d1a] uppercase italic">{{headerInfo?.description}}</span>
+                    <span class="sm:text-xs text-[10px] text-[#003d1a] uppercase italic">"{{headerInfo?.description}}"</span>
                 </div>
             </a>
             <div class="flex items-center gap-8">
@@ -55,7 +55,7 @@
                     <a routerLink="/gallery" routerLinkActive="!text-[#005b28] underline underline-offset-[8px] decoration-2" class="text-sm font-semibold text-black hover:text-[#005b28] transition-colors duration-200 whitespace-nowrap uppercase">
                         gallery
                     </a>
-                    
+
                     <a routerLink="/blogs" routerLinkActive="!text-[#003d1a] underline underline-offset-[8px] decoration-2" class="text-sm font-semibold text-black hover:text-[#003d1a] transition-colors duration-200 whitespace-nowrap uppercase">
                         blogs
                     </a>
@@ -67,11 +67,10 @@
 
                 <div class="flex items-center gap-3">
                     @if (headerInfo?.brochureStatus == 1) {
-                        <a routerLink="/download-brochure" class="hidden 2xl:flex px-4 py-2.5 text-[13px] font-medium cursor-pointer border border-[#003d1a] text-black hover:text-white hover:bg-[#003d1a] rounded-md transition-all duration-200 items-center gap-2 uppercase">
+                    <a routerLink="/download-brochure" class="hidden 2xl:flex px-4 py-2.5 text-[13px] font-medium cursor-pointer border border-[#003d1a] text-black hover:text-white hover:bg-[#003d1a] rounded-md transition-all duration-200 items-center gap-2 uppercase">
                             download brochure
                             <span class="material-icons flex-shrink-0" aria-hidden="true">file_download</span>
-                        </a>
-                    }
+                        </a> }
 
                     <a routerLink="/get-a-quote" class="hidden 2xl:flex px-4 py-2.5 text-[13px] font-medium text-white bg-[#003d1a] border border-[#003d1a] hover:bg-[#005b28] rounded-lg transition-all duration-200 items-center gap-2 uppercase">
                         get a quote
@@ -169,11 +168,10 @@
                 </nav>
                 <div class="space-y-3 p-6 pt-2">
                     @if (headerInfo?.brochureStatus == 1) {
-                        <a routerLink="/download-brochure" (click)="toggleMobileMenu()" class="flex w-full cursor-pointer items-center justify-center gap-2 rounded border border-[#003d1a] py-3 text-xs font-medium text-black uppercase transition hover:bg-[#003d1a] hover:text-white">
+                    <a routerLink="/download-brochure" (click)="toggleMobileMenu()" class="flex w-full cursor-pointer items-center justify-center gap-2 rounded border border-[#003d1a] py-3 text-xs font-medium text-black uppercase transition hover:bg-[#003d1a] hover:text-white">
                             download brochure
                             <span class="material-icons flex-shrink-0" aria-hidden="true">file_download</span>
-                        </a>
-                    }
+                        </a> }
 
                     <a routerLink="/get-a-quote" (click)="toggleMobileMenu()" class="flex w-full cursor-pointer items-center justify-center gap-2 rounded bg-[#003d1a] py-3 text-xs font-medium text-white uppercase transition hover:bg-[#005b28]">
                         get a quote

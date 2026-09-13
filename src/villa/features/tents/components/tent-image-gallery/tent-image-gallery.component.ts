@@ -12,7 +12,28 @@ export class TentImageGalleryComponent implements OnInit, OnDestroy {
   private intervalId?: ReturnType<typeof setInterval>;
   ngOnInit(): void { this.intervalId = setInterval(() => this.next(), 10000); }
   ngOnDestroy(): void { if (this.intervalId) clearInterval(this.intervalId); }
-  select(index: number): void { this.activeIndex = index; }
-  next(): void { this.activeIndex = (this.activeIndex + 1) % this.images.length; }
-  previous(): void { this.activeIndex = (this.activeIndex - 1 + this.images.length) % this.images.length; }
+  
+  select(index: number): void {
+    if (!this.images?.length) {
+      return;
+    }
+
+    this.activeIndex = index;
+  }
+
+  next(): void {
+    if (!this.images?.length) {
+      return;
+    }
+    
+    this.activeIndex = (this.activeIndex + 1) % this.images.length;
+  }
+
+  previous(): void {
+    if (!this.images?.length) {
+      return;
+    }
+
+    this.activeIndex = (this.activeIndex - 1 + this.images.length) % this.images.length;
+  }
 }

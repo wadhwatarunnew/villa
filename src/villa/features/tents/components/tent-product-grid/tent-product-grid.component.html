@@ -4,7 +4,7 @@
         <div class="leading-relaxed text-gray-500" [innerHTML]="topSection?.content"></div>
     </div>
     <div class="mb-7 flex items-center justify-between">
-        <p class="text-gray-500 capitalize"><b class="text-[#005b28]">{{ tents.length }}</b> tents available</p><a routerLink="/resort-tent" class="text-xs font-bold uppercase text-[#005b28]">← All collections</a>
+        <p class="text-gray-500 capitalize"><b class="text-[#005b28]">{{ tents?.length }}</b> tents available</p><a routerLink="/resort-tent" class="text-xs font-bold uppercase text-[#005b28]">← All collections</a>
     </div>
     <div class="grid grid-cols-1 gap-4.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <article class="cursor-pointer overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg" *ngFor="let tent of visiblePosts; let i = index" [routerLink]="['/', tent.slug]">

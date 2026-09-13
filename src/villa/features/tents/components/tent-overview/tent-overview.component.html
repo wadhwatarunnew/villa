@@ -1,5 +1,5 @@
-<section class="px-4 md:px-6 lg:px-10 lg:py-16 py-14 grid gap-6 lg:grid-cols-2">
-  <div class="border border-[#0a3d2d]/20 rounded-md p-4">
+<section class="px-4 md:px-6 lg:px-10 lg:py-16 py-14 grid gap-6 lg:grid-cols-2" *ngIf="tentDetails?.Specifications?.length > 0 || floorImage !=''">
+  <div class="border border-[#0a3d2d]/20 rounded-md p-4" *ngIf="tentDetails?.Specifications?.length > 0">
     <p class="mb-5 font-semibold tracking-wider uppercase text-[#0a3d2d]">
       Specifications
     </p>
@@ -18,7 +18,7 @@
       </div>
     </div>
   </div>
-  <div class="border border-[#0a3d2d]/20 rounded-md p-4">
+  <div class="border border-[#0a3d2d]/20 rounded-md p-4" *ngIf="floorImage != ''">
     <p class="pb-5 border-b border-[#0a3d2d]/20 font-semibold tracking-wider uppercase text-[#0a3d2d]">
       Floor Plan
     </p>

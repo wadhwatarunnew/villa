@@ -37,11 +37,29 @@ export class ProjectDetailPageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void { if (this.intervalId) clearInterval(this.intervalId); }
 
-  select(index: number): void { this.activeIndex = index; }
+  select(index: number): void {
+    if (!this.gallery?.length) {
+      return;
+    }
+    
+    this.activeIndex = index;
+  }
 
-  next(): void { this.activeIndex = (this.activeIndex + 1) % this.gallery.length; }
+  next(): void {
+    if (!this.gallery?.length) {
+      return;
+    }
+    
+    this.activeIndex = (this.activeIndex + 1) % this.gallery.length;
+  }
 
-  previous(): void { this.activeIndex = (this.activeIndex - 1 + this.gallery.length) % this.gallery.length; }
+  previous(): void {
+    if (!this.gallery?.length) {
+      return;
+    }
+
+    this.activeIndex = (this.activeIndex - 1 + this.gallery.length) % this.gallery.length;
+  }
 
   // get related(): string[] { return this.category.projects.filter(project => project !== this.project); }
 

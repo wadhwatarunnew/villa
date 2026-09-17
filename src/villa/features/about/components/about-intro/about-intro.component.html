@@ -4,7 +4,7 @@
     </h2>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-        <div class="flex max-sm:flex-col gap-5 items-center bg-white rounded-xl shadow-lg p-5 h-full" *ngFor="let founder of founders">
+        <div class="flex max-sm:flex-col gap-5 items-start bg-white rounded-xl shadow-lg p-5 h-full" *ngFor="let founder of founders">
             <img src="{{founder?.image}}" alt="{{founder?.name}}" title="{{founder?.name}}" class="w-1/3 max-sm:w-full h-60 max-lg:h-80 rounded-lg object-cover shadow-md" />
             <div class="flex-1">
                 <h4 class="text-3xl text-[#112a1e]">{{founder?.name}}</h4>

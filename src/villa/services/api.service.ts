@@ -1,7 +1,11 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { MenuItem } from '../models/menu-item.interface';
+import {
+  Observable,
+  timeout,
+  tap,
+  catchError
+} from 'rxjs';
 import { environment } from '../../../src/environments/environment';
 
 @Injectable({
@@ -9,14 +13,22 @@ import { environment } from '../../../src/environments/environment';
 })
 export class ApiService {
 
-    private http = inject(HttpClient);
-    readonly BaseUrl = `${environment.apiBaseUrl}`;
+  private http = inject(HttpClient);
 
-    getBySlug(slug: string) {
-      return this.http.get<any>(`${this.BaseUrl}}?Action=GetTents/slug=${slug}`);
-    }
+  readonly BaseUrl = environment.apiBaseUrl;
 
-    getPage(api: string) {
-      return this.http.get(`${this.BaseUrl}?${api}`);
-    }
+  getPage(api: string) {
+
+  const url = `${this.BaseUrl}?${api}`;
+
+  return this.http.get(url).pipe(
+    tap(() => {
+    }),
+    timeout(10000),
+    catchError(error => {
+      console.error('[API ERROR]', url, error);
+      throw error;
+    })
+  );
+}
 }

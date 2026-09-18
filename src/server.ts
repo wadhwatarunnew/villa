@@ -32,18 +32,38 @@ export function app(): express.Express {
 
   // All regular routes use the Angular engine
   server.use((req, res, next) => {
-    const { protocol, originalUrl, baseUrl, headers } = req;
+    const { originalUrl, baseUrl, headers } = req;
 
-    commonEngine
-      .render({
-        bootstrap: AppServerModule,
-        documentFilePath: indexHtml,
-        url: `${protocol}://${headers.host}${originalUrl}`,
-        publicPath: distFolder,
-        providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
-      })
-      .then((html) => res.send(html))
-      .catch((err) => next(err));
+const protocol =
+  headers['x-forwarded-proto'] ||
+  req.protocol;
+
+const host =
+  headers.host;
+
+const url =
+  `${protocol}://${host}${originalUrl}`;
+
+console.log('[SSR URL]', url);
+
+commonEngine
+  .render({
+    bootstrap: AppServerModule,
+    documentFilePath: indexHtml,
+    url,
+    publicPath: distFolder,
+    providers: [
+      {
+        provide: APP_BASE_HREF,
+        useValue: baseUrl
+      }
+    ]
+  })
+  .then(html => res.send(html))
+  .catch(err => {
+    console.error('[SSR ERROR]', err);
+    next(err);
+  });
   });
 
   return server;

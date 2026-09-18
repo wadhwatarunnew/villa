@@ -2,6 +2,8 @@ import { DOCUMENT } from '@angular/common';
 import { Component, OnDestroy, OnInit, Inject, inject, Injectable } from '@angular/core';
 import { MenuService } from './services/menu.service';
 import { CanonicalService } from './services/canonical.service';
+import { isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID } from '@angular/core';
 
 @Component({
   selector: 'villa-root',
@@ -30,47 +32,63 @@ export class VillaComponent implements OnInit, OnDestroy {
     this.canonicalService.init();
   }
   
+  private platformId = inject(PLATFORM_ID);
   ngOnInit(): void {
     // Load global data
     this.loadSiteData();
 
-    this.startSplashSequence();
+    if (isPlatformBrowser(this.platformId)) {
+      this.startSplashSequence();
+    }
   }
 
-  private loadSiteData(): void {
-    this.menuService.getMenus().subscribe({
-      next: (response) => {
-        const menuData = response.data; // ✅ ONLY ONE data
-        this.menuItems = menuData;
-        this.socialMedia = menuData.SocialMedia;
-        this.contactInfo = menuData.ContactInfo;
-        this.headerInfo = menuData.HeaderInfo;
-        this.resortTents = this.transformMenu(menuData.ResortTents);
-        this.projects = this.transformMenu(menuData.Projects);
+private loadSiteData(): void {
+  this.menuService.getMenus().subscribe({
+    next: (response) => {
+      const menuData = response.data;
 
-        this.menuService.setSocialMedia(menuData.SocialMedia);
-        this.menuService.setContactInfo(menuData.ContactInfo);
-        this.menuService.setHeaderInfo(menuData.HeaderInfo);
+      this.menuItems = menuData;
+      this.socialMedia = menuData?.SocialMedia;
+      this.contactInfo = menuData?.ContactInfo;
+      this.headerInfo = menuData?.HeaderInfo;
 
-        const transformed = {
-                              ...menuData,
-                              ResortTents: this.transformMenu(menuData.ResortTents),
-                              Projects: this.transformMenu(menuData.Projects)
-                            };
+      this.resortTents = this.transformMenu(
+        menuData?.ResortTents
+      );
 
-        this.menuService.setMenu(transformed);
+      this.projects = this.transformMenu(
+        menuData?.Projects
+      );
 
-        // Dynamic splash logo
-        this.splashLogo = "/villadashboard/uploads/logo/splash-logo.png";
+      // IMPORTANT:
+      // Put the menu into MenuService so findSlug()
+      // can search the flattened menu.
+      const transformedMenu = {
+        ...menuData,
+        ResortTents: this.resortTents,
+        Projects: this.projects
+      };
 
-        // Dynamic favicon
-        if (menuData?.HeaderInfo?.favicon) {
-          this.setFavicon(menuData.HeaderInfo.favicon);
-        }
-      },
-      error: (err) => console.error(err)
-    });
-  }
+      this.menuService.setMenu(transformedMenu);
+
+      this.splashLogo =
+        '/villadashboard/uploads/logo/splash-logo.png';
+
+      if (menuData?.HeaderInfo?.favicon) {
+        this.setFavicon(
+          menuData.HeaderInfo.favicon
+        );
+      }
+    },
+
+    error: (err) => {
+      console.error(
+        'Failed to load site menu:',
+        err
+      );
+    }
+  });
+}
 
   ngOnDestroy(): void {
     this.clearTimers();
@@ -130,19 +148,28 @@ export class VillaComponent implements OnInit, OnDestroy {
 
   private transformMenu(node: any, level = 0): any {
 
-    return {
-            ...node,
-
-            level,
-
-            // MUST preserve API type
-            type: node.type,
-
-            children: node.children
-              ? node.children.map((child: any) =>
-                  this.transformMenu(child, level + 1)
-                )
-              : []
-          };
+  if (Array.isArray(node)) {
+    return node.map(item =>
+      this.transformMenu(item, level)
+    );
   }
+
+  if (!node || typeof node !== 'object') {
+    return node;
+  }
+
+  return {
+    ...node,
+
+    level,
+
+    type: node.type,
+
+    children: Array.isArray(node.children)
+      ? node.children.map((child: any) =>
+          this.transformMenu(child, level + 1)
+        )
+      : []
+  };
+}
 }

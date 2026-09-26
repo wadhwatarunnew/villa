@@ -29,7 +29,7 @@
                 </div>
             </a>
             <div class="flex items-center gap-8">
-                <nav class="hidden 2xl:flex items-center gap-7">
+                <nav class="header-desktop-nav hidden lg:flex items-center gap-7">
                     <a routerLink="/" routerLinkActive="!text-[#003d1a] underline underline-offset-[8px] decoration-2" [routerLinkActiveOptions]="{exact: true}" class="text-sm font-semibold text-black hover:text-[#003d1a] uppercase transition-colors duration-200">
             home
           </a>
@@ -38,13 +38,99 @@
             about us
           </a>
 
-                    <a routerLink="/resort-tent" routerLinkActive="!text-[#003d1a] underline underline-offset-[8px] decoration-2" class="text-sm font-semibold text-black hover:text-[#003d1a] transition-colors duration-200 flex items-center gap-1 whitespace-nowrap uppercase">
-              tents
-          </a>
+                    <div class="header-mega-nav-item" [class.menu-clicked-closed]="isMegaMenuClosed" (mouseenter)="resetMegaMenuClick()">
+                        <a routerLink="/resort-tent" routerLinkActive="!text-[#003d1a] underline underline-offset-[8px] decoration-2" [attr.aria-haspopup]="'true'" (focus)="resetMegaMenuClick()" class="text-sm font-semibold text-black hover:text-[#003d1a] transition-colors duration-200 flex items-center gap-1 whitespace-nowrap uppercase">
+                            tents
+                        </a>
+                        <div class="tent-nav-menu" role="region" aria-label="Tent collections" (click)="closeMegaMenu()">
+                            <div class="tent-mega-menu">
+                                <div class="tent-mega-menu__categories" aria-label="Tent categories">
+                                    <a *ngFor="let collection of resortCategories"
+                                       [routerLink]="['/', collection.slug]"
+                                       (mouseenter)="selectTentCategory(collection)"
+                                       (focus)="selectTentCategory(collection)"
+                                       [class.is-active]="activeTentCategory === collection"
+                                       class="tent-mega-menu__category">
+                                        <span>{{ collection.name }}</span>
+                                        <span class="material-icons" aria-hidden="true">chevron_right</span>
+                                    </a>
+                                </div>
 
-                    <a routerLink="/projects" routerLinkActive="!text-[#003d1a] underline underline-offset-[8px] decoration-2" class="text-sm font-semibold text-black hover:text-[#003d1a] transition-colors duration-200 flex items-center gap-1 whitespace-nowrap uppercase">
-            projects
-          </a>
+                                <div class="tent-mega-menu__tents" aria-label="Tents in selected category">
+                                    <a *ngFor="let tent of activeTentCategory?.tents"
+                                       [routerLink]="['/', tentRouteSlug(tent)]"
+                                       class="tent-mega-menu__tent-link">
+                                        <span>{{ tent }}</span>
+                                        <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                                    </a>
+                                </div>
+
+                                <div class="tent-mega-menu__featured">
+                                    <h2>Featured Collection</h2>
+                                    <a [routerLink]="['/', activeTentCategory?.slug]" class="tent-mega-menu__feature-image-link">
+                                        <img [src]="activeTentCategory?.image" [alt]="activeTentCategory?.name" />
+                                    </a>
+                                    <div class="tent-mega-menu__feature-footer">
+                                        <div>
+                                            <h3>{{ activeTentCategory?.name }}</h3>
+                                            <p>{{ activeTentCategory?.total }} tents in this collection</p>
+                                        </div>
+                                        <a [routerLink]="['/', activeTentCategory?.slug]" class="tent-mega-menu__feature-cta">
+                                            Explore collection
+                                            <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="header-mega-nav-item" [class.menu-clicked-closed]="isMegaMenuClosed" (mouseenter)="resetMegaMenuClick()">
+                        <a routerLink="/projects" routerLinkActive="!text-[#003d1a] underline underline-offset-[8px] decoration-2" (focus)="resetMegaMenuClick()" class="text-sm font-semibold text-black hover:text-[#003d1a] transition-colors duration-200 flex items-center gap-1 whitespace-nowrap uppercase">
+                            projects
+                        </a>
+                        <div class="tent-nav-menu" role="region" aria-label="Project categories" (click)="closeMegaMenu()">
+                            <div class="tent-mega-menu">
+                                <div class="tent-mega-menu__categories" aria-label="Project categories">
+                                    <a *ngFor="let category of projectCategories"
+                                       [routerLink]="['/', category.slug]"
+                                       (mouseenter)="selectProjectCategory(category)"
+                                       (focus)="selectProjectCategory(category)"
+                                       [class.is-active]="activeProjectCategory === category"
+                                       class="tent-mega-menu__category">
+                                        <span>{{ category.name }}</span>
+                                        <span class="material-icons" aria-hidden="true">chevron_right</span>
+                                    </a>
+                                </div>
+
+                                <div class="tent-mega-menu__tents" aria-label="Projects in selected category">
+                                    <a *ngFor="let project of activeProjectCategory?.projects"
+                                       [routerLink]="['/', projectRouteSlug(project)]"
+                                       class="tent-mega-menu__tent-link">
+                                        <span>{{ project }}</span>
+                                        <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                                    </a>
+                                </div>
+
+                                <div class="tent-mega-menu__featured">
+                                    <h2>Featured Projects</h2>
+                                    <a [routerLink]="['/', activeProjectCategory?.slug]" class="tent-mega-menu__feature-image-link">
+                                        <img [src]="activeProjectCategory?.image" [alt]="activeProjectCategory?.name" />
+                                    </a>
+                                    <div class="tent-mega-menu__feature-footer">
+                                        <div>
+                                            <h3>{{ activeProjectCategory?.name }}</h3>
+                                            <p>{{ activeProjectCategory?.total }} projects</p>
+                                        </div>
+                                        <a [routerLink]="['/', activeProjectCategory?.slug]" class="tent-mega-menu__feature-cta">
+                                            Explore projects
+                                            <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <a routerLink="/gallery" routerLinkActive="!text-[#005b28] underline underline-offset-[8px] decoration-2" class="text-sm font-semibold text-black hover:text-[#005b28] transition-colors duration-200 whitespace-nowrap uppercase">
             gallery
@@ -64,18 +150,18 @@
             <span class="material-icons flex-shrink-0" aria-hidden="true">file_download</span>
           </a>
 
-                    <a routerLink="/quote" class="hidden 2xl:flex px-4 py-2.5 text-[13px] font-medium text-white bg-[#003d1a] border border-[#003d1a] hover:bg-[#005b28] rounded-lg transition-all duration-200 items-center gap-2 uppercase">
+                    <a routerLink="/quote" class="hidden lg:flex px-4 py-2.5 text-[13px] font-medium text-white bg-[#003d1a] border border-[#003d1a] hover:bg-[#005b28] rounded-lg transition-all duration-200 items-center gap-2 uppercase">
             get a quote
             <span class="material-icons flex-shrink-0" aria-hidden="true">arrow_forward</span>
           </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button (click)="toggleMobileMenu()" class="2xl:hidden p-2.5 text-white cursor-pointer bg-[#003d1a] hover:bg-[#005b28] rounded-lg transition-colors flex items-center justify-center" aria-label="Toggle mobile menu">
+                        <button (click)="toggleMobileMenu()" class="lg:hidden p-2.5 text-white cursor-pointer bg-[#003d1a] hover:bg-[#005b28] rounded-lg transition-colors flex items-center justify-center" [attr.aria-label]="isMobileMenuOpen ? 'Close menu' : 'Open menu'">
           @if (!isMobileMenuOpen) {
-          <span class="material-icons flex-shrink-0" aria-hidden="true">menu</span>
+                    <span class="material-icons flex-shrink-0" aria-hidden="true">menu</span>
           } @else {
-          <span class="material-icons flex-shrink-0" aria-hidden="true">close</span>
+                    <span class="material-icons flex-shrink-0" aria-hidden="true">close</span>
           }
         </button>
             </div>
@@ -83,89 +169,113 @@
 
         <!-- Mobile Menu Overlay -->
         @if (isMobileMenuOpen) {
-        <div class="2xl:hidden fixed inset-0 z-60 bg-black/45" (click)="toggleMobileMenu()">
+        <div class="lg:hidden fixed inset-0 z-60 bg-black/45" (click)="toggleMobileMenu()">
             <aside class="mobile-menu-drawer ml-auto flex h-full w-[min(22rem,88vw)] flex-col overflow-y-auto bg-white shadow-2xl" role="dialog" aria-modal="true" aria-label="Mobile navigation" (click)="$event.stopPropagation()">
                 <div class="flex items-center justify-between border-b border-gray-100 px-4 py-5">
-                    <span class="text-base font-semibold uppercase text-[#003d1a]">Menu</span>
-                    <button (click)="toggleMobileMenu()" class="flex size-10 items-center justify-center rounded-lg bg-[#003d1a] text-white transition-colors hover:bg-[#005b28] cursor-pointer" aria-label="Close mobile menu">
-            <span class="material-icons" aria-hidden="true">close</span>
-          </button>
+                    <a routerLink="/" (click)="toggleMobileMenu()" class="mobile-menu-brand">
+                        <img src="assets/images/logo.webp" alt="The Villa Tent" />
+                        <span>{{ headerInfo?.title || 'The Villa Tent' }}</span>
+                    </a>
+                    <button (click)="toggleMobileMenu()" class="mobile-menu-close" aria-label="Close mobile menu">
+                        <span class="material-icons" aria-hidden="true">close</span>
+                    </button>
                 </div>
 
                 <nav class="flex flex-1 flex-col px-4 pt-3 pb-5">
                     <ul class="flex flex-1 flex-col gap-2">
                         <li>
-                            <a routerLink="/" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center gap-4 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
-                                <div class="flex items-center justify-center">
-                                    <span class="material-icons flex-shrink-0" aria-hidden="true">home</span>
-                                </div>
+                            <a routerLink="/" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
                                 <span class="text-sm font-medium uppercase">home</span>
                             </a>
                         </li>
 
                         <li>
-                            <a routerLink="/about-us" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
-                                <div class="flex items-center justify-center">
-                                    <span class="material-icons flex-shrink-0" aria-hidden="true">person</span>
-                                </div>
+                            <a routerLink="/about-us" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
                                 <span class="text-sm font-medium uppercase">about us</span>
                             </a>
                         </li>
 
-                        <li>
-                            <a routerLink="/resort-tent" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
-                                <div class="flex items-center justify-center">
-                                    <span class="material-icons flex-shrink-0" aria-hidden="true">park</span>
+                        <li class="mobile-nav-accordion-root">
+                            <div class="mobile-nav-parent-row">
+                                <a routerLink="/resort-tent" routerLinkActive="!bg-[#003d1a] !text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="mobile-nav-link">
+                                    <span>tents</span>
+                                </a>
+                                <button type="button" class="mobile-nav-disclosure" (click)="toggleMobileSection('tents')" [attr.aria-expanded]="mobileExpandedSection === 'tents'" [attr.aria-label]="mobileExpandedSection === 'tents' ? 'Collapse tent categories' : 'Expand tent categories'">
+                                    <span class="material-icons" aria-hidden="true">{{ mobileExpandedSection === 'tents' ? 'expand_less' : 'chevron_right' }}</span>
+                                </button>
+                            </div>
+                            @if (mobileExpandedSection === 'tents') {
+                            <div id="mobile-tent-categories" class="mobile-nav-submenu">
+                                <div *ngFor="let collection of resortCategories" class="mobile-nav-category">
+                                    <button type="button" class="mobile-nav-category-toggle" [class.is-expanded]="mobileExpandedCategory === collection.slug" (click)="toggleMobileCategory(collection.slug)" [attr.aria-expanded]="mobileExpandedCategory === collection.slug" [attr.aria-controls]="'mobile-tent-' + collection.slug">
+                                        <span>{{ collection.name }}</span>
+                                        <span class="material-icons" aria-hidden="true">{{ mobileExpandedCategory === collection.slug ? 'expand_less' : 'expand_more' }}</span>
+                                    </button>
+                                    @if (mobileExpandedCategory === collection.slug) {
+                                    <div [id]="'mobile-tent-' + collection.slug" class="mobile-nav-nested">
+                                        <a [routerLink]="['/', collection.slug]" (click)="toggleMobileMenu()" class="mobile-nav-subitem">View {{ collection.name }}</a>
+                                        <a *ngFor="let tent of collection.tents" [routerLink]="['/', tentRouteSlug(tent)]" (click)="toggleMobileMenu()" class="mobile-nav-subitem">{{ tent }}</a>
+                                    </div>
+                                    }
                                 </div>
-                                <span class="text-sm font-medium uppercase">tents</span>
-                            </a>
+                            </div>
+                            }
+                        </li>
+
+                        <li class="mobile-nav-accordion-root">
+                            <div class="mobile-nav-parent-row">
+                                <a routerLink="/projects" routerLinkActive="!bg-[#003d1a] !text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="mobile-nav-link">
+                                    <span>projects</span>
+                                </a>
+                                <button type="button" class="mobile-nav-disclosure" (click)="toggleMobileSection('projects')" [attr.aria-expanded]="mobileExpandedSection === 'projects'" [attr.aria-label]="mobileExpandedSection === 'projects' ? 'Collapse project categories' : 'Expand project categories'">
+                                    <span class="material-icons" aria-hidden="true">{{ mobileExpandedSection === 'projects' ? 'expand_less' : 'chevron_right' }}</span>
+                                </button>
+                            </div>
+                            @if (mobileExpandedSection === 'projects') {
+                            <div id="mobile-project-categories" class="mobile-nav-submenu">
+                                <div *ngFor="let category of projectCategories" class="mobile-nav-category">
+                                    <button type="button" class="mobile-nav-category-toggle" [class.is-expanded]="mobileExpandedCategory === category.slug" (click)="toggleMobileCategory(category.slug)" [attr.aria-expanded]="mobileExpandedCategory === category.slug" [attr.aria-controls]="'mobile-project-' + category.slug">
+                                        <span>{{ category.name }}</span>
+                                        <span class="material-icons" aria-hidden="true">{{ mobileExpandedCategory === category.slug ? 'expand_less' : 'expand_more' }}</span>
+                                    </button>
+                                    @if (mobileExpandedCategory === category.slug) {
+                                    <div [id]="'mobile-project-' + category.slug" class="mobile-nav-nested">
+                                        <a [routerLink]="['/', category.slug]" (click)="toggleMobileMenu()" class="mobile-nav-subitem">View {{ category.name }}</a>
+                                        <a *ngFor="let project of category.projects" [routerLink]="['/', projectRouteSlug(project)]" (click)="toggleMobileMenu()" class="mobile-nav-subitem">{{ project }}</a>
+                                    </div>
+                                    }
+                                </div>
+                            </div>
+                            }
                         </li>
 
                         <li>
-                            <a routerLink="/projects" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
-                                <div class="flex items-center justify-center">
-                                    <span class="material-icons flex-shrink-0" aria-hidden="true">folder</span>
-                                </div>
-                                <span class="text-sm font-medium uppercase">projects</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a routerLink="/gallery" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
-                                <div class="flex items-center justify-center">
-                                    <span class="material-icons flex-shrink-0" aria-hidden="true">photo_library</span>
-                                </div>
+                            <a routerLink="/gallery" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
                                 <span class="text-sm font-medium uppercase">gallery</span>
                             </a>
                         </li>
 
                         <li>
-                            <a routerLink="/blogs" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
-                                <div class="flex items-center justify-center">
-                                    <span class="material-icons flex-shrink-0" aria-hidden="true">article</span>
-                                </div>
+                            <a routerLink="/blogs" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
                                 <span class="text-sm font-medium uppercase">blogs</span>
                             </a>
                         </li>
 
                         <li>
-                            <a routerLink="/contact-us" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
-                                <div class="flex items-center justify-center">
-                                    <span class="material-icons flex-shrink-0" aria-hidden="true">mail</span>
-                                </div>
+                            <a routerLink="/contact-us" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
                                 <span class="text-sm font-medium uppercase">contact</span>
                             </a>
                         </li>
                     </ul>
                 </nav>
                 <div class="space-y-3 p-6 pt-2">
-                    <a routerLink="/download-brochure" (click)="toggleMobileMenu()" class="flex w-full cursor-pointer items-center justify-center gap-2 rounded border border-[#003d1a] py-3 text-xs font-medium text-black uppercase transition hover:bg-[#003d1a] hover:text-white">
+                                        <a routerLink="/download-brochure" (click)="toggleMobileMenu()" class="flex w-full cursor-pointer items-center justify-center gap-2 rounded border border-[#003d1a] py-3 text-xs font-medium text-black uppercase transition hover:bg-[#003d1a] hover:text-white">
             download brochure
-            <span class="material-icons flex-shrink-0" aria-hidden="true">file_download</span>
+                                        <span class="material-icons flex-shrink-0" aria-hidden="true">file_download</span>
           </a>
                     <a routerLink="/quote" (click)="toggleMobileMenu()" class="flex w-full cursor-pointer items-center justify-center gap-2 rounded bg-[#003d1a] py-3 text-xs font-medium text-white uppercase transition hover:bg-[#005b28]">
             get a quote
-            <span class="material-icons flex-shrink-0" aria-hidden="true">arrow_forward</span>
+                                        <span class="material-icons flex-shrink-0" aria-hidden="true">arrow_forward</span>
           </a>
                 </div>
             </aside>

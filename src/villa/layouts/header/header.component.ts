@@ -6,6 +6,8 @@ import { heroArrowDownTray, heroArrowRight, heroBars3, heroChevronDown } from '@
 import { heroEnvelopeSolid, heroGlobeAltSolid, heroPencilSquareSolid, heroPhoneSolid, heroSparklesSolid, heroTruckSolid } from '@ng-icons/heroicons/solid';
 import { MenuService } from '../../services/menu.service';
 import { MenuItem } from '../../models/menu-item.interface';
+import { tentCategories, tentRouteSlug } from '../../features/tents/tent-collections.data';
+import { projectCategories as staticProjectCategories, projectRouteSlug } from '../../features/projects/project-collections.data';
 
 @Component({
   selector: 'villa-header',
@@ -24,6 +26,16 @@ export class HeaderComponent implements OnInit {
   readonly heroBars3Icon = heroBars3;
   menuItems: any;
   resortTents: any;
+  readonly resortCategories = tentCategories.map(category => ({
+    ...category,
+    total: category.tents.length
+  }));
+  activeTentCategory = this.resortCategories[0];
+  readonly projectCategories = staticProjectCategories.map(category => ({
+    ...category,
+    total: category.projects.length
+  }));
+  activeProjectCategory = this.projectCategories[0];
   projects: any;
   socialMedia: any;
   contactInfo: any;
@@ -31,6 +43,9 @@ export class HeaderComponent implements OnInit {
 
   isScrolled = false;
   isMobileMenuOpen = false;
+  isMegaMenuClosed = false;
+  mobileExpandedSection: 'tents' | 'projects' | null = null;
+  mobileExpandedCategory: string | null = null;
 
   readonly topBarHighlights = [
     { icon: 'local_shipping', label: 'Worldwide Delivery' },
@@ -86,6 +101,43 @@ export class HeaderComponent implements OnInit {
 
   toggleMobileMenu(): void {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    if (!this.isMobileMenuOpen) {
+      this.mobileExpandedSection = null;
+      this.mobileExpandedCategory = null;
+    }
+  }
+
+  toggleMobileSection(section: 'tents' | 'projects'): void {
+    this.mobileExpandedSection = this.mobileExpandedSection === section ? null : section;
+    this.mobileExpandedCategory = null;
+  }
+
+  toggleMobileCategory(slug: string): void {
+    this.mobileExpandedCategory = this.mobileExpandedCategory === slug ? null : slug;
+  }
+
+  selectTentCategory(category: typeof this.resortCategories[number]): void {
+    this.activeTentCategory = category;
+  }
+
+  selectProjectCategory(category: typeof this.projectCategories[number]): void {
+    this.activeProjectCategory = category;
+  }
+
+  closeMegaMenu(): void {
+    this.isMegaMenuClosed = true;
+  }
+
+  resetMegaMenuClick(): void {
+    this.isMegaMenuClosed = false;
+  }
+
+  tentRouteSlug(tent: string): string {
+    return tentRouteSlug(tent);
+  }
+
+  projectRouteSlug(project: string): string {
+    return projectRouteSlug(project);
   }
 
   private transformMenu(node: any, level = 0): any {

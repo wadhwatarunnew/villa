@@ -6,14 +6,14 @@ import { GalleryGridComponent } from '../../components/gallery-grid/gallery-grid
 import { GalleryLightboxComponent } from '../../components/gallery-lightbox/gallery-lightbox.component';
 import { GalleryHeroComponent } from '../../components/gallery-hero/gallery-hero.component';
 import { GALLERY_CATEGORIES, GALLERY_ITEMS, GalleryCategory, GalleryItem } from '../../components/gallery-data';
-import { CommonCtaComponent } from '../../../../shared/components/common-cta/common-cta.component';
+// import { CommonCtaComponent } from '../../../../shared/components/common-cta/common-cta.component';
 import { ApiService } from '../../../../services/api.service';
 import { SeoService } from '../../../../services/seo.service';
 
 @Component({
   selector: 'villa-gallery-page',
   standalone: true,
-  imports: [CommonModule, GalleryHeroComponent, GalleryFiltersComponent, GalleryGridComponent, GalleryLightboxComponent, CommonCtaComponent],
+  imports: [CommonModule, GalleryHeroComponent, GalleryFiltersComponent, GalleryGridComponent, GalleryLightboxComponent],
   templateUrl: './gallery-page.component.html'
 })
 export class GalleryPageComponent {

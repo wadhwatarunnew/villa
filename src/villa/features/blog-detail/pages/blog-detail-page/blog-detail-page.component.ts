@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BlogPost } from '../../../blogs/components/blog-post-list/blog-post-list.component';
 import { BlogDetailContentComponent } from '../../components/blog-detail-content/blog-detail-content.component';
 import { BrandsComponent } from '../../../../shared/components/brands/brands.component';
-import { CommonCtaComponent } from '../../../../shared/components/common-cta/common-cta.component';
+// import { CommonCtaComponent } from '../../../../shared/components/common-cta/common-cta.component';
 import { MenuService } from '../../../../services/menu.service';
 import { ApiService } from '../../../../services/api.service';
 
@@ -17,7 +17,7 @@ function slugify(title: string): string {
 @Component({
   selector: 'villa-blog-detail-page',
   standalone: true,
-  imports: [BlogDetailContentComponent, BrandsComponent, CommonCtaComponent, CommonModule],
+  imports: [BlogDetailContentComponent, BrandsComponent, CommonModule],
   templateUrl: './blog-detail-page.component.html',
   styleUrls: ['./blog-detail-page.component.scss']
 })

@@ -9,7 +9,7 @@ import {
   AboutValuesComponent,
   AboutMissionVisionComponent,
 } from '../../components';
-import { CommonCtaComponent } from '../../../../shared/components/common-cta/common-cta.component';
+// import { CommonCtaComponent } from '../../../../shared/components/common-cta/common-cta.component';
 
 @Component({
   selector: 'villa-about-page',
@@ -20,7 +20,6 @@ import { CommonCtaComponent } from '../../../../shared/components/common-cta/com
     AboutIntroComponent,
     AboutValuesComponent,
     AboutMissionVisionComponent,
-    CommonCtaComponent,
   ],
   templateUrl: './about-page.component.html',
   styleUrls: ['./about-page.component.scss']

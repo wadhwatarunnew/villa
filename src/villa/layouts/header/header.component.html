@@ -44,8 +44,8 @@
                         about us
                     </a>
 
-                    <div class="relative">
-                        <button type="button" data-resort-menu-trigger [attr.aria-expanded]="isResortMenuOpen" routerLink="/resort-tent" (click)="toggleResortMenu($event); isProjectsMenuOpen = false;" class="resort-nav-trigger text-sm font-semibold text-black hover:text-[#003d1a] transition-all duration-200 flex items-center gap-1 whitespace-nowrap uppercase bg-transparent border-0 p-0 cursor-pointer">
+                    <div class="relative" (mouseenter)="openResortMenu()" (mouseleave)="closeResortMenu()">
+                        <button type="button" data-resort-menu-trigger [attr.aria-expanded]="isResortMenuOpen" routerLink="/resort-tent"  class="resort-nav-trigger text-sm font-semibold text-black hover:text-[#003d1a] transition-all duration-200 flex items-center gap-1 whitespace-nowrap uppercase bg-transparent border-0 p-0 cursor-pointer">
                             resort tent
                             <span class="resort-nav-chevron material-icons text-[16px] transition-transform duration-200" aria-hidden="true">expand_more</span>
                         </button> @if (isResortMenuOpen && resortTentCategories.length) {
@@ -58,7 +58,7 @@
 
                                     <div class="resort-menu-list">
                                         @for (category of resortTentCategories; track category.slug || $index) {
-                                        <button type="button" [routerLink]="['/', category.slug]" (click)="selectResortCategory(category)" class="resort-menu-category-btn" [class.active]="selectedResortCategory?.slug === category.slug">
+                                        <button type="button" [routerLink]="['/', category.slug]" (mouseenter)="selectResortCategoryOnHover(category)" (click)="selectResortCategory(category)" class="resort-menu-category-btn" [class.active]="selectedResortCategory?.slug === category.slug">
                                             <span class="resort-menu-item-label">{{ category.name }}</span>
                                             <span class="resort-menu-item-icon material-icons" aria-hidden="true">chevron_right</span>
                                         </button> }
@@ -100,8 +100,8 @@
                         }
                     </div>
 
-                    <div class="relative">
-                        <button type="button" data-project-menu-trigger [attr.aria-expanded]="isProjectsMenuOpen" routerLink="/projects" (click)="toggleProjectsMenu($event); isResortMenuOpen = false;" class="resort-nav-trigger text-sm font-semibold text-black hover:text-[#003d1a] transition-all duration-200 flex items-center gap-1 whitespace-nowrap uppercase bg-transparent border-0 p-0 cursor-pointer">
+                    <div class="relative" (mouseenter)="openProjectsMenu()" (mouseleave)="closeProjectsMenu()">
+                        <button type="button" data-project-menu-trigger [attr.aria-expanded]="isProjectsMenuOpen" routerLink="/projects"  class="resort-nav-trigger text-sm font-semibold text-black hover:text-[#003d1a] transition-all duration-200 flex items-center gap-1 whitespace-nowrap uppercase bg-transparent border-0 p-0 cursor-pointer">
                             projects
                             <span class="resort-nav-chevron material-icons text-[16px] transition-transform duration-200" aria-hidden="true">expand_more</span>
                         </button> @if (isProjectsMenuOpen && projectCategoriesList.length) {
@@ -114,7 +114,7 @@
 
                                     <div class="resort-menu-list">
                                         @for (category of projectCategoriesList; track category.slug || $index) {
-                                        <button type="button" [routerLink]="['/', category.slug]" (click)="selectProjectCategory(category)" class="resort-menu-category-btn" [class.active]="selectedProjectCategory?.slug === category.slug">
+                                        <button type="button" [routerLink]="['/', category.slug]" (mouseenter)="selectProjectCategoryOnHover(category)" (click)="selectProjectCategory(category)" class="resort-menu-category-btn" [class.active]="selectedProjectCategory?.slug === category.slug">
                                             <span class="resort-menu-item-label">{{ category.name }}</span>
                                             <span class="resort-menu-item-icon material-icons" aria-hidden="true">chevron_right</span>
                                         </button> }
@@ -124,7 +124,7 @@
                                 <div class="resort-menu-panel resort-menu-panel--tent">
                                     <div class="resort-menu-section-label">Projects</div>
                                     <div class="resort-menu-tent-list">
-                                        @for (project of (selectedProjectCategory?.projects || []).slice(0, 5); track project.slug || project.name || $index) {
+                                        @for (project of (selectedProjectCategory?.projects || []).slice(0, 4); track project.slug || project.name || $index) {
                                         <button type="button" [routerLink]="['/', project.slug]" (click)="selectProject(project)" class="resort-menu-tent-btn" [class.active]="selectedProject?.slug === project.slug">
                                             <span>{{ project.name }}</span>
                                             <span class="resort-menu-item-icon material-icons" aria-hidden="true">chevron_right</span>

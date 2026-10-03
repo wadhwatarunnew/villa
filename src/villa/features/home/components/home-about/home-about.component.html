@@ -1,11 +1,11 @@
 <section class="px-4 md:px-6 lg:px-10 pt-25 pb-16 bg-white max-lg:py-14">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16 items-center">
-        <div class="relative overflow-hidden rounded-xl aspect-[16/9] lg:aspect-[1.72/1] max-lg:order-2">
+        <div class="relative overflow-hidden rounded-xl aspect-[16/9] lg:aspect-[1.72/1] max-lg:order-1">
             <img src="{{aboutSection?.image}}" alt="{{aboutSection?.title}}" class="w-full h-full object-cover" />
             <div class="absolute inset-0 bg-black/20"></div>
         </div>
 
-        <div class="max-w-3xl">
+        <div class="max-w-3xl max-lg:order-2">
             <h2 class="text-3xl md:text-4xl lg:text-[2.5rem] leading-tight text-[#0e2614] mb-5" [innerHTML]="aboutSection?.title">
             </h2>
             <div class="text-gray-600 leading-relaxed mb-5" [innerHTML]="aboutSection?.content">

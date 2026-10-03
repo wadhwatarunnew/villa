@@ -1,9 +1,7 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, OnDestroy, OnInit, Inject, inject, Injectable } from '@angular/core';
+import { Component, OnInit, Inject, inject } from '@angular/core';
 import { MenuService } from './services/menu.service';
 import { CanonicalService } from './services/canonical.service';
-import { isPlatformBrowser } from '@angular/common';
-import { PLATFORM_ID } from '@angular/core';
 
 @Component({
   selector: 'villa-root',
@@ -11,11 +9,7 @@ import { PLATFORM_ID } from '@angular/core';
   templateUrl: './villa.component.html',
   styleUrls: ['./villa.component.scss']
 })
-export class VillaComponent implements OnInit, OnDestroy {
-  showSplash = true;
-  loadingProgress = 0;
-  splashLogo = '';
-
+export class VillaComponent implements OnInit {
   menuItems: any;
   resortTents: any;
   projects: any;
@@ -23,23 +17,15 @@ export class VillaComponent implements OnInit, OnDestroy {
   contactInfo: any;
   headerInfo: any;
 
-  private progressTimer?: ReturnType<typeof setInterval>;
-  private completeTimer?: ReturnType<typeof setTimeout>;
-  private hideTimer?: ReturnType<typeof setTimeout>;
   private canonicalService = inject(CanonicalService);
 
   constructor(private menuService: MenuService, @Inject(DOCUMENT) private document: Document) {
     this.canonicalService.init();
   }
-  
-  private platformId = inject(PLATFORM_ID);
+
   ngOnInit(): void {
     // Load global data
     this.loadSiteData();
-
-    if (isPlatformBrowser(this.platformId)) {
-      this.startSplashSequence();
-    }
   }
 
 private loadSiteData(): void {
@@ -71,9 +57,6 @@ private loadSiteData(): void {
 
       this.menuService.setMenu(transformedMenu);
 
-      this.splashLogo =
-        '/villadashboard/uploads/logo/splash-logo.png';
-
       if (menuData?.HeaderInfo?.favicon) {
         this.setFavicon(
           menuData.HeaderInfo.favicon
@@ -89,46 +72,6 @@ private loadSiteData(): void {
     }
   });
 }
-
-  ngOnDestroy(): void {
-    this.clearTimers();
-  }
-
-  private startSplashSequence(): void {
-    const durationMs = 2200;
-    const startTime = Date.now();
-
-    this.progressTimer = setInterval(() => {
-      const elapsed = Date.now() - startTime;
-      const progress = Math.min(96, Math.floor((elapsed / durationMs) * 100));
-      this.loadingProgress = progress;
-    }, 30);
-
-    this.completeTimer = setTimeout(() => {
-      this.loadingProgress = 100;
-      this.hideTimer = setTimeout(() => {
-        this.showSplash = false;
-        this.clearTimers();
-      }, 220);
-    }, durationMs);
-  }
-
-  private clearTimers(): void {
-    if (this.progressTimer) {
-      clearInterval(this.progressTimer);
-      this.progressTimer = undefined;
-    }
-
-    if (this.completeTimer) {
-      clearTimeout(this.completeTimer);
-      this.completeTimer = undefined;
-    }
-
-    if (this.hideTimer) {
-      clearTimeout(this.hideTimer);
-      this.hideTimer = undefined;
-    }
-  }
 
   private setFavicon(url: string): void {
     let favicon = this.document.querySelector(

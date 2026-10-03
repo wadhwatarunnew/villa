@@ -17,7 +17,7 @@ export class GalleryLightboxComponent implements OnInit, OnDestroy {
   private slideshowTimer?: ReturnType<typeof setInterval>;
 
   ngOnInit(): void {
-    this.slideshowTimer = setInterval(() => this.next(), 5_000);
+    this.slideshowTimer = setInterval(() => this.next(), 3_000);
   }
 
   ngOnDestroy(): void {

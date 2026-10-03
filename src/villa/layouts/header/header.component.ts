@@ -2,7 +2,6 @@ import { Component, HostListener, OnInit, Inject, PLATFORM_ID } from '@angular/c
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MenuService } from '../../services/menu.service';
-import { projectCategories } from '../../features/projects/project-collections.data';
 
 @Component({
   selector: 'villa-header',
@@ -100,16 +99,91 @@ export class HeaderComponent implements OnInit {
     this.isProjectsMenuOpen = !this.isProjectsMenuOpen;
   }
 
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(event: MouseEvent): void {
-    const target = event.target as HTMLElement;
-    const resortTrigger = target.closest('[data-resort-menu-trigger]');
-    const projectTrigger = target.closest('[data-project-menu-trigger]');
-    const resortMenu = target.closest('.resort-menu-dropdown');
+  // @HostListener('document:click', ['$event'])
+  // onDocumentClick(event: MouseEvent): void {
+  //   const target = event.target as HTMLElement;
+  //   const resortTrigger = target.closest('[data-resort-menu-trigger]');
+  //   const projectTrigger = target.closest('[data-project-menu-trigger]');
+  //   const resortMenu = target.closest('.resort-menu-dropdown');
 
-    if (!resortTrigger && !projectTrigger && !resortMenu) {
+  //   if (!resortTrigger && !projectTrigger && !resortMenu) {
+  //     this.isResortMenuOpen = false;
+  //     this.isProjectsMenuOpen = false;
+  //   }
+  // }
+
+  private resortMenuCloseTimer: ReturnType<typeof setTimeout> | null = null;
+  private projectsMenuCloseTimer: ReturnType<typeof setTimeout> | null = null;
+
+  openResortMenu(): void {
+    this.clearResortCloseTimer();
+    this.clearProjectsCloseTimer();
+
+    this.isProjectsMenuOpen = false;
+    this.isResortMenuOpen = true;
+
+    if (!this.selectedResortCategory) {
+      this.selectedResortCategory =
+        this.resortTentCategories[0] ?? null;
+    }
+
+    this.selectedResortTent =
+      this.selectedResortCategory?.tents?.[0] ?? null;
+  }
+
+  closeResortMenu(): void {
+    this.clearResortCloseTimer();
+
+    this.resortMenuCloseTimer = setTimeout(() => {
       this.isResortMenuOpen = false;
+    }, 200);
+  }
+
+  keepResortMenuOpen(): void {
+    this.clearResortCloseTimer();
+    this.isResortMenuOpen = true;
+  }
+
+  openProjectsMenu(): void {
+    this.clearProjectsCloseTimer();
+    this.clearResortCloseTimer();
+
+    this.isResortMenuOpen = false;
+    this.isProjectsMenuOpen = true;
+
+    if (!this.selectedProjectCategory) {
+      this.selectedProjectCategory =
+        this.projectCategoriesList[0] ?? null;
+    }
+
+    this.selectedProject =
+      this.selectedProjectCategory?.projects?.[0] ?? null;
+  }
+
+  closeProjectsMenu(): void {
+    this.clearProjectsCloseTimer();
+
+    this.projectsMenuCloseTimer = setTimeout(() => {
       this.isProjectsMenuOpen = false;
+    }, 200);
+  }
+
+  keepProjectsMenuOpen(): void {
+    this.clearProjectsCloseTimer();
+    this.isProjectsMenuOpen = true;
+  }
+
+  private clearResortCloseTimer(): void {
+    if (this.resortMenuCloseTimer) {
+      clearTimeout(this.resortMenuCloseTimer);
+      this.resortMenuCloseTimer = null;
+    }
+  }
+
+  private clearProjectsCloseTimer(): void {
+    if (this.projectsMenuCloseTimer) {
+      clearTimeout(this.projectsMenuCloseTimer);
+      this.projectsMenuCloseTimer = null;
     }
   }
 
@@ -141,6 +215,11 @@ export class HeaderComponent implements OnInit {
     this.isResortMenuOpen = false;
   }
 
+  selectResortCategoryOnHover(category: any): void {
+    this.selectedResortCategory = category ?? null;
+    this.selectedResortTent = this.selectedResortCategory?.tents?.[0] ?? null;
+  }
+
   selectResortTent(tent: any): void {
     this.selectedResortTent = tent ?? null;
     this.isResortMenuOpen = false;
@@ -160,6 +239,11 @@ export class HeaderComponent implements OnInit {
     this.selectedProjectCategory = category ?? null;
     this.selectedProject = this.selectedProjectCategory?.projects?.[0] ?? null;
     this.isProjectsMenuOpen = false;
+  }
+
+  selectProjectCategoryOnHover(category: any): void {
+    this.selectedProjectCategory = category ?? null;
+    this.selectedProject = this.selectedProjectCategory?.projects?.[0] ?? null;
   }
 
   selectProject(project: any): void {
@@ -194,60 +278,7 @@ export class HeaderComponent implements OnInit {
       });
     }
 
-    return [
-      {
-        slug: 'ultra-luxury-resort-tent',
-        name: 'Ultra Luxury Resort Tent',
-        image: '/assets/images/villatent2.webp',
-        description: 'Inspired by royal heritage, this collection offers a perfect blend of luxury, comfort and nature.',
-        tents: [
-          { slug: 'the-taj', name: 'The Taj' },
-          { slug: 'ganesha-tent', name: 'Ganesha Tent' },
-          { slug: 'rang-mahal-tent', name: 'Rang Mahal Tent' },
-          { slug: 'meditation-resort-tent', name: 'Meditation Resort Tent' },
-          { slug: 'surya-villa-tent', name: 'Surya Villa Tent' },
-          { slug: 'the-raj-villa', name: 'The Raj Villa' },
-        ],
-      },
-      {
-        slug: 'luxury-resort-tent',
-        name: 'Luxury Resort Tent',
-        image: '/assets/images/villatent1.webp',
-        description: 'Designed for elevated stays with spacious interiors, natural textures, and handcrafted comfort.',
-        tents: [
-          { slug: 'aarti-resort', name: 'Aarti Resort' },
-          { slug: 'mud-land-resort-tent', name: 'Mud Land Resort Tent' },
-          { slug: 'safari-villa', name: 'Safari Villa' },
-          { slug: 'luxury-restaurant-tent', name: 'Luxury Restaurant Tent' },
-          { slug: 'night-safari-tent', name: 'Night Safari Tent' },
-          { slug: 'noor-mahal', name: 'Noor Mahal' },
-        ],
-      },
-      {
-        slug: 'indian-resort-tent',
-        name: 'Indian Resort Tent',
-        image: '/assets/images/villatent3.webp',
-        description: 'Rooted in heritage storytelling, these tents blend traditional warmth with contemporary ease.',
-        tents: [
-          { slug: 'swiss-cottage-tents', name: 'Swiss Cottage Tents' },
-          { slug: 'royal-camping-tent', name: 'Royal Camping Tent' },
-          { slug: 'safari-resort', name: 'Safari Resort' },
-          { slug: 'african-safari-resort-tent', name: 'African Safari Resort Tent' },
-        ],
-      },
-      {
-        slug: 'camping-tents',
-        name: 'Camping Tents',
-        image: '/assets/images/villatent4.webp',
-        description: 'Built for scenic stays, quick-set tents that bring comfort, durability, and simple elegance outdoors.',
-        tents: [
-          { slug: 'luxury-gazebo-tent', name: 'Luxury Gazebo Tent' },
-          { slug: 'garden-tent', name: 'Garden Tent' },
-          { slug: 'traveling-tent', name: 'Traveling Tent' },
-          { slug: 'camping-lounge-tent', name: 'Camping Lounge Tent' },
-        ],
-      },
-    ];
+    return [];
   }
 
   private normalizeProjectCategories(items: any[] | null): any[] {
@@ -272,14 +303,6 @@ export class HeaderComponent implements OnInit {
       }));
     }
 
-    return projectCategories.map((category: any) => ({
-      slug: category.slug,
-      name: category.name,
-      image: category.image,
-      projects: category.projects.map((project: string) => ({
-        slug: category.slug,
-        name: project,
-      })),
-    }));
+    return [];
   }
 }

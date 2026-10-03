@@ -13,12 +13,10 @@
 }
 
 .resort-menu-dropdown {
-    position: fixed !important;
-    left: 50% !important;
-    top: 124px !important;
+    position: absolute;
+    top: 100%;
+    left: 50%;
     transform: translateX(-50%);
-    z-index: 60;
-    max-width: calc(100vw - 3rem);
 }
 
 .resort-menu-grid {

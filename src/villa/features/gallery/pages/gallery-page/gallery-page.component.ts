@@ -22,6 +22,7 @@ export class GalleryPageComponent {
   items: GalleryItem[] = [];
   APIResponse:any = {};
   TopSection:any = {};
+  GalleryInfo:any = {};
   lightboxOpen = false;
   activeIndex = 0;
   visibleCount = 15;
@@ -34,6 +35,7 @@ export class GalleryPageComponent {
       this.APIResponse = res;
       this.items  = this.APIResponse.Data;
       this.TopSection  = this.APIResponse.TopSection;
+      this.GalleryInfo  = this.APIResponse.GalleryInfo;
       this.tabs   = this.APIResponse.Categories;
       this.seoService.setSEO(this.APIResponse.SEOInfo);
     });

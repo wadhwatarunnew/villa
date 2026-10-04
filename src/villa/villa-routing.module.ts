@@ -29,6 +29,10 @@ const routes: Routes = [
         loadComponent: () => import('./features/gallery/pages/gallery-page/gallery-page.component').then(m => m.GalleryPageComponent)
       },
       {
+        path: 'youtube',
+        loadComponent: () => import('./features/youtube/pages/youtube-page/youtube-page.component').then(m => m.YoutubePageComponent)
+      },
+      {
         path: 'contact-us',
         loadChildren: () => import('./features/contact/contact.module').then(m => m.ContactModule)
       },

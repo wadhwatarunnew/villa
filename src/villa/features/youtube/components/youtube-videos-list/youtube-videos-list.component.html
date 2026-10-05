@@ -4,168 +4,100 @@
         <div class="mt-4 text-gray-500 leading-7" [innerHTML]="info?.content"></div>
     </div>
 
-  <div class="mx-auto max-w-[1520px]">
+    <div class="mx-auto max-w-[1520px]">
 
-    <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-      @for (video of visibleVideos; track video.url) {
-        <article
-          class="group cursor-pointer text-[#0e2614]"
-          (click)="openVideo(video)"
-        >
-          <div
-            class="relative aspect-[1.6/1] overflow-hidden rounded-[1.25rem] bg-[#d8d0c3] shadow-[0_14px_28px_rgba(14,38,20,0.08)]"
-          >
-            <img
-              [src]="video.image"
-              [alt]="video.title"
-              class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-            />
+        <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+            @for (video of visibleVideos; track video.url) {
+            <article class="group cursor-pointer text-[#0e2614]" (click)="openVideo(video)">
+                <div class="relative aspect-[1.6/1] overflow-hidden rounded-[1.25rem] bg-[#d8d0c3] shadow-[0_5px_14px_rgba(14,38,20,0.05)]">
+                    <img [src]="video.image" [alt]="video.title" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
 
-            <button
-              type="button"
-              class="absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-red-600/80 text-white shadow-[0_10px_22px_rgba(0,0,0,0.18)]"
-              aria-label="Play video"
-            >
+                    <button type="button" class="absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-red-600/80 text-white shadow-[0_10px_22px_rgba(0,0,0,0.18)]" aria-label="Play video">
               <span class="material-icons text-[2.1rem]">
                 play_arrow
               </span>
             </button>
-          </div>
+                </div>
 
-          <div class="pt-4">
-            <h3
-              class="m-0 text-[clamp(1.55rem,2vw,2.1rem)] font-bold leading-[1.2] tracking-[-0.03em] text-[#0e2614]"
-            >
-              {{ video.title }}
-            </h3>
-          </div>
-        </article>
-      }
-    </div>
+                <div class="pt-4">
+                    <h3 class="m-0 text-base font-bold leading-snug text-[#1f2937]">
+                        {{ video.title }}
+                    </h3>
+                </div>
+            </article>
+            }
+        </div>
 
-    @if (hasMoreVideos) {
-      <div class="mt-12 flex justify-center">
-        <button
-          type="button"
-          (click)="loadMore()"
-          class="flex cursor-pointer items-center rounded border border-[#003d1a] bg-[#003d1a] px-8 py-3 text-sm font-semibold uppercase text-white transition-colors hover:bg-transparent hover:text-[#003d1a]"
-        >
+        @if (hasMoreVideos) {
+        <div class="mt-12 flex justify-center">
+            <button type="button" (click)="loadMore()" class="flex cursor-pointer items-center rounded border border-[#003d1a] bg-[#003d1a] px-8 py-3 text-sm font-semibold uppercase text-white transition-colors hover:bg-transparent hover:text-[#003d1a]">
           Load more videos
 
           <span class="material-icons ml-2 flex-shrink-0 text-[18px]">
             autorenew
           </span>
         </button>
-      </div>
-    }
+        </div>
+        }
 
-  </div>
+    </div>
 </section>
 
 
 @if (isLightboxOpen && selectedVideo) {
-  <div
-    class="fixed inset-0 z-[120] bg-black text-white"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Video gallery"
-    (click)="closeVideo()"
-  >
-    <div
-      class="flex h-full flex-col"
-      (click)="$event.stopPropagation()"
-    >
+<div class="fixed inset-0 z-[120] bg-black text-white" role="dialog" aria-modal="true" aria-label="Video gallery" (click)="closeVideo()">
+    <div class="flex h-full flex-col" (click)="$event.stopPropagation()">
 
-      <header
-        class="flex h-12 shrink-0 items-center justify-between px-4 md:px-6"
-      >
-        <span class="text-sm font-medium text-white/80">
+        <header class="flex h-12 shrink-0 items-center justify-between px-4 md:px-6">
+            <span class="text-sm font-medium text-white/80">
           {{ selectedVideoIndex + 1 }} / {{ galleryVideos.length }}
         </span>
 
-        <button
-          type="button"
-          class="grid h-10 w-10 place-items-center text-white/70 transition-colors hover:text-white"
-          (click)="closeVideo()"
-          aria-label="Close video gallery"
-        >
+            <button type="button" class="grid h-10 w-10 place-items-center text-white/70 transition-colors hover:text-white" (click)="closeVideo()" aria-label="Close video gallery">
           <span class="material-icons text-[1.75rem]">
             close
           </span>
         </button>
-      </header>
+        </header>
 
 
-      <main
-        class="grid min-h-0 flex-1 grid-cols-[2.5rem_minmax(0,1fr)_2.5rem] items-center gap-2 px-2 md:grid-cols-[3rem_minmax(0,1fr)_3rem] md:gap-4 md:px-4"
-      >
+        <main class="grid min-h-0 flex-1 grid-cols-[2.5rem_minmax(0,1fr)_2.5rem] items-center gap-2 px-2 md:grid-cols-[3rem_minmax(0,1fr)_3rem] md:gap-4 md:px-4">
 
-        <button
-          type="button"
-          class="grid h-10 w-10 place-items-center text-white/65 transition-colors hover:text-white md:h-12 md:w-12"
-          (click)="previousGalleryVideo()"
-          aria-label="Previous video"
-        >
+            <button type="button" class="grid h-10 w-10 place-items-center text-white/65 transition-colors hover:text-white md:h-12 md:w-12" (click)="previousGalleryVideo()" aria-label="Previous video">
           <span class="material-icons text-[1.8rem]">
             arrow_back
           </span>
         </button>
 
 
-        <div class="mx-auto aspect-video w-full max-w-[810px] bg-black">
-          <iframe
-            [src]="safeVideoUrl"
-            [title]="selectedVideo.title"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-            class="h-full w-full"
-          ></iframe>
-        </div>
+            <div class="mx-auto aspect-video w-full max-w-[810px] bg-black">
+                <iframe [src]="safeVideoUrl" [title]="selectedVideo.title" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="h-full w-full"></iframe>
+            </div>
 
 
-        <button
-          type="button"
-          class="grid h-10 w-10 place-items-center text-white/65 transition-colors hover:text-white md:h-12 md:w-12"
-          (click)="nextGalleryVideo()"
-          aria-label="Next video"
-        >
+            <button type="button" class="grid h-10 w-10 place-items-center text-white/65 transition-colors hover:text-white md:h-12 md:w-12" (click)="nextGalleryVideo()" aria-label="Next video">
           <span class="material-icons text-[1.8rem]">
             arrow_forward
           </span>
         </button>
 
-      </main>
+        </main>
 
 
-      <nav
-        class="flex h-[6.5rem] shrink-0 items-center gap-1 overflow-x-auto border-t border-white/10 bg-[#100d0d] px-3 md:h-[7rem] md:gap-1.5 md:px-4"
-        aria-label="Choose a video"
-      >
+        <nav class="flex h-[6.5rem] shrink-0 items-center gap-1 overflow-x-auto border-t border-white/10 bg-[#100d0d] px-3 md:h-[7rem] md:gap-1.5 md:px-4" aria-label="Choose a video">
 
-        @for (
-          video of galleryVideos;
-          track video.url;
-          let index = $index
-        ) {
-          <button
-            type="button"
-            class="h-[4.5rem] w-[6rem] shrink-0 overflow-hidden rounded-sm border-2 border-white/70 bg-neutral-900 transition-colors hover:border-white md:h-[4.75rem] md:w-[6rem]"
-            [class.border-red-600]="index === selectedVideoIndex"
-            (click)="selectGalleryVideo(index)"
-            [attr.aria-label]="'Show video ' + (index + 1) + ': ' + video.title"
-            [attr.aria-current]="index === selectedVideoIndex ? 'true' : null"
-          >
+            @for ( video of galleryVideos; track video.url; let index = $index ) {
+            <button type="button" class="h-[4.5rem] w-[6rem] shrink-0 overflow-hidden rounded-sm border-2 border-white/70 bg-neutral-900 transition-colors hover:border-white md:h-[4.75rem] md:w-[6rem]" [class.border-red-600]="index === selectedVideoIndex" (click)="selectGalleryVideo(index)"
+                [attr.aria-label]="'Show video ' + (index + 1) + ': ' + video.title" [attr.aria-current]="index === selectedVideoIndex ? 'true' : null">
             <img
               [src]="video.image"
               [alt]="video.title"
               class="h-full w-full object-cover"
             />
-          </button>
-        }
+          </button> }
 
-      </nav>
+        </nav>
 
     </div>
-  </div>
+</div>
 }

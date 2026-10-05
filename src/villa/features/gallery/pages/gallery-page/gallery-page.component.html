@@ -1,14 +1,5 @@
 <villa-gallery-hero [topSection]="TopSection"></villa-gallery-hero>
-<section class="px-4 py-8 md:px-6 lg:px-10 lg:py-10" aria-labelledby="projects-title">
-    <div class="mx-auto mb-4 max-w-6xl text-center">
-        <h2 id="projects-title" class="text-xl font-bold uppercase tracking-widest text-[#007735]" [innerHTML]="GalleryInfo?.title"></h2>
-        <div class="mt-4 text-gray-500 leading-7" [innerHTML]="GalleryInfo?.content "></div>
-    </div>
-</section>
-
-<villa-gallery-filters [tabs]="tabs" [activeTab]="activeTab" (activeTabChange)="setActiveTab($event)">
-</villa-gallery-filters>
-
+<villa-gallery-filters [tabs]="tabs" [activeTab]="activeTab" (activeTabChange)="setActiveTab($event)" [galleryInfo]="GalleryInfo"></villa-gallery-filters>
 <villa-gallery-grid [items]="visibleItems" (imageClick)="openLightbox($event)"></villa-gallery-grid>
 
 <div class="flex justify-center px-4 pb-16 sm:px-4 md:px-6 lg:px-10">

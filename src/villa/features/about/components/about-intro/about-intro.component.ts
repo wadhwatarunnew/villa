@@ -12,4 +12,5 @@ export class AboutIntroComponent {
   @Input() founders: any[] = [];
   @Input() about: any = {};
   @Input() stats: any = {};
+  @Input() founderInfo: any = {};
 }

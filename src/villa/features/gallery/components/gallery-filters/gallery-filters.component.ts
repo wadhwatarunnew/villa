@@ -12,6 +12,7 @@ export class GalleryFiltersComponent {
   @Input() tabs: GalleryCategoryTab[] = [];
   @Input() activeTab = 'all';
   @Output() activeTabChange = new EventEmitter<string>();
+  @Input() galleryInfo: any = {};
 
   selectTab(tab: string): void {
     this.activeTabChange.emit(tab);

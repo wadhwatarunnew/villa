@@ -1,7 +1,6 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { BlogPost } from '../../../youtube/components/youtube-videos-list/youtube-videos-list.component';
 
 @Component({
   selector: 'villa-youtube-highlight',

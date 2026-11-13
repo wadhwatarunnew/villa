@@ -13,6 +13,7 @@ import { environment } from '../../../../../src/environments/environment';
 
 export class SharedContactFormComponent {
   submitted = false;
+  isSubmitting = false;
   contactForm: FormGroup;
   ErrorMessage = '';
   messageType = '';
@@ -30,12 +31,20 @@ export class SharedContactFormComponent {
   }
 
   submitForm(): void {
+    // Prevent multiple submissions
+    // Stop if request is already running
+    if (this.isSubmitting) {
+      return;
+    }
+    
     if (this.contactForm.invalid)
     {
       this.contactForm.markAllAsTouched();
       return;
     }
 
+    // Lock submit button
+    this.isSubmitting = true;
     const params = new URLSearchParams();
     params.set('Action', 'SaveContactForm')
     params.set('type', this.type);
@@ -59,6 +68,9 @@ export class SharedContactFormComponent {
         {
           this.contactForm.reset();
         }
+
+        // API finished - enable button
+        this.isSubmitting = false;
         
         setTimeout(() => {
           this.ErrorMessage = '';
@@ -69,6 +81,9 @@ export class SharedContactFormComponent {
         this.ErrorMessage = 'Unable to submit the form. Please try again.';
         this.messageType = 'error';
         this.submitted = false;
+
+        // API failed - enable button
+        this.isSubmitting = false;
 
         setTimeout(() => {
           this.ErrorMessage = '';

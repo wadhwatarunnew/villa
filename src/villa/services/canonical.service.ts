@@ -10,7 +10,7 @@ export class CanonicalService {
   private readonly document = inject(DOCUMENT);
   private readonly router = inject(Router);
 
-  private readonly baseUrl = 'http://app.thevillatent.com';
+  private readonly baseUrl = 'https://app.thevillatent.com';
 
   init(): void {
     this.router.events

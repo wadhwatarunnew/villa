@@ -68,9 +68,19 @@
         <p *ngIf="contactForm.get('message')?.hasError('required') && contactForm.get('message')?.touched" class="mt-1 text-xs text-red-600">Message is required.</p>
     </label>
 
-    <button type="submit" class="flex w-full cursor-pointer items-center justify-center gap-3 rounded-md bg-[#003d1a] py-3 text-[13px] font-medium uppercase text-white shadow-sm transition hover:bg-[#005b28]">
-        SEND MESSAGE
-        <span class="material-icons text-base">arrow_forward</span>
+    <button
+        type="submit"
+        [disabled]="isSubmitting"
+        class="flex w-full items-center justify-center gap-3 rounded-md bg-[#003d1a] py-3 text-[13px] font-medium uppercase text-white shadow-sm transition hover:bg-[#005b28] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50">
+
+        <span>
+            {{ isSubmitting ? 'SENDING...' : 'SEND MESSAGE' }}
+        </span>
+
+        <span class="material-icons text-base">
+            {{ isSubmitting ? 'hourglass_empty' : 'arrow_forward' }}
+        </span>
+
     </button>
 
     <div *ngIf="ErrorMessage" class="rounded-md px-4 py-3 text-sm" [ngClass]="{ 'bg-green-50 text-green-700 border border-green-200': messageType === 'success', 'bg-red-50 text-red-700 border border-red-200': messageType === 'error'}" [innerHTML]="ErrorMessage">

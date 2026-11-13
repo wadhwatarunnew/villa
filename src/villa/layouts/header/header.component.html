@@ -305,6 +305,15 @@
                     </li>
 
                     <li>
+                        <a routerLink="/youtube" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
+                            <div class="flex items-center justify-center">
+                                <span class="material-icons flex-shrink-0" aria-hidden="true">smart_display</span>
+                            </div>
+                            <span class="text-sm font-medium uppercase">Youtube Videos</span>
+                        </a>
+                    </li>
+
+                    <li>
                         <a routerLink="/blogs" routerLinkActive="!bg-[#003d1a] !text-white hover:!bg-[#005b28] hover:!text-white" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()" class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-800 transition hover:bg-green-50 hover:text-[#003d1a]">
                             <div class="flex items-center justify-center">
                                 <span class="material-icons flex-shrink-0" aria-hidden="true">article</span>

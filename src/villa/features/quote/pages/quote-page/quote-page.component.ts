@@ -24,6 +24,7 @@ export class QuotePageComponent {
   ErrorMessage = '';
   messageType = '';
   submitted = false;
+  submitting = false;
 
   readonly projectFields = [
     { label: 'Full Name', name: 'name', type: 'text', placeholder: 'Enter your full name', iconName: 'person' },
@@ -73,10 +74,17 @@ export class QuotePageComponent {
 
   submitForm(): void {
     this.submitted = true;
+    // Prevent multiple clicks while API request is in progress
+    if (this.submitting) {
+      return;
+    }
+    
     if (this.quoteForm.invalid) {
       this.quoteForm.markAllAsTouched();
       return;
     }
+
+    this.submitting = true;
     const params = new URLSearchParams();
     params.set('Action', 'SaveQuoteForm');
     params.set('name', this.quoteForm.get('name')?.value || '');
@@ -114,6 +122,9 @@ export class QuotePageComponent {
           this.submitted = false;
         }
 
+        // Enable button after API response
+        this.submitting = false;
+
         setTimeout(() => {
           this.ErrorMessage = '';
           this.messageType = '';
@@ -128,6 +139,9 @@ export class QuotePageComponent {
 
         this.ErrorMessage = 'Unable to submit the form. Please try again.';
         this.messageType = 'error';
+
+        // Enable button if API fails
+        this.submitting = false;
 
         setTimeout(() => {
           this.ErrorMessage = '';

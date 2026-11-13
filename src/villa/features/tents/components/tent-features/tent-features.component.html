@@ -29,7 +29,7 @@
             </p>
 
             <div class="relative pl-10 before:absolute before:left-[18px] before:top-2 before:bottom-2 before:w-px before:border-l-2 before:border-dotted before:border-[#0a3d2d]/70">
-                <div *ngFor="let item of tentDetails?.Materials; let last = last" class="relative pb-7 pl-4 last:pb-0">
+                <div *ngFor="let item of tentDetails?.Materials; let last = last" class="relative pb-7 pl-4 last:pb-0 last:after:absolute last:after:left-[-22px] last:after:top-10 last:after:bottom-0 last:after:w-1 last:after:bg-white last:after:content-['']">
                     <div class="absolute -left-10 top-1 flex h-9 w-9 items-center justify-center rounded-full border border-[#0a3d2d]/80 bg-white text-[#0a3d2d]">
                         <span class="material-icons text-[1.1rem]">{{ item.icon }}</span>
                     </div>

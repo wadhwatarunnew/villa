@@ -23,7 +23,7 @@
             <aside class="rounded bg-white md:p-8 p-5 shadow-[0_6px_24px_rgba(0,0,0,0.05)]">
                 <div class="mb-7 flex justify-center">
                     <div class="flex size-18 items-center justify-center rounded-full bg-[#eff7f1] text-[#006b33] shadow-inner">
-                        <img src="{{pageInfo?.logo_url}}" alt="{{pageInfo?.main_heading}}" class="size-15 rounded-full object-cover" />
+                        <img src="{{pageInfo?.logo_url}}" alt="{{pageInfo?.main_heading}}" class="size-15 rounded-full object-contain" />
                     </div>
                 </div>
 
@@ -31,7 +31,7 @@
                     {{pageInfo?.main_heading}}
                 </h2>
                 <div class="mx-auto my-5 h-0.5 w-12 bg-[#006b33]"></div>
-                <p class="mb-7 text-center text-sm leading-relaxed text-[#33483b]" [innerHTML]="pageInfo?.description">
+                <p class="mb-10 text-center text-sm leading-relaxed text-[#33483b]" [innerHTML]="pageInfo?.description">
                 </p>
 
                 <div class="space-y-5">
@@ -122,10 +122,7 @@
                         You must agree to the Privacy Policy and Terms & Conditions.
                     </p>
 
-                    <button
-                      type="submit"
-                      [disabled]="submitting"
-                      class="flex w-full items-center justify-center gap-3 rounded bg-[#003d1a] py-3 text-[13px] font-medium uppercase text-white shadow-sm transition hover:bg-[#005b28] disabled:cursor-not-allowed disabled:opacity-60">
+                    <button type="submit" [disabled]="submitting" class="flex w-full items-center justify-center gap-3 rounded bg-[#003d1a] py-3 text-[13px] font-medium uppercase text-white shadow-sm transition hover:bg-[#005b28] disabled:cursor-not-allowed disabled:opacity-60">
 
                       <span *ngIf="!submitting">
                           Submit Quote Request

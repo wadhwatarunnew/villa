@@ -3,14 +3,14 @@
         <div class="text-center text-sm text-[#003d1a] font-semibold uppercase tracking-widest mb-2" [innerHTML]="founderInfo?.subtitle"></div>
         <h2 class="text-center text-4xl md:text-5xl text-[#112a1e] leading-tight mb-8" [innerHTML]="founderInfo?.title"></h2>
         @if (founderInfo?.description != '') {
-            <div class="w-16 h-[2px] bg-[#003d1a] mx-auto mb-5"></div>
-            <div class="mt-4 text-gray-500 leading-7" [innerHTML]="founderInfo?.description"></div>
+        <div class="w-16 h-[2px] bg-[#003d1a] mx-auto mb-5"></div>
+        <div class="mt-4 text-gray-500 leading-7" [innerHTML]="founderInfo?.description"></div>
         }
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
         <div class="flex max-sm:flex-col gap-5 items-start bg-white rounded-xl shadow-lg p-5 h-full" *ngFor="let founder of founders">
-            <img src="{{founder?.image}}" alt="{{founder?.name}}" title="{{founder?.name}}" class="w-1/3 max-sm:w-full h-60 max-lg:h-80 rounded-lg object-cover shadow-md" />
+            <img src="{{founder?.image}}" alt="{{founder?.name}}" title="{{founder?.name}}" class="w-1/3 max-sm:w-full h-60 max-lg:h-80 max-sm:!h-auto rounded-lg object-cover shadow-md" />
             <div class="flex-1">
                 <h4 class="text-3xl text-[#112a1e]">{{founder?.name}}</h4>
                 <div class="text-lg pt-1 text-[#003d1a] font-medium mb-3" [innerHTML]="founder?.designation"></div>

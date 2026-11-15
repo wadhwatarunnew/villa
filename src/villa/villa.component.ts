@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, OnInit, Inject, inject } from '@angular/core';
+import { Component, OnInit, Inject, inject, HostListener } from '@angular/core';
 import { MenuService } from './services/menu.service';
 import { CanonicalService } from './services/canonical.service';
 
@@ -18,6 +18,11 @@ export class VillaComponent implements OnInit {
   headerInfo: any;
 
   private canonicalService = inject(CanonicalService);
+
+  // @HostListener('document:contextmenu', ['$event'])
+  // onRightClick(event: MouseEvent): void {
+  //   event.preventDefault();
+  // }
 
   constructor(private menuService: MenuService, @Inject(DOCUMENT) private document: Document) {
     this.canonicalService.init();
